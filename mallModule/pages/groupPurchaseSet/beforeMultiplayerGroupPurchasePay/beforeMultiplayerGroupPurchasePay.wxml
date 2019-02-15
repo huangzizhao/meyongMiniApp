@@ -1,0 +1,45 @@
+<!--pages/beforeMultiplayerGroupPurchasePay/beforeMultiplayerGroupPurchasePay.wxml-->
+<view class='app'>
+    <view class='purchaseActivity' bindtap='toActivityDetail'>
+        <view class='activityCover'>
+            <image src="{{activityCover}}" />
+        </view>
+        <view class='activityInfo'>
+            <view class='infoTop'>{{activityData.qPrizeEntity.title}}  预约金</view>
+            <view class='infoMid'>{{activityData.qPrizeEntity.content}}</view>
+            <view class='infoBottom'>
+                <text>￥1000</text>
+                <text>*1</text>
+            </view>
+        </view>
+    </view>
+    <view class='list'>
+	 <view class='listSlip'>
+            <view class='listSlipTitle'>购买数量</view>
+            <view class='listSlipContent'>
+                <view class='calculate'>
+                    <button bindtap='calculateNum' class='minus' disabled='{{disabled}}' data-num='-1'>-</button>
+                    <view class='numText'>{{purChaseNum}}</view>
+                    <button bindtap='calculateNum' disabled class='plus' data-num='1'>+</button>
+                </view>
+            </view>
+        </view>
+	 <view class='listSlip'>
+            <view class='listSlipTitle'>支付金额</view>
+            <view class='listSlipContent'>
+                <view class='contentText'>￥{{totalPrice * purChaseNum}}</view>
+            </view>
+        </view>
+        <view class='listSlip'>
+            <view class='listSlipTitle'>支付方式</view>
+            <view class='listSlipContent'>
+                <view class='contentText'>
+					<icon class='iconfont icon-wechatPay'></icon>
+                    <text>微信支付</text>
+                </view>
+            </view>
+        </view> 
+    </view>
+	<button class='payNow' wx:if='{{groupId != null}}' bindtap='combinedIntoGroup'>立即支付</button>
+		<button class='payNow' wx:else bindtap='createGroup'>立即支付</button>
+</view>

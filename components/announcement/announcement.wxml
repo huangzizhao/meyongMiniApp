@@ -1,0 +1,16 @@
+<!--components/announcement/announcement.wxml-->
+<view class='noticeTop' wx:if='{{showNotice}}'>
+    <view class='hornIcon'>
+        <icon class='iconfont icon-horn'></icon>
+    </view>
+    <swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="4000" bindtap='toWinnerAnnouncement'>
+        <block wx:for="{{announcement}}" wx:key='item' wx:for-item='item'>
+            <swiper-item catchtouchmove='catchTouchMove'>
+                <view class="swiper_item">{{item}}</view>
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class='closeNoticeIcon' bindtap='closeNotice'>
+        <icon class='iconfont icon-close'></icon>
+    </view>
+</view>

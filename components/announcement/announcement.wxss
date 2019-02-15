@@ -1,0 +1,62 @@
+/* components/announcement/announcement.wxss */
+@import "../../ui/font.wxss";
+.noticeTop{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 2;
+	width: 100vw;
+	height: 55rpx;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: space-between;
+	background-color: rgba(0,0,0,.6);
+	color: #fff;
+	font-size:21rpx; 
+}
+
+.hornIcon{
+	width: 60rpx;
+	height: 100%;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.hornIcon .icon-horn{
+	font-size: 32rpx;
+	line-height: 2.8;
+}
+
+.closeNoticeIcon{
+	width: 60rpx;
+	height: 100%;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.closeNoticeIcon .icon-close{
+	font-size: 21rpx;
+	line-height: 4;
+}
+
+.swiper_container {
+	flex: 1;
+    height: 100%;
+	font-weight: 300;
+	font-size: 21rpx!important;
+	
+}
+.swiper_item {
+	height: 100%;
+    overflow: hidden;
+	font-size:21rpx!important;
+    white-space: nowrap;
+    letter-spacing: 2rpx;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}

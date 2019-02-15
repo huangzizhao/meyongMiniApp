@@ -1,0 +1,58 @@
+<import src='../../templates/loading/loading.wxml' />
+<view class='page'>
+    <view class='container-content'>
+        <announcement announcement-list='{{announcementList}}'></announcement>
+        <notification user-avatar='{{participateAvatar}}' user-name='{{participateUserName}}' time='{{participateTime}}'></notification>
+        <swiper class='bannerSwiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+            <swiper-item bindtap='toActivityList'>
+                <image src="../../img/explanation.png" class="slideImage" mode='widthFix'></image>
+            </swiper-item>
+        </swiper>
+        <!-- <view class='notice' bindtap='toActivityList'>
+            <image src='../../img/explanation.png' />
+        </view> -->
+		
+        <!-- <scroll-view class='scroll-x' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll">
+            <view class='itemList'>
+                <button class='scroll-item' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo='toActivityList'>
+                    <image src='../../img/welfareActivities.png' />
+                </button>
+                <button class='scroll-item' bindtap='toAboutMia'>
+                    <image src='../../img/aboutMia.png' />
+                </button>
+                <button class='scroll-item' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+                    <image src='../../img/personalCenter.png' />
+                </button>
+            </view>
+        </scroll-view> -->
+
+        <view class='community'>
+            <waterFallFlow id='waterFallFlow' bind:myevent='updateData'></waterFallFlow>
+            <template is='spinner' wx:if='{{showSpinner}}' />
+            <view class='view-bottom' wx:if="{{enBottom}}">
+                已经到底了
+            </view>
+        </view>
+        <!--蜜罐分享 bindtap='openShare'-->
+        <!-- 个人中心
+    <button class='h-preson' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+      <image src='../../img/group1.png' style='width:294rpx;height:180rpx;'></image>
+    </button> -->
+        <!--看图猜词 bindtap='openActivity'-->
+        <!--打开文章 bindtap='openArticle'-->
+    </view>
+    <!--联系客服 open-type="contact" session-from="weapp"-->
+    <button class='contact' hover-class="btnhover" open-type="contact" session-from="weapp">
+        <image src='../../img/contact.png' mode='aspectFill'></image>
+    </button>
+
+    <!-- 首页弹窗 -->
+    <!-- <view class='dialog' catchtap='cancel' wx:if='{{enShowHomeImg}}'>
+        <view class='dialogImgBox'>
+            <image src='../../img/dialog.png' catchtap='beforeSaveImg'></image>
+        </view>
+        <view class='dialogClose' catchtap='cancel'>
+            <text class="iconfont icon-guanbi1"></text>
+        </view>
+    </view> -->
+</view>

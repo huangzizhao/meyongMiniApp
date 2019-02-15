@@ -1,0 +1,12 @@
+/* pages/promotion/promotion.wxss */
+.app{
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+}
+.activityImg{
+	width: 750rpx;
+	height:1449rpx;
+}

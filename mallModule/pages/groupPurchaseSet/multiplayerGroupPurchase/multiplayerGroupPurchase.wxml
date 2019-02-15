@@ -1,0 +1,86 @@
+<!--pages/beforeDoubleGroupPurchase/beforeDoubleGroupPurchase.wxml-->
+<view class='app'>
+  <view class='purchaseTab'>
+    <view class='tabNav'>
+      <view class='stamp' wx:if='{{activityData.qOrderGroup.groupNum === activityData.qOrderGroup.members.length}}'>
+        <view class='stampNav'>拼单成功</view>
+      </view>
+      <view class='purchaseActivity' bindtap='toActivityDetail'>
+        <view class='activityCover'>
+          <image src="{{activityCover}}" />
+        </view>
+        <view class='activityInfo'>
+          <view class='infoTop'>
+            <text class='tag'>{{activityData.qOrderGroup.groupNum}}人拼团</text>
+            <text>{{activityData.qPrizeEntity.title}}</text>
+          </view>
+          <view class='infoMid'>{{activityData.qPrizeEntity.content}}</view>
+          <view class='infoBottom'>
+            <text>
+						<text>￥</text>
+            <text class='priceNum'>{{activityData.qOrderGroup.currentPrice}}</text>
+            </text>
+          </view>
+        </view>
+      </view>
+
+      <view class='purchaseState'>
+        <view class='stateTitle'>{{stateTitle}}</view>
+        <view class='imgList'>
+          <view class='imgItem' wx:for='{{orderGroup}}' wx:key='item'>
+            <image mode='aspectFill' src="{{item.avatar ? item.avatar :'../../img/avatar.png'}}"></image>
+          </view>
+        </view>
+        <view class='btnList' wx:if='{{activityData.qOrderGroup.groupNum === activityData.qOrderGroup.members.length}}'>
+          <button bindtap='intoOrder'>查看订单</button>
+          <button bindtap='intoBargain'>发起砍价</button>
+        </view>
+        <view class='btnList' wx:else>
+          <button open-type="share" data-prize='{{activityData.qPrizeEntity.costPrice}}' data-prizetitle='{{activityData.prizeTitle}}'>分享好友</button>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='purchaseProcess'>
+    <view class='purchaseProcessTitle'>拼团流程</view>
+    <view class='iconList'>
+      <text class='iconfont icon-payMoney'></text>
+      <text class='line'></text>
+      <text class='iconfont icon-purchaseGroup'></text>
+      <text class='line'></text>
+      <text class='iconfont icon-purchaseGifs'></text>
+    </view>
+    <view class='processText'>
+      <text>付款开团/参团</text>
+      <text>邀请好友参团</text>
+      <text>满员拼单成功</text>
+    </view>
+    <view class='description'>退款说明：如未满员拼单不成功，将退款</view>
+  </view>
+  <view class='project'>
+    <view class='moreProjectTitle'>
+      <text>更多</text>
+      <text style='color:rgb(241, 0, 0)'>拼团项目</text>
+    </view>
+    <block wx:if='{{otherProjectList.length > 0}}'>
+      <view class='otherProjectList'>
+        <view class='projectItem' wx:for='{{otherProjectList}}' wx:key='item' data-id='{{item.activityId}}' bindtap='toProject'>
+          <image mode='aspectFill' src='{{item.coverPath}}'></image>
+          <view class='itemInfo'>
+            <view class='projectItemTitle'>{{item.title}}</view>
+            <view class='projectItemPrice'>￥{{item.costPrice}}</view>
+            <view class='openGroup'>去开团</view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class='noOtherProjectList'>
+        <view class='nothing'>
+          <text class='iconfont icon-nothing'></text>
+          <text>- 暂无更多项目 -</text>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

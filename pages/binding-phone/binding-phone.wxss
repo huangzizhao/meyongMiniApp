@@ -1,0 +1,86 @@
+/* pages/binding-phone/bingding-phone.wxss */
+
+.bp-hd {
+    text-align: center;
+}
+
+.clickable {
+    color: rgb(0, 0, 0);
+}
+
+.unClickable {
+    color: rgb(191, 191, 191);
+}
+
+.bp-hd image {
+    width: 128rpx;
+    height: 128rpx;
+    margin-top: 140rpx;
+}
+
+.bp-input-phone {
+    margin: 80rpx;
+    font-size: 32rpx;
+}
+
+.bp-input-phone input {
+    padding: 20rpx 0;
+    border-bottom: 2rpx solid rgb(191, 191, 191);
+    color: #383838;
+}
+
+.bp-code {
+    position: absolute;
+    margin-top: 40rpx;
+    right: 80rpx;
+    z-index: 999;
+}
+
+.bp-pd-cl {
+    color: rgb(191, 191, 191);
+}
+
+.bp-btn {
+    margin: 0 80rpx;
+    background-color: #000;
+    color: #fff;
+    border: 0px;
+}
+
+.bp-btn-cl {
+    margin: 64rpx 80rpx;
+    background-color: rgb(244, 244, 244);
+    color: rgb(51, 51, 51);
+}
+
+.phone-input {
+    height: 100rpx;
+    background-color: white;
+    border: 1rpx #c2c2c2 solid;
+    width: 70%;
+}
+
+.phone-code {
+    height: 30rpx;
+}
+
+.code-btn {
+    height: 100rpx;
+    width: 30%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 0;
+    font-size: 30rpx;
+    line-height: 3;
+    padding: 0;
+    border: 1rpx #c2c2c2 solid;
+    box-sizing: none;
+}
+
+.bing-money {
+    width: 100%;
+    text-align: center;
+    font-size: 30rpx;
+    color: red;
+}

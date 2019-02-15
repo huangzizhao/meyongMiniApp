@@ -1,0 +1,13 @@
+<!--components/advert_dialog/advert_dialog.wxml-->
+<view class='wx_dialog_container' hidden="{{!isShow}}">
+    <view class='wx-mask'></view>
+    <view class='wx-dialog'>
+        <view class='wx-dialog-close'>
+          <text class='iconfont icon-guanbi1' style='font-size:60rpx;' catchtap='_cancelEvent'></text>
+        </view>
+      <view catchtap='_confirmEvent'>
+        <image style='height:400rpx;width:400rpx;' src='../../img/choujiang.jpg'></image>
+      </view>
+    </view>
+</view>
+

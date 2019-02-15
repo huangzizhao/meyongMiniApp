@@ -1,0 +1,353 @@
+/* pages/bargain/bargain.wxss */
+
+.app {
+    box-sizing: border-box;
+    background-color: rgba(246, 246, 246, 1);
+}
+
+button {
+    border-radius: 0;
+    font-size: 30rpx;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+}
+
+button::after {
+    border: none;
+}
+
+.red {
+    color: rgba(255, 32, 0, 1);
+}
+
+.projectImg {
+    width: 100%;
+    position: relative;
+    background-color: rgb(216, 214, 214);
+}
+
+.projectImg image {
+    width: inherit;
+    height: 100vw;
+    display: block;
+}
+
+.box {
+    margin-top: -200rpx;
+    box-sizing: border-box;
+    padding: 30rpx 35rpx;
+    width: 100vw;
+    position: relative;
+    z-index: 3;
+}
+
+.box .boxNav {
+    background-color: #fff;
+    border-radius: 20rpx;
+    box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.2);
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 30rpx;
+}
+
+.boxNav .lineNav {
+    display: flex;
+    width: 100%;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin: 40rpx 0 30rpx 0;
+}
+
+.lineNav .price {
+    font-size: 35rpx;
+    margin-left: 10rpx;
+    color: rgba(255, 64, 9, 1);
+    font-weight: 600;
+}
+
+.lineNav .lineBox {
+    flex: 1;
+    height: 40rpx;
+    border-radius: 20rpx;
+    background-color: rgba(216, 216, 216, 1);
+    box-sizing: border-box;
+    margin: 0 10rpx;
+    position: relative;
+}
+
+.lineBox .promptBox {
+    position: absolute;
+    top: -50rpx;
+    height: 30rpx;
+    box-sizing: border-box;
+    padding: 0 10rpx;
+    font-size: 20rpx;
+    background-color: rgba(255, 64, 9, 1);
+    color: #fff;
+    border-radius: 15rpx;
+}
+
+.promptBox .prompt {
+    width: inherit;
+    height: inherit;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.prompt::before {
+    content: '';
+    position: absolute;
+    right: 20rpx;
+    bottom: -8rpx;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10rpx 5rpx 0 5rpx;
+    border-color: rgba(255, 64, 9, 1) transparent transparent transparent;
+}
+
+.lineBox .lineColorBox {
+    height: 40rpx;
+    border-radius: 20rpx;
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.lineColorBox .lineColor {
+    background-image: linear-gradient(to right, rgb(255, 204, 50), rgb(255, 72, 7));
+    height: 40rpx;
+    border-radius: 20rpx;
+}
+
+.boxNav .countdown {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 35rpx;
+    font-weight: 500;
+    margin-bottom: 20rpx;
+}
+
+.countdown .time {
+    font-size: 30rpx;
+    color: rgba(255, 64, 9, 1);
+    margin-left: 10rpx;
+}
+
+.boxNav .guideDes {
+    width: 100%;
+    text-align: center;
+    font-size: 25rpx;
+    margin-top: 10rpx;
+    color: rgba(132, 132, 132, 1);
+}
+
+.btnList {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    background-color: #fff;
+}
+
+.btnList button {
+    margin: 15rpx 10rpx 0 10rpx;
+    flex: 1;
+    height: 70rpx;
+    border-radius: 35rpx;
+    font-size: 30rpx;
+    color: #fff;
+    background-image: linear-gradient(to right, rgb(254, 78, 23), rgb(241, 0, 0));
+    box-shadow: 0px 2px 9px rgba(241, 0, 0, 0.2);
+}
+
+.btnList button[disabled] {
+    color: rgb(68, 65, 65) !important;
+    background-image: linear-gradient(to right, rgb(214, 212, 212), rgb(214, 212, 212)) !important;
+    box-shadow: 0px 2px 9px rgba(214, 212, 212, 0.2);
+}
+
+.boxNav .bargainTitle {
+    font-size: 32rpx;
+    width: 100%;
+    font-weight: bold;
+    text-align: center;
+}
+
+.bargainListBox {
+    width: 100%;
+    border-radius: 20rpx;
+    box-sizing: border-box;
+    background-color: rgba(246, 246, 246, 1);
+    padding: 10rpx 30rpx;
+    margin-top: 20rpx;
+}
+
+.bargainListBox .bargainListDes {
+    font-size: 25rpx;
+    color: #000;
+    margin: 25rpx 0 15rpx 0;
+}
+
+.bargainListBox .bargainListBoxTitle {
+    font-size: 30rpx;
+    color: rgba(132, 132, 132, 1);
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10rpx;
+}
+
+.bargainListBoxTitle::before {
+    content: '—☼';
+    margin-right: 20rpx;
+}
+
+.bargainListBoxTitle::after {
+    content: '☼—';
+    margin-left: 20rpx;
+}
+
+.bargainList {
+    width: 100%;
+    max-height: 300rpx;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.bargainItem {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 15rpx 10rpx;
+    font-size: 25rpx;
+    border-bottom: 1rpx dotted rgba(221, 221, 221, 0.753);
+}
+
+.bargainItem .itemLeft, .bargainItem .itemRight {
+    display: inline-flex;
+    align-items: center;
+    flex-flow: row nowrap;
+}
+
+.itemLeft image {
+    border-radius: 50%;
+    width: 70rpx;
+    height: 70rpx;
+    margin: 0 30rpx;
+}
+
+.itemLeft .nickName {
+    display: block;
+    width: 70rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.bargainItem:last-child {
+    margin-bottom: 0;
+    border: unset;
+}
+
+.bargainItem .bargainListIndex {
+    border-radius: 50%;
+    width: 35rpx;
+    height: 35rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row nowrap;
+    color: #fff;
+    background-color: rgba(217, 217, 217, 1);
+}
+
+.bargainMark {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 5;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.bargainMark .icon-guanbi1 {
+    z-index: 5;
+    font-size: 70rpx;
+    color: rgb(233, 229, 229);
+}
+
+.bargainMark .bargainToast {
+    width: 750rpx;
+    height: 800rpx;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    align-content: flex-end;
+    z-index: 6;
+}
+
+.bargainToast .descript {
+    width: 400rpx;
+    font-size: 35rpx;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    z-index: inherit;
+    margin-bottom: 50rpx;
+}
+
+.bargainToast .costPrice {
+    text-align: center;
+    z-index: 6;
+    width: 400rpx;
+    font-size: 40rpx;
+    color: rgb(254, 208, 7);
+    margin-bottom: 40rpx;
+    font-weight: 300;
+}
+
+.costPrice .num {
+    font-size: 60rpx;
+}
+
+.bargainToast button {
+    width: 400rpx;
+    height: 80rpx;
+    font-size: 35rpx;
+    font-weight: bold;
+    border-radius: 40rpx;
+    background-image: linear-gradient(to bottom, rgb(254, 241, 123), rgb(254, 208, 7));
+    box-shadow: 0px 2px 9px rgba(241, 0, 0, 0.2);
+    margin-bottom: 200rpx;
+}
+
+.bargainToast image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: inherit;
+}

@@ -1,0 +1,94 @@
+/* pages/article-list/article-list.wxss */
+/* page{
+	background-color: rgba(245,248,250,1);
+}
+.list-header {
+    padding: 0 30rpx 0 30rpx;
+    background-color:#ffffff;
+    margin-top: 10rpx;
+    margin-bottom: 1rpx;
+    font-weight: bold;
+}
+
+.view-list {
+	margin-top: 30rpx;
+    padding: 0 30rpx;
+    background-color:#ffffff;
+}
+
+.view-list .message-head {
+    font-size: 40rpx;
+    padding: 10rpx 0 0px 10rpx;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.view-list .list-img {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    width: 100%;
+    height: 400rpx;
+	background-color: #000;
+	overflow: hidden;
+}
+
+.list-img .cover{
+	width: 100%;
+	height: 100%;
+}
+
+.list-img .play {
+  position: absolute;
+  width: 80rpx;
+  height: 80rpx;
+  opacity: 0.6;
+}
+
+.view-list .message-img {
+    margin: 10rpx 0 10rpx 0;
+    width:52rpx; 
+    height:52rpx; 
+    border-radius:50%; 
+    overflow:hidden;
+}
+.view-list .message-author {
+    position: absolute;
+    padding:16rpx 0 0 20rpx;
+    font-size: 26rpx;
+    color: #b8b9ba;
+}
+.view-list .message-time {
+    position: absolute;
+    padding:70rpx 0 0 20rpx;
+    color:#D3D3D3;
+    font-size: 25rpx;
+}
+.view-list .message-zan {
+    float:right;
+    padding-top: 15rpx;
+    font-size: 26rpx;
+    color: #b8b9ba;
+}
+.message-zan image {
+  width: 26rpx;
+  height: 26rpx;
+  padding:0 10rpx;
+  vertical-align: middle;
+}
+.message-zan text {
+  vertical-align:middle;
+} */
+page{
+	background-color: rgba(245,248,250,1);
+}
+.waterFallFlow{
+  height: 100vh;
+}
+.view-bottom {
+  text-align: center;
+  font-size: 28rpx;
+  margin: 20rpx 0;
+  color: #BBBBBB;
+}

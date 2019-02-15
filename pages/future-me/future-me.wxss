@@ -1,0 +1,166 @@
+/* pages/future-me/future-me.wxss */
+page {
+  background-color:#fff;
+  height:100%
+}
+.fm-bg {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  width: 100%;
+}
+
+.fm-content {
+    width: 100%;
+    height: 460rpx;
+    text-align: center;
+}
+
+.fm-content .fm-img {
+    width:100%;
+}
+
+.fm-canvas {
+  display: inline-block;
+  width: 500rpx;
+  height: 500rpx;
+}
+
+.vi-canvas {
+  width:100%;
+  height:250px;
+  position:absolute;
+}
+
+ .fm-ca-img {
+  width:300rpx;
+  height:300rpx;
+  margin-top: 100rpx;
+  border: 2px solid #f7cb45;
+  border-radius: 200rpx;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.fm-res {
+  background-color: #fff;
+  border-top-left-radius: 40rpx;
+  border-top-right-radius: 40rpx;
+  padding-bottom: 120rpx;
+}
+
+.fm-res-ct {
+  padding-top: 40rpx;
+  margin-left: 60rpx;
+}
+
+.fm-res-title {
+  font-size: 68rpx;
+}
+
+.fm-res-tip{
+  color: rgb(254, 43, 43);
+  font-size: 20rpx;
+}
+
+.fm-res-ct image {
+  margin: 20rpx 30rpx 0 0;
+}
+
+.fm-res-ctImg {
+  height: 400rpx;
+  text-align: center;
+  margin: 20rpx 0;
+}
+
+.fm-res-ctImg image {
+  height: 360rpx;
+  width: 360rpx;
+  display: inline-block;
+}
+
+.fm-ct-text {
+  color:#333333;
+  font-size:14px;
+  dispaly:inline-block;
+  width:600rpx;
+  word-break:break-all;
+  margin-left: 40rpx;
+}
+
+.ct-footer button {
+  font-size: 32rpx;
+  border-radius: 0;
+  border: 0px;
+  float: left;
+  color: rgb(51, 51, 51);
+}
+
+.ct-btn-over {
+  height: 88rpx;
+  width: 230rpx;
+  margin-right: 20rpx;
+}
+
+.ct-btn-next {
+  height: 88rpx;
+  width: 420rpx;
+  background-color: #f9dd4a;
+}
+
+.ct-footer {
+  width: 100%;
+  margin: 40rpx;
+  margin-bottom: 20rpx;
+  position:fixed;
+  bottom:0;
+  text-align: center;
+}
+
+.view-share{
+  position: absolute;
+  border: 3rpx solid seagreen;
+  
+}
+.ct-btn-cs {
+  margin-top: 20rpx;
+}
+.box{
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background:#000;
+  opacity:0.7;
+  width: 100%;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width:100%;
+  height:100%;
+  text-align:center;
+  background-color:rgba(0,0,0,0.7);
+}
+
+.text {
+  background-color: #fff;
+  color: #000;
+  font-size: 28rpx;
+  width: 450rpx;
+  margin-top: 50%;
+  display: inline-block;
+  border-radius: 10rpx;
+  height:250rpx;
+}
+
+.text button {
+  font-size: 30rpx;
+  display: inline-block;
+  width:50%;
+  border-radius: unset;
+  overflow: unset;
+}

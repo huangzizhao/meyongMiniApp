@@ -1,0 +1,10 @@
+{
+	"navigationBarTitleText": "蜜蜂社区",
+	"enablePullDownRefresh": true,
+	"onReachBottomDistance": 800,
+	"backgroundTextStyle": "dark",
+	"backgroundColor": "#f5f8fa",
+	"usingComponents": {
+		"waterFallFlow": "../../components/waterFallFlow/waterFallFlow"
+	}
+}

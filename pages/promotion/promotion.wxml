@@ -1,0 +1,5 @@
+<!--pages/promotion/promotion.wxml-->
+<!-- <web-view src='https://wx.mymia.top/luckyMoney/luckyMoney.html#wechat_redirect'></web-view> -->
+<view class='app'>
+    <image class='activityImg' src='../../img/promotion.png' bindtap='beforeSaveImg'></image>
+</view>

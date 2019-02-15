@@ -1,0 +1,6 @@
+<import src='../../templates/loading/loading.wxml' />
+<waterFallFlow id='waterFallFlow' bind:myevent='updateData'></waterFallFlow>
+<template is='spinner' wx:if='{{showSpinner}}' />
+<view class='view-bottom' wx:if="{{enBottom}}">
+    已经到底了
+</view>

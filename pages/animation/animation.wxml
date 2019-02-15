@@ -1,0 +1,23 @@
+<!--pages/animation-test/animation-test.wxml-->
+<!-- <view>检测结果会被光线、角度所影响，仅供参考哦</view> -->
+<view class='at-content' style='height:{{height}}px'>
+    <view class='at-img' style='height:{{height}}px'>
+         <image animation="{{animation}}" style="height:{{height}}px;width:{{width}}px" src='{{img}}'></image> 
+    </view>
+    <view class='view-canvas' style='height:{{height}}px'>
+        <canvas style='width:100%;height:100%;' canvas-id='canvas'></canvas>
+    </view>
+    <view class='view-canvas' style='height:{{height}}px'>
+        <canvas style='width:100%;height:100%;' canvas-id='canvas-shan'></canvas>
+    </view>
+</view>
+<view class='vi-play' style='height:{{height}}px;z-index:{{showAanimation ? -1:2}}' bindtap='again'>
+      <view><text class="iconfont icon-bofang" style='color:#fff;font-size:120rpx;' ></text></view> 
+</view>
+<view class='tip'>检测结果会被光线、角度所影响，仅供参考哦</view>
+<view class='btn-next'>
+  <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="futureMe" style='border-color:{{showAanimation?"#cccccc":"#000"}};color:{{showAanimation?"#cccccc":"#000"}};'>
+    来，看看漂亮的自己
+  </button>
+  <view class='btn-again' bindtap='againTest' style='{{showAanimation?"color:#cccccc":""}};'>我要重新检测</view>
+</view>

@@ -1,0 +1,187 @@
+/* pages/currentOrderInfo/currentOrderInfo.wxss */
+.app {
+    box-sizing: border-box;
+    background-color: rgba(244, 244, 244, 1);
+}
+
+.appItem{
+	background-color: #fff;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 0 20rpx;
+}
+
+.red {
+    color: rgba(157, 62, 70, 1);
+}
+
+.blue {
+    color: rgba(124, 172, 245, 1);
+}
+
+button {
+    border-radius: 0;
+    font-size: 30rpx;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+}
+
+button::after {
+    border: none;
+}
+.orderCode {
+    position: relative;
+    width: 100%;
+    height: 70rpx;
+    box-sizing: border-box;
+    font-size: 26rpx;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.orderCode::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    border-top: 0.5px solid rgba(241, 241, 241, 1);
+}
+
+.purchaseActivity {
+    height: 240rpx;
+    box-sizing: border-box;
+    background-color: #fff;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.activityCover {
+    width: 170rpx;
+    height: 170rpx;
+    overflow: hidden;
+    border-radius: 5rpx;
+    border: 0.5px solid rgba(196, 194, 194, 1);
+}
+
+.activityCover image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.activityInfo {
+    height: 170rpx;
+    flex: 1;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: space-around;
+    font-size: 28rpx;
+    margin-left: 20rpx;
+    color: rgba(85, 85, 85, 1);
+}
+
+.infoTop {
+	width: 100%;
+	display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.infoMid {
+	width: 100%;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.infoBottom {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.list {
+    background-color: #fff;
+}
+
+.listSlip {
+	position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    height: 110rpx;
+    width: 100%;
+    box-sizing: border-box;
+	overflow: hidden;
+}
+
+.listSlip::before{
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	border-top: 0.5px solid rgba(241, 241, 241, 1);
+}
+
+.listSlip .listSlipTitle {
+    width:200rpx;
+    height: 100%;
+    font-size: 30rpx;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.listSlip .listSlipContent {
+    flex: 1;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.contentText{
+	font-size: 28rpx;
+	display: inline-flex;
+	align-items: center;
+}
+
+.contentText .icon-wechatPay{
+	color: #00c800;
+	font-size: 40rpx;
+	margin-right: 10rpx;
+	vertical-align: middle;
+}
+
+.payNow{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	z-index: 2;
+	width: 100vw;
+	height: 100rpx;
+	background-color: rgba(255, 28, 71, 1);
+	font-size: 30rpx;
+	font-weight: bold;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

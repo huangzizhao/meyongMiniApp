@@ -1,0 +1,31 @@
+/* components/advert_dialog/advert_dialog.wxss */
+@import "../../ui/font.wxss";
+.wx-mask{
+  position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+}
+.wx-dialog{
+    position: fixed;
+    z-index: 5000;
+    width: 80%;
+    max-width: 400rpx;
+    max-height: 400rpx;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: #FFFFFF;
+    text-align: center;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.wx-dialog-close {
+    position: absolute;
+    right: 0;
+    margin-top:-12rpx;
+}

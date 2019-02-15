@@ -1,0 +1,76 @@
+<!--pages/currentOrderInfo/currentOrderInfo.wxml-->
+<view class='app'>
+    <view class='appItem'>
+        <view class='orderCode'>
+            <text>订单编号：{{orderItem.orderCode}}</text>
+			<text class='{{orderItem.statusColor}}'>{{orderState[orderItem.status]}}</text>
+        </view>
+        <view class='purchaseActivity' bindtap='toActivityDetail'>
+            <view class='activityCover'>
+                <image src="{{orderItem.activityCover}}" />
+            </view>
+            <view class='activityInfo'>
+                <view class='infoTop'>{{orderItem.prize.title}}</view>
+                <view class='infoMid'>{{orderItem.prize.content}}</view>
+                <view class='infoBottom'>
+                    <text>￥{{orderItem.amount}}</text>
+                    <text>*{{orderItem.buyCount}}</text>
+                </view>
+            </view>
+        </view>
+        <view class='list'>
+            <view class='listSlip'>
+                <view class='listSlipTitle'>购买数量</view>
+                <view class='listSlipContent'>
+				  <view class='contentText'>{{orderItem.buyCount}}</view>
+				</view>
+            </view>
+            <view class='listSlip'>
+                <view class='listSlipTitle'>支付金额</view>
+                <view class='listSlipContent'>
+                    <view class='contentText'>￥{{orderItem.amount}}</view>
+                </view>
+            </view>
+            <view class='listSlip'>
+                <view class='listSlipTitle'>支付方式</view>
+                <view class='listSlipContent'>
+                    <view class='contentText'>
+                        <icon class='iconfont icon-wechatPay'></icon>
+                        <text>微信支付</text>
+                    </view>
+                </view>
+            </view>
+            <view class='listSlip'>
+                <view class='listSlipTitle'>创建订单时间</view>
+                <view class='listSlipContent'>
+                    <view class='contentText'>{{orderItem.createTime}}</view>
+                </view>
+            </view>
+            <view class='listSlip' wx:if='{{orderItem.payTime}}'>
+                <view class='listSlipTitle'>支付时间</view>
+                <view class='listSlipContent'>
+                    <view class='contentText'>{{orderItem.payTime}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <button class='payNow' bindtap='oderPay' wx:if='{{orderItem.status === 0}}'>支付</button>
+</view>
+<!-- <view>订单编号：{{orderItem.orderCode}}</view>
+<text>创订单状态：{{orderState[orderItem.status]}}</text>
+<view bindtap='toActivityDetail'>
+    <view>
+        <image src='{{orderItem.activityCover}}'></image>
+    </view>
+    <text>{{orderItem.prize.title}}</text>
+    <text>{{orderItem.prize.content}}</text>
+</view>
+<text>购买数量{{orderItem.buyCount}}</text>
+<text>支付金额￥{{orderItem.amount}}元</text>
+<text>支付方式：微信支付</text>
+<text>创建订单时间：{{orderItem.createTime}}</text>
+<text wx:if='{{orderItem.payTime}}'>支付时间:{{orderItem.payTime}}</text> 
+<block wx:if='{{orderItem.status === 0}}'>
+    <button bindtap='oderPay'>支付</button>
+</block>
+-->

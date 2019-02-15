@@ -1,0 +1,18 @@
+/* pages/paymentResults/paymentResults.wxss */
+.paymentResults{
+  width: 100vw;
+  height: 100vh;
+  z-index: 3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  text-align: center;
+}
+.paymentResults .iconarea,.paymentResults text{
+  display: inline-block;
+  width: 100vw;
+}
+.paymentResults icon,.paymentResults text{
+  display: inline-block;
+}

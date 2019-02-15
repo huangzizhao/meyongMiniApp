@@ -1,0 +1,326 @@
+page {
+    background-color: rgba(245, 248, 250, 1);
+	position: relative;
+}
+
+.dialog{
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	z-index: 5;
+	background-color: rgba(0,0,0,.4);
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+.dialog .dialogImgBox{
+	width: 85vw;
+	height: 121.428vw;
+	margin-bottom: 20rpx;
+	border-radius: 10rpx;
+	overflow: hidden;
+}
+
+.dialogImgBox image{
+	width: 100%;
+	height: 100%;
+}
+
+
+.dialog .dialogClose{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.dialog .icon-guanbi1{
+	font-size: 60rpx;
+	color:#f5f5f5;
+	z-index: 5;
+}
+
+button {
+    border-radius: 0;
+    font-size: 30rpx;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+}
+
+button::after {
+    border: none;
+}
+
+.btnhover{
+	background-color: transparent
+}
+
+.contact {
+    position: fixed;
+    bottom: 100rpx;
+    right: 20rpx;
+    width: 120rpx;
+    height: 120rpx;
+}
+
+.contact image {
+    width: inherit;
+    height: inherit;
+	display: block;
+}
+
+.container-content {
+    width: 100vw;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* .notice {
+    width: inherit;
+    height: 600rpx;
+}
+
+.notice image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} */
+
+.bannerSwiper{
+	width: 100vw;
+	height: 600rpx;
+}
+
+.bannerSwiper image{
+	width: 100vw;
+	height: 600rpx;
+}
+
+.scroll-x {
+    width: 100%;
+    height: 190rpx;
+    box-sizing: border-box;
+    padding: 12rpx 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.scroll-x .itemList {
+    display: inline-flex;
+    margin: 0 18rpx;
+    align-items: center;
+    justify-content: space-between;
+    width: inherit;
+}
+
+.scroll-x .itemList .scroll-item {
+    display: inline-block;
+    margin: 0 10rpx 0 0;
+    padding: 0;
+    height: 166rpx;
+    width: 230rpx;
+    border-radius: 10rpx;
+    overflow: hidden;
+    background-color: rgba(240, 175, 175, 1);
+}
+
+.scroll-item image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.scroll-x .itemList .scroll-item:last-child {
+    margin: 0;
+}
+
+.scroll-x .itemList .scroll-item::after {
+    border: none;
+}
+
+.community {
+    width: 100vw;
+    box-sizing: border-box;
+	padding-bottom: 40rpx;
+}
+
+.community .community-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15rpx;
+    padding: 0 20rpx;
+    box-sizing: border-box;
+}
+
+.community-nav .nav-l {
+    font-size: 36rpx;
+    color: #000;
+}
+
+.community-nav .nav-r {
+    font-size: 24rpx;
+    color: #555;
+}
+
+.largeView {
+    margin: 16rpx 0 40rpx 0;
+}
+
+.publishArticle {
+    display: flex;
+    margin: 18rpx 0;
+}
+
+.articleInfo {
+    flex: 1;
+    display: inline-flex;
+    flex-flow: row wrap;
+    align-content: space-around;
+    margin-left: 16rpx;
+}
+
+.articleTitle {
+    font-size: 30rpx;
+    color: #000;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    display: flex;
+    align-items: center;
+}
+
+.articleDate {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.underLine {
+    border-bottom: 1px solid #e9e9e9;
+}
+
+.publishArticle .articleView {
+    width: 172rpx;
+    height: 172rpx;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+}
+
+.articleView .mpic {
+    width: 100%;
+    height: 100%;
+    border-radius: 10rpx;
+}
+
+.articleView .mplay {
+    position: absolute;
+    width: 50rpx;
+    height: 50rpx;
+    opacity: 0.6;
+}
+
+.publishArticle .authorPic {
+    width: 84rpx;
+    height: 84rpx;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.video {
+    width: 100%;
+}
+
+.centreVessel {
+    width: 100%;
+    height: 42.553vw;
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10rpx;
+}
+
+.centreVessel .cover {
+    position: relative;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10rpx;
+}
+
+.centreVessel .play {
+    position: absolute;
+    width: 80rpx;
+    height: 80rpx;
+    opacity: 0.6;
+}
+
+.bottomText {
+	display: flex;
+	width: 250rpx;
+	height: 80rpx;
+	background-color: rgb(70, 68, 68);
+	border-radius: 40rpx;
+    font-size: 28rpx;
+    color: #FFF;
+    justify-content: center;
+    align-items: center;
+	margin: 20rpx auto 0 auto;
+	box-shadow: 0 4rpx 8rpx 0 rgba(0, 0, 0, 0.1);
+}
+
+/*广告活动页  暂时不用*/
+
+/* .ad-img{
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  transform: rotate(0deg) scale(1); 
+  transition: all 0.3s ease-in-out
+}
+.arraw-up{
+  width: 70rpx;
+  height: 70rpx;
+  position: absolute;
+  bottom: 120rpx;
+  left: 50%;
+  margin-left: -35rpx;
+  z-index: inherit;
+}
+.arraw-up image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: inherit;
+}
+.ad-img image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.open-ad{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200rpx;
+  height: 200rpx;
+  object-fit: cover;
+} */

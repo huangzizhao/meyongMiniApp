@@ -1,0 +1,200 @@
+/* pages/beforeGroupPurchasePay/beforeGroupPurchasePay.wxss */
+
+.app {
+    box-sizing: border-box;
+    background-color: rgba(244, 244, 244, 1);
+}
+
+button {
+    border-radius: 0;
+    font-size: 30rpx;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+}
+
+button::after {
+    border: none;
+}
+
+.purchaseActivity {
+    height: 280rpx;
+    box-sizing: border-box;
+    margin: 18rpx;
+    padding: 0 20rpx;
+    border-radius: 15rpx;
+    background-color: #fff;
+    box-shadow: 0 4rpx 8rpx rgba(66, 65, 65, 0.2);
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.activityCover {
+    width: 200rpx;
+    height: 200rpx;
+    overflow: hidden;
+    border-radius: 8rpx;
+    border: 1rpx solid rgba(0, 0, 0, 0.3);
+}
+
+.activityCover image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.activityInfo {
+    height: 200rpx;
+    flex: 1;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: space-around;
+    font-size: 28rpx;
+    margin-left: 20rpx;
+}
+
+.infoTop {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.infoMid {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.infoBottom {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.list {
+    background-color: #fff;
+}
+
+.listSlip {
+	position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 35rpx;
+    height: 110rpx;
+    width: 100vw;
+    box-sizing: border-box;
+	overflow: hidden;
+}
+
+.listSlip::before{
+	content: '';
+	position: absolute;
+	left: 35rpx;
+	bottom: 0;
+	width: 100%;
+	border-top:0.5px solid rgb(194, 192, 192);
+}
+
+.listSlip:last-child::before{
+	content: '';
+	border: transparent;
+}
+
+.listSlip .listSlipTitle {
+    width: 150rpx;
+    height: 100%;
+    font-size: 30rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.listSlip .listSlipContent {
+    flex: 1;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.contentText{
+	font-size: 28rpx;
+	display: inline-flex;
+	align-items: center;
+}
+
+.contentText .icon-wechatPay{
+	color: #00c800;
+	font-size: 40rpx;
+	margin-right: 10rpx;
+	vertical-align: middle;
+}
+
+.calculate {
+    width: 200rpx;
+    height: 50rpx;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 4rpx;}
+
+.calculate .plus, .calculate .minus {
+    width: 60rpx;
+    height: 100%;
+	box-sizing: border-box;
+    border: 1rpx solid rgb(158, 157, 157);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calculate .plus {
+    border-left: transparent;
+	border-top-right-radius: 4rpx;
+	border-bottom-right-radius: 4rpx;
+}
+
+.calculate .minus {
+    border-right: transparent;
+	border-top-left-radius: 4rpx;
+	border-bottom-left-radius: 4rpx;
+}
+
+.calculate .numText {
+    height: 100%;
+    border: 1rpx solid rgb(158, 157, 157);
+    box-sizing: border-box;
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24rpx;
+}
+
+.payNow{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	z-index: 2;
+	width: 100vw;
+	height: 100rpx;
+	background-color: rgba(255, 28, 71, 1);
+	font-size: 30rpx;
+	font-weight: bold;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

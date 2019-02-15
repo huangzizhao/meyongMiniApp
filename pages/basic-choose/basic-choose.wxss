@@ -1,0 +1,82 @@
+/* pages/basic-choose/basic-choose.wxss */
+page {
+  background-color: white;
+}
+
+.bc-head {
+  height:400rpx;
+  width:100%;
+  -webkit-align-items: center;
+  -webkit-flex: 1;
+  display: -webkit-flex;
+}
+
+.bc-head-message {
+  position: absolute;
+  top: 98rpx;
+  width: 100%;
+  color: rgb(147, 147, 147);
+  font-size: 32rpx;
+  line-height: 56rpx;
+}
+
+.bc-head .bc-head-content {
+  margin-top: 720rpx;
+  width: 100%;
+  text-align: center;
+}
+
+.bc-date {
+  width:100%;
+  margin-top: 40rpx;
+  color: rgb(147, 147, 147);
+}
+
+.bc-date .bc-picker{
+  margin-top: 40rpx;
+}
+
+.bc-hr {
+  width:30%;
+  border-top: 4rpx solid rgb(249, 203, 69);
+  margin-left: 35%;
+  margin-top: 10rpx;
+}
+
+.bc-head-man image {
+    height:392rpx;
+    width:114rpx;
+}
+
+.ct-footer {
+  width: 100%;
+  margin: 40rpx;
+  position:fixed;
+  bottom:40rpx;
+  text-align: center;
+}
+
+.ct-footer button {
+  font-size: 36rpx;
+  float: left;
+  border-radius: 10rpx;
+  color: rgb(51, 51, 51);
+}
+
+.ct-btn-over {
+  height: 88rpx;
+  width: 230rpx;
+  margin-right: 20rpx;
+}
+
+.ct-btn-next {
+  height: 88rpx;
+  width: 420rpx;
+  background-color: #f9dd4a;
+}
+
+.weui-select_in-select-after {
+  font-size: 30rpx;
+  color: #9d9d9d;
+  float: right;
+}

@@ -1,0 +1,62 @@
+/* pages/person-center/person-center.wxss */
+button::after{
+  border: none;
+}
+.ly-background {
+  height:160px;
+  width:100%;
+  text-align: center;
+  overflow:hidden;
+  margin-bottom: 20px;
+}
+
+.person-head {
+  width: 100%;
+  position: absolute;
+  top: 50rpx;
+}
+
+.redNav{
+	display: inline-block;
+	position: relative;
+	padding-right: 20rpx
+}
+
+.redNav .red{
+	position: absolute;
+	top: 20rpx;
+	right: 0;
+	display: inline-block;
+	width: 13rpx;
+	height: 13rpx;
+	border-radius: 50%;
+	background-color: rgba(241,64,60,1)
+}
+
+.message-img {
+  margin: 10rpx 0 10rpx 0;
+  width: 64px; 
+  height: 64px; 
+  border: 2px solid #FFC125;
+  border-radius:50%; 
+  overflow:hidden;
+}
+.message-author {
+  font-size: 15px;
+  color: #fff;
+}
+.kf_button{
+  background-color: rgba(255, 255, 255, 0);
+  border: 0px;
+  height: 100rpx;
+  right: 0;
+  text-align:left;
+}
+
+.weui-cell {
+  padding: 10px 15px 10px 27px;
+  
+}
+.weui-cells {
+  line-height:2;
+}

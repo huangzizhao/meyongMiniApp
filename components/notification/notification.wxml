@@ -1,0 +1,7 @@
+<!--components/notification/notification.wxml-->
+<view class='notification' hidden='{{showUp}}'>
+  <view class='userAvatar'>
+    <image src='{{userAvatarData}}'></image>
+  </view>
+  <view class='announcement'>{{userNameData}}{{timeData}}前参加了活动</view>
+</view>

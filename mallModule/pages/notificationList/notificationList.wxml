@@ -1,0 +1,19 @@
+<!--pages/notificationList/notificationList.wxml-->
+<view class='activityList'>
+    <announcement announcement-list='{{announcementList}}'></announcement>
+    <notification user-avatar='{{participateAvatar}}' user-name='{{participateUserName}}' time='{{participateTime}}'></notification>
+    <block wx:if='{{activityList.length > 0}}'>
+        <block wx:for='{{activityList}}' wx:for-item='item' wx:key='item.activityId'>
+            <view class='activity' data-activityid='{{item.activityId}}' data-activitydomname='{{item.prizeTitle}}' bindtap='intoGroupPurchase'>
+                <image src='{{item.coverPath}}'></image>
+                <view class='tip'>已有{{item.buyUserCount}}人抢购</view>
+            </view>
+        </block>
+    </block>
+    <block wx:else>
+        <view class='noOrders'>
+            <icon class='iconfont icon-order'></icon>
+            <text>{{nextIssueNotice}}</text>
+        </view>
+    </block>
+</view>

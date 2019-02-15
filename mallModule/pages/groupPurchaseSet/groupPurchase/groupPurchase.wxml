@@ -1,0 +1,141 @@
+<!--pages/groupPurchase/groupPurchase.wxml-->
+<view class='app' data-productid='{{activityData.activityId}}' data-activitydomname='{{activityData.prizeTitle}}'>
+    <announcement announcement-list='{{announcementList}}'></announcement>
+    <notification user-avatar='{{participateAvatar}}' user-name='{{participateUserName}}' time='{{participateTime}}'></notification>
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{imgUrls1}}" wx:key='{{item}}'>
+            <swiper-item>
+                <image src="{{item}}" class="slideImage" width="355" height="150" />
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class='dynamicInformation'>
+        <view class='tips'>
+            <text>两人拼团</text>
+            <view class='multiplayerPrice'>¥{{activityData.qPrizeEntity.costPrice}}</view>
+        </view>
+        <view class='dynamicInformation-left'>
+            <view class='unitPrice'>
+                <view class='unitPriceNormal'>￥</view>
+                <view class='unitPriceNormal unitPriceLarge'>1000</view>
+                <view class='infomationRight'>
+                    <view class='originalPrice'>
+                        <text>预约金</text>
+                        <!-- <text class='originalPriceText'>{{activityData.qPrizeEntity.price}}</text> -->
+                    </view>
+                    <view class='hasPurchase'>已有{{groupPurchase.buyUserCount}}人抢购</view>
+                </view>
+            </view>
+        </view>
+        <view class='dynamicInformation-right'>
+            <view class='rightNav'>
+                <block wx:if='{{flag}}'>
+                    <text class='activityEnd'>此活动已经结束</text>
+                </block>
+                <block wx:else>
+                    <text class='description'>距离活动结束还有</text>
+                    <view class='countdown'>
+                        <view class='time'>{{hours}}</view>
+                        <text>:</text>
+                        <view class='time'>{{minutes}}</view>
+                        <text>:</text>
+                        <view class='time'>{{seconds}}</view>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>
+    <view class='imgList'>
+        <view class='precautions' style='background-color:{{activityData.qPrizeEntity.titleColor}};color:{{activityData.qPrizeEntity.fontColor}};'>
+            {{activityData.qPrizeEntity.detailPath}}
+        </view>
+        <view class='spliceGroup' wx:if='{{spliceGroupList.length > 0}}'>
+            <view class='spliceGroupTitle'>小伙伴在拼单，可直接参与</view>
+            <view wx:if='{{spliceGroupList.length < 2}}' class="swiper_container singleItem">
+                <block wx:for="{{spliceGroupList}}" wx:key='item' wx:for-item='item'>
+                    <view class='swiper_item' data-groupid='{{item.orderGroupId}}' data-prizeid='{{prizeId}}' bindtap='toMultiplayerGroupPay'>
+                        <view class='itemLeft'>
+                            <image class='userInfoAvatar' mode='aspectFill' src='{{item.members[0].avatar}}'></image>
+                            <text class='userName'>{{item.members[0].name}}</text>
+                        </view>
+                        <view class='state'>
+                            <view>
+                                <text>还差</text>
+                                <text style='color:red'>{{item.groupNum - item.members.length}}人</text>
+                                <text>拼成</text>
+                            </view>
+                            <button>去拼单</button>
+                        </view>
+                    </view>
+                </block>
+            </view>
+            <swiper wx:else class="swiper_container" vertical="true" autoplay="true" circular="true" interval="4000" display-multiple-items='2'>
+                <block wx:for="{{spliceGroupList}}" wx:key='item' wx:for-item='item'>
+                    <swiper-item class="swiper_item" catchtouchmove='catchTouchMove' data-groupid='{{item.orderGroupId}}' data-prizeid='{{prizeId}}' bindtap='toMultiplayerGroupPay'>
+                        <view class='itemLeft'>
+                            <image class='userInfoAvatar' mode='aspectFill' src='{{item.members[0].avatar}}'></image>
+                            <text class='userName'>{{item.members[0].name}}</text>
+                        </view>
+                        <view class='state'>
+                            <view>
+                                <text>还差</text>
+                                <text style='color:red'>{{item.groupNum - item.members.length}}人</text>
+                                <text>拼成</text>
+                            </view>
+                            <button>去拼单</button>
+                        </view>
+                    </swiper-item>
+                </block>
+            </swiper>
+        </view>
+        <block wx:for="{{imgUrls2}}" wx:key='{{item}}'>
+            <image src="{{item}}" mode='widthFix'></image>
+        </block>
+    </view>
+    <view class='btnList'>
+        <button class='shareBtn' bindtap='powerDrawer' data-status="open">
+            <!-- <image src='../../img/activityShare.png'></image> -->
+            <text class='iconfont icon-fenxiang'></text>
+        </button>
+        <button class='contact' open-type="contact" session-from="weapp">联系蜜姐</button>
+        <!-- <button class='enjoyActivivy' bindtap='intoGroupPurchasePay'>￥1抽奖</button> -->
+        <block wx:if='{{orderGroup != null}}'>
+            <button class='enjoyActivivy' bindtap='intoMultiplayerGroup' wx:if='{{orderGroup.status === 1}}'>还差{{orderGroup.groupNum - orderGroup.members.length}}人成团</button>
+            <button class='enjoyActivivy' bindtap='intoMultiplayerGroup' wx:if='{{orderGroup.status === 2}}'>拼团详情</button>
+        </block>
+        <block wx:else>
+            <block wx:if='{{groupId && !isYourself}}'>
+                <button class='enjoyActivivy' data-groupid='{{groupId}}' data-prizeid='{{prizeId}}' bindtap='toMultiplayerGroupPay'>参与拼团</button>
+            </block>
+            <block wx:else>
+                <button class='enjoyActivivy' data-prizeid='{{prizeId}}' bindtap='toMultiplayerGroupPay'>￥1000 2人团</button>
+            </block>
+        </block>
+    </view>
+</view>
+
+<!-- 选择分享方式 -->
+<!--mask-->
+<view class="mask" bindtap="powerDrawer" data-status="close" wx:if="{{showModalStatus}}"></view>
+<!--使用animation属性指定需要执行的动画-->
+<view animation="{{animationData}}" class="shareDrawer" wx:if="{{showModalStatus}}">
+    <!--drawer content-->
+    <view class="drawerContent">
+        <button class="shareImg" open-type="share" hover-class="none">
+            <image src='../../../../img/wechat.png' />
+        </button>
+        <button class="shareImg" bindtap='shareToMoments' hover-class="none">
+            <image src='../../../../img/comments.png' />
+        </button>
+    </view>
+</view>
+
+<!-- 分享至朋友圈（保存图片至本地） -->
+<block wx:if='{{showShareImg}}'>
+    <view class='mask' bindtap='closeMask' catchtouchmove="preventScroll">
+        <view class='canvasNav'>
+            <canvas canvas-id='myCanvas' class='shareCanvas' style='width:296px;height:386px' catchtap></canvas>
+            <button class='saveImg' bindtap='beforeSaveImg'>保存图片</button>
+        </view>
+    </view>
+</block>

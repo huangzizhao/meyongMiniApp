@@ -1,0 +1,143 @@
+/* pages/systemNotification/systemNotification.wxss */
+
+.app{
+	 box-sizing: border-box;
+    background-color: rgba(244, 244, 244, 1);
+	position: relative;
+	margin-top: 85rpx;
+}
+
+.topMark{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 85rpx;
+	background-color: rgba(255,255,255,1);
+}
+
+.noticesTitle{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 85rpx;
+	background-color: #fff;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	padding: 0 20rpx;
+	justify-content: space-between;
+	font-size: 28rpx;
+	box-sizing: border-box;
+	color: rgba(153,153,153,1);
+	border-bottom:0.5px solid rgb(219, 218, 218) ;
+	font-weight: bold;
+}
+
+.readAll{
+	height: 100%;
+	display: inline-flex;
+	align-items: center;
+	color: rgba(133,144,166,1);
+	font-weight: bold;
+}
+
+.readAll .icon-get{
+	line-height:2.5;
+}
+
+.noNotices {
+    width: 400rpx;
+    margin: 15vh auto 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    color: rgb(185, 185, 185);
+    font-size: 30rpx;
+	text-align: center
+}
+
+.noNotices .icon-notices {
+    font-size: 200rpx;
+    margin-bottom: 10rpx;
+}
+
+.noticeBackground {
+    background-color: rgb(255, 255, 255);
+}
+
+
+.noticesList{
+	width: 100%;
+	display: flex;
+	box-sizing: border-box;
+	padding: 20rpx 0rpx 0rpx 20rpx;
+}
+
+.noticesList:active{
+	background-color: rgb(241, 241, 241)
+}
+
+.noticesList:last-child .noticeRight{
+	border: none;
+}
+
+.noticeLeft{
+	width: 100rpx;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end; 
+}
+
+.noticeLeft .noticeIcon{
+	width: 75rpx;
+	height: 75rpx;
+	border-radius: 50%;
+	position: relative;
+}
+
+.icon-systemNotice{
+	font-size:75rpx;
+	line-height: 1;
+	color: rgb(219, 218, 218);
+}
+
+.red{
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: inline-block;
+	width: 13rpx;
+	height: 13rpx;
+	border-radius: 50%;
+	background-color: rgba(241,64,60,1)
+}
+
+.noticeRight{
+	flex: 1;
+	height: 100%;
+	padding-bottom: 10rpx;
+	border-bottom:0.5px solid rgb(219, 218, 218);
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	box-sizing: border-box;
+	padding-left: 10rpx;
+	padding-right: 20rpx;
+}
+
+.noticeContent{
+	width: 100%;
+	font-size: 29rpx;
+	display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.noticeDate{
+	font-size: 20rpx;
+	color: rgb(219, 218, 218);
+}

@@ -1,0 +1,10 @@
+<import src="../we-cropper/we-cropper.wxml"/>
+
+<view style='height:{{cropperOpt.height}}px;'>
+  <template is="we-cropper" data="{{...cropperOpt}}"/>
+</view>
+
+<view class='cropper-buttons'>
+    <button bindtap="getCropperImage">下一步</button>
+    <button bindtap="cameraTap">重新选择</button>
+</view>

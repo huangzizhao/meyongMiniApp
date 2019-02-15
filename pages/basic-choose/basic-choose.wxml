@@ -1,0 +1,50 @@
+<!--pages/basic-choose/basic-choose.wxml-->
+<view class='bc-head'>
+  <view class='bc-head-content'>
+    <view class='bc-head-message'>
+      <view>
+        选择你的性别以及出生年份
+      </view>
+      <view>
+        蜜姐才能更好的帮助你制定调整计划哦
+      </view>
+    </view>
+    <view class='bc-head-man'>
+      <block wx:if="{{sex == 1}}">
+        <image src='../../img/boy-fill.png' style='margin-right: 160rpx;' bindtap='chooseSex' data-sex='1'></image>
+        <image src='../../img/girl.png'  bindtap='chooseSex' data-sex='0'></image>
+      </block>
+      <block wx:if="{{sex == 0}}">
+        <image src='../../img/boy.png' style='margin-right: 160rpx;' bindtap='chooseSex' data-sex='1'></image>
+        <image src='../../img/girl-fill.png'  bindtap='chooseSex' data-sex='0'></image>
+      </block>
+    </view>
+    <view class="bc-date">
+      <view style='font-size:32rpx;'>
+        生日
+      </view>
+      <view class='bc-picker'>
+        <picker mode="date" value="{{date}}" start="1650-01-01" end="{{date}}" bindchange="bindDateChange">
+            <view >{{date}}</view>
+        </picker>
+      </view>
+      <view class='bc-hr'></view>
+    </view>
+  </view>
+</view>
+<!-- <view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell weui-cell_select">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+        <view class="weui-label">出生日期</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+          <view class="weui-select weui-select_in-select-after">{{date}}</view>
+      </picker>
+    </view>
+ </view>
+</view> -->
+<view class='ct-footer'>
+    <button class='ct-btn-over' bindtap='over'>跳过</button>
+    <button class='ct-btn-next' bindtap='next'>下一步</button>
+</view>

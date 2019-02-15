@@ -1,0 +1,53 @@
+.cropper{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.cropper-wrapper{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: #e5e5e5;
+}
+
+.cropper-buttons .cropper-button {
+    width: 50%;
+    height: 48px;
+    text-align: center;
+}
+
+ .cropper-buttons .cropper-camera {
+    width: 100%;
+    height: 48px;
+    text-align: center;
+} 
+
+.cropper-buttons {
+  width: 100%;
+  flex-direction: row;
+  text-align: center;
+}
+
+.cropper-buttons button {
+  width: 50%;
+  display: inline-block;
+}
+
+.ct-upload {
+  height: 64px;
+  width: 64px;
+}
+
+.ct-camera {
+  height:32px;
+  width:32px;
+  margin-top:32px;
+  position:absolute;
+  right:15%;
+}
+

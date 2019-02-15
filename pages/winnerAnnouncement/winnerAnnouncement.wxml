@@ -1,0 +1,27 @@
+<!--pages/winnerAnnouncement/winnerAnnouncement.wxml-->
+<view class='app'>
+    <image class='bgImg' src='https://wx.meyoungmia.com/upload/winning/groupPurchaseBg.jpg' mode='aspectFill'></image>
+    <scroll-view class='scrollView ' scroll-y scroll-with-animation='true'>
+        <view class='activity' wx:for='{{activityList}}' wx:for-item='activityItem' wx:key='activityItem' wx:for-index='activityKey'>
+            <view class='activityDate'>第{{activityKey}}期：</view>
+            <block wx:for='{{activityItem}}' wx:for-item='winnerItem' wx:key='winnerItem' wx:for-index='winnerKey'>
+                <view class='projectItem'>
+                    <view class='projectName'>{{winnerKey}}</view>
+                    <block wx:if='{{winnerItem.length >0}}'>
+                        <block wx:for='{{winnerItem}}' wx:for-item='item' wx:key='item'>
+                            <view class='winners'>
+                                <text>{{item.name}}</text>
+                                <text>{{item.phone}}</text>
+                            </view>
+                        </block>
+                    </block>
+                    <block wx:else>
+                        <view class='noWinners'>
+                            <text>无人中奖</text>
+                        </view>
+                    </block>
+                </view>
+            </block>
+        </view>
+    </scroll-view>
+</view>

@@ -1,0 +1,6 @@
+{
+	"usingComponents": {
+		"notification": "../../../../../components/notification/notification",
+		"announcement": "../../../../../components/announcement/announcement"
+	}
+}

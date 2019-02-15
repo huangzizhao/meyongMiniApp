@@ -1,0 +1,115 @@
+<!--pages/bargain/bargain.wxml-->
+<wxs src="../../../../utils/filter.wxs" module="filters" />
+<view class='app'>
+    <view class='projectImg'>
+        <image src='{{cover}}' mode='aspectFill'></image>
+		<view class='cover'></view>
+    </view>
+    <view class='box'>
+        <view class='boxNav'>
+            <block wx:if='{{hasBargain}}'>
+                <view class='bargainTitle'>
+                    <text>您成功砍掉</text>
+                    <text class='red'>{{ownBargainNum}}</text>
+                    <text>元!</text>
+                </view>
+                <view class='lineNav' wx:if='{{percentage >= 0}}'>
+                    <view class='lineBox'>
+                        <view class='promptBox'>
+                            <view class='prompt'>
+                                已砍价了¥{{filters.toFix(totalBargainNum)}}
+                            </view>
+                        </view>
+                        <view class='lineColorBox'>
+                            <view class='lineColor' style='width:{{percentage}}%'></view>
+                        </view>
+                    </view>
+                    <text class='price'>¥{{originalPrice}}</text>
+                </view>
+                <view class='countdown'>
+                    <block wx:if="{{countDown.flag}}">
+                        <text>该活动已结束</text>
+                    </block>
+                    <block wx:else>
+                        <text>距活动结束</text>
+                        <view class='time'>{{countDown.hours}}:{{countDown.minutes}}:{{countDown.seconds}}</view>
+                    </block>
+                </view>
+                <view class='btnList'>
+                    <button open-type="share" disabled='{{countDown.flag}}'>邀请好友来砍价</button>
+                    <button bindtap='toHome'>返回首页</button>
+                </view>
+            </block>
+            <block wx:else>
+                <view class='lineNav' wx:if='{{percentage >= 0}}'>
+                    <view class='lineBox'>
+                        <view class='promptBox'>
+                            <view class='prompt'>
+                                已砍价了¥{{filters.toFix(totalBargainNum)}}
+                            </view>
+                        </view>
+                        <view class='lineColorBox'>
+                            <view class='lineColor' style='width:{{percentage}}%'></view>
+                        </view>
+                    </view>
+                    <text class='price'>¥{{originalPrice}}</text>
+                </view>
+                <view class='countdown'>
+                    <block wx:if="{{countDown.flag}}">
+                        <text>该活动已结束</text>
+                    </block>
+                    <block wx:else>
+                        <text>距活动结束</text>
+                        <view class='time'>{{countDown.hours}}:{{countDown.minutes}}:{{countDown.seconds}}</view>
+                    </block>
+                </view>
+                <view class='btnList'>
+                    <button bindtap='initiateBargain' disabled='{{countDown.flag}}'>发起砍价 更多优惠</button>
+                    <button bindtap='toHome'>返回首页</button>
+                </view>
+                <view class='guideDes'>一起来砍价，众人拾柴火焰高~</view>
+            </block>
+            <view class='bargainListBox' wx:if='{{bargainList.length > 0}}'>
+                <view class='bargainListBoxTitle'>砍价详情</view>
+                <view class='bargainListDes'>
+                    <text>已有</text>
+                    <text class='red'>{{bargainList.length}}</text>
+                    <text>人参与，共砍掉</text>
+                    <text class='red'>{{filters.toFix(totalBargainNum)}}</text>
+                    <text>元</text>
+                </view>
+                <view class='bargainList'>
+                    <view class='bargainItem' wx:for='{{bargainList}}' wx:key='item'>
+                        <view class='itemLeft'>
+                            <text class='bargainListIndex'>{{index + 1}}</text>
+                            <image src='{{item.avatar}}' mode='aspectFill' wx:if='{{item.avatar}}'></image>
+                            <image src='../../../../img/avatar.png' mode='aspectFill' wx:else></image>
+                            <text class='nickName'>{{item.nickName}}</text>
+                        </view>
+                        <view class='itemRight'>
+                            <text>砍了</text>
+                            <text class='red'>{{filters.toFix(item.costPrice)}}</text>
+                            <text>元</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='bargainMark' wx:if='{{showBargain}}'>
+        <view class='bargainToast'>
+            <image src='../../../../img/bargainToast.png' mode='aspectFit'></image>
+            <view class='descript' wx:if='{{hasBargain}}'>神奇一刀，帮TA砍掉</view>
+            <view class='descript' wx:else>发现实惠，助TA一臂之力</view>
+            <view class='costPrice' wx:if='{{hasBargain}}'>
+                <text>¥</text>
+                <text class='num'>{{ownBargainNum}}</text>
+            </view>
+            <button class='red' open-type="share" wx:if='{{hasBargain}}'>让更多人帮TA砍价</button>
+            <button class='red' bindtap='bargain' wx:else>帮TA砍一刀</button>
+        </view>
+        <view bindtap='cancel' style='width:100%;text-align: center'>
+            <text class="iconfont icon-guanbi1"></text>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,75 @@
+
+<view class='ly-background'>
+   <image src='https://wx.meyoungmia.com/upload/card/CJbg.png'></image> 
+</view>
+<view>
+  <view class='ly-background' style='height: 1365rpx;margin-top:10px;' >
+    <image src='https://wx.meyoungmia.com/upload/card/dakuang.png' style='width:708rpx;'></image>
+    <image src='https://wx.meyoungmia.com/upload/card/guizekuang.png' style='width:708rpx;height:331rpx;margin-top:30rpx;'></image>
+    <view class='rule' style='left:{{(width*2 - 680)/2}}rpx;'>
+      <view class='title'>使用规则</view>
+      <view class='content'>1.单笔消费金额在1万元以上，就可以使用优惠券，每次只能使用一张；</view>
+      <view class='content'>2.领取奖品后7个工作日内联系蜜姐激活奖品，以免过期作废；</view>
+      <view class='content'>3.激活的奖品记得要在六个月内使用，以免过期。</view>
+    </view>
+  </view>
+  <view class='ly-space'>
+      <block wx:for="{{gifts}}"> 
+         <image style='top:{{index == 0 || index == 2 ? 60 : index == 3 || index == 5 ? 80 :0}}px;' src='{{item.imgsUrl}}' animation="{{animations['animation'+index]}}"></image> 
+      </block>  
+  </view>
+  <view>
+    <image class='ly-wxm' style='left:{{(width - 280) / 2}}px;' animation="{{animations.animationWxm}}" src='https://wx.meyoungmia.com/upload/card/liumangxing.png'  ></image>
+  </view>
+  <block wx:if="{{!isClick}}">
+     <button class='ly-btn' bindtap='drawLucky'>开始抽奖</button> 
+  </block>
+</view>
+<block wx:if="{{showContact}}">
+  <view class='popup'>
+      <view class='text'>
+          <view style='margin:44rpx;'>
+        赶紧联系蜜姐来激活奖品吧
+          </view>
+          <view style='margin-top:100rpx;'>
+            <button style='border-bottom-left-radius: 10rpx;' bindtap='cancel'>取消</button>
+             <button style='color:#32CD32;border-bottom-right-radius: 10rpx;' bindtap='cancel' open-type="contact" session-from="weapp">确定</button> 
+          </view>
+      </view>
+  </view>
+</block>
+<modal hidden="{{hiddenBind}}" confirm-text="确定" title="提示" bindcancel="cancelBind" bindconfirm="agreeBind">
+    <view>
+      奖品只有绑定手机后才能领取哦！！
+    </view>
+    <view>
+      您尚未绑定手机，请前往绑定
+    </view>
+    <view style='color:	#A52A2A;font-size:12px;'>注意：取消绑定将会使奖品失效</view>
+</modal> 
+<block wx:if="{{!hidden}}">
+  <view class='lt-winGift' style='z-index:99'>
+    <view>
+      <view class='wg-img'>
+        <view class='wg-icon' bindtap='closePacket'>
+          <text class="iconfont icon-guanbi1" style='color:#808080;font-size: 60rpx' ></text>
+        </view>
+        <view class='wg-img-winGift'>
+            <image src='{{winGift.imgsUrl}}'></image>
+            <block wx:if="{{winGift.giftType != 2}}">
+              <view>恭喜恭喜，你中奖了！</view>
+            </block>
+            <block wx:if="{{winGift.giftType == 2}}">
+                <view>很遗憾，您没抽中奖品!</view>
+            </block>
+        </view>
+            <image class='wg-img-packet' src='../../img/winGift.png'></image>
+      </view>
+      <view>
+        <block wx:if="{{winGift.giftType != 2}}">
+           <button class='wg-share' open-type="share">分享好友 领取奖品</button>
+        </block>
+      </view>
+    </view>
+  </view>
+</block>

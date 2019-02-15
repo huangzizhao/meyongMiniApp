@@ -1,0 +1,151 @@
+/* pages/lottery/lottery.wxss */
+page {
+  text-align: center;
+}
+
+.ly-background {
+  height:1838rpx;
+  width:100%;
+  position: absolute;
+  z-index: -1;
+}
+
+.ly-background image {
+  height:100%;
+  width:100%;
+}
+
+.ly-space {
+  margin: auto;
+  padding-top: 320rpx; 
+  width: 300px;
+  height: 400px;
+}
+
+.ly-space image {
+  width: 89px;
+  height: 109px;
+  margin: 5px;
+  position: relative;
+}
+
+.ly-btn {
+  width: 240rpx;
+  color: rgb(159, 132, 102);
+  background: none;
+  font-size: 44rpx;
+  border: 1px rgb(159, 132, 102) solid ;
+  line-height: 2;
+  margin-top:30rpx;
+}
+
+.rule {
+  position: absolute;
+  font-size: 14px;
+  color: rgb(159, 132, 102);
+  width: 340px;
+  display: inline-block;
+  margin-top: 30rpx;
+}
+
+.rule .content {
+  margin-top: 10rpx;
+  width: 280px;
+  font-size: 11px;
+  margin-left: 70rpx;
+  text-align: left;
+}
+
+.rule .title {
+  margin-top: 30rpx;
+}
+
+.al-vi {
+  position:absolute;
+  margin-left:90px;
+  width:200px;
+}
+
+.lt-winGift {
+  height: 800px;
+  background-color: #000;
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
+
+.wg-img {
+   margin-top: 30%;
+}
+
+.wg-img-packet {
+  width:639rpx;
+  height: 610rpx;
+}
+
+.wg-img-winGift {
+  position: absolute;
+  display:inline-block;
+  width:639rpx;
+  margin-top: 240rpx;
+}
+
+.wg-icon {
+  position: absolute;
+  right: 20rpx;
+}
+
+.wg-img-winGift image {
+  width: 168rpx;
+  height: 210rpx;
+}
+
+.wg-img-winGift view {
+  font-size: 32rpx;
+  color: #FFFF00;
+  font-weight: bold;
+}
+
+.wg-share {
+  width: 450rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #FF0000;
+  background-color:  #FFFF00;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width:100%;
+  height:100%;
+  text-align:center;
+  background-color:rgba(0,0,0,0.7);
+}
+
+.text {
+  background-color: #fff;
+  color: #000;
+  font-size: 28rpx;
+  width: 450rpx;
+  margin-top: 50%;
+  display: inline-block;
+  border-radius: 10rpx;
+  height:250rpx;
+}
+
+.text button {
+  font-size: 30rpx;
+  display: inline-block;
+  width:50%;
+  border-radius: unset;
+  overflow: unset;
+}
+
+.ly-wxm {
+  position: absolute;
+  top: 415rpx;
+  width: 280px;
+  height: 280px;
+}
