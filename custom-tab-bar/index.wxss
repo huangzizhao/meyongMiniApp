@@ -32,11 +32,14 @@
 .tabBarItem cover-image{
   width: 27px;
   height: 27px;
+  box-sizing: border-box;
+  padding: 4px;
 }
 
 .tabBarItem cover-image.singleImg{
   width: 42px;
   height: 42px;
+  padding: 0;
 }
 
 .tabBarItem cover-view {

@@ -53,7 +53,6 @@ Page({
         this.getTabBar().setData({
           selected: 2
         })
-        console.log('selected:' + this.getTabBar().data.selected);
       }
 		this.getUnreadMessage();}
 })

@@ -101,7 +101,6 @@ Page({
         this.getTabBar().setData({
           selected: 0
         })
-        console.log('selected:'+this.getTabBar().data.selected);
       }
         this.getNotices();
 		// if(this.data.waterFallFlowData){
