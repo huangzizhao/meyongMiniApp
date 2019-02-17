@@ -1,23 +1,23 @@
 {
-	"pages": [
-		"pages/index/home",
-		"pages/lottery/lottery",
-		"pages/cutInside/cutInside",
-		"pages/content-type/content-type",
-		"pages/animation/animation",
-		"pages/future-me/future-me",
-		"pages/article-detail/article-detail",
-		"pages/binding-phone/binding-phone",
-		"pages/mine/mine",
-		"pages/article-list/article-list",
-		"pages/articleComment/articleComment",
-		"pages/basic-choose/basic-choose",
-		"pages/paymentResults/paymentResults",
-		"pages/winnerAnnouncement/winnerAnnouncement",
-		"pages/promotion/promotion",
-		"pages/articlePushTest/articlePushTest"
-	],
-	"subPackages": [
+  "pages": [
+    "pages/index/home",
+    "pages/mine/mine",
+    "pages/lottery/lottery",
+    "pages/cutInside/cutInside",
+    "pages/content-type/content-type",
+    "pages/animation/animation",
+    "pages/future-me/future-me",
+    "pages/article-detail/article-detail",
+    "pages/binding-phone/binding-phone",
+    "pages/article-list/article-list",
+    "pages/articleComment/articleComment",
+    "pages/basic-choose/basic-choose",
+    "pages/paymentResults/paymentResults",
+    "pages/winnerAnnouncement/winnerAnnouncement",
+    "pages/promotion/promotion",
+    "pages/articlePushTest/articlePushTest"
+  ],
+  "subPackages": [
     {
       "root": "mallModule",
       "pages": [
@@ -29,60 +29,61 @@
         "pages/bargainSet/bargain/bargain"
       ]
     },
-		{
-			"root": "notesModule",
-			"pages": [
+    {
+      "root": "notesModule",
+      "pages": []
+    },
+    {
+      "root": "mineModule",
+      "pages": [
+        "pages/wallet/wallet",
+        "pages/coupon/coupon",
+        "pages/ordersList/ordersList",
+        "pages/currentOrderInfo/currentOrderInfo",
+        "pages/systemNotification/systemNotification",
+        "pages/subscription/subscription",
+        "pages/pay/pay",
+        "pages/aboutMia/aboutMia"
       ]
-		},
-		{
-			"root": "mineModule",
-			"pages": [
-				"pages/wallet/wallet",
-				"pages/coupon/coupon",
-				"pages/ordersList/ordersList",
-				"pages/currentOrderInfo/currentOrderInfo",
-				"pages/systemNotification/systemNotification",
-				"pages/subscription/subscription",
-				"pages/pay/pay",
-				"pages/aboutMia/aboutMia"
-			]
-		}
-	],
-	"tabBar":{
-		"color":"#c2b9b7",
-		"selectedColor":"#000",
-		"borderStyle":"white",
-		"backgroundColor":"#FFF",
-		"list":[
-			{
-				"pagePath":"pages/index/home",
-				"text":"首页",
-				"iconPath":"./img/home.png",
-				"selectedIconPath":"./img/homeActive.png"
-			},
-			{
-				"pagePath": "pages/articlePushTest/articlePushTest",
-				"text": "",
-				"iconPath": "./img/notesPush.png"
-			},
-			{
-				"pagePath": "pages/mine/mine",
-				"text": "我的",
-				"iconPath": "./img/mine.png",
-				"selectedIconPath": "./img/mineActive.png"
-			}
-		]
-	},
-	"window": {
-		"backgroundTextStyle": "light",
-		"navigationBarBackgroundColor": "#000",
-		"navigationBarTitleText": "来美哈",
-		"navigationBarTextStyle": "white"
-	},
-	"networkTimeout": {
-		"request": 10000,
-		"connectSocket": 10000,
-		"uploadFile": 10000,
-		"downloadFile": 10000
-	}
+    }
+  ],
+  "tabBar": {
+    "custom": true,
+    "color": "#c2b9b7",
+    "selectedColor": "#000",
+    "borderStyle": "white",
+    "backgroundColor": "#FFF",
+    "list": [
+      {
+        "pagePath": "pages/index/home",
+        "text": "首页",
+        "iconPath": "/img/home.png",
+        "selectedIconPath": "/img/homeActive.png"
+      },
+      {
+        "pagePath": "pages/articlePushTest/articlePushTest",
+        "text": "",
+        "iconPath": "/img/notesPush.png",
+        "selectedIconPath":"/img/notesPush.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "/img/mine.png",
+        "selectedIconPath": "/img/mineActive.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "来美哈",
+    "navigationBarTextStyle": "white"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  }
 }

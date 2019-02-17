@@ -1,78 +1,78 @@
 <!--pages/person-center/person-center.wxml-->
-<view class='ly-background'>
+  <view class='ly-background'>
     <image src='../../img/card-bg.png' style='width:100%;margin-top:-10px;'></image>
     <view class='person-head'>
-        <image class='message-img' src='{{customer.headImg}}'></image>
-        <view class='message-author'>{{customer.name}}</view>
+      <image class='message-img' src='{{customer.headImg}}'></image>
+      <view class='message-author'>{{customer.name}}</view>
     </view>
-</view>
-<view class="weui-cells weui-cells_after-title" style='display:initial;font-size:20px;margin-top:20px;'>
+  </view>
+  <view class="weui-cells weui-cells_after-title" style='display:initial;font-size:20px;margin-top:20px;'>
     <navigator url="/mineModule/pages/wallet/wallet" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-        <view class="weui-cell__hd">
-            <image src='../../img/wallet.png' style='width:24px;height:18px;padding-top:10px;'></image>
-        </view>
-        <view class="weui-cell__bd" style='padding-left:21.5px;'>我的蜜罐</view>
-        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      <view class="weui-cell__hd">
+        <image src='../../img/wallet.png' style='width:24px;height:18px;padding-top:10px;'></image>
+      </view>
+      <view class="weui-cell__bd" style='padding-left:21.5px;'>我的蜜罐</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
     </navigator>
-</view>
-<view class="weui-cells weui-cells_after-title" style='display:initial;font-size:20px;margin-top:20px;'>
+  </view>
+  <view class="weui-cells weui-cells_after-title" style='display:initial;font-size:20px;margin-top:20px;'>
     <navigator url="/mineModule/pages/coupon/coupon" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-        <view class="weui-cell__hd">
-            <image src='../../img/coupon.png' style='width:24px;height:18px;padding-top:14px;'></image>
-        </view>
-        <view class="weui-cell__bd" style='padding-left:21.5px;'>我的优惠券</view>
-        <view class="weui-cell__ft weui-cell__ft_in-access">
-            <!-- {{amount >0 ? amount + '张可用' :'无卡券可用'}} -->
-        </view>
+      <view class="weui-cell__hd">
+        <image src='../../img/coupon.png' style='width:24px;height:18px;padding-top:14px;'></image>
+      </view>
+      <view class="weui-cell__bd" style='padding-left:21.5px;'>我的优惠券</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access">
+        <!-- {{amount >0 ? amount + '张可用' :'无卡券可用'}} -->
+      </view>
     </navigator>
-</view>
-<view class="weui-cells weui-cells_after-title" style='display:initial;font-size:20px;margin-top:20px;'>
+  </view>
+  <view class="weui-cells weui-cells_after-title" style='display:initial;font-size:20px;margin-top:20px;'>
     <navigator url="/mineModule/pages/ordersList/ordersList" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-        <view class="weui-cell__hd">
-            <image src='../../img/list-alt.png' style='width:24px;height:22px;padding-top:14px;'></image>
-        </view>
-        <view class="weui-cell__bd" style='padding-left:21.5px;'>我的订单</view>
-        <view class="weui-cell__ft weui-cell__ft_in-access">
-        </view>
+      <view class="weui-cell__hd">
+        <image src='../../img/list-alt.png' style='width:24px;height:22px;padding-top:14px;'></image>
+      </view>
+      <view class="weui-cell__bd" style='padding-left:21.5px;'>我的订单</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access">
+      </view>
     </navigator>
-</view>
-<view class="weui-cells weui-cells_after-title" style='display:initial;font-size:20px;margin-top:20px;'>
+  </view>
+  <view class="weui-cells weui-cells_after-title" style='display:initial;font-size:20px;margin-top:20px;'>
     <navigator url="/mineModule/pages/subscription/subscription" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-        <view class="weui-cell__hd">
-            <image src='../../img/money.png' style='width:24px;height:18px;padding-top:14px;'></image>
-        </view>
-        <view class="weui-cell__bd" style='padding-left:21.5px;'>我的预约金</view>
-        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      <view class="weui-cell__hd">
+        <image src='../../img/money.png' style='width:24px;height:18px;padding-top:14px;'></image>
+      </view>
+      <view class="weui-cell__bd" style='padding-left:21.5px;'>我的预约金</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
     </navigator>
-</view>
+  </view>
 
-<view class="weui-cells weui-cells_after-title" style='display:initial;font-size:20px;margin-top:20px;'>
+  <view class="weui-cells weui-cells_after-title" style='display:initial;font-size:20px;margin-top:20px;'>
     <navigator url="/mineModule/pages/systemNotification/systemNotification" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-        <view class="weui-cell__hd">
-            <image src='../../img/notice.png' style='width:24px;height:24px;padding-top:14px;'></image>
+      <view class="weui-cell__hd">
+        <image src='../../img/notice.png' style='width:24px;height:24px;padding-top:14px;'></image>
+      </view>
+      <view class="weui-cell__bd" style='padding-left:21.5px;'>
+        <view class='redNav'>
+          <text>系统通知</text>
+          <text class='red' wx:if='{{hasUnreadMessage}}'></text>
         </view>
-        <view class="weui-cell__bd" style='padding-left:21.5px;'>
-		<view class='redNav'>
-			<text>系统通知</text>
-			<text class='red' wx:if='{{hasUnreadMessage}}'></text>
-		</view>
-        </view>
-        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
     </navigator>
-</view>
+  </view>
 
-<view class="weui-cells weui-cells_after-title" open-type="contact" session-from="weapp" style='display:initial;font-size:16px;margin-top:20px;'>
+  <view class="weui-cells weui-cells_after-title" open-type="contact" session-from="weapp" style='display:initial;font-size:16px;margin-top:20px;'>
     <button class="kf_button weui-cell weui-cell_access" hover-class="weui-cell_active" open-type="contact" session-from="weapp">
-        <view class="weui-cell__hd">
-            <image src='../../img/contact2.png' style='width:24px;height:18px;padding-top:18px;'></image>
-        </view>
-        <view class="weui-cell__bd" style='padding-left:21.5px;font-size:20px;'>联系蜜姐</view>
-        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      <view class="weui-cell__hd">
+        <image src='../../img/contact2.png' style='width:24px;height:18px;padding-top:18px;'></image>
+      </view>
+      <view class="weui-cell__bd" style='padding-left:21.5px;font-size:20px;'>联系蜜姐</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
     </button>
-</view>
-<view class="weui-footer">
+  </view>
+  <view class="weui-footer">
     <view class="weui-footer__links">
-        <navigator class="weui-footer__link">蜜氧国际</navigator>
+      <navigator class="weui-footer__link">蜜氧国际</navigator>
     </view>
     <view class="weui-footer__text">Copyright © 2018</view>
-</view>
+  </view>

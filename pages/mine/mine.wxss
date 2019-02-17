@@ -1,4 +1,8 @@
 /* pages/person-center/person-center.wxss */
+page{
+  margin-bottom: 48px;
+  padding-bottom: env(safe-area-inset-bottom);
+}
 button::after{
   border: none;
 }
