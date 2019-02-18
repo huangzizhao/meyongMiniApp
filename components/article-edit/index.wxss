@@ -1,0 +1,33 @@
+/* components/article-edit/index.wxss */
+.scroll-x {
+  width: 100%;
+  height: 150rpx;
+  box-sizing: border-box;
+  padding: 12rpx 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.scroll-x .picturesList {
+  display: inline-flex;
+  margin: 0 18rpx;
+  align-items: center;
+  justify-content: space-between;
+  width: inherit;
+}
+
+.scroll-x .picturesList .picture {
+  display: inline-block;
+  margin: 0 10rpx 0 0;
+  padding: 0;
+  height: 126rpx;
+  width: 126rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  border:1rpx solid rgb(202, 202, 202);
+}
+
+.picture image{
+  width: 100%;
+  height: 100%;
+}

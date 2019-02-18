@@ -1,0 +1,34 @@
+<!--notesModule/pages/editPictures/editPictures.wxml-->
+<view class='app'>
+  <view class='swiper-container'>
+    <view class='swiperLabel' wx:if='{{tempImagesPath.length > 1}}'>{{swiperCurrent + 1}}/{{tempImagesPath.length}}</view>
+    <button class='next' bindtap='next'>下一步</button>
+    <swiper class='imgSwiper' indicator-dots="{{false}}" autoplay="{{false}}" interval="{{interval}}" duration="{{duration}}" circular="{{false}}" current="{{swiperCurrent}}" bindchange="swiperChange">
+      <block wx:for="{{tempImagesPath}}" wx:key='index' wx:for-item='item'>
+        <swiper-item>
+          <image src="{{item}}" class="slideImage" data-index='{{index}}' mode='{{modeList[index]}}' bindload='setMode'></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <view class='chooseLabelList'>
+    <view class="label {{item.selected ? 'hasSelected' : ''}}" wx:for='{{labelList}}' wx:for-item='item' wx:key='index' data-selectindex='{{index}}' bindtap="selectRep">
+      <text>{{item.label}}</text>
+    </view>
+  </view>
+  <view class='tabBar'>
+    <view class='tabBarItem'>
+      <text class='iconfont icon-beautify'></text>
+      <text>滤镜</text>
+    </view>
+    <view class='tabBarItem'>
+      <text class='iconfont icon-label'></text>
+      <text>标签</text>
+    </view>
+    <view class='tabBarItem'>
+      <text class='iconfont icon-stickers'></text>
+      <text>贴纸</text>
+    </view>
+  </view>
+</view>

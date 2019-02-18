@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "v-article-edit":"/components/article-edit/index"
+  }
+}

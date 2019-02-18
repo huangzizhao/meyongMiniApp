@@ -31,7 +31,9 @@
     },
     {
       "root": "notesModule",
-      "pages": []
+      "pages": [
+        "pages/editPictures/editPictures"
+      ]
     },
     {
       "root": "mineModule",
@@ -64,7 +66,7 @@
         "pagePath": "pages/articlePushTest/articlePushTest",
         "text": "",
         "iconPath": "/img/notesPush.png",
-        "selectedIconPath":"/img/notesPush.png"
+        "selectedIconPath": "/img/notesPush.png"
       },
       {
         "pagePath": "pages/mine/mine",

@@ -1,4 +1,5 @@
 // customTabBar/customTabBar.js
+
 Component({
   data: {
     selected: 0,
@@ -28,14 +29,35 @@ Component({
   attached(){},
   methods: {
     switchTab(e){
-      const data = e.currentTarget.dataset
-      const url = data.path
-      
-      this.setData({
-        selected:data.index
-      })
-      wx.switchTab({ url });
-      console.log(this.data.selected);
+		const data = e.currentTarget.dataset
+		const url = data.path
+		if (data.index === 1){
+			wx.chooseImage({
+				count:9,
+				sizeType:['original','compressed'],
+				sourceType:['album','camera'],
+				success:(res)=> {
+					let data = {
+						tempImages: res.tempFiles,
+						tempImagesPath: res.tempFilePaths
+					}
+					wx.navigateTo({
+						url: '/notesModule/pages/editPictures/editPictures?data=' + JSON.stringify(data),
+					})
+					// getApp().globalData.localStorages.storage.Set('tempImagesArray', data).then((res)=>{
+					// 	console.log('save success');
+					// }).catch((error)=>{
+					// 	console.log('save fail');
+					// });
+				}
+			})
+		}else{
+			this.setData({
+				selected: data.index
+			})
+			wx.switchTab({ url });
+			console.log(this.data.selected);
+		}
     }
   }
 })

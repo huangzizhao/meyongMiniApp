@@ -1,0 +1,10 @@
+<!--components/article-edit/index.wxml-->
+<scroll-view class='scroll-x' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll">
+  <view class='picturesList'>
+    <block wx:for='{{tempImagesPath}}' wx:key='item' wx:for-item="item">
+      <view class='picture' data-index='{{index}}'>
+        <image src='{{item}}' mode='aspectFill'></image>
+      </view>
+    </block>
+  </view>
+</scroll-view>

@@ -37,8 +37,8 @@
 }
 
 .tabBarItem cover-image.singleImg{
-  width: 42px;
-  height: 42px;
+  width: 45px;
+  height: 33.75px;
   padding: 0;
 }
 
