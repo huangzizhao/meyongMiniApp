@@ -41,9 +41,9 @@
 			"current": 0,
 			"list": [
 				{
-					"id": 0,
+					"id": -1,
 					"name": "详情",
-					"pathName": "mallModule/pages/notificationList/notificationList",
+					"pathName": "notesModule/pages/articlePush/articlePush",
 					"query": "",
 					"scene": null
 				}

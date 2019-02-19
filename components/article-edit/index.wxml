@@ -1,4 +1,8 @@
 <!--components/article-edit/index.wxml-->
+<view class='btnList'>
+  <view class='btn btn-default' bindtap='saveToDraft'>存草稿</view>
+  <view class='btn btn-danger' bindtap='articlePush'>发布</view>
+</view>
 <scroll-view class='scroll-x' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll">
   <view class='picturesList'>
     <block wx:for='{{tempImagesPath}}' wx:key='item' wx:for-item="item">
@@ -9,4 +13,4 @@
 	<view class='addNewPhoto' bindtap='addNewPhoto'></view>
   </view>
 </scroll-view>
-<textarea placeholder='这一刻，你想说点什么...' maxlength='-1' adjust-position='{{false}}' bindinput='getTextareaContent'></textarea>
+<textarea placeholder='这一刻，你想说点什么...' maxlength='-1' adjust-position='{{false}}' value='{{articleContent}}' bindinput='getTextareaContent'></textarea>

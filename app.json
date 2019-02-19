@@ -32,7 +32,8 @@
     {
       "root": "notesModule",
       "pages": [
-        "pages/editPictures/editPictures"
+        "pages/editPictures/editPictures",
+        "pages/articlePush/articlePush"
       ]
     },
     {

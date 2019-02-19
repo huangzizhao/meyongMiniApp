@@ -29,7 +29,7 @@ button::after {
 
 .next {
   position: absolute;
-  top: 15rpx;
+  top: 8rpx;
   right: 30rpx;
   width: 110rpx;
   height: 60rpx;
