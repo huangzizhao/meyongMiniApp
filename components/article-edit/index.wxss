@@ -1,33 +1,77 @@
 /* components/article-edit/index.wxss */
+
 .scroll-x {
-  width: 100%;
-  height: 150rpx;
-  box-sizing: border-box;
-  padding: 12rpx 0;
-  overflow: hidden;
-  white-space: nowrap;
+    width: 100%;
+    height: 220rpx;
+    box-sizing: border-box;
+    padding: 15rpx 0;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .scroll-x .picturesList {
-  display: inline-flex;
-  margin: 0 18rpx;
-  align-items: center;
-  justify-content: space-between;
-  width: inherit;
+    display: inline-flex;
+    margin: 0 18rpx;
+    align-items: center;
+    justify-content: space-between;
+    width: inherit;
 }
 
 .scroll-x .picturesList .picture {
-  display: inline-block;
-  margin: 0 10rpx 0 0;
-  padding: 0;
-  height: 126rpx;
-  width: 126rpx;
-  border-radius: 10rpx;
-  overflow: hidden;
-  border:1rpx solid rgb(202, 202, 202);
+    display: inline-block;
+    margin: 0 15rpx 0 0;
+    padding: 0;
+    height: 190rpx;
+    width: 190rpx;
+    border-radius: 15rpx;
+    overflow: hidden;
+    border: 1rpx solid rgb(216, 216, 216);
+    box-sizing: border-box;
 }
 
-.picture image{
-  width: 100%;
-  height: 100%;
+.picture image {
+    width: 100%;
+    height: 100%;
 }
+
+.addNewPhoto {
+    display: inline-block;
+    padding: 0;
+    height: 190rpx;
+    width: 190rpx;
+    border-radius: 15rpx;
+    overflow: hidden;
+    border: 1rpx solid rgb(216, 216, 216);
+    box-sizing: border-box;
+    
+    position: relative;
+}
+
+.addNewPhoto::before{
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+	width: 70rpx;
+	height: 4rpx;
+	border-radius: 2rpx;
+	background-color: rgb(216, 216, 216);
+}
+
+.addNewPhoto::after{
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+	height: 70rpx;
+	width: 4rpx;
+	border-radius: 2rpx;
+	background-color: rgb(216, 216, 216);
+}
+

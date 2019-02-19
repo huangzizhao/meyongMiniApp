@@ -33,7 +33,6 @@ Component({
 		const url = data.path
 		if (data.index === 1){
 			wx.chooseImage({
-				count:9,
 				sizeType:['original','compressed'],
 				sourceType:['album','camera'],
 				success:(res)=> {

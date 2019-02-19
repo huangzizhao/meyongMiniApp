@@ -6,5 +6,7 @@
         <image src='{{item}}' mode='aspectFill'></image>
       </view>
     </block>
+	<view class='addNewPhoto' bindtap='addNewPhoto'></view>
   </view>
 </scroll-view>
+<textarea placeholder='这一刻，你想说点什么...' maxlength='-1' adjust-position='{{false}}' bindinput='getTextareaContent'></textarea>
