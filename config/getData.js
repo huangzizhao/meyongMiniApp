@@ -195,3 +195,10 @@ export const createOrderTeam = (params) => {
 export const fightGroup = (params) => {
     return post('qpActivity/fightGroup', params);
 }
+
+/**
+ * @description 发布笔记
+ */
+export const getLabelList = (params) =>{
+	return get('', params);
+}

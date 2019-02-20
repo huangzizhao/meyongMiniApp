@@ -2,7 +2,7 @@
 const device = wx.getSystemInfoSync()
 const width = device.windowWidth
 const height = device.windowHeight
-import { getBindRecommendUser, getWaterFallFlow, getObtainNearestActivityInfo, getPurchaseInformation} from '../../config/getData'
+import { getBindRecommendUser, getObtainNearestActivityInfo, getPurchaseInformation} from '../../config/getData'
 Page({
 
     /**
@@ -21,16 +21,9 @@ Page({
         windowHeight: wx.getSystemInfoSync().windowHeight,
 
 		articles: [],
-		pageUtil: {
-			page: 1,
-			limit: 10,
-			order: '',
-			sidx: ''
-		},
-		totalPage: -1,
+		
 		enBottom: false,
 		canGetMore: true,
-		showSpinner: false,
 
         participateAvatar: '../../img/avatar.png',
         participateUserName: '',
@@ -288,14 +281,10 @@ Page({
     loadData: function() {
 		getWaterFallFlow(JSON.stringify(this.data.pageUtil)).then(e => {
 			if (e.code === 0) {
-				this.setData({
-					showSpinner: false
-				}, () => {
-					this.data.canGetMore = true
-					let view = this.selectComponent('#waterFallFlow');
-					view.fillData(false, e.res.list);
-					this.data.totalPage = e.res.totalPage;
-				});
+				this.data.canGetMore = true
+				let view = this.selectComponent('#waterFallFlow');
+				view.loadMore(false, e.res.list);
+				this.data.totalPage = e.res.totalPage;
 			}
 		});
     },
@@ -310,13 +299,9 @@ Page({
 			})
 		} else {
 			if (this.data.canGetMore) {
-				this.setData({
-					showSpinner: true
-				}, () => {
-					var pageUtil = this.data.pageUtil;
-					pageUtil.page++;
-					this.loadData();
-				});
+				var pageUtil = this.data.pageUtil;
+				pageUtil.page++;
+				this.loadData();
 			}
 		}
 		this.data.canGetMore = false;
@@ -344,7 +329,7 @@ Page({
 				getWaterFallFlow(JSON.stringify(this.data.pageUtil)).then(e => {
 					if (e.code === 0) {
 						let view = this.selectComponent('#waterFallFlow');
-						view.fillData(true, e.res.list);
+						view.loadMore(true, e.res.list);
 						wx.stopPullDownRefresh();
 						wx.hideNavigationBarLoading();
 					}

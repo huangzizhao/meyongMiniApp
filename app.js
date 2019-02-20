@@ -2,6 +2,7 @@
 import {
   LocalStorage
 } from "/config/localStorage.js"
+// import { saveFileRule } from '/config/storageOptimization.js'
 App({
   globalData: {
     customer: null,

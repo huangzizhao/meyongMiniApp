@@ -38,7 +38,10 @@ Component({
 				success:(res)=> {
 					let data = {
 						tempImages: res.tempFiles,
-						tempImagesPath: res.tempFilePaths
+						tempImagesPath: res.tempFilePaths,
+						articleContent: '',
+						articleTitle:'',
+						labelList:[]
 					}
 					wx.navigateTo({
 						url: '/notesModule/pages/editPictures/editPictures?data=' + JSON.stringify(data),

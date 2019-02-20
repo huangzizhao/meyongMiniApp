@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-	  pictureImagesList:''
+	  notesContent:''
   },
 
   /**
@@ -13,7 +13,7 @@ Page({
    */
   onLoad: function (options) {
 	  this.setData({
-		  pictureImagesList: options.data
+		  notesContent: options.data
 	  });
   },
 
@@ -42,9 +42,6 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    wx.navigateBack({
-      delta: 2
-    })
   },
 
   /**

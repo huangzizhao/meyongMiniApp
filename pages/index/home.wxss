@@ -105,46 +105,60 @@ button::after {
   height: 600rpx;
 }
 
-.scroll-x {
-  width: 100%;
-  height: 190rpx;
-  box-sizing: border-box;
-  padding: 12rpx 0;
-  overflow: hidden;
-  white-space: nowrap;
+.still-searchBox{
+	width: 100%;
+	background-color: white;
+	box-sizing: border-box;
+	padding: 14rpx 24rpx;
 }
 
-.scroll-x .itemList {
-  display: inline-flex;
-  margin: 0 18rpx;
-  align-items: center;
-  justify-content: space-between;
-  width: inherit;
+.still-searchBox .still-search{
+	width: 100%;
+	height: 60rpx;
+	border-radius: 30rpx;
+	display: inline-flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(246, 246, 246, 1);
+	color: rgb(182, 182, 182);
+	font-size: 28rpx;
 }
 
-.scroll-x .itemList .scroll-item {
-  display: inline-block;
-  margin: 0 10rpx 0 0;
-  padding: 0;
-  height: 166rpx;
-  width: 230rpx;
-  border-radius: 10rpx;
-  overflow: hidden;
-  background-color: rgba(240, 175, 175, 1);
+.still-search .iconfont{
+	color: rgba(112, 112, 112, 1);
+	font-size: 40rpx;
+	line-height: 40rpx;
+	margin-right: 15rpx;
 }
 
-.scroll-item image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.tabBar-top{
+	display: flex;
+	width: 100%;
+	height: 70rpx;
+	box-sizing: border-box;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: center;
+	background-color: rgb(250, 250, 250);
+	color: rgba(112, 112, 112, 1);
+	font-weight: 200; 
+	box-shadow: 0 3rpx 10rpx rgba(122, 122, 122, 0.1);
 }
 
-.scroll-x .itemList .scroll-item:last-child {
-  margin: 0;
+.tabBar-top .tabBarItem{
+	height: 100%;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 15rpx;
+	position: relative;
+	font-size: 28rpx;
 }
 
-.scroll-x .itemList .scroll-item::after {
-  border: none;
+.active{
+	font-weight: 600;
+	color: rgb(48, 47, 47);
 }
 
 .community {
@@ -152,7 +166,7 @@ button::after {
   box-sizing: border-box;
   padding-bottom: 40rpx;
 }
-
+/* 
 .community .community-nav {
   display: flex;
   align-items: center;
@@ -269,7 +283,7 @@ button::after {
   width: 80rpx;
   height: 80rpx;
   opacity: 0.6;
-}
+} */
 
 .bottomText {
   display: flex;
@@ -284,6 +298,49 @@ button::after {
   margin: 20rpx auto 0 auto;
   box-shadow: 0 4rpx 8rpx 0 rgba(0, 0, 0, 0.1);
 }
+
+
+/* .scroll-x {
+  width: 100%;
+  height: 190rpx;
+  box-sizing: border-box;
+  padding: 12rpx 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.scroll-x .itemList {
+  display: inline-flex;
+  margin: 0 18rpx;
+  align-items: center;
+  justify-content: space-between;
+  width: inherit;
+}
+
+.scroll-x .itemList .scroll-item {
+  display: inline-block;
+  margin: 0 10rpx 0 0;
+  padding: 0;
+  height: 166rpx;
+  width: 230rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  background-color: rgba(240, 175, 175, 1);
+}
+
+.scroll-item image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.scroll-x .itemList .scroll-item:last-child {
+  margin: 0;
+}
+
+.scroll-x .itemList .scroll-item::after {
+  border: none;
+} */
 
 /*广告活动页  暂时不用*/
 

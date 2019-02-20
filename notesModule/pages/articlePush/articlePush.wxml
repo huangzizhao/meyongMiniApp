@@ -1,2 +1,2 @@
 <!--notesModule/pages/articlePush/articlePush.wxml-->
-<v-article-edit picture-images-list='{{pictureImagesList}}'></v-article-edit>
+<v-article-edit notes-content-change='{{notesContent}}'></v-article-edit>

@@ -79,9 +79,9 @@
   },
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#000",
+    "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "来美哈",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "black"
   },
   "networkTimeout": {
     "request": 10000,

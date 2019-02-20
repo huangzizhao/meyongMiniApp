@@ -1,4 +1,4 @@
-<import src='../../templates/loading/loading.wxml' />
+
 <view class='page'>
     <view class='container-content'>
         <announcement announcement-list='{{announcementList}}'></announcement>
@@ -8,6 +8,17 @@
                 <image src="../../img/explanation.png" class="slideImage" mode='widthFix'></image>
             </swiper-item>
         </swiper>
+		<view class='still-searchBox'>
+			<view class='still-search'>
+				<text class='iconfont icon-sousuo'></text>
+				<text>输入标签关键字/作者名字/文章名字搜索</text>
+			</view>
+		</view>
+		<view class='tabBar-top'>
+			<view class='tabBarItem' style='justify-content: flex-end;'>最新</view>
+			<text style='font-size: 15rpx;color: rgba(61, 61, 61, 1);'>/</text>
+			<view class='tabBarItem active' style='justify-content: flex-start;'>关注</view>
+		</view>
         <!-- <view class='notice' bindtap='toActivityList'>
             <image src='../../img/explanation.png' />
         </view> -->
@@ -28,7 +39,7 @@
 
         <view class='community'>
             <waterFallFlow id='waterFallFlow' bind:myevent='updateData'></waterFallFlow>
-            <template is='spinner' wx:if='{{showSpinner}}' />
+           
             <view class='view-bottom' wx:if="{{enBottom}}">
                 已经到底了
             </view>
