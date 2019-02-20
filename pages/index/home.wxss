@@ -97,12 +97,12 @@ button::after {
 
 .bannerSwiper {
   width: 100vw;
-  height: 600rpx;
+  height: 460rpx;
 }
 
 .bannerSwiper image {
   width: 100vw;
-  height: 600rpx;
+  height: 460rpx;
 }
 
 .still-searchBox{

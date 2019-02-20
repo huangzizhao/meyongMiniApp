@@ -1,11 +1,11 @@
 {
   "enablePullDownRefresh": true,
-  "onReachBottomDistance": 1000,
+  "onReachBottomDistance": 50,
   "backgroundTextStyle": "dark",
   "backgroundColor": "#f5f8fa",
   "usingComponents": {
-    "notification": "../../components/notification/notification",
+    "v-notification": "../../components/notification/notification",
     "announcement": "../../components/announcement/announcement",
-    "waterFallFlow": "../../components/waterFallFlow/waterFallFlow"
+    "v-water-fallFlow": "../../components/waterFallFlow/waterFallFlow"
   }
 }

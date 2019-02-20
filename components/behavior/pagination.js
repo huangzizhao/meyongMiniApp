@@ -1,25 +1,35 @@
 const paginationBev = Behavior({
 	data: {
 		dataArray: [],
-		total: null,
 		noneResult: false,
-		loading: false
+		loading: false,
+    pageUtil: {
+      page: 1,
+      limit: 10,
+      order: '',
+      sidx: ''
+    },
+    totalPage: 2,
 	},
 	methods: {
-		setMoreData(dataArray) {
-			const tempArray = this.data.dataArray.concat(dataArray);
+		setMoreData(dataArray,isPull) {
+      if (isPull){
+        var tempArray = dataArray;
+      }else{
+        var tempArray = this.data.dataArray.concat(dataArray);
+      }
 			this.setData({
 				dataArray: tempArray
 			})
 		},
 
 		getCurrentStart() {
-			return this.data.dataArray.length
+      return this.data.pageUtil
 		},
 
-		setTotal(total) {
-			this.data.total = total
-			if (total == 0) {
+		setTotal(totalPage) {
+      this.data.totalPage = totalPage
+      if (totalPage == 0) {
 				this.setData({
 					noneResult: true
 				})
@@ -27,7 +37,7 @@ const paginationBev = Behavior({
 		},
 
 		hasMore() {
-			if (this.data.dataArray.length >= this.data.total) {
+      if (this.data.pageUtil.page >= this.data.totalPage) {
 				return false
 			} else {
 				return true
@@ -40,7 +50,7 @@ const paginationBev = Behavior({
 				noneResult: false
 			})
 
-			this.data.total = null
+      this.data.totalPage = 2
 		},
 		isLocked() {
 			return this.data.loading ? true : false
