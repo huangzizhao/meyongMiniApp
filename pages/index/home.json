@@ -1,6 +1,6 @@
 {
   "enablePullDownRefresh": true,
-  "onReachBottomDistance": 50,
+  "onReachBottomDistance": 500,
   "backgroundTextStyle": "dark",
   "backgroundColor": "#f5f8fa",
   "usingComponents": {

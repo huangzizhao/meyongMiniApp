@@ -1,5 +1,5 @@
 
-<view class='page'>
+<view class='app'>
     <view class='container-content'>
         <announcement announcement-list='{{announcementList}}'></announcement>
         <v-notification user-avatar='{{participateAvatar}}' user-name='{{participateUserName}}' time='{{participateTime}}'></v-notification>
@@ -8,7 +8,7 @@
                 <image src="../../img/explanation.png" class="slideImage" mode='aspectFill'></image>
             </swiper-item>
         </swiper>
-		<view class='still-searchBox'>
+		<view class='still-searchBox' bindtap='toSearch'>
 			<view class='still-search'>
 				<text class='iconfont icon-sousuo'></text>
 				<text>输入标签关键字/作者名字/文章名字搜索</text>

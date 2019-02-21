@@ -1,0 +1,12 @@
+<!--pages/search/search.wxml-->
+<view class='app'>
+	<view class='header'>
+		<view class='search-container'>
+			<text class='iconfont icon-sousuo'></text>
+			<input bindconfirm='onConfirm' bindinput='recordeKeyword' placeholder-class='in-bar' adjust-position='{{false}}' placeholder='输入关键字搜索' class='bar' focus='true' value='{{keyword}}'></input>
+			<text class='iconfont icon-inputClose inputClose'  bindtap='onDelete'></text>
+		</view>
+		<view class='search' bindtap='onConfirm'>搜索</view>
+	</view>
+	<v-water-fallFlow keyword='{{keyword}}' more='{{more}}' wx:if='{{showResult}}'></v-water-fallFlow>
+</view>

@@ -1,3 +1,4 @@
+@import "/ui/font.wxss";
 .waterFallItem {
     border-radius: 9rpx;
     overflow: hidden;
@@ -53,12 +54,16 @@
 .pushInfo .likeIt {
     display: inline-flex;
     align-items: center;
+	flex-flow: row nowrap;
 }
 
-.likeIt image {
-    vertical-align: middle;
-    width: 25rpx;
-    height: 25rpx;
+.likeIt .iconfont {
+    font-size: 30rpx;
+	line-height: 30rpx;
+}
+
+.likeIt .icon-xihuan {
+    color: rgba(255, 39, 65, 1);
 }
 
 .likeIt .num {

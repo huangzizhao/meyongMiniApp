@@ -1,11 +1,13 @@
 // components/article-edit/index.js
-import {} from '../../config/getData.js'
+// import {
+// 	supplementAlbumById
+// } from '../../config/getData.js'
 Component({
     /**
      * 组件的属性列表
      */
     properties: {
-		notesContentChange: {
+        notesContentChange: {
             type: 'String',
             value: '',
             observer: '_notesContentChange'
@@ -18,10 +20,11 @@ Component({
     data: {
         tempImages: [], //临时图片地址
         tempImagesPath: [], //临时图片路径
-		articleTitle:'',
+        articleTitle: '',
         articleContent: '',
         date: '',
-		labelList:[]
+        labelList: [],
+		loading:false
     },
     lifetimes: {
         detached() {
@@ -42,11 +45,12 @@ Component({
                 this.setData({
                     tempImages: data.tempImages,
                     tempImagesPath: data.tempImagesPath,
-					articleTitle: data.articleTitle,
+                    articleTitle: data.articleTitle,
                     articleContent: data.articleContent,
-					labelList: data.labelList
+                    labelList: data.labelList
                 });
             }
+			console.log(this.data.labelList);
         },
         addNewPhoto() {
             wx.chooseImage({
@@ -66,9 +70,9 @@ Component({
         getTextareaContent(e) {
             this.data.articleContent = e.detail.value;
         },
-		getInputTitle(e){
-			this.data.articleTitle = e.detail.value;
-		},
+        getInputTitle(e) {
+            this.data.articleTitle = e.detail.value;
+        },
         saveToDraft() {
             wx.showModal({
                 title: '提示',
@@ -78,9 +82,9 @@ Component({
                         let drafData = [{
                             tempImages: this.data.tempImages,
                             tempImagesPath: this.data.tempImagesPath,
-							articleTitle: this.data.articleTitle,
+                            articleTitle: this.data.articleTitle,
                             articleContent: this.data.articleContent,
-							labelList: this.data.labelList,
+                            labelList: this.data.labelList,
                             date: new Date()
                         }];
                         getApp().globalData.localStorages.storage.Set('articleDraftBox', drafData).then((res) => {
@@ -102,27 +106,27 @@ Component({
                     switch (res.tapIndex) {
                         case 0:
                             let data = {
-								tempImages: this.data.tempImages,
-								tempImagesPath: this.data.tempImagesPath,
-								articleTitle: this.data.articleTitle,
-								articleContent: this.data.articleContent,
-								labelList: this.data.labelList
+                                tempImages: this.data.tempImages,
+                                tempImagesPath: this.data.tempImagesPath,
+                                articleTitle: this.data.articleTitle,
+                                articleContent: this.data.articleContent,
+                                labelList: this.data.labelList
                             }
                             wx.redirectTo({
-								url: '/notesModule/pages/editPictures/editPictures?data=' + JSON.stringify(data)
+                                url: '/notesModule/pages/editPictures/editPictures?data=' + JSON.stringify(data)
                             })
                             break;
                         case 1:
-							Array.prototype.remove = function (from, to) {
-								var rest = this.slice((to || from) + 1 || this.length);
-								this.length = from < 0 ? this.length + from : from;
-								return this.push.apply(this, rest);
-							};
-							this.data.tempImages.remove(index);
-							this.data.tempImagesPath.remove(index)
+                            Array.prototype.remove = function(from, to) {
+                                var rest = this.slice((to || from) + 1 || this.length);
+                                this.length = from < 0 ? this.length + from : from;
+                                return this.push.apply(this, rest);
+                            };
+                            this.data.tempImages.remove(index);
+                            this.data.tempImagesPath.remove(index)
                             this.setData({
-								tempImages: this.data.tempImages,
-								tempImagesPath: this.data.tempImagesPath
+                                tempImages: this.data.tempImages,
+                                tempImagesPath: this.data.tempImagesPath
                             });
                             break;
                         default:
@@ -132,7 +136,69 @@ Component({
             })
         },
         articlePush() {
-			
+			if (this.data.articleTitle == '' || this.data.articleContent ==''){
+				wx.showModal({
+					title: '提示',
+					content: '请完善标题或者内容再提交发布',
+				})
+			}
+			else if (this.data.tempImages.length <= 0){
+				wx.showModal({
+					title: '提示',
+					content: '至少添加一张照片才能发布喔',
+				})
+			}else{
+				this.setData({
+					loading:true
+				});
+				let tags = this.data.labelList.filter(item => {
+					return item.selected
+				});
+				var tagsList = "";
+				tags.forEach(e => {
+					tagsList += e.label + ',';
+				});
+				tagsList = tagsList.substring(0, tagsList.length - 1);
+				// var formData = new FormData();
+				var data = {
+					title: this.data.articleTitle,
+					content:this.data.articleContent,
+					tag: tagsList
+				}
+				console.log(data);
+				// formData.append('title', this.data.articleTitle);
+				// formData.append('content', this.data.articleContent);
+				// formData.append('tags', tagsList);
+				wx.uploadFile({
+					url: getApp().globalData.server + 'article/publishArticle',
+					header: getApp().globalData.header,
+					filePath: this.data.tempImagesPath[0],
+					name: 'files',
+					formData: data,
+					success: (res) => {
+						if(res.statusCode === 200 && res.data.code === 0){
+							for (let i = 1; i < this.data.tempImagesPath.length;i++){
+								wx.uploadFile({
+									url: getApp().globalData.server +  'article/publishArticle/' + res.data.id,
+									header: getApp().globalData.header,
+									filePath: this.data.tempImagesPath[i],
+									name: 'files',
+									success:(res)=>{
+										if (i = this.data.tempImagesPath.length - 1){
+											this.setData({
+												loading: false
+											});
+										}
+									},
+									fail:(error)=>{
+										console.log(error);
+									}
+								})
+							}
+						}
+					}
+				})
+			}
         }
     }
 })

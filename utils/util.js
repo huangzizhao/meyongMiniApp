@@ -14,6 +14,20 @@ const formatNumber = n => {
     return n[1] ? n : '0' + n
 }
 
+//获取字符串字节长度
+const getByteLength = val =>{
+	var realLength = 0, len = val.length, charCode = -1;
+	for (var i = 0; i < len; i++) {
+		charCode = val.charCodeAt(i);
+		if (charCode >= 0 && charCode <= 128)
+			realLength += 1;
+		else
+			realLength += 2;
+	}
+	return realLength;
+}
+
 module.exports = {
-    formatTime: formatTime
+    formatTime: formatTime,
+	getByteLength
 }

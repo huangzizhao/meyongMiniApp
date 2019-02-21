@@ -14,7 +14,7 @@
                     <text>{{data.userName}}</text>
                 </view>
                 <view class='likeIt' data-record='{{data}}' catchtap='likeIt'>
-                    <image src='{{data.star == 0 ? "../../img/good.png" : "../../img/isGood.png"}}'></image>
+					<text class="iconfont {{data.star == 0 ? 'icon-xihuan1' : 'icon-xihuan red'}}"></text>
                     <text class='num'>{{data.thumb}}</text>
                 </view>
             </view>

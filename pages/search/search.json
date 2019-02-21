@@ -1,0 +1,7 @@
+{
+	"onReachBottomDistance": 500,
+	"backgroundColor": "#f5f8fa",
+	"usingComponents": {
+		"v-water-fallFlow": "../../components/waterFallFlow/waterFallFlow"
+	}
+}

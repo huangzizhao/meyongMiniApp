@@ -1,4 +1,6 @@
 <!--components/article-edit/index.wxml-->
+<import src='../../templates/loading/loading.wxml' />
+ <template is='spinner' wx:if='{{loading}}' />
 <view class='btnList'>
     <view class='btn btn-default' bindtap='saveToDraft'>存草稿</view>
     <view class='btn btn-danger' bindtap='articlePush'>发布</view>

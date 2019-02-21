@@ -1,8 +1,11 @@
 page {
   background-color: rgba(245, 248, 250, 1);
   position: relative;
-  margin-bottom: 48px;
   padding-bottom: env(safe-area-inset-bottom);
+}
+
+.app{
+	padding-bottom: 96rpx;
 }
 
 .dialog {
