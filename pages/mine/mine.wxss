@@ -1,66 +1,75 @@
 /* pages/person-center/person-center.wxss */
 page{
-  margin-bottom: 48px;
+  background-color: #fff;
   padding-bottom: env(safe-area-inset-bottom);
+}
+.app{
+  padding-bottom: 96rpx;
+  position: relative;
 }
 button::after{
   border: none;
 }
-.ly-background {
-  height:160px;
-  width:100%;
-  text-align: center;
-  overflow:hidden;
-  margin-bottom: 20px;
+.header .mineBackground{
+  width: 100vw;
+  height: 438rpx;
+  overflow: hidden;
 }
-
-.person-head {
+.mineBackground image{
   width: 100%;
-  position: absolute;
-  top: 50rpx;
+  height: 100%;
+  display: block;
 }
 
-.redNav{
-	display: inline-block;
-	position: relative;
-	padding-right: 20rpx
+.minePersonCenter{
+  position: relative;
+  box-sizing: border-box;
+  border-bottom: 2rpx solid #707070;
+  padding-bottom: 42rpx;
 }
 
-.redNav .red{
-	position: absolute;
-	top: 20rpx;
-	right: 0;
-	display: inline-block;
-	width: 13rpx;
-	height: 13rpx;
-	border-radius: 50%;
-	background-color: rgba(241,64,60,1)
+.personCenterBox{
+  width: calc(100vw - 72rpx);
+  margin: -230rpx auto 0 auto;
+  background-color: white;
+  height: 372rpx;
+  border-radius: 32rpx;
+  box-shadow: 0 4rpx 10rpx rgba(122, 122, 122, 0.1);
+  display: flex;
+  align-items: center;
 }
 
-.message-img {
-  margin: 10rpx 0 10rpx 0;
-  width: 64px; 
-  height: 64px; 
-  border: 2px solid #FFC125;
-  border-radius:50%; 
-  overflow:hidden;
-}
-.message-author {
-  font-size: 15px;
-  color: #fff;
-}
-.kf_button{
-  background-color: rgba(255, 255, 255, 0);
-  border: 0px;
-  height: 100rpx;
-  right: 0;
-  text-align:left;
+.funList{
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  box-sizing: border-box;
+  padding: 0 25rpx;
 }
 
-.weui-cell {
-  padding: 10px 15px 10px 27px;
+.funList .funItem{
+  flex: 1;
+  display: inline-flex;
+  flex-flow: column wrap;
+  justify-items: center;
+  align-content: center;
+  text-align: center;
+  padding: 0 30rpx;
+}
+
+.funList .dividingLine{
+  font-size: 20rpx;
+  margin-top: 10rpx;
+}
+
+.funItem .iconfont{
+  color: #000;
+  font-size: 45rpx;
+  line-height: 45rpx;
+  margin-bottom:10rpx;
   
 }
-.weui-cells {
-  line-height:2;
+
+.funItem text{
+  font-size: 20rpx;
 }

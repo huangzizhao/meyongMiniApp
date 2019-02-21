@@ -1,5 +1,37 @@
 <!--pages/person-center/person-center.wxml-->
-  <view class='ly-background'>
+<view class='app'>
+  <view class='header'>
+    <view class='mineBackground'>
+      <image src='/img/personCenterBg.jpg' mode='aspectFill'></image>
+    </view>
+    <view class='minePersonCenter'>
+      <view class='personCenterBox'>
+        <view class='funList'>
+          <view class='funItem'>
+            <text class='iconfont icon-order'></text>
+            <text>我的订单</text>
+          </view>
+          <text class='dividingLine'>/</text>
+          <view class='funItem'>
+            <text class='iconfont icon-coupon'></text>
+            <text>我的优惠券</text>
+          </view>
+          <text class='dividingLine'>/</text>
+          <view class='funItem'>
+            <text class='iconfont icon-bookingFee'></text>
+            <text>我的预定金</text>
+          </view>
+          <text class='dividingLine'>/</text>
+          <view class='funItem'>
+            <text class='iconfont icon-notices'></text>
+            <text>系统消息</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- <view class='ly-background'>
     <image src='../../img/card-bg.png' style='width:100%;margin-top:-10px;'></image>
     <view class='person-head'>
       <image class='message-img' src='{{customer.headImg}}'></image>
@@ -22,7 +54,6 @@
       </view>
       <view class="weui-cell__bd" style='padding-left:21.5px;'>我的优惠券</view>
       <view class="weui-cell__ft weui-cell__ft_in-access">
-        <!-- {{amount >0 ? amount + '张可用' :'无卡券可用'}} -->
       </view>
     </navigator>
   </view>
@@ -75,4 +106,4 @@
       <navigator class="weui-footer__link">蜜氧国际</navigator>
     </view>
     <view class="weui-footer__text">Copyright © 2018</view>
-  </view>
+  </view> -->
