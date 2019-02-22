@@ -150,13 +150,16 @@ button::after {
 }
 
 .tabBar-top .tabBarItem{
+	flex: 1;
 	height: 100%;
 	display: inline-flex;
 	align-items: center;
-	justify-content: center;
+	
 	padding: 0 15rpx;
+	box-sizing: border-box;
 	position: relative;
 	font-size: 28rpx;
+	
 }
 
 .active{

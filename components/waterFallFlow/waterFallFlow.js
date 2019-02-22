@@ -31,6 +31,14 @@ Component({
 		keyword:{
 			type: String,
 			observer: 'searchByKeyword'
+		},
+		authorId:{
+			type: String,
+			observer: 'getInfoByAuthorId'
+		},
+		collectionAuthorId:{
+			type: String,
+			observer: 'getInfoByCollectionAuthorId'
 		}
     },
 
@@ -89,6 +97,18 @@ Component({
 				this.data.pageUtil.keyword = newVal;
 				this.loadMore();
 			}
+		},
+		getInfoByAuthorId(newVal,oldVal){
+			this.data.isPull = true;
+			this.data.pageUtil.page = 1;
+			this.data.authorId = newVal;
+			this.loadMore();
+		},
+		getInfoByCollectionAuthorId(newVal, oldVal){
+			this.data.isPull = true;
+			this.data.pageUtil.page = 1;
+			this.data.collectionAuthorId = newVal;
+			this.loadMore();
 		},
         loadMore: function() {
             this.data.pageUtil.type = this.data.type;

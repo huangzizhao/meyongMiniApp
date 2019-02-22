@@ -116,12 +116,6 @@ export const getBargainList = (params) => {
     return get('qpActivity/listBargain/' + params);
 }
 
-//person-center ->
-/**获取是否有系统通知 */
-export const hasUnReadNotice = (params) => {
-    return get('qActivity/hasUnReadNotice', params);
-}
-
 //wallet ->
 export const getObtainCustomerBill = (params) => {
     return get('customer/obtainCustomerBill?radom=' + params);
@@ -199,6 +193,28 @@ export const fightGroup = (params) => {
 /**
  * @description 发布笔记
  */
-export const getLabelList = (params) =>{
-	return get('', params);
+
+
+/**
+ * @description 我的
+ */
+/**获取是否有系统通知 */
+export const hasUnReadNotice = (params) => {
+	return get('qActivity/hasUnReadNotice', params);
 }
+/**获取未读的评论数 */
+export const getCountUnReadReview = (params) =>{
+	return get('article/countUnReadReview',params);
+}
+
+/**评论已读 */
+export const readReview = (params) => {
+	return get('article/readReview', params);
+}
+
+/**评论我的 列表 */
+export const listMineReply = (params) => {
+	return get('article/listMineReply', params);
+}
+
+

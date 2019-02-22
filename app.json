@@ -15,7 +15,6 @@
 		"pages/paymentResults/paymentResults",
 		"pages/winnerAnnouncement/winnerAnnouncement",
 		"pages/promotion/promotion",
-		"pages/articlePushTest/articlePushTest",
 		"pages/search/search"
 	],
 	"subPackages": [
@@ -65,7 +64,7 @@
 				"selectedIconPath": "/img/homeActive.png"
 			},
 			{
-				"pagePath": "pages/articlePushTest/articlePushTest",
+				"pagePath": "pages/index/home",
 				"text": "",
 				"iconPath": "/img/notesPush.png",
 				"selectedIconPath": "/img/notesPush.png"

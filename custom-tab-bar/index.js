@@ -13,7 +13,7 @@ Component({
         selectedIconPath: "/img/homeActive.png"
       },
       {
-        pagePath: "/pages/articlePushTest/articlePushTest",
+        pagePath: "",
         text: "",
         iconPath: "/img/notesPush.png",
         selectedIconPath: "/img/notesPush.png"

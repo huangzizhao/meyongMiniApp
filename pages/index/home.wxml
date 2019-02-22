@@ -15,9 +15,9 @@
 			</view>
 		</view>
 		<view class='tabBar-top'>
-			<view class="tabBarItem {{switchTab == 'latest' ? 'active' : ''}}" style='justify-content: flex-end;' data-tab='latest' bindtap='switchTabChange'>最新</view>
+			<view class="tabBarItem {{switchTab == 'latest' ? 'active' : ''}}" style='justify-content: flex-end;padding-right:90rpx' data-tab='latest' bindtap='switchTabChange'>最新</view>
 			<text style='font-size: 15rpx;color: rgba(61, 61, 61, 1);'>/</text>
-			<view class="tabBarItem {{switchTab == 'follow' ? 'active' : ''}}" style='justify-content: flex-start;' data-tab='follow' bindtap='switchTabChange'>关注</view>
+			<view class="tabBarItem {{switchTab == 'follow' ? 'active' : ''}}" style='justify-content: flex-start;padding-left:90rpx' data-tab='follow' bindtap='switchTabChange'>关注</view>
 		</view>
         <!-- <view class='notice' bindtap='toActivityList'>
             <image src='../../img/explanation.png' />

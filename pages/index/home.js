@@ -24,7 +24,7 @@ Page({
         endmark: 0,
         windowHeight: wx.getSystemInfoSync().windowHeight,
 
-        switchTab: 'latest',
+        switchTab: '',
         more: '',
 
         participateAvatar: '../../img/avatar.png',
@@ -47,9 +47,9 @@ Page({
     },
 
     toSearch() {
-		wx.navigateTo({
-			url: '/pages/search/search'
-		})
+        wx.navigateTo({
+            url: '/pages/search/search'
+        })
     },
 
     /**
@@ -95,6 +95,15 @@ Page({
                 clearInterval(getCustomer);
             }
         }, 100);
+        var getArticle = setInterval(() => {
+            var sessionId = getApp().globalData.sessionId
+            if (sessionId != '') {
+                this.setData({
+					switchTab: 'latest'
+				});
+                clearInterval(getArticle);
+            }
+        }, 10);
         // wx.startPullDownRefresh();
     },
 

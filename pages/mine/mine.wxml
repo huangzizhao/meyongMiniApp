@@ -1,35 +1,76 @@
 <!--pages/person-center/person-center.wxml-->
 <view class='app'>
-  <view class='header'>
-    <view class='mineBackground'>
-      <image src='/img/personCenterBg.jpg' mode='aspectFill'></image>
-    </view>
-    <view class='minePersonCenter'>
-      <view class='personCenterBox'>
-        <view class='funList'>
-          <view class='funItem'>
-            <text class='iconfont icon-order'></text>
-            <text>我的订单</text>
-          </view>
-          <text class='dividingLine'>/</text>
-          <view class='funItem'>
-            <text class='iconfont icon-coupon'></text>
-            <text>我的优惠券</text>
-          </view>
-          <text class='dividingLine'>/</text>
-          <view class='funItem'>
-            <text class='iconfont icon-bookingFee'></text>
-            <text>我的预定金</text>
-          </view>
-          <text class='dividingLine'>/</text>
-          <view class='funItem'>
-            <text class='iconfont icon-notices'></text>
-            <text>系统消息</text>
-          </view>
+    <view class='header'>
+        <view class='mineBackground'>
+            <image src='/img/personCenterBg.jpg' mode='aspectFill'></image>
         </view>
-      </view>
+        <view class='minePersonCenter'>
+            <view class='personCenterBox'>
+                <view class='avatar'>
+                    <image src='{{customer.headImg}}' mode='aspectFill'></image>
+                </view>
+                <view class='mineInfo'>
+                    <view class='name'>
+                        <text>{{customer.name}}</text>
+                    </view>
+                </view>
+                <view class='funList'>
+                    <view class='funItem' data-tabname='order' bindtap='toFunlistItem'>
+                        <text class='iconfont icon-mine-order'></text>
+                        <text class='itemName'>我的订单</text>
+                    </view>
+                    <text class='dividingLine'>/</text>
+                    <view class='funItem' data-tabname='coupon' bindtap='toFunlistItem'>
+                        <text class='iconfont icon-coupon'></text>
+                        <text class='itemName'>我的优惠券</text>
+                    </view>
+                    <text class='dividingLine'>/</text>
+                    <view class='funItem' data-tabname='bookingFee' bindtap='toFunlistItem'>
+                        <text class='iconfont icon-bookingFee'></text>
+                        <text class='itemName'>我的预定金</text>
+                    </view>
+                    <text class='dividingLine'>/</text>
+                    <view class='funItem' data-tabname='notices' bindtap='toFunlistItem'>
+                        <text class='iconfont icon-mine-notices'></text>
+                        <text class='itemName'>系统消息</text>
+                    </view>
+                </view>
+                <view class='boxBottom'>
+                    <view class='commentCollecting' data-countunreadreview='{{countUnReadReview}}' bindtap='toCommentCollection'>
+                        <text>收到的评论</text>
+                        <view class='commentNum' wx:if='{{countUnReadReview > 0}}'>{{countUnReadReview}}</view>
+                    </view>
+                    <view class='followArea'>
+                        <view class='areaItem'>
+                            <view class='num'>
+                                <text>1</text>
+                            </view>
+                            <view class='itemName'>
+                                <text>关注</text>
+                            </view>
+                        </view>
+                        <view class='areaItem'>
+                            <view class='num'>
+                                <text>1</text>
+                            </view>
+                            <view class='itemName'>
+                                <text>粉丝</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class='tabBar-top'>
+            <view class="tabBarItem {{switchTab == 'notes' ? 'active' : ''}}" style='justify-content: flex-end;padding-right:90rpx' data-tab='notes' bindtap='switchTabChange'>笔记</view>
+            <text style='font-size: 15rpx;color: rgba(61, 61, 61, 1);'>/</text>
+            <view class="tabBarItem {{switchTab == 'collection' ? 'active' : ''}}" style='justify-content: flex-start;padding-left:90rpx' data-tab='collection' bindtap='switchTabChange'>收藏</view>
+        </view>
+        <view class='community'>
+            <v-water-fallFlow switch-tab='notes' more='{{more}}' author-id='mine' wx:if="{{switchTab == 'notes'}}"></v-water-fallFlow>
+            <v-water-fallFlow switch-tab='collection' more='{{more}}' collection-author-id='mine' wx:if="{{switchTab == 'collection'}}"></v-water-fallFlow>
+        </view>
     </view>
-  </view>
 </view>
 <!-- <view class='ly-background'>
     <image src='../../img/card-bg.png' style='width:100%;margin-top:-10px;'></image>

@@ -42,8 +42,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "搜素页",
-					"pathName": "pages/search/search",
+					"name": "我的",
+					"pathName": "pages/mine/mine",
 					"query": "",
 					"scene": null
 				}
