@@ -1,56 +1,6 @@
 <!--pages/articleComment/articleComment.wxml-->
-<import src='../../templates/loading/loading.wxml' />
-<block wx:if='{{commentList.length> 0}}'>
-    <view class='artileCommentList'>
-        <view class='commentItem' wx:for='{{commentList}}' wx:key='item'>
-            <view class='itemLeft'>
-                <view class='itemImg'>
-                    <image mode='aspectFill' class='avatarImg' src="{{item.reviewUserAvatar ? item.reviewUserAvatar :'../../img/avatar.png'}}"></image>
-                </view>
-            </view>
-            <view class='itemRight'>
-                <view class='infoAndReply'>
-                    <view class='info'>
-                        <text>{{item.reviewUserName}}</text>
-                        <text>{{item.createTime}}</text>
-                    </view>
-                    <text class='reply' data-replyname='{{item.reviewUserName}}' data-replyuser='{{item.reviewUser}}' catchtap='chooseReply'>回复</text>
-                </view>
-                <view class='replyContent' data-replyname='{{item.reviewUserName}}' data-replyuser='{{item.reviewUser}}' catchtap='chooseReply'>
-                    <block wx:if='{{item.replyUser}}'>
-                        <text>回复 @</text>
-                        <text style='color:rgba(91,146,225,1)'>{{item.replyUserName}}：</text>
-                    </block>
-                    <text>{{item.content}}</text>
-                </view>
-                <!-- <view class='underReplyList'>
-                <view class='underReplyItem'>
-                    <view class='underReplyTop'>
-                        <image mode='aspectFill' class='avatarImg' src='http://t.cn/EqTdMLW'></image>
-                        <view class='underRight'>
-                            <view class='infoAndReply'>
-                                <view class='info'>
-                                    <text>ColaTasty</text>
-                                    <text>2019-01-15 11:11</text>
-                                </view>
-                                <text class='reply' data-replyname='ColaTasty' data-id='1' catchtap='chooseReply'>回复</text>
-                            </view>
-                        </view>
-                    </view>
-                    <view class='underReplyContent'>
-                        <text>回复 @</text>
-                        <text style='color:rgba(91,146,225,1)'>萌叔</text>
-                        <text>：哈哈哈哈哈哈她们说性感中带点小清纯巴拉巴拉巴拉</text>
-                    </view>
-                </view>
-            </view> -->
-            </view>
-        </view>
-    </view>
-</block>
-<template is='loading' wx:if='{{showLoading}}' />
-<view class='postComment' wx:if='{{customer && pageUtil.articleId}}'>
-    <image mode='scaleToFill' src='{{customer.headImg}}'></image>
-    <input placeholder='{{reply}}' maxlength='-1' cursor-spacing='20rpx' value='{{comment.content}}' bindinput='getCommentContent'></input>
-    <button hover-class="none" bindtap='postComment'>发送</button>
+<view bind:touchmove='pageTouchmove'>
+<v-more-reviews bind:replySomeone="setReplyData" new-reviews='{{newReviews}}' article-id='{{articleId}}'></v-more-reviews>
+
+<v-post-reviews bind:refreshReviews='refreshReviews' customer='{{customer}}' reply-obj='{{replyObj}}' article-id='{{articleId}}' wx:if='{{showPostComment}}'></v-post-reviews>
 </view>

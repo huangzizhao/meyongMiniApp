@@ -1,0 +1,2 @@
+<!--mineModule/pages/attention/attention.wxml-->
+<v-follow-list more='{{more}}' type='{{type}}' customer-id='{{customerId}}'></v-follow-list>

@@ -1,0 +1,54 @@
+/* components/postComment/postComment.wxss */
+button {
+    border-radius: 0;
+    font-size: 30rpx;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+}
+
+button::after {
+    border: none;
+}
+
+.postComment {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    background-color: #fff;
+    height: 100rpx;
+    box-sizing: border-box;
+    padding: 20rpx 10rpx;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    z-index: 6;
+    box-shadow: 0px -2px 9px rgba(0, 0, 0, 0.2);
+}
+
+.postComment image {
+    width: 55rpx;
+    height: 55rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 10rpx;
+}
+
+.postComment input {
+    flex: 1;
+    height: 100%;
+    border-radius: 35rpx;
+    font-size: 26rpx;
+    box-sizing: border-box;
+    padding: 0 20rpx;
+    background-color: rgba(245, 245, 245, 1);
+}
+
+.postComment button {
+    width: 90rpx;
+    font-size: 28rpx;
+    color: rgb(90, 166, 236);
+}

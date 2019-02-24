@@ -217,4 +217,23 @@ export const listMineReply = (params) => {
 	return get('article/listMineReply', params);
 }
 
+/**关注列表 */
+export const getFollowList = (params) => {
+  return get('article/listAttentionAuthors', params);
+}
+
+/**粉丝列表 */
+export const getAttentionList = (params) => {
+  return get('article/listFans', params);
+}
+
+/**关注博主 */
+export const follow = (params) => {
+  return get('article/attentionAuthor', params);
+}
+
+/**取消关注博主 */
+export const cancelFollow = (params) => {
+  return get('article/cancelAttentionAuthor', params);
+}
 

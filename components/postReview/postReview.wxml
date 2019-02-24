@@ -1,0 +1,8 @@
+<!--components/postComment/postComment.wxml-->
+<!-- <import src='../../templates/loading/loading.wxml' />
+<template is='spinner' wx:if='{{loading}}' /> -->
+<view class='postComment'>
+    <image mode='scaleToFill' src="{{customer.headImg ? customer.headImg : '/img/avatar.png'}}"></image>
+    <input placeholder='{{reply}}' focus='{{true}}' maxlength='-1' cursor-spacing='20rpx' value='{{comment.content}}' bindinput='getCommentContent'></input>
+    <button hover-class="none" bindtap='postComment'>发送</button>
+</view>

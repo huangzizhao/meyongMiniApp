@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "navigationBarTitleText": "我的评论",
+  "usingComponents": {
+    "v-more-reviews": "../../components/moreReviews/moreReviews",
+    "v-post-reviews": "../../components/postReview/postReview"
+  }
 }

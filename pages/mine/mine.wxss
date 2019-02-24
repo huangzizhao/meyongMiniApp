@@ -2,7 +2,6 @@
 
 page {
     background-color: #fff;
-    padding-bottom: env(safe-area-inset-bottom);
 }
 
 .app {

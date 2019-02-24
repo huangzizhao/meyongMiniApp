@@ -1,5 +1,7 @@
 {
   "navigationBarTitleText": "个人中心",
   "backgroundColor": "#fff",
-  "usingComponents": {}
+  "usingComponents": {
+    "v-water-fallFlow": "../../components/waterFallFlow/waterFallFlow"
+  }
 }

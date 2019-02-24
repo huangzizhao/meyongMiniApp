@@ -1,12 +1,8 @@
 <!--pages/article-detail/article-detail.wxml-->
 <import src='../../templates/loading/loading.wxml' />
 <template is='loading' wx:if='{{showLoading}}' />
-<view class='postComment' wx:if='{{showPostComment}}'>
-  <image mode='scaleToFill' src='{{customer.headImg}}'></image>
-  <input placeholder='写评论...' maxlength='-1' cursor-spacing='20rpx' value='{{comment.content}}' adjust-position='{{adjustPosition}}' bindinput='getCommentContent' focus='{{autoFocus}}'></input>
-  <button hover-class="none" bindtap='postComment'>发送</button>
-</view>
-<view bindtouchend='articleTouchend'>
+<v-post-reviews customer='{{customer}}' article-id='{{articleId}}'  wx:if='{{showPostComment}}'></v-post-reviews>
+<view bindtouchend='pageTouchend'>
   <view style='background-color:#fff'>
     <block wx:if="{{article.coverType === 'img' && article.album.length > 0}}">
       <view class='swiper-container'>
@@ -72,7 +68,7 @@
         </view>
       </view>
     </view>
-    <view class='commentArea' wx:if='{{customer}}' data-articleid='{{comment.articleId}}' bindtap='openPostComment'>
+    <view class='commentArea' wx:if='{{customer}}' data-articleid='{{articleId}}' bindtap='openPostComment'>
       <image mode='scaleToFill' src='{{customer.headImg}}'></image>
       <text>添加评论...</text>
     </view>

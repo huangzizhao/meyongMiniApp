@@ -1,3 +1,7 @@
 {
-  "navigationBarTitleText": "更多评论"
+  "navigationBarTitleText": "更多评论",
+  "usingComponents": {
+    "v-more-reviews": "../../components/moreReviews/moreReviews",
+    "v-post-reviews":"../../components/postReview/postReview"
+  }
 }

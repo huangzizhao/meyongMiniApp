@@ -13,4 +13,5 @@
 } 
 page {
   background-color:	#F4F4F4;
+  padding-bottom: env(safe-area-inset-bottom);
 }

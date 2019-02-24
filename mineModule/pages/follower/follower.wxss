@@ -1,0 +1,4 @@
+/* mineModule/pages/follower/follower.wxss */
+page{
+  background-color: white;
+}

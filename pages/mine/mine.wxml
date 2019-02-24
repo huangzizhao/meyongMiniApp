@@ -41,7 +41,7 @@
                         <view class='commentNum' wx:if='{{countUnReadReview > 0}}'>{{countUnReadReview}}</view>
                     </view>
                     <view class='followArea'>
-                        <view class='areaItem'>
+                        <view class='areaItem' bindtap='toAttention'>
                             <view class='num'>
                                 <text>1</text>
                             </view>
@@ -49,7 +49,7 @@
                                 <text>关注</text>
                             </view>
                         </view>
-                        <view class='areaItem'>
+                        <view class='areaItem' bindtap='toFollow'>
                             <view class='num'>
                                 <text>1</text>
                             </view>

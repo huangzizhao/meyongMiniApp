@@ -1,0 +1,4 @@
+/* mineModule/pages/attention/attention.wxss */
+page{
+  background-color: white;
+}
