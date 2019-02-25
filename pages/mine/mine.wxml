@@ -67,8 +67,8 @@
             <view class="tabBarItem {{switchTab == 'collection' ? 'active' : ''}}" style='justify-content: flex-start;padding-left:90rpx' data-tab='collection' bindtap='switchTabChange'>收藏</view>
         </view>
         <view class='community'>
-            <v-water-fallFlow switch-tab='notes' more='{{more}}' author-id='mine' id-type='authorId'  wx:if="{{switchTab == 'notes'}}"></v-water-fallFlow>
-            <v-water-fallFlow switch-tab='collection' more='{{more}}' collection-author-id='mine' id-type='authorId' wx:if="{{switchTab == 'collection'}}"></v-water-fallFlow>
+            <v-water-fallFlow more='{{more}}' switch-tab='notes' id-type='authorId'  author-id='mine'  wx:if="{{switchTab == 'notes'}}"></v-water-fallFlow>
+            <v-water-fallFlow more='{{more}}' switch-tab='collection' id-type='authorId' collection-author-id='mine' wx:if="{{switchTab == 'collection'}}"></v-water-fallFlow>
         </view>
     </view>
 </view>

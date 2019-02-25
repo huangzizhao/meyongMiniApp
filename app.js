@@ -6,12 +6,12 @@ import {
 App({
   globalData: {
     customer: null,
-    // server: 'https://wx.meyoungmia.com/api/',
-    // serverImg: 'https://wx.meyoungmia.com/',
+    server: 'https://wx.meyoungmia.com/api/',
+    serverImg: 'https://wx.meyoungmia.com/',
     // server: 'https://wx.mymia.top/api/',
     // serverImg: 'https://wx.mymia.top/',
-    server: 'http://192.168.0.154:7099/api/',
-    serverImg: 'http://192.168.0.154:7099/',
+    // server: 'http://192.168.0.105:7099/api/',
+    // serverImg: 'http://192.168.0.105:7099/',
     sessionId: '',
     articles: [],
     header: {
