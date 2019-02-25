@@ -1,1 +1,144 @@
 /* notesModule/pages/author/author.wxss */
+page{
+	background-color: white;
+}
+button {
+    border-radius: 0;
+    font-size: 30rpx;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+}
+
+button::after {
+    border: none;
+}
+.authorInfo{
+	display: flex;
+	width: 100%;
+	flex-flow: row nowrap;
+	box-sizing: border-box;
+	padding: 10rpx 20rpx;
+	align-items: center;
+	margin-bottom: 20rpx;
+}
+.authorInfo .infoLeft{
+	width: 160rpx;
+	height: 160rpx;
+	overflow: hidden;
+	border-radius: 50%;
+	margin-right: 35rpx;
+}
+.infoLeft image{
+	width: 100%;
+	height: 100%;
+}
+.authorInfo .infoRight{
+	flex: 1;
+	display: flex;
+	flex-flow: column wrap;
+}
+.infoRight .boxTop{
+	display: flex;
+	width: 100%;
+	flex-flow: row nowrap;
+	justify-content: flex-start;
+}
+.boxTop .boxItem{
+	display: inline-flex;
+	margin: 0 50rpx;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-items: center;
+	font-size: 22rpx;
+	line-height: 22rpx;
+	font-weight: 200;
+	color: rgb(121, 118, 118);
+}
+.boxItem .num{
+	font-size: 30rpx;
+	line-height: 30rpx;
+	font-weight: normal;
+	margin-bottom: 10rpx;
+	color: black;
+}
+.boxBottom{
+	display: flex;
+	width: 100%;
+	flex-flow: row nowrap;
+	margin-top: 20rpx;
+}
+.boxBottom .focus{
+	flex: 1;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	height: 56rpx;
+	border-radius: 28rpx;
+	box-sizing: border-box;
+	border: 1px solid rgb(214, 212, 212);
+	color: white;
+	background-color:rgba(241, 181, 0, 1);
+	font-size: 28rpx;
+	line-height: 28rpx;
+}
+.boxBottom .focus.active{
+	color: rgb(59, 59, 59);
+	background-color:white;
+}
+.boxBottom .share{
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: 20rpx;
+	width: 90rpx;
+	height: 56rpx;
+	border-radius: 28rpx;
+	background-color:rgba(241, 181, 0, 1);
+}
+.share .iconfont{
+	font-size: 35rpx;
+	line-height: 40rpx;
+	color: white;
+	font-weight: 600;
+}
+.tabBar-top{
+	display: flex;
+	width: 100%;
+	height: 70rpx;
+	box-sizing: border-box;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: center;
+	background-color: rgb(255, 255, 255);
+	color: rgba(112, 112, 112, 1);
+	font-weight: 200; 
+	box-shadow: 0 3rpx 10rpx rgba(122, 122, 122, 0.1);
+}
+
+.tabBar-top .tabBarItem{
+	flex: 1;
+	height: 100%;
+	display: inline-flex;
+	align-items: center;
+	
+	padding: 0 15rpx;
+	box-sizing: border-box;
+	position: relative;
+	font-size: 28rpx;
+	
+}
+
+.active{
+	font-weight: 600;
+	color: rgb(48, 47, 47);
+}
+
+.community {
+  width: 100vw;
+  box-sizing: border-box;
+  padding-bottom: 40rpx;
+}

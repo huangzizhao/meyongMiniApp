@@ -48,9 +48,9 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "关注",
-					"pathName": "mineModule/pages/follower/follower",
+					"id": 1,
+					"name": "up主",
+					"pathName": "notesModule/pages/author/author",
 					"query": "",
 					"scene": null
 				}

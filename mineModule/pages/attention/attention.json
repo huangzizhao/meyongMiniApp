@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "v-follow-list":"../../components/followList/index"
+    "v-follow-list":"/components/followList/index"
   }
 }

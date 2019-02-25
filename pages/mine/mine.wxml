@@ -43,7 +43,7 @@
                     <view class='followArea'>
                         <view class='areaItem' bindtap='toAttention'>
                             <view class='num'>
-                                <text>1</text>
+                                <text>{{attention}}</text>
                             </view>
                             <view class='itemName'>
                                 <text>关注</text>
@@ -51,7 +51,7 @@
                         </view>
                         <view class='areaItem' bindtap='toFollow'>
                             <view class='num'>
-                                <text>1</text>
+                                <text>{{fans}}</text>
                             </view>
                             <view class='itemName'>
                                 <text>粉丝</text>
@@ -67,8 +67,8 @@
             <view class="tabBarItem {{switchTab == 'collection' ? 'active' : ''}}" style='justify-content: flex-start;padding-left:90rpx' data-tab='collection' bindtap='switchTabChange'>收藏</view>
         </view>
         <view class='community'>
-            <v-water-fallFlow switch-tab='notes' more='{{more}}' author-id='mine' wx:if="{{switchTab == 'notes'}}"></v-water-fallFlow>
-            <v-water-fallFlow switch-tab='collection' more='{{more}}' collection-author-id='mine' wx:if="{{switchTab == 'collection'}}"></v-water-fallFlow>
+            <v-water-fallFlow switch-tab='notes' more='{{more}}' author-id='mine' id-type='authorId'  wx:if="{{switchTab == 'notes'}}"></v-water-fallFlow>
+            <v-water-fallFlow switch-tab='collection' more='{{more}}' collection-author-id='mine' id-type='authorId' wx:if="{{switchTab == 'collection'}}"></v-water-fallFlow>
         </view>
     </view>
 </view>

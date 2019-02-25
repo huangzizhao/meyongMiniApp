@@ -1,7 +1,7 @@
 <!--components/followList/index.wxml-->
 <import src='../../templates/loading/loading.wxml' />
 <template is='loading' wx:if='{{loading}}' />
-<view class='followItem' wx:for='{{arrayList}}' wx:key='item' wx:for-item='item' data-authorid='{{item.id}}' bindtap='toAuthor'>
+<view class='followItem' wx:for='{{arrayList}}' wx:key='item' wx:for-item='item' data-authorid='{{item.customerId}}' bindtap='toAuthor'>
   <view class='followInfo'>
     <view class='avatar'>
       <image src="{{item.avatar ? item.avatar : '/img/avatar.png'}}" mode='aspectFill'></image>
@@ -9,10 +9,10 @@
     <view class='followContent'>
       <view class='name'>{{item.name}}</view>
       <view class='notesAndFans'>
-        <text wx:if='{{item.notes}}'>笔记·{{item.tweetsCount}} | </text>
-        <text>粉丝·{{item.followers}}</text>
+        <text wx:if='{{item.tweetsCount}}'>笔记·{{item.tweetsCount}} | </text>
+        <text>粉丝·{{item.fansCount}}</text>
       </view>
     </view>
   </view>
-  <view class="followBtn {{item.state === 1 ? 'active' : ''}}" data-index='{{index}}' data-attentionid='{{item.attentionId}}' data-state='{{item.state}}' catchtap='follow'>{{item.state === 1 ? '已关注' :'关注'}}</view>
+  <view class="followBtn {{item.attention === 1 ? 'active' : ''}}" data-index='{{index}}' data-attentionid='{{item.attentionId}}' data-attention='{{item.attention}}' catchtap='follow'>{{item.attention === 1 ? '已关注' :'关注'}}</view>
 </view>
