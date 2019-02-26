@@ -5,7 +5,9 @@ import {
   toVideoUrls,
   upThumb,
   review,
-  getReviewList
+  getReviewList,
+  follow,
+  cancelFollow
 } from '../../config/getData'
 var WxParse = require('../../components/wxParse/wxParse.js');
 const device = wx.getSystemInfoSync();
@@ -17,6 +19,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    notesList:[],
     showLoading: false,
     article: {},
     // recommend: [],
@@ -31,7 +34,7 @@ Page({
     autoFocus: false,
     adjustPosition: true,
     showPostComment: false,
-    articleId:'',
+    articleId: '',
     comment: {
       articleId: '',
       commentContent: ''
@@ -168,24 +171,24 @@ Page({
       }
     });
   },
-//   getRecommend: function(typeId, articleId) {
-//     wx.request({
-//       url: getApp().globalData.server + "article/getDetailRecommend",
-//       header: getApp().globalData.header,
-//       data: {
-//         typeId: typeId,
-//         articleId: articleId
-//       },
-//       method: 'GET',
-//       success: (res) => {
-//         if (res.data.res != null) {
-//           this.setData({
-//             recommend: res.data.res
-//           })
-//         }
-//       },
-//     })
-//   },
+  //   getRecommend: function(typeId, articleId) {
+  //     wx.request({
+  //       url: getApp().globalData.server + "article/getDetailRecommend",
+  //       header: getApp().globalData.header,
+  //       data: {
+  //         typeId: typeId,
+  //         articleId: articleId
+  //       },
+  //       method: 'GET',
+  //       success: (res) => {
+  //         if (res.data.res != null) {
+  //           this.setData({
+  //             recommend: res.data.res
+  //           })
+  //         }
+  //       },
+  //     })
+  //   },
   openArticle: function(event) {
     var articleId = event.currentTarget.dataset.id;
     if (articleId != null) {
@@ -194,7 +197,7 @@ Page({
       })
     }
   },
-  cilckGood: function() {
+  cilckGood() {
     if (this.data.article.star != 1) {
       upThumb({
         articleId: this.data.article.articleId
@@ -211,6 +214,7 @@ Page({
       });
     }
   },
+
   openPostComment(e) {
     let id = e.currentTarget.dataset.articleid;
     if (id) {
@@ -243,6 +247,44 @@ Page({
     wx.navigateTo({
       url: '../articleComment/articleComment?articleId=' + articleId
     })
+  },
+  currentFocus(e) {
+    let authorId = e.currentTarget.dataset.authorid,
+      articleId = e.currentTarget.dataset.articleid;
+    console.log('authorId:' + authorId + ',' + 'articleId:' + articleId);
+    if (this.data.article.attention === 0) {
+      this.setData({
+        [`article.attention`]: 1
+      });
+      if (typeof(authorId) === 'undefined'){
+        follow({
+          articleId: articleId
+        }).then(res => {
+          if(res.code === 0){
+            this.setData({
+              [`article.customerId`]: res.authorId
+            });
+          }
+        });
+      }else{
+        follow({
+          attentionId: authorId
+        }).then(res => {
+          if (res.code === 0) {
+            this.setData({
+              [`article.customerId`]: res.authorId
+            });
+          }
+        });
+      }
+    } else {
+      this.setData({
+        [`article.attention`]: 0
+      });
+      cancelFollow({
+        attentionId: authorId
+      }).then();
+    }
   },
   /**
    * 用户点击右上角分享

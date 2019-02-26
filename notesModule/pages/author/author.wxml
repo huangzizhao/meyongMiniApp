@@ -23,7 +23,7 @@
             </view>
         </view>
         <view class='boxBottom'>
-            <view class="focus {{authorData.attention === 1 ? 'active' : ''}}" bindtap='focus'>{{authorData.attention === 1 ? '已关注' : '关注'}}</view>
+            <view class="focus {{authorData.attention === 1 ? 'active' : ''}}"  bindtap='focus'>{{authorData.attention === 1 ? '已关注' : '关注'}}</view>
             <button class='share' open-type="share">
                 <text class='iconfont icon-share'></text>
             </button>

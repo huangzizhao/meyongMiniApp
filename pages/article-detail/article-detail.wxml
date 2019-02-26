@@ -3,34 +3,35 @@
 <template is='loading' wx:if='{{showLoading}}' />
 <v-post-reviews customer='{{customer}}' article-id='{{articleId}}' wx:if='{{showPostComment}}'></v-post-reviews>
 <view bindtouchend='pageTouchend'>
+  <view class='notesList'>
     <view class='authorInfo'>
-        <view class='infoLeft'>
-            <view class='userAvatar'>
-                <image class='message-img' src='{{article.avatar}}'></image>
-                <image mode='aspectFill' class='decorationImg' src='../../img/decoration.png'></image>
-            </view>
-            <view class='message-author'>{{article.userName}}</view>
+      <view class='infoLeft'>
+        <view class='userAvatar'>
+          <image class='message-img' src='{{article.avatar}}'></image>
+          <image mode='aspectFill' class='decorationImg' src='../../img/decoration.png'></image>
         </view>
-        <view class='focus'>关注</view>
-        <!-- <label class='message-time'>{{item.createTime}}</label> -->
-        <!-- <view class='message-zan iconfont icon-shijian'>{{article.relativeDate}}</view> -->
+        <view class='message-author'>{{article.userName}}</view>
+      </view>
+      <view class="focus {{article.attention === 1 ? 'active' : ''}}" data-authorid='{{customerId}}' data-articleid='{{articleId}}' bindtap='currentFocus'>{{article.attention === 1 ? '已关注' : '关注'}}</view>
+      <!-- <label class='message-time'>{{item.createTime}}</label> -->
+      <!-- <view class='message-zan iconfont icon-shijian'>{{article.relativeDate}}</view> -->
     </view>
     <block wx:if="{{article.coverType === 'img' && article.album.length > 0}}">
-        <view class='swiper-container'>
-            <view class='swiperLabel' wx:if='{{article.album.length > 0}}'>{{swiperCurrent + 1}}/{{article.album.length}}</view>
-            <swiper autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" current="{{swiperCurrent}}" bindchange="swiperChange">
-                <block wx:for="{{article.album}}" wx:key='{{item}}' wx:for-item='item'>
-                    <swiper-item>
-                        <image src="{{item}}" class="slideImage" mode='widthFix'></image>
-                    </swiper-item>
-                </block>
-            </swiper>
-            <view class='dotsList'>
-                <block wx:for="{{article.album}}" wx:key='{{item}}'>
-                    <view class="dot {{index === swiperCurrent ? 'active' : ''}}"></view>
-                </block>
-            </view>
+      <view class='swiper-container'>
+        <view class='swiperLabel' wx:if='{{article.album.length > 0}}'>{{swiperCurrent + 1}}/{{article.album.length}}</view>
+        <swiper autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" current="{{swiperCurrent}}" bindchange="swiperChange">
+          <block wx:for="{{article.album}}" wx:key='{{item}}' wx:for-item='item'>
+            <swiper-item>
+              <image src="{{item}}" class="slideImage" mode='widthFix'></image>
+            </swiper-item>
+          </block>
+        </swiper>
+        <view class='dotsList'>
+          <block wx:for="{{article.album}}" wx:key='{{item}}'>
+            <view class="dot {{index === swiperCurrent ? 'active' : ''}}"></view>
+          </block>
         </view>
+      </view>
     </block>
     <!-- <block wx:else>
       <view class="ad-hd" wx:if="{{article.coverType !== 'video'}}">
@@ -41,44 +42,46 @@
 
     <import src="../../components/wxParse/wxParse.wxml" />
     <view class="wxParse">
-        <view class="articleContent {{ellipsis?'ellipsis':'unEllipsis'}}">
-            <template is="wxParse" data="{{wxParseData:thatArticle.nodes}}" />
-        </view>
-        <view class='articleHideControl' bindtap='ellipsis'>展开</view>
+      <!-- {{ellipsis?'ellipsis':'unEllipsis'}} -->
+      <view class="articleContent">
+        <template is="wxParse" data="{{wxParseData:thatArticle.nodes}}" />
+      </view>
+      <!-- <view class='articleHideControl' bindtap='ellipsis'>展开</view> -->
     </view>
 
     <view class='functional-area'>
+      <view>
         <view class='praise' bindtap='cilckGood'>
-            <text class="iconfont {{article.star == 0 ? 'icon-xihuan1' : 'icon-xihuan'}}"></text>
-            <text>{{article.thumb}}</text>
+          <text class="iconfont {{article.star == 0 ? 'icon-xihuan1' : 'icon-xihuan'}}"></text>
+          <text>{{article.thumb}}</text>
         </view>
         <button class='share' open-type="share" hover-class="none" data-articletitle='{{article.title}}'>
-            <text class='iconfont icon-share'></text>
+          <text class='iconfont icon-share'></text>
         </button>
-        <!-- <view class='ad-ps-up'>
-            <image src='{{article.star == 0 ? "../../img/good.png" : "../../img/isGood.png"}}'></image>
-            <view style='color:{{article.star == 0 ? "#DDDDDD" : "#DC143C"}}'>{{article.thumb}}</view>
-        </view> -->
+      </view>
+      <view class='collection' bindtap='clickCollect'>
+        <text class="iconfont {{article.collect == 0 ? 'shoucang1' : 'shoucang'}}"></text>
+      </view>
     </view>
 
     <view class='comment' wx:if='{{commentListData.list.length > 0}}'>
-        <view class='commentBox' data-articleid='{{comment.articleId}}' catchtap='toArticleComment'>
-            <text class='commentNum'>共有{{commentListData.totalCount}}条评论</text>
-            <view class='commentList'>
-                <view class='listItem' wx:for='{{highQualityReview}}' wx:key='item'>
-                    <text>{{item.reviewUserName}}：</text>
-                    <text>{{item.content}}</text>
-                </view>
-            </view>
+      <view class='commentBox' data-articleid='{{comment.articleId}}' catchtap='toArticleComment'>
+        <text class='commentNum'>共有{{commentListData.totalCount}}条评论</text>
+        <view class='commentList'>
+          <view class='listItem' wx:for='{{highQualityReview}}' wx:key='item'>
+            <text>{{item.reviewUserName}}：</text>
+            <text>{{item.content}}</text>
+          </view>
         </view>
+      </view>
     </view>
     <view class='commentArea' wx:if='{{customer}}' data-articleid='{{articleId}}' bindtap='openPostComment'>
-        <image mode='scaleToFill' src='{{customer.headImg}}'></image>
-        <text>添加评论...</text>
+      <image mode='scaleToFill' src='{{customer.headImg}}'></image>
+      <text>添加评论...</text>
     </view>
-
-
-    <!-- <block wx:if="{{recommend.length > 0}}">
+  </view>
+</view>
+<!-- <block wx:if="{{recommend.length > 0}}">
     <view class='ad-int'>
       <view class='int-hd'>
         <text style='margin-left:20rpx'>你可能会感兴趣</text>
@@ -104,4 +107,3 @@
       </view>
     </view>
   </block> -->
-</view>
