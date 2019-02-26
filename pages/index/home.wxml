@@ -38,8 +38,8 @@
         </scroll-view> -->
 
         <view class='community'>
-            <v-water-fallFlow switch-tab = 'latest' more='{{more}}' wx:if="{{switchTab == 'latest'}}"></v-water-fallFlow>
-            <v-water-fallFlow switch-tab = 'follow' more='{{more}}' wx:if="{{switchTab == 'follow'}}"></v-water-fallFlow>
+            <v-water-fallFlow  switch-tab = 'latest' more='{{more}}' wx:if="{{switchTab === 'latest'}}"></v-water-fallFlow>
+            <v-water-fallFlow  switch-tab = 'follow' more='{{more}}' wx:if="{{switchTab === 'follow'}}"></v-water-fallFlow>
         </view>
         <!--蜜罐分享 bindtap='openShare'-->
         <!-- 个人中心

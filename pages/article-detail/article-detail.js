@@ -19,7 +19,7 @@ Page({
   data: {
     showLoading: false,
     article: {},
-    recommend: [],
+    // recommend: [],
     enThumb: 0,
     width: width,
     autoplay: false,
@@ -73,7 +73,7 @@ Page({
     getArticleById(articleId).then(e => {
       if (e.code === 0) {
         let article = e.article;
-        this.getRecommend(article.articleTypeId, options.articleId);
+        // this.getRecommend(article.articleTypeId, options.articleId);
         let content = article.content
         this.setData({
           article: article
@@ -168,24 +168,24 @@ Page({
       }
     });
   },
-  getRecommend: function(typeId, articleId) {
-    wx.request({
-      url: getApp().globalData.server + "article/getDetailRecommend",
-      header: getApp().globalData.header,
-      data: {
-        typeId: typeId,
-        articleId: articleId
-      },
-      method: 'GET',
-      success: (res) => {
-        if (res.data.res != null) {
-          this.setData({
-            recommend: res.data.res
-          })
-        }
-      },
-    })
-  },
+//   getRecommend: function(typeId, articleId) {
+//     wx.request({
+//       url: getApp().globalData.server + "article/getDetailRecommend",
+//       header: getApp().globalData.header,
+//       data: {
+//         typeId: typeId,
+//         articleId: articleId
+//       },
+//       method: 'GET',
+//       success: (res) => {
+//         if (res.data.res != null) {
+//           this.setData({
+//             recommend: res.data.res
+//           })
+//         }
+//       },
+//     })
+//   },
   openArticle: function(event) {
     var articleId = event.currentTarget.dataset.id;
     if (articleId != null) {

@@ -67,8 +67,24 @@
             <view class="tabBarItem {{switchTab == 'collection' ? 'active' : ''}}" style='justify-content: flex-start;padding-left:90rpx' data-tab='collection' bindtap='switchTabChange'>收藏</view>
         </view>
         <view class='community'>
-            <v-water-fallFlow more='{{more}}' switch-tab='notes' id-type='authorId'  author-id='mine'  wx:if="{{switchTab == 'notes'}}"></v-water-fallFlow>
-            <v-water-fallFlow more='{{more}}' switch-tab='collection' id-type='authorId' collection-author-id='mine' wx:if="{{switchTab == 'collection'}}"></v-water-fallFlow>
+            <view class='noData' wx:if="{{switchTab == 'notes' && noData}}">
+                <view class='noDataImg'>
+                    <image src='/img/noData.png'></image>
+                </view>
+                <view class='content'>
+                    <text>还没有笔记喔</text>
+                </view>
+            </view>
+            <view class='noData' wx:elif="{{switchTab == 'collection' && noData}}">
+                <view class='noDataImg'>
+                    <image src='/img/noData.png'></image>
+                </view>
+                <view class='content'>
+                    <text>还没有收藏任何笔记喔</text>
+                </view>
+            </view>
+            <v-water-fallFlow bind:noData='getWaterFallFlowData' more='{{more}}' switch-tab='notes' id-type='authorId' author-id='mine' wx:if="{{switchTab == 'notes'}}"></v-water-fallFlow>
+            <v-water-fallFlow bind:noData='getWaterFallFlowData' more='{{more}}' switch-tab='collection' id-type='authorId' collection-author-id='mine' wx:if="{{switchTab == 'collection'}}"></v-water-fallFlow>
         </view>
     </view>
 </view>

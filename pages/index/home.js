@@ -42,6 +42,7 @@ Page({
     switchTabChange(e) {
         let tab = e.currentTarget.dataset.tab;
         this.setData({
+			more:'',
             switchTab: tab
         });
     },
@@ -335,7 +336,7 @@ Page({
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function() {
+    onReachBottom() {
         //用时间戳产生不重复的随机数
         this.setData({
             more: new Date().getTime()

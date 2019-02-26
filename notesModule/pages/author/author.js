@@ -1,7 +1,7 @@
 // notesModule/pages/author/author.js
 import {
 	getAuthorInfo
-} from '../../config/getData'
+} from '../../../config/getData'
 Page({
 
     /**
@@ -13,7 +13,8 @@ Page({
 		authorId:'',
 		articleId:'',
         authorData: {},
-		idType:''
+		idType:'',
+		noData: false
     },
 
     /**
@@ -25,9 +26,15 @@ Page({
 			articleId: typeof (options.articleId) != 'undefined' ? options.articleId : null
         },()=>{
 			if (this.data.authorId === ''){
-				this.data.idType = 'articleId'
+				// this.data.idType = 'articleId'
+				this.setData({
+					idType: 'articleId'
+				});
 			}else{
-				this.data.idType = 'customerId'
+				this.setData({
+					idType: 'authorId'
+				});
+				// this.data.idType = 'customerId'
 			}
 			getAuthorInfo({
 				authorId: this.data.authorId,
@@ -39,11 +46,22 @@ Page({
 					});
 				}
 			})
+			var getArticle = setInterval(() => {
+				var sessionId = getApp().globalData.sessionId
+				if (sessionId != '') {
+					this.setData({
+						switchTab: 'notes'
+					});
+					clearInterval(getArticle);
+				}
+			}, 10);
 		});
     },
     switchTabChange(e) {
         let tab = e.currentTarget.dataset.tab;
         this.setData({
+			more:'',
+			noData: false,
             switchTab: tab
         });
     },
@@ -58,7 +76,29 @@ Page({
 			});
 		}
     },
-
+	toAttention(e) {
+		let num = e.currentTarget.dataset.num;
+		if (num > 0){
+			wx.navigateTo({
+				url: '/mineModule/pages/attention/attention?customerId=mine',
+			})
+		}
+	},
+	toFollow(e) {
+		let num = e.currentTarget.dataset.num;
+		if(num > 0){
+			wx.navigateTo({
+				url: '/mineModule/pages/follower/follower?customerId=mine',
+			})
+		}
+	},
+	getWaterFallFlowData(e) {
+		if (e.detail.length === 0) {
+			this.setData({
+				noData: true
+			});
+		}
+	},
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

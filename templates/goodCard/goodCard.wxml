@@ -6,7 +6,7 @@
         <view class='articleBar'>
             <text class='title'>{{data.title}}</text>
             <view class='pushInfo'>
-                <view class='userInfo'>
+                <view class='userInfo' data-authorid='{{data.customerId}}' data-articleid='{{data.articleId}}' bindtap='toAuthor'>
                     <view class='userAvatar'>
                         <image class='avatarImg' src='{{data.avatar}}'></image>
 						<image mode='aspectFill' class='decorationImg' src='../../img/decoration.png'></image>

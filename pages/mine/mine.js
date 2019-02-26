@@ -19,7 +19,8 @@ Page({
         more: '',
         countUnReadReview: 0,
         attention: 0,
-        fans: 0
+        fans: 0,
+		noData:false
     },
 
     /**
@@ -63,6 +64,13 @@ Page({
             }
         });
     },
+	getWaterFallFlowData(e){
+		if (e.detail.length === 0){
+			this.setData({
+				noData:true
+			});
+		}
+	},
     toCommentCollection(e) {
         let countUnReadReview = e.currentTarget.dataset.countunreadreview;
         countUnReadReview > 0 ? readReview().then() : ''
@@ -110,6 +118,8 @@ Page({
     switchTabChange(e) {
         let tab = e.currentTarget.dataset.tab;
         this.setData({
+			more: '',
+			noData:false,
             switchTab: tab
         });
     },
