@@ -18,17 +18,20 @@
     </view>
   </view>
   <view class='tabBar'>
-    <view class='tabBarItem'>
+    <view class='tabBarItem' data-funname='filter' bindtap='processFunction'>
       <text class='iconfont icon-beautify'></text>
       <text>滤镜</text>
     </view>
-    <view class='tabBarItem'>
+    <view class='tabBarItem' data-funname='label' bindtap='processFunction'>
       <text class='iconfont icon-label'></text>
       <text>标签</text>
     </view>
-    <view class='tabBarItem'>
+    <view class='tabBarItem' data-funname='stickers' bindtap='processFunction'>
       <text class='iconfont icon-stickers'></text>
       <text>贴纸</text>
     </view>
   </view>
+  <v-drawer-layer-pop>
+    <view slot='funct'></view>
+  </v-drawer-layer-pop>
 </view>

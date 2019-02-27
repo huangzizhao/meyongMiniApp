@@ -1,0 +1,4 @@
+<!--components/drawerLayerPop/index.wxml-->
+<view class='pop'>
+  <slot name="funct"></slot>
+</view>
