@@ -60,7 +60,8 @@ Component({
       this.data.comment.content = e.detail.value;
     },
     postComment(e) {
-      if (this.data.comment.articleId && this.data.comment.content != '' && typeof (this.data.comment.commentContent) != "undefined") {
+		// && typeof (this.data.comment.commentContent) != "undefined"
+      if (this.data.comment.articleId && this.data.comment.content != '') {
         this.setData({
           loading: true
         });

@@ -17,9 +17,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.setData({
-      articleId: options.articleId
-    });
+    // this.setData({
+    //   articleId: options.articleId
+    // });
+	this.setData({
+		more:new Date().getTime()
+	});
     let getCustomer = setInterval(() => {
       let customer = getApp().globalData.customer
       if (getApp().globalData.sessionId != null && customer != null) {

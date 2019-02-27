@@ -2,9 +2,12 @@
 
 page {
   word-break: normal;
-  background-color: white;
+  background-color: rgba(247, 247, 247, 1);
 }
-
+.notesList{
+	background-color: white;
+	margin-bottom:20rpx;
+}
 .swiper-container {
   position: relative;
   display: flex;
@@ -198,12 +201,16 @@ button::after {
 .functional-area {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   box-sizing: border-box;
   padding: 0 20rpx;
 }
 
-.functional-area .praise {
+.functional-area .areaRight{
+	display: inline-flex;
+	flex-flow: row nowrap;
+}
+.areaRight .praise {
   display: inline-flex;
   flex-flow: row nowrap;
   align-items: flex-start;

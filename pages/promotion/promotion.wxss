@@ -1,12 +1,37 @@
 /* pages/promotion/promotion.wxss */
 .app{
 	width: 100vw;
-	height: 100vh;
-	display: flex;
-	align-items: center;
-	overflow: hidden;
 }
-.activityImg{
-	width: 750rpx;
-	height:1449rpx;
+button {
+  border-radius: 0;
+  font-size: 30rpx;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+}
+
+button::after {
+  border: none;
+}
+
+.btnhover {
+  background-color: transparent;
+}
+.imgBox{
+	width: 100%;
+	position: relative;
+}
+.imgBox image{
+	width: 100%;
+	display: block;
+}
+
+.imgBox button{
+	position: absolute;
+	width: 100%;
+	height: 80rpx;
+	bottom: 0;
 }

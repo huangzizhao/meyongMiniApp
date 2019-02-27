@@ -4,8 +4,11 @@
         <announcement announcement-list='{{announcementList}}'></announcement>
         <v-notification user-avatar='{{participateAvatar}}' user-name='{{participateUserName}}' time='{{participateTime}}'></v-notification>
         <swiper class='bannerSwiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
-            <swiper-item bindtap='toActivityList'>
-                <image src="../../img/explanation.png" class="slideImage" mode='aspectFill'></image>
+            <!-- <swiper-item>
+                <image src="../../img/explanation.png" bindtap='toActivityList' class="slideImage" mode='aspectFill'></image>
+            </swiper-item> -->
+			<swiper-item bindtap='toPromotion'>
+                <image src="/img/womenBanner.jpg" class="slideImage" mode='widthFix'></image>
             </swiper-item>
         </swiper>
 		<view class='still-searchBox' bindtap='toSearch'>
@@ -55,12 +58,12 @@
     </button>
 
     <!-- 首页弹窗 -->
-    <!-- <view class='dialog' catchtap='cancel' wx:if='{{enShowHomeImg}}'>
+    <view class='dialog' catchtap='cancel' wx:if='{{enShowHomeImg}}'>
         <view class='dialogImgBox'>
-            <image src='../../img/dialog.png' catchtap='beforeSaveImg'></image>
+            <image src='/img/dialog.png' catchtap='toPromotion'></image>
         </view>
         <view class='dialogClose' catchtap='cancel'>
             <text class="iconfont icon-guanbi1"></text>
         </view>
-    </view> -->
+    </view>
 </view>

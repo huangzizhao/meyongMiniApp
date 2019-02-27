@@ -13,7 +13,7 @@ page {
   height: 100vh;
   top: 0;
   left: 0;
-  z-index: 5;
+  z-index: 10000;
   background-color: rgba(0, 0, 0, 0.4);
   display: flex;
   flex-flow: column wrap;
@@ -22,8 +22,10 @@ page {
 }
 
 .dialog .dialogImgBox {
+  /* width: 85vw;
+  height: 121.428vw; */
   width: 85vw;
-  height: 121.428vw;
+  height: 120.36vw;
   margin-bottom: 20rpx;
   border-radius: 10rpx;
   overflow: hidden;
@@ -99,12 +101,12 @@ button::after {
 
 .bannerSwiper {
   width: 100vw;
-  height: 460rpx;
+  height: 106.67vw;
 }
 
 .bannerSwiper image {
   width: 100vw;
-  height: 460rpx;
+  height: 106.67vw;
 }
 
 .still-searchBox{

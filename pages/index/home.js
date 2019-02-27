@@ -118,7 +118,9 @@ Page({
                 selected: 0
             })
         }
-        this.getNotices();
+		// 获取参与活动信息
+        // this.getNotices();
+
         // if(this.data.waterFallFlowData){
         // 	let view = this.selectComponent('#waterFallFlow');
         // 	view.fillData(true, this.data.waterFallFlowData);
@@ -392,79 +394,6 @@ Page({
                 }
             })
         }
-    },
-
-    //保存图片前校验用户是否有权限保存
-    beforeSaveImg: function() {
-        var that = this;
-        wx.showLoading({
-            title: '加载中...',
-        });
-        wx.getSetting({
-            success(res) {
-                if (!res.authSetting['scope.writePhotosAlbum']) {
-                    wx.authorize({
-                        scope: 'scope.writePhotosAlbum',
-                        success: (e) => {
-                            wx.hideLoading();
-                            that.saveImg();
-                        },
-                        fail: (e) => {
-                            wx.showModal({
-                                title: '提示',
-                                content: '无权限保存，点击确定去设置',
-                                success: (e) => {
-                                    wx.hideLoading();
-                                    if (e.confirm) {
-                                        wx.openSetting({
-                                            success(res) {
-                                                console.log(res.authSetting)
-                                            }
-                                        })
-                                    }
-                                }
-                            })
-                        }
-                    })
-                } else {
-                    wx.authorize({
-                        scope: 'scope.writePhotosAlbum',
-                        success: (e) => {
-                            wx.hideLoading();
-                            that.saveImg();
-                        },
-                        fail: (e) => {
-                            console.log(e);
-                        }
-                    })
-                }
-            },
-            fail: (res) => {
-                console.log(res);
-                wx.hideLoading();
-            }
-        })
-    },
-    saveImg() {
-        var that = this;
-        wx.saveImageToPhotosAlbum({
-            filePath: 'img/promotion.png',
-            success(e) {
-                wx.showToast({
-                    title: '成功保存到相册',
-                    icon: 'success',
-                    duration: 2000
-                })
-            },
-            fail: (e) => {
-                console.log(e);
-                wx.showToast({
-                    title: '已取消保存',
-                    icon: 'error',
-                    duration: 2000
-                })
-            }
-        })
     },
     intoArticlePush(e) {
         this.getUserInfo(e);

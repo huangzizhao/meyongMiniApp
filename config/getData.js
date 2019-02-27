@@ -52,10 +52,16 @@ export const getWaterFallFlow = (params) => {
 
 //article-detail
 
-/**获取文章内容 */
+/**获取当前文章内容 */
 export const getArticleById = (params) => {
     return get('article/getArticleById', params);
 }
+
+/**获取当前文章内容 */
+export const getSameTagArticles = (params) => {
+	return get('article/getSameTagArticles', params);
+}
+
 /**将腾讯视频包含vid的播放地址发送至此并转换成 特殊字符串*/
 export const changeUrlString = (params) => {
     return post('forward/forwarding', params);
@@ -63,6 +69,14 @@ export const changeUrlString = (params) => {
 /**将特殊字符串 转换成播放地址 */
 export const toVideoUrls = (params) => {
     return post('forward/forwarding', params);
+}
+/**收藏 */
+export const collectionArticle = (params) => {
+	return get('article/collectionArticle', params);
+}
+/**取消收藏 */
+export const cancelCollectionArticle = (params) => {
+	return get('article/cancelCollectionArticle', params);
 }
 /**点赞 */
 export const upThumb = (params) => {
@@ -215,6 +229,11 @@ export const readReview = (params) => {
 /**评论我的 列表 */
 export const listMineReply = (params) => {
 	return get('article/listMineReply', params);
+}
+
+/** 我的评论 列表*/
+export const listMineReviews = (params) => {
+	return get('article/listMineReviews', params);
 }
 
 
