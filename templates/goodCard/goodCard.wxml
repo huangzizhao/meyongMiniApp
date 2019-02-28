@@ -1,6 +1,6 @@
 <template name='goodCard'>
   <view class='waterFallItem' data-id='{{data.articleId}}' bindtap='toArticleDetail'>
-    <image src="{{data.showItem ? data.coverContent : ''}}" class="card-img img{{data.articleId}}" mode='aspectFill' style='width:{{data.itemWidth}}px;height:{{data.itemHeight}}px'></image>
+    <image src="{{data.showItem ? data.album[0] : ''}}" class="card-img img{{data.articleId}}" mode='aspectFill' style='width:{{data.itemWidth}}px;height:{{data.itemHeight}}px'></image>
     <!-- <text class='isVideo' wx:if="{{data.coverType == 'video'}}"></text> -->
     <image class='isVideo' src='../../img/video.png' wx:if="{{data.coverType == 'video'}}"></image>
     <view class='articleBar'>
