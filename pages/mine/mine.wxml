@@ -19,17 +19,17 @@
                         <text class='iconfont icon-mine-order'></text>
                         <text class='itemName'>我的订单</text>
                     </view>
-                    <text class='dividingLine'>/</text>
+                    <text class='dividingLine'>|</text>
                     <view class='funItem' data-tabname='coupon' bindtap='toFunlistItem'>
                         <text class='iconfont icon-coupon'></text>
                         <text class='itemName'>我的优惠券</text>
                     </view>
-                    <text class='dividingLine'>/</text>
+                    <text class='dividingLine'>|</text>
                     <view class='funItem' data-tabname='bookingFee' bindtap='toFunlistItem'>
                         <text class='iconfont icon-bookingFee'></text>
                         <text class='itemName'>我的预定金</text>
                     </view>
-                    <text class='dividingLine'>/</text>
+                    <text class='dividingLine'>|</text>
                     <view class='funItem' data-tabname='notices' bindtap='toFunlistItem'>
                         <text class='iconfont icon-mine-notices'></text>
                         <text class='itemName'>系统消息</text>
@@ -63,7 +63,7 @@
         </view>
         <view class='tabBar-top'>
             <view class="tabBarItem {{switchTab == 'notes' ? 'active' : ''}}" style='justify-content: flex-end;padding-right:90rpx' data-tab='notes' bindtap='switchTabChange'>笔记</view>
-            <text style='font-size: 15rpx;color: rgba(61, 61, 61, 1);'>/</text>
+            <text style='font-size: 15rpx;color: rgba(61, 61, 61, 1);'>|</text>
             <view class="tabBarItem {{switchTab == 'collection' ? 'active' : ''}}" style='justify-content: flex-start;padding-left:90rpx' data-tab='collection' bindtap='switchTabChange'>收藏</view>
         </view>
         <view class='community'>

@@ -32,7 +32,7 @@
 </view>
 <view class='tabBar-top'>
     <view class="tabBarItem {{switchTab == 'notes' ? 'active' : ''}}" style='justify-content: flex-end;padding-right:90rpx' data-tab='notes' bindtap='switchTabChange'>笔记</view>
-    <text style='font-size: 15rpx;color: rgba(61, 61, 61, 1);'>/</text>
+    <text style='font-size: 15rpx;color: rgba(61, 61, 61, 1);'>|</text>
     <view class="tabBarItem {{switchTab == 'collection' ? 'active' : ''}}" style='justify-content: flex-start;padding-left:90rpx' data-tab='collection' bindtap='switchTabChange'>收藏</view>
 </view>
 <view class='community'>
@@ -52,6 +52,6 @@
             <text>还没有收藏任何笔记喔</text>
         </view>
     </view>
-    <v-water-fallFlow bind:noData='getWaterFallFlowData' more='{{more}}' author-id="{{authorId ? authorId : articleId}}" id-type='{{idType}}'  switch-tab='notes'wx:if="{{switchTab == 'notes'}}"></v-water-fallFlow>
-    <v-water-fallFlow bind:noData='getWaterFallFlowData' more='{{more}}' collection-author-id='{{authorId ? authorId : articleId}}' id-type='{{idType}}'  switch-tab='collection' wx:if="{{switchTab == 'collection'}}"></v-water-fallFlow>
+    <v-water-fallFlow bind:noData='getWaterFallFlowData' more='{{more}}' author-id="{{postId}}" id-type='{{idType}}'  switch-tab='notes'wx:if="{{switchTab == 'notes'}}"></v-water-fallFlow>
+    <v-water-fallFlow bind:noData='getWaterFallFlowData' more='{{more}}' collection-author-id='{{postId}}' id-type='{{idType}}'  switch-tab='collection' wx:if="{{switchTab == 'collection'}}"></v-water-fallFlow>
 </view>

@@ -8,6 +8,9 @@ page {
 	background-color: white;
 	margin-bottom:20rpx;
 }
+.notesList:last-child{
+	margin-bottom: 0;
+}
 .swiper-container {
   position: relative;
   display: flex;
@@ -101,7 +104,7 @@ button::after {
 } */
 
 .title {
-  padding: 15rpx 20rpx;
+  padding: 20rpx 20rpx 15rpx 20rpx;
   font-weight: 550;
   font-size: 35rpx;
   line-height: 35rpx;
@@ -204,6 +207,7 @@ button::after {
   justify-content: space-between;
   box-sizing: border-box;
   padding: 0 20rpx;
+  margin-top: 15rpx;
 }
 
 .functional-area .areaRight{

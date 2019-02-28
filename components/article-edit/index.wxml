@@ -2,7 +2,7 @@
 <import src='../../templates/loading/loading.wxml' />
  <template is='spinner' wx:if='{{loading}}' />
 <view class='btnList'>
-    <view class='btn btn-default' bindtap='saveToDraft'>存草稿</view>
+    <!-- <view class='btn btn-default' bindtap='saveToDraft'>存草稿</view> -->
     <view class='btn btn-danger' bindtap='articlePush'>发布</view>
 </view>
 <scroll-view class='scroll-x' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll">
@@ -12,7 +12,9 @@
                 <image src='{{item}}' mode='aspectFill'></image>
             </view>
         </block>
-        <view class='addNewPhoto' bindtap='addNewPhoto'></view>
+
+		<!-- 暂时隐藏新增图片按钮 -->
+        <!-- <view class='addNewPhoto' bindtap='addNewPhoto'></view> -->
     </view>
 </scroll-view>
 <view class='contentBox'>

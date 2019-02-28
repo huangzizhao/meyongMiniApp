@@ -10,6 +10,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+		postId:'',
         switchTab: '',
         more: '',
         authorId: '',
@@ -18,6 +19,9 @@ Page({
         idType: '',
         noData: false
     },
+	isBlank(value) {
+		return !value || !/\S/.test(value)
+	},
 
     /**
      * 生命周期函数--监听页面加载
@@ -29,25 +33,32 @@ Page({
             authorId: options.authorId,
             articleId: options.articleId
         }, () => {
-            if (this.data.authorId === '') {
+			let a ={
+				authorId: options.authorId,
+				articleId: options.articleId
+			}
+			console.log(JSON.stringify(a));
+			if (this.isBlank(this.data.authorId) || this.data.authorId === 'null') {
                 // this.data.idType = 'articleId'
                 this.setData({
-                    idType: 'articleId'
+                    idType: 'articleId',
+					postId: this.data.articleId
                 });
             } else {
                 this.setData({
-                    idType: 'authorId'
+                    idType: 'authorId',
+					postId: this.data.authorId
                 });
                 // this.data.idType = 'customerId'
             }
-			if (typeof (this.data.authorId) != 'undefined') {
-                var getAuthorInfoById = {
-                    authorId: this.data.authorId
-                }
+			if (this.isBlank(this.data.authorId) || this.data.authorId === 'null') {
+				var getAuthorInfoById = {
+					articleId: this.data.articleId
+				}
             } else {
-                var getAuthorInfoById = {
-                    articleId: this.data.articleId
-                }
+				var getAuthorInfoById = {
+					authorId: this.data.authorId
+				}
             }
 			getAuthorInfo(getAuthorInfoById).then(res => {
                 if (res.code === 0) {
@@ -76,12 +87,12 @@ Page({
         });
     },
     focus() {
-        if (authorData.attention === 0) {
+        if (this.data.authorData.attention === 0) {
             this.setData({
                 [`authorData.attention`]: 1
             });
             follow({
-                attentionId: authorData.customerId
+                attentionId: this.data.authorData.customerId
             }).then(res => {
                 if (res.code === 0) {
                     this.setData({
@@ -94,7 +105,7 @@ Page({
                 [`authorData.attention`]: 0
             });
             cancelFollow({
-                attentionId: authorId
+				attentionId: this.data.authorData.customerId
             }).then();
         }
     },
@@ -102,7 +113,7 @@ Page({
         let num = e.currentTarget.dataset.num;
         if (num > 0) {
             wx.navigateTo({
-                url: '/mineModule/pages/attention/attention?customerId=mine',
+                url: '/mineModule/pages/attention/attention?customerId=mine'
             })
         }
     },

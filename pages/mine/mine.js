@@ -73,7 +73,12 @@ Page({
 	},
     toCommentCollection(e) {
         let countUnReadReview = e.currentTarget.dataset.countunreadreview;
-        countUnReadReview > 0 ? readReview().then() : ''
+		if (countUnReadReview > 0){
+			this.setData({
+				countUnReadReview:0
+			});
+			readReview().then()
+		}
         wx.navigateTo({
             url: '/mineModule/pages/commentCollection/commentCollection?countUnReadReview=' + countUnReadReview
         })

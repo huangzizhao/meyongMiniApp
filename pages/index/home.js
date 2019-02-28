@@ -26,6 +26,7 @@ Page({
 
         switchTab: '',
         more: '',
+		noData: false,
 
         participateAvatar: '../../img/avatar.png',
         participateUserName: '',
@@ -43,6 +44,7 @@ Page({
         let tab = e.currentTarget.dataset.tab;
         this.setData({
 			more:'',
+			noData: false,
             switchTab: tab
         });
     },
@@ -57,6 +59,11 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
+		if (options.uploadData > 0){
+			this.setData({
+				switchTab:this.data.switchTab
+			});
+		}
         this.getInitQuery();
         if (getApp().globalData.enShowHomeImg) {
             this.setData({
@@ -223,7 +230,13 @@ Page({
             }, 18000)
         });
     },
-
+	getWaterFallFlowData(e) {
+		if (e.detail.length === 0) {
+			this.setData({
+				noData: true
+			});
+		}
+	},
     getUserInfo: function(e) {
         //用户按了允许授权按钮
         if (e.detail.userInfo) {
@@ -291,9 +304,10 @@ Page({
     },
 
     //跳转至内嵌网页活动页面  
-    toPromotion() {
+    toPromotion(e) {
+		let pageName = e.currentTarget.dataset.pagename;
         wx.navigateTo({
-            url: '../promotion/promotion',
+			url: '/pages/promotion/promotion?pageName=' + pageName
         })
     },
 

@@ -148,9 +148,12 @@ Component({
 					content: '至少添加一张照片才能发布喔',
 				})
 			}else{
-				this.setData({
-					loading:true
-				});
+				// this.setData({
+				// 	loading:true
+				// });
+				wx.showLoading({
+					title: '上传中...'
+				})
 				let tags = this.data.labelList.filter(item => {
 					return item.selected
 				});
@@ -176,18 +179,27 @@ Component({
 					name: 'files',
 					formData: data,
 					success: (res) => {
-						if(res.statusCode === 200 && res.data.code === 0){
+						console.log(res);
+						res.data = JSON.parse(res.data);
+						if(res.data.code === 0){
 							for (let i = 1; i < this.data.tempImagesPath.length;i++){
 								wx.uploadFile({
-									url: getApp().globalData.server +  'article/publishArticle/' + res.data.id,
+									url: getApp().globalData.server +  'article/supplementAlbumById/' + res.data.id,
 									header: getApp().globalData.header,
 									filePath: this.data.tempImagesPath[i],
 									name: 'files',
 									success:(res)=>{
-										if (i = this.data.tempImagesPath.length - 1){
-											this.setData({
-												loading: false
-											});
+										res.data = JSON.parse(res.data);
+										if(res.data.code === 0){
+											if (i === this.data.tempImagesPath.length - 1) {
+												// this.setData({
+												// 	loading: false
+												// });
+												wx.hideLoading();
+												wx.redirectTo({
+													url: '/pages/index/home?uploadData=' + new Date().getTime()
+												})
+											}
 										}
 									},
 									fail:(error)=>{
@@ -196,6 +208,17 @@ Component({
 								})
 							}
 						}
+						else if(res.data.code === 500){
+							wx.hideLoading();
+							wx.showModal({
+								title: '提示',
+								content: res.data.msg,
+								showCancel:false
+							})
+						}
+					},
+					fail:(error)=>{
+						console.log(error);
 					}
 				})
 			}

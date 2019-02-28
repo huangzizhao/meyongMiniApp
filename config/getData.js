@@ -223,7 +223,7 @@ export const getCountUnReadReview = (params) =>{
 
 /**评论已读 */
 export const readReview = (params) => {
-	return get('article/readReview', params);
+	return post('article/readReview', params);
 }
 
 /**评论我的 列表 */

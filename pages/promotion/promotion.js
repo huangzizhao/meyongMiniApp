@@ -1,151 +1,97 @@
 // pages/promotion/promotion.js
+import {
+	postProductDataBuried
+} from '../../config/getData'
 Page({
 
-	/**
-	 * 页面的初始数据
-	 */
-	data: {
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        fromPage: '',
+        enterDomStartTime: 0,
+        partTime: 0
+    },
+    /**
+     * 提交埋点数据信息
+     */
+    postDomDataInfo(nextPageTitle) {
+        this.data.partTime += parseInt(new Date().getTime() / 1000) - this.data.enterDomStartTime;
+        //浏览时长不大于0的视为垃圾数据
+        if (this.data.partTime > 0) {
+            let productData = {
+                duringTime: this.data.partTime,
+				page: '三八女王节活动',
+                nextPage: nextPageTitle
+            }
 
-	},
+            postProductDataBuried(productData).then((e) => {
+                setTimeout(() => {
+                    this.data.partTime = 0;
+                }, 500);
+                console.log('记录成功');
+            });
+        }
+    },
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {
+        this.setData({
+            fromPage: options.pageName
+        });
+    },
 
-	/**
-	 * 生命周期函数--监听页面加载
-	 */
-	onLoad: function (options) {
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function() {
 
-	},
-	beforeSaveImg: function () {
-		var that = this;
-		wx.showLoading({
-			title: '加载中...',
-		});
-		wx.getSetting({
-			success(res) {
-				if (!res.authSetting['scope.writePhotosAlbum']) {
-					wx.authorize({
-						scope: 'scope.writePhotosAlbum',
-						success: (e) => {
-							wx.hideLoading();
-							that.saveImg();
-						},
-						fail: (e) => {
-							wx.showModal({
-								title: '提示',
-								content: '无权限保存，点击确定去设置',
-								success: (e) => {
-									wx.hideLoading();
-									if (e.confirm) {
-										wx.openSetting({
-											success(res) {
-												console.log(res.authSetting)
-											}
-										})
-									}
-								}
-							})
-						}
-					})
-				} else {
-					wx.authorize({
-						scope: 'scope.writePhotosAlbum',
-						success: (e) => {
-							wx.hideLoading();
-							that.saveImg();
-						},
-						fail: (e) => {
-							console.log(e);
-						}
-					})
-				}
-			},
-			fail: (res) => {
-				console.log(res);
-				wx.hideLoading();
-			}
-		})
-	},
-	saveImg(){
-		var that = this;
-		// wx.downloadFile({
-		// 	url: 'http://wap.mymia.top/luckyMoney/img/luckyMoney.jpg',
-		// 	success: (e) => {
-		// 		if (e.statusCode === 200) {
-		// 			that.setData({
-		// 				imgPath: e.tempFilePath
-		// 			},()=>{
-						wx.saveImageToPhotosAlbum({
-							filePath: 'img/promotion.png',
-							success(e) {
-								wx.showToast({
-									title: '成功保存到相册',
-									icon: 'success',
-									duration: 2000
-								})
-							},
-							fail: (e) => {
-								console.log(e);
-								wx.showToast({
-									title: '已取消保存',
-									icon: 'error',
-									duration: 2000
-								})
-							}
-						})
-		// 			});
-		// 		}
-		// 	},
-		// 	fail: (res) => {
-		// 		console.log(res);
-		// 	}
-		// });
-	},
+    },
 
-	/**
-	 * 生命周期函数--监听页面初次渲染完成
-	 */
-	onReady: function () {
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function() {
+        // 数据埋点
+        this.data.enterDomStartTime = 0;
+        this.data.enterDomStartTime = parseInt(new Date().getTime() / 1000);
+        console.log('enterDomStartTime：' + this.data.enterDomStartTime);
+    },
 
-	},
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function() {
+        // 数据埋点
+        this.data.partTime += parseInt(new Date().getTime() / 1000) - this.data.enterDomStartTime;
+    },
 
-	/**
-	 * 生命周期函数--监听页面显示
-	 */
-	onShow: function () {
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload: function() {
+        this.postDomDataInfo('首页');
+    },
 
-	},
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh: function() {
 
-	/**
-	 * 生命周期函数--监听页面隐藏
-	 */
-	onHide: function () {
+    },
 
-	},
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom: function() {
 
-	/**
-	 * 生命周期函数--监听页面卸载
-	 */
-	onUnload: function () {
+    },
 
-	},
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function() {
 
-	/**
-	 * 页面相关事件处理函数--监听用户下拉动作
-	 */
-	onPullDownRefresh: function () {
-
-	},
-
-	/**
-	 * 页面上拉触底事件的处理函数
-	 */
-	onReachBottom: function () {
-
-	},
-
-	/**
-	 * 用户点击右上角分享
-	 */
-	onShareAppMessage: function () {
-
-	}
+    }
 })

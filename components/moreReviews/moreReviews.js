@@ -57,7 +57,9 @@ Component({
         },
         setNewReviews(newVal, oldVal) {
 			this.data.isPull = true;
+			this.data.pageUtil.page = 1;
 			this.loadMore();
+			console.log('setNewReviews:' + JSON.stringify(this.data.pageUtil));
         },
         onReachBottom(newVal, oldVal) {
             this.data.isPull = false;
@@ -90,9 +92,16 @@ Component({
                             this.data.pageUtil.page++;
                             this.setMoreData(res.data.list, this.data.isPull);
                             this.unLocked();
-                            this.setData({
-                                commentList: res.data.list
-                            });
+							if(this.data.isPull){
+								this.setData({
+									commentList: res.data.list
+								});
+							}else{
+								this.data.commentList.push(...res.data.list);
+								this.setData({
+									commentList: this.data.commentList
+								});
+							}
                         }
                     }, () => {
                         this.unLocked();
@@ -105,8 +114,9 @@ Component({
 							this.data.pageUtil.page++;
 							this.setMoreData(res.data.list, this.data.isPull);
 							this.unLocked();
+							this.data.commentList.push(...res.data.list);
 							this.setData({
-								commentList: res.data.list
+								commentList: this.data.commentList
 							});
 						}
 					},()=>{

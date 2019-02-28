@@ -1,2 +1,2 @@
 <!--components/mark/index.wxml-->
-<view class='container'></view>
+<view class='mark'></view>

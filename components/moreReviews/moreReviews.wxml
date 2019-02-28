@@ -1,35 +1,35 @@
 <!--components/moreReviews/moreReviews.wxml-->
-<import src='../../templates/loading/loading.wxml' />
+<import src='/templates/loading/loading.wxml' />
 <template is='loading' wx:if='{{loading}}' />
 <block wx:if='{{commentList.length> 0}}'>
-  <view class='artileCommentList'>
-    <view class='commentItem' wx:for='{{commentList}}' wx:key='item'>
-      <view class='itemLeft'>
-        <view class='itemImg'>
-          <image mode='aspectFill' class='avatarImg' src="{{item.reviewUserAvatar ? item.reviewUserAvatar :'/img/avatar.png'}}"></image>
-        </view>
-      </view>
-      <view class='itemRight'>
-        <view class='infoAndReply'>
-          <view class='info'>
-            <text>{{item.reviewUserName}}</text>
-            <text>{{item.createTime}}</text>
-          </view>
-          <text class='reply' data-replyname='{{item.reviewUserName}}' data-replyuser='{{item.reviewUser}}' catchtap='chooseReply'>回复</text>
-        </view>
-        <view class='replyContent' data-replyname='{{item.reviewUserName}}' data-replyuser='{{item.reviewUser}}' catchtap='chooseReply'>
-          <block wx:if='{{item.replyUser}}'>
-            <block wx:if="{{articleId !=''}}">
-              <text>回复 @</text>
-              <text style='color:rgba(91,146,225,1)'>{{item.replyUserName}}：</text>
-            </block>
-            <block wx:else>
-              <text>回复你</text>
-            </block>
-          </block>
-          <text>{{item.content}}</text>
-        </view>
-        <!-- <view class='underReplyList'>
+    <view class='artileCommentList'>
+        <view class='commentItem' wx:for='{{commentList}}' wx:key='item'>
+            <view class='itemLeft'>
+                <view class='itemImg'>
+                    <image mode='aspectFill' class='avatarImg' src="{{item.reviewUserAvatar ? item.reviewUserAvatar :'/img/avatar.png'}}"></image>
+                </view>
+            </view>
+            <view class='itemRight'>
+                <view class='infoAndReply'>
+                    <view class='info'>
+                        <text>{{item.reviewUserName}}</text>
+                        <text>{{item.createTime}}</text>
+                    </view>
+                    <text class='reply' data-replyname='{{item.reviewUserName}}' data-replyuser='{{item.reviewUser}}' catchtap='chooseReply'>回复</text>
+                </view>
+                <view class='replyContent' data-replyname='{{item.reviewUserName}}' data-replyuser='{{item.reviewUser}}' catchtap='chooseReply'>
+                    <block wx:if='{{item.replyUser}}'>
+                        <block wx:if="{{articleId !=''}}">
+                            <text>回复 @</text>
+                            <text style='color:rgba(91,146,225,1)'>{{item.replyUserName}}：</text>
+                        </block>
+                        <block wx:else>
+                            <text>回复你</text>
+                        </block>
+                    </block>
+                    <text>{{item.content}}</text>
+                </view>
+                <!-- <view class='underReplyList'>
                 <view class='underReplyItem'>
                     <view class='underReplyTop'>
                         <image mode='aspectFill' class='avatarImg' src='http://t.cn/EqTdMLW'></image>
@@ -50,7 +50,17 @@
                     </view>
                 </view>
             </view> -->
-      </view>
+            </view>
+        </view>
     </view>
-  </view>
+</block>
+<block wx:else>
+    <view class='noReviewData'>
+        <view class='noDataImg'>
+            <image src='/img/noData.png'></image>
+        </view>
+        <view class='content'>
+            <text>暂无评论，快去评论吧~</text>
+        </view>
+    </view>
 </block>

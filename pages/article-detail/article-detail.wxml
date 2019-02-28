@@ -1,7 +1,7 @@
 <!--pages/article-detail/article-detail.wxml-->
 <import src='../../templates/loading/loading.wxml' />
-<template is='loading' wx:if='{{showLoading}}' />
-<v-post-reviews customer='{{customer}}' article-id='{{commentArticleId}}' wx:if='{{showPostComment}}'></v-post-reviews>
+<template is='loading' wx:if='{{loading}}' />
+<v-post-reviews bind:refreshReviews='refreshReviews' customer='{{customer}}'  article-id='{{commentArticleId}}' wx:if='{{showPostComment}}'></v-post-reviews>
 <view bindtouchend='pageTouchend'>
     <view class='notesList' wx:for='{{notesList}}' wx:for-item='item' wx:key='item'>
         <view class='authorInfo'>
@@ -12,7 +12,7 @@
                 </view>
                 <view class='message-author'>{{notesList[index].article.userName}}</view>
             </view>
-            <view class="focus {{notesList[index].article.attention === 1 ? 'active' : ''}}" data-index='{{index}}' data-authorid='{{notesList[index].customerId}}' data-articleid='{{notesList[index].articleId}}' bindtap='focus'>{{notesList[index].article.attention === 1 ? '已关注' : '关注'}}</view>
+            <view class="focus {{notesList[index].article.attention === 1 ? 'active' : ''}}" data-index='{{index}}' data-authorid='{{notesList[index].article.customerId}}' data-articleid='{{notesList[index].article.articleId}}' bindtap='focus'>{{notesList[index].article.attention === 1 ? '已关注' : '关注'}}</view>
             <!-- <label class='message-time'>{{item.createTime}}</label> -->
             <!-- <view class='message-zan iconfont icon-shijian'>{{article.relativeDate}}</view> -->
         </view>
@@ -27,8 +27,8 @@
                     </block>
                 </swiper>
                 <view class='dotsList'>
-                    <block wx:for="{{notesList[index].article.album}}" wx:key='item'>
-                        <view class="dot {{index === notesList[index].swiperCurrent ? 'active' : ''}}"></view>
+                    <block wx:for="{{notesList[index].article.album}}" wx:key='item' wx:for-index='swiperIndex'>
+                        <view class="dot {{swiperIndex === notesList[index].swiperCurrent ? 'active' : ''}}"></view>
                     </block>
                 </view>
             </view>
@@ -40,12 +40,13 @@
     	</block> -->
         <view class='title'>{{notesList[index].article.title}}</view>
 
-        <import src="../../components/wxParse/wxParse.wxml" />
+        <!-- <import src="../../components/wxParse/wxParse.wxml" /> -->
         <view class="wxParse">
             <!-- {{ellipsis?'ellipsis':'unEllipsis'}} -->
-            <view class="articleContent">
+            <!-- <view class="articleContent">
                 <template is="wxParse" data="{{wxParseData:'articles' + index + '.nodes'}}" />
-            </view>
+            </view> -->
+			<rich-text nodes='{{notesList[index].article.content}}'></rich-text>
             <!-- <view class='articleHideControl' bindtap='ellipsis'>展开</view> -->
         </view>
 
@@ -60,7 +61,7 @@
                 </button>
             </view>
             <view class='collection' data-index='{{index}}' bindtap='clickCollect'>
-                <text class="iconfont {{notesList[index].article.collect == 0 ? 'icon-shoucang1' : 'icon-shoucang'}}"></text>
+                <text class="iconfont {{notesList[index].article.collect == 1 ? 'icon-shoucang' : 'icon-shoucang1'}}"></text>
             </view>
         </view>
 

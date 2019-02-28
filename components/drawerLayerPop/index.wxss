@@ -1,1 +1,13 @@
 /* components/drawerLayerPop/index.wxss */
+.pop{
+	position: fixed;
+	bottom: 0;
+	z-index: 10001;
+	background-color: white;
+	border-radius: 45rpx 45rpx 0 0;
+	height: 556rpx;
+	width: 100%;
+	overflow: hidden;
+	box-sizing: border-box;
+	padding: 40rpx;
+}

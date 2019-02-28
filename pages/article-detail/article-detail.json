@@ -1,4 +1,5 @@
 {
+	"onReachBottomDistance": 300,
 	"usingComponents": {
 		"v-post-reviews": "/components/postReview/postReview"
 	}

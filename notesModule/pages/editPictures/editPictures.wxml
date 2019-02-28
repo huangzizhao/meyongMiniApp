@@ -1,37 +1,47 @@
 <!--notesModule/pages/editPictures/editPictures.wxml-->
 <view class='app'>
-  <view class='swiper-container'>
-    <view class='swiperLabel' wx:if='{{tempImagesPath.length > 1}}'>{{swiperCurrent + 1}}/{{tempImagesPath.length}}</view>
-    <button class='next' bindtap='next'>下一步</button>
-    <swiper class='imgSwiper' indicator-dots="{{false}}" autoplay="{{false}}" interval="{{interval}}" duration="{{duration}}" circular="{{false}}" current="{{swiperCurrent}}" bindchange="swiperChange">
-      <block wx:for="{{tempImagesPath}}" wx:key='index' wx:for-item='item'>
-        <swiper-item>
-          <image src="{{item}}" class="slideImage" data-index='{{index}}' mode='{{modeList[index]}}' bindload='setMode'></image>
-        </swiper-item>
-      </block>
-    </swiper>
-  </view>
+    <view class='swiper-container'>
+        <view class='swiperLabel' wx:if='{{tempImagesPath.length > 1}}'>{{swiperCurrent + 1}}/{{tempImagesPath.length}}</view>
+        <button class='next' bindtap='next'>下一步</button>
+        <swiper class='imgSwiper' indicator-dots="{{false}}" autoplay="{{false}}" interval="{{interval}}" duration="{{duration}}" circular="{{false}}" current="{{swiperCurrent}}" bindchange="swiperChange">
+            <block wx:for="{{tempImagesPath}}" wx:key='index' wx:for-item='item'>
+                <swiper-item>
+                    <image src="{{item}}" class="slideImage" data-index='{{index}}' mode='{{modeList[index]}}' bindload='setMode'></image>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
 
-  <view class='chooseLabelList'>
-    <view class="label {{item.selected ? 'hasSelected' : ''}}" wx:for='{{labelList}}' wx:for-item='item' wx:key='index' data-selectindex='{{index}}' bindtap="selectRep">
-      <text>{{item.label}}</text>
+    <view class='chooseLabelList'>
+        <view class="label {{item.selected ? 'hasSelected' : ''}}" wx:for='{{labelList}}' wx:for-item='item' wx:key='index'>
+            <text>{{item.label}}</text>
+            <text class='iconfont icon-close' data-selectindex='{{index}}' bindtap="selectRep"></text>
+        </view>
     </view>
-  </view>
-  <view class='tabBar'>
-    <view class='tabBarItem' data-funname='filter' bindtap='processFunction'>
-      <text class='iconfont icon-beautify'></text>
-      <text>滤镜</text>
+    <view class='tabBar'>
+        <view class='tabBarItem todo' data-funname='filter' bindtap='processFunction'>
+            <text class='iconfont icon-beautify'></text>
+            <text>滤镜</text>
+        </view>
+        <view class='tabBarItem' data-funname='label' bindtap='processFunction'>
+            <text class='iconfont icon-label'></text>
+            <text>标签</text>
+        </view>
+        <view class='tabBarItem todo' data-funname='stickers' bindtap='processFunction'>
+            <text class='iconfont icon-stickers'></text>
+            <text>贴纸</text>
+        </view>
     </view>
-    <view class='tabBarItem' data-funname='label' bindtap='processFunction'>
-      <text class='iconfont icon-label'></text>
-      <text>标签</text>
-    </view>
-    <view class='tabBarItem' data-funname='stickers' bindtap='processFunction'>
-      <text class='iconfont icon-stickers'></text>
-      <text>贴纸</text>
-    </view>
-  </view>
-  <v-drawer-layer-pop>
-    <view slot='funct'></view>
-  </v-drawer-layer-pop>
+    <v-mark wx:if='{{mark}}' catchtouchmove="preventScroll" bindtap='closePop'></v-mark>
+    <v-drawer-layer-pop wx:if='{{popShow}}'>
+        <view class='popBox' slot='funct'>
+            <view class='closePop' bindtap='closePop'>
+                <text class='iconfont icon-close'></text>
+            </view>
+            <view class='labelInput'>
+                <input placeholder='输入你自定义标签' cursor-spacing='140rpx' focus='{{true}}' maxlength='12' value='{{newLabel}}' bindinput='getNewLabel'></input>
+            </view>
+            <view class='pushNewLabel' bindtap='pushNewLabel'>确定</view>
+        </view>
+    </v-drawer-layer-pop>
 </view>
