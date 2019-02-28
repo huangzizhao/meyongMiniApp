@@ -1,114 +1,119 @@
 @import "/ui/font.wxss";
+
 .waterFallItem {
-    border-radius: 9rpx;
-    overflow: hidden;
-    box-sizing: border-box;
-    box-shadow: 0 4rpx 8rpx 0 rgba(0, 0, 0, 0.1);
-    position: relative;
-    margin-bottom: 20rpx;
-    background-color: rgba(255, 255, 255, 1);
+  border-radius: 9rpx;
+  overflow: hidden;
+  box-sizing: border-box;
+  box-shadow: 0 4rpx 8rpx 0 rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin-bottom: 20rpx;
+  background-color: rgba(255, 255, 255, 1);
 }
 
 .waterFallItem .card-img {
-    display: block;
+  display: block;
 }
 
 .isVideo {
-    position: absolute;
-    top: 10rpx;
-    right: 15rpx;
-    /* background-image: url('https://wx.meyoungmia.com/upload/f86e62b5d0c7.png');
+  position: absolute;
+  top: 10rpx;
+  right: 15rpx;
+  /* background-image: url('https://wx.meyoungmia.com/upload/f86e62b5d0c7.png');
     background-repeat: no-repeat;
     background-position: -34px -108px; */
-    height: 42rpx;
-    width: 42rpx;
+  height: 42rpx;
+  width: 42rpx;
 }
 
 .articleBar {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 25rpx 20rpx 15rpx 20rpx;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 25rpx 0 15rpx 0;
 }
 
 .articleBar .title {
-    font-size: 26rpx;
-    color: rgba(0, 0, 0, 1);
-    text-align: left;
-    display: -webkit-box;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    margin-bottom: 20rpx;
-    font-weight: bold;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+  font-size: 26rpx;
+  color: rgba(0, 0, 0, 1);
+  text-align: left;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  margin-bottom: 20rpx;
+  font-weight: bold;
 }
 
 .articleBar .pushInfo {
-    display: flex;
-    width: 100%;
-    height: 55rpx;
-    justify-content: space-between;
-    align-items: center;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  height: 55rpx;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .pushInfo .likeIt {
-    display: inline-flex;
-    align-items: center;
-	flex-flow: row nowrap;
+  display: inline-flex;
+  align-items: center;
+  flex-flow: row nowrap;
 }
 
 .likeIt .iconfont {
-    font-size: 30rpx;
-	line-height: 30rpx;
+  font-size: 30rpx;
+  line-height: 30rpx;
 }
 
 .likeIt .icon-xihuan {
-    color: rgba(255, 39, 65, 1);
+  color: rgba(255, 39, 65, 1);
 }
 
 .likeIt .num {
-    vertical-align: middle;
-    display: inline-block;
-    font-size: 26rpx;
-    padding-left: 6rpx;
-    color: rgba(100, 100, 100, 1);
+  vertical-align: middle;
+  display: inline-block;
+  font-size: 26rpx;
+  padding-left: 6rpx;
+  color: rgba(100, 100, 100, 1);
 }
 
 .pushInfo .userInfo {
-    display: flex;
-    align-items: center;
-    width: 200rpx;
-    overflow: hidden;
+  display: flex;
+  align-items: center;
+  width: 200rpx;
+  overflow: hidden;
 }
 
-.userInfo .userAvatar{
-	width: 55rpx;
-    height: 55rpx;
-	position: relative;
-	overflow: hidden;
+.userInfo .userAvatar {
+  width: 55rpx;
+  height: 55rpx;
+  position: relative;
+  overflow: hidden;
 }
 
 .userAvatar .avatarImg {
-    width: 55rpx;
-    height: 55rpx;
-    border-radius: 50%;
-	object-fit: cover;
+  width: 55rpx;
+  height: 55rpx;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
-.userAvatar .decorationImg{
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 55rpx;
-	height: 55rpx;
-	z-index: 2;
+.userAvatar .decorationImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 55rpx;
+  height: 55rpx;
+  z-index: 2;
 }
 
 .userInfo text {
-    flex: 1;
-    font-size: 20rpx;
-    margin-left: 10rpx;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  flex: 1;
+  font-size: 20rpx;
+  margin-left: 10rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

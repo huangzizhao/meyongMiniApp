@@ -22,7 +22,8 @@ App({
     imgData: null,
     meetFuture: {},
     enShowHomeImg: true,
-    localStorages: new LocalStorage()
+    localStorages: new LocalStorage(),
+    updateWaterFallFlow:false
   },
 
   data: {

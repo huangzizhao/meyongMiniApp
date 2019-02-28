@@ -5,6 +5,8 @@ page {
 
 .app{
 	padding-bottom: 96rpx;
+  width: 100vw;
+  min-height: 100vh;
 }
 
 .dialog {
@@ -71,14 +73,15 @@ button::after {
 .contact {
   position: fixed;
   bottom: 100rpx;
+  padding-bottom: env(safe-area-inset-bottom);
   right: 20rpx;
   width: 120rpx;
-  height: 120rpx;
+  height: 170rpx;
 }
 
 .contact image {
-  width: inherit;
-  height: inherit;
+  width: 120rpx;
+  height: 120rpx;
   display: block;
 }
 
@@ -170,6 +173,7 @@ button::after {
 
 .community {
   width: 100vw;
+  min-height: 100vh;
   box-sizing: border-box;
   padding-bottom: 40rpx;
 }

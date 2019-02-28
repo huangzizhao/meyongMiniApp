@@ -1,23 +1,25 @@
 <template name='goodCard'>
-    <view class='waterFallItem' data-id='{{data.articleId}}' bindtap='toArticleDetail'>
-        <image src="{{data.showItem ? data.coverContent : ''}}"  class="card-img img{{data.articleId}}" mode='aspectFill' style='width:{{data.itemWidth}}px;height:{{data.itemHeight}}px'></image>
-        <!-- <text class='isVideo' wx:if="{{data.coverType == 'video'}}"></text> -->
-        <image class='isVideo' src='../../img/video.png' wx:if="{{data.coverType == 'video'}}"></image>
-        <view class='articleBar'>
-            <text class='title'>{{data.title}}</text>
-            <view class='pushInfo'>
-                <view class='userInfo' data-authorid='{{data.customerId}}' data-articleid='{{data.articleId}}' bindtap='toAuthor'>
-                    <view class='userAvatar'>
-                        <image class='avatarImg' src='{{data.avatar}}'></image>
-						<image mode='aspectFill' class='decorationImg' src='../../img/decoration.png'></image>
-                    </view>
-                    <text>{{data.userName}}</text>
-                </view>
-                <view class='likeIt' data-record='{{data}}' catchtap='likeIt'>
-					<text class="iconfont {{data.star == 0 ? 'icon-xihuan1' : 'icon-xihuan red'}}"></text>
-                    <text class='num'>{{data.thumb}}</text>
-                </view>
-            </view>
+  <view class='waterFallItem' data-id='{{data.articleId}}' bindtap='toArticleDetail'>
+    <image src="{{data.showItem ? data.coverContent : ''}}" class="card-img img{{data.articleId}}" mode='aspectFill' style='width:{{data.itemWidth}}px;height:{{data.itemHeight}}px'></image>
+    <!-- <text class='isVideo' wx:if="{{data.coverType == 'video'}}"></text> -->
+    <image class='isVideo' src='../../img/video.png' wx:if="{{data.coverType == 'video'}}"></image>
+    <view class='articleBar'>
+      <view class='title' style='width:{{data.itemWidth}}px'>
+        <text>{{data.title}}</text>
+      </view>
+      <view class='pushInfo'>
+        <view class='userInfo' data-authorid='{{data.customerId}}' data-articleid='{{data.articleId}}' bindtap='toAuthor'>
+          <view class='userAvatar'>
+            <image class='avatarImg' src='{{data.avatar}}'></image>
+            <image mode='aspectFill' class='decorationImg' src='../../img/decoration.png'></image>
+          </view>
+          <text>{{data.userName}}</text>
         </view>
+        <view class='likeIt' data-record='{{data}}' catchtap='likeIt'>
+          <text class="iconfont {{data.star == 0 ? 'icon-xihuan1' : 'icon-xihuan red'}}"></text>
+          <text class='num'>{{data.thumb}}</text>
+        </view>
+      </view>
     </view>
+  </view>
 </template>

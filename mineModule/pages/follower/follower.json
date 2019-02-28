@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "粉丝列表",
   "usingComponents": {
     "v-follow-list": "/components/followList/index"
   }

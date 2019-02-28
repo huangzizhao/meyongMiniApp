@@ -52,6 +52,8 @@ Component({
    * 组件的初始数据
    */
   data: {
+    dataStorageList:[],
+    dataStorage: [], //上下级页面相同组件调用，组件污染数据分离储存区
     leftList: [], //左侧集合
     rightList: [], //右侧集合
     loading: false,
@@ -60,7 +62,23 @@ Component({
     type: '',
     idType: ''
   },
-
+  pageLifetimes: {
+    hide() {
+      var newList = Object.assign({},this.data.dataStorage)
+      this.data.dataStorageList.push(newList);
+    },
+    show() {
+      Array.prototype.remove = function(from, to) {
+        var rest = this.slice((to || from) + 1 || this.length);
+        this.length = from < 0 ? this.length + from : from;
+        return this.push.apply(this, rest);
+      };
+      let len = this.data.dataStorageList.length;
+      let data = this.data.dataStorageList[len - 1];
+      this.setWaterFallFlowData(data);
+      this.data.dataStorageList.remove(len - 1);
+    }
+  },
   attached() {
     wx.getSystemInfo({
       success: (res) => {
@@ -80,6 +98,7 @@ Component({
       },
     });
     this.data.isPull = true;
+    this.data.dataStorage = [];
     // this.data.type = 'latest';
     // this.setData({
     //     loading: true
@@ -176,6 +195,7 @@ Component({
               this.triggerEvent('noData', dataList);
             }
             var listData = res.res.list
+            this.data.dataStorage.push(...res.res.list);
             this.data.totalPage = res.res.totalPage;
             this.data.pageUtil.page++;
             this.setMoreData(res.res.list, this.data.isPull);
@@ -189,78 +209,81 @@ Component({
               console.log('更新到最新，替换整个数组');
             }
 
+            this.setWaterFallFlowData(listData);
 
-            for (let i = 0; i < listData.length; i++) {
-              let tmp = listData[i]; //单条数据
-              tmp.coverImgWidth = parseInt(tmp.coverImgWidth); //图片宽度
-              tmp.coverImgHeight = parseInt(tmp.coverImgHeight); //图片高度
-              tmp.itemWidth = itemWidth; //image 宽度
-
-              //图片高宽比
-              let per = tmp.coverImgWidth / tmp.itemWidth;
-
-              //image高度
-              tmp.itemHeight = tmp.coverImgHeight / per;
-
-              if (tmp.itemHeight > maxHeight) {
-                tmp.itemHeight = maxHeight; //image高度，不超过最大高度
-              }
-
-              if (Math.ceil(getByteLength(tmp.title) / 22) > 1) {
-                var itemHeight = 2 * 20 + 30 + 27.5 + tmp.itemHeight
-              } else {
-                var itemHeight = 20 + 30 + 27.5 + tmp.itemHeight
-              }
-              if (leftHeight == rightHeight) {
-                leftList.push(tmp);
-                leftHeight = leftHeight + itemHeight;
-              } else if (leftHeight < rightHeight) {
-                leftList.push(tmp);
-                leftHeight = leftHeight + itemHeight;
-              } else {
-                rightList.push(tmp);
-                rightHeight = rightHeight + itemHeight;
-              }
-            }
-            this.setData({
-              leftList: leftList,
-              rightList: rightList
-            }, () => {
-
-              /**可支持拓展的懒加载 */
-              for (let i = 0; i < listData.length; i++) {
-                this.createIntersectionObserver().relativeToViewport({
-                  bottom: 300
-                }).observe(`.img${listData[i].articleId}`, (res) => {
-                  // console.log(res)
-                  if (res.intersectionRatio > 0) {
-                    //如果图片进入可视区，将其设置为 show
-
-                    let leftItemIndex = this.data.leftList.findIndex((value) => {
-                      return value.articleId == listData[i].articleId;
-                    });
-                    let rightItemIndex = this.data.rightList.findIndex((value) => {
-                      return value.articleId == listData[i].articleId;
-                    });
-                    if (leftItemIndex >= 0) {
-                      this.setData({
-                        [`leftList[${leftItemIndex}].showItem`]: true,
-                      })
-                    }
-                    if (rightItemIndex >= 0) {
-                      this.setData({
-                        [`rightList[${rightItemIndex}].showItem`]: true,
-                      })
-                    }
-                  }
-                })
-              }
-            });
           }
         }, () => {
           this.unLocked();
         });
       }
+    },
+    setWaterFallFlowData(listData) {
+      for (let i = 0; i < listData.length; i++) {
+        let tmp = listData[i]; //单条数据
+        tmp.coverImgWidth = parseInt(tmp.coverImgWidth); //图片宽度
+        tmp.coverImgHeight = parseInt(tmp.coverImgHeight); //图片高度
+        tmp.itemWidth = itemWidth; //image 宽度
+
+        //图片高宽比
+        let per = tmp.coverImgWidth / tmp.itemWidth;
+
+        //image高度
+        tmp.itemHeight = tmp.coverImgHeight / per;
+
+        if (tmp.itemHeight > maxHeight) {
+          tmp.itemHeight = maxHeight; //image高度，不超过最大高度
+        }
+
+        if (Math.ceil(getByteLength(tmp.title) / 22) > 1) {
+          var itemHeight = 2 * 20 + 30 + 27.5 + tmp.itemHeight
+        } else {
+          var itemHeight = 20 + 30 + 27.5 + tmp.itemHeight
+        }
+        if (leftHeight == rightHeight) {
+          leftList.push(tmp);
+          leftHeight = leftHeight + itemHeight;
+        } else if (leftHeight < rightHeight) {
+          leftList.push(tmp);
+          leftHeight = leftHeight + itemHeight;
+        } else {
+          rightList.push(tmp);
+          rightHeight = rightHeight + itemHeight;
+        }
+      }
+      this.setData({
+        leftList: leftList,
+        rightList: rightList
+      }, () => {
+
+        /**可支持拓展的懒加载 */
+        for (let i = 0; i < listData.length; i++) {
+          this.createIntersectionObserver().relativeToViewport({
+            bottom: 300
+          }).observe(`.img${listData[i].articleId}`, (res) => {
+            // console.log(res)
+            if (res.intersectionRatio > 0) {
+              //如果图片进入可视区，将其设置为 show
+
+              let leftItemIndex = this.data.leftList.findIndex((value) => {
+                return value.articleId == listData[i].articleId;
+              });
+              let rightItemIndex = this.data.rightList.findIndex((value) => {
+                return value.articleId == listData[i].articleId;
+              });
+              if (leftItemIndex >= 0) {
+                this.setData({
+                  [`leftList[${leftItemIndex}].showItem`]: true,
+                })
+              }
+              if (rightItemIndex >= 0) {
+                this.setData({
+                  [`rightList[${rightItemIndex}].showItem`]: true,
+                })
+              }
+            }
+          })
+        }
+      });
     },
     likeIt: function(e) {
       // let articleData = e.currentTarget.dataset.record;
