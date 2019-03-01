@@ -1,2 +1,17 @@
 <!--mineModule/pages/ratingRule/ratingRule.wxml-->
-<text>mineModule/pages/ratingRule/ratingRule.wxml</text>
+<swiper class='swiper' current='{{current}}' bindchange='swiperChange' indicator-dots="{{false}}" duration="200" circular="{{true}}" previous-margin='30rpx' next-margin='30rpx'>
+    <swiper-item>
+        <view class='itemBox'>
+            <image src="/img/womenBanner.jpg" class="slideImage" mode='widthFix'></image>
+        </view>
+    </swiper-item>
+    <swiper-item>
+        <view class='itemBox'>
+            <image src="/img/womenBanner.jpg" class="slideImage" mode='widthFix'></image>
+        </view>
+    </swiper-item>
+    <swiper-item>
+        <image src="/img/womenBanner.jpg" class="slideImage" mode='widthFix'></image>
+        <view class='itemBox'></view>
+    </swiper-item>
+</swiper>

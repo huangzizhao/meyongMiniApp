@@ -75,6 +75,7 @@ button::after {
   padding-left: 216rpx;
   display: inline-flex;
   flex-flow: row nowrap;
+  align-items: center;
 }
 
 .mineInfo .name {
@@ -82,6 +83,15 @@ button::after {
   font-size: 34rpx;
   display: inline-flex;
   align-items: center;
+  margin: 15rpx
+}
+
+.mineInfo .infoItem{
+	margin-top: 1rpx;
+	font-size: 20rpx;
+	line-height: 20rpx;
+	box-sizing: border-box;
+	padding: 0 15rpx;
 }
 
 .funList {
@@ -103,10 +113,14 @@ button::after {
   /* padding: 0 30rpx; */
 }
 
-.funList .dividingLine {
+.dividingLine {
   font-size: 16rpx;
-  margin-top: 18rpx;
+  line-height: 16rpx;
   color: rgba(61, 61, 61, 1);
+}
+
+.funList .dividingLine {
+  margin-top: 18rpx;
 }
 
 .funItem .iconfont {
