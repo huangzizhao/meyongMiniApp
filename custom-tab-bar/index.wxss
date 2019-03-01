@@ -1,5 +1,21 @@
 /* customTabBar/customTabBar.wxss */
-.tabBar{
+
+button {
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+}
+
+button::after {
+  border: none;
+}
+
+.btnhover {
+  background-color: transparent;
+}
+
+.tabBar {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -10,7 +26,7 @@
   padding-bottom: env(safe-area-inset-bottom);
 }
 
-.tabBarBorder{
+.tabBarBorder {
   background-color: rgba(255, 255, 255, 1);
   position: absolute;
   left: 0;
@@ -20,7 +36,7 @@
   transform: scaleY(0.5);
 }
 
-.tabBarItem{
+.tabBarItem {
   flex: 1;
   text-align: center;
   display: flex;
@@ -29,14 +45,23 @@
   flex-direction: column;
 }
 
-.tabBarItem cover-image{
+.itemBox {
+  display: inline-flex;
+  justify-content: center;
+  align-content: center;
+  flex-flow: column wrap;
+}
+
+
+
+.tabBarItem cover-image {
   width: 54rpx;
   height: 54rpx;
   box-sizing: border-box;
   padding: 8rpx;
 }
 
-.tabBarItem cover-image.singleImg{
+.tabBarItem cover-image.singleImg {
   width: 90rpx;
   height: 67.5rpx;
   padding: 0;
@@ -44,4 +69,5 @@
 
 .tabBarItem cover-view {
   font-size: 20rpx;
+  line-height: 20rpx;
 }

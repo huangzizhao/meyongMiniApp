@@ -3,20 +3,20 @@
 <view class='bp-hd'>
   <image src='../../img/logo.jpg'></image>
 </view>
-<form bindsubmit= "formSubmit">
+<form bindsubmit="formSubmit">
   <view class='bp-input-phone'>
-    <input class="weui-input" bindinput="realnameConfirm" placeholder-class="bp-pd-cl" name="mobile" type='number' placeholder="请输入手机号" maxlength='11'/>
+    <input class="weui-input" bindinput="realnameConfirm" placeholder-class="bp-pd-cl" name="mobile" type='number' placeholder="请输入手机号" maxlength='11' />
     <view>
       <view class="bp-code {{abledClick ? 'clickable' : 'unClickable'}}" bindtap='getCode'>{{codeText}}</view>
-      <input class="weui-input" placeholder-class="bp-pd-cl" name="code" type='number' placeholder="请输入验证码" maxlength='6'/>
+      <input class="weui-input" placeholder-class="bp-pd-cl" name="code" type='number' placeholder="请输入验证码" maxlength='6' />
     </view>
   </view>
 
-<button class="weui-btn bp-btn" formType="submit">确认绑定</button>
-<!-- <bolck wx:if="{{!onBack}}">
+  <button class="weui-btn bp-btn" formType="submit">确认绑定</button>
+  <!-- <bolck wx:if="{{!onBack}}">
   <button class="weui-btn bp-btn-cl" bindtap='wxPay'>暂不绑定，我要花钱看</button>
 </bolck> -->
- </form>
+</form>
 
 
 

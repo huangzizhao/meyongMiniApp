@@ -1,87 +1,87 @@
 <!--pages/article-detail/article-detail.wxml-->
 <import src='../../templates/loading/loading.wxml' />
 <template is='loading' wx:if='{{loading}}' />
-<v-post-reviews bind:refreshReviews='refreshReviews' customer='{{customer}}'  article-id='{{commentArticleId}}' wx:if='{{showPostComment}}'></v-post-reviews>
+<v-post-reviews bind:refreshReviews='refreshReviews' customer='{{customer}}' article-id='{{commentArticleId}}' wx:if='{{showPostComment}}'></v-post-reviews>
 <view bindtouchend='pageTouchend'>
-    <view class='notesList' wx:for='{{notesList}}' wx:for-item='item' wx:key='item'>
-        <view class='authorInfo'>
-            <view class='infoLeft'>
-                <view class='userAvatar' data-index='{{index}}' bindtap='toAuthor'>
-                    <image class='message-img' src="{{notesList[index].article.avatar ? notesList[index].article.avatar : '/img/avatar.png'}}"></image>
-                    <image mode='aspectFill' class='decorationImg' src='/img/decoration.png'></image>
-                </view>
-                <view class='message-author'>{{notesList[index].article.userName}}</view>
-            </view>
-            <view class="focus {{notesList[index].article.attention === 1 ? 'active' : ''}}" data-index='{{index}}' data-authorid='{{notesList[index].article.customerId}}' data-articleid='{{notesList[index].article.articleId}}' bindtap='focus'>{{notesList[index].article.attention === 1 ? '已关注' : '关注'}}</view>
-            <!-- <label class='message-time'>{{item.createTime}}</label> -->
-            <!-- <view class='message-zan iconfont icon-shijian'>{{article.relativeDate}}</view> -->
+  <view class='notesList' wx:for='{{notesList}}' wx:for-item='item' wx:key='item'>
+    <view class='authorInfo'>
+      <view class='infoLeft'>
+        <view class='userAvatar' data-index='{{index}}' bindtap='toAuthor'>
+          <image class='message-img' src="{{notesList[index].article.avatar ? notesList[index].article.avatar : '/img/avatar.png'}}"></image>
+          <image mode='aspectFill' class='decorationImg' src='/img/decoration.png'></image>
         </view>
-        <block wx:if="{{notesList[index].article.coverType === 'img' && notesList[index].article.album.length > 0}}">
-            <view class='swiper-container'>
-                <view class='swiperLabel' wx:if='{{notesList[index].article.album.length > 0}}'>{{notesList[index].swiperCurrent + 1}}/{{notesList[index].article.album.length}}</view>
-                <swiper autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" current="{{notesList[index].swiperCurrent}}" data-index='{{index}}' bindchange="swiperChange">
-                    <block wx:for="{{notesList[index].article.album}}" wx:key='item' wx:for-item='item'>
-                        <swiper-item>
-                            <image src="{{item}}" class="slideImage" mode='widthFix'></image>
-                        </swiper-item>
-                    </block>
-                </swiper>
-                <view class='dotsList'>
-                    <block wx:for="{{notesList[index].article.album}}" wx:key='item' wx:for-index='swiperIndex'>
-                        <view class="dot {{swiperIndex === notesList[index].swiperCurrent ? 'active' : ''}}"></view>
-                    </block>
-                </view>
-            </view>
-        </block>
-        <!-- <block wx:else>
+        <view class='message-author'>{{notesList[index].article.userName}}</view>
+      </view>
+      <view class="focus {{notesList[index].article.attention === 1 ? 'active' : ''}}" data-index='{{index}}' data-authorid='{{notesList[index].article.customerId}}' data-articleid='{{notesList[index].article.articleId}}' bindtap='focus'>{{notesList[index].article.attention === 1 ? '已关注' : '关注'}}</view>
+      <!-- <label class='message-time'>{{item.createTime}}</label> -->
+      <!-- <view class='message-zan iconfont icon-shijian'>{{article.relativeDate}}</view> -->
+    </view>
+    <block wx:if="{{notesList[index].article.coverType === 'img' && notesList[index].article.album.length > 0}}">
+      <view class='swiper-container'>
+        <view class='swiperLabel' wx:if='{{notesList[index].article.album.length > 0}}'>{{notesList[index].swiperCurrent + 1}}/{{notesList[index].article.album.length}}</view>
+        <swiper autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" current="{{notesList[index].swiperCurrent}}" data-index='{{index}}' bindchange="swiperChange">
+          <block wx:for="{{notesList[index].article.album}}" wx:key='item' wx:for-item='item'>
+            <swiper-item>
+              <image src="{{item}}" class="slideImage" mode='widthFix'></image>
+            </swiper-item>
+          </block>
+        </swiper>
+        <view class='dotsList'>
+          <block wx:for="{{notesList[index].article.album}}" wx:key='item' wx:for-index='swiperIndex'>
+            <view class="dot {{swiperIndex === notesList[index].swiperCurrent ? 'active' : ''}}"></view>
+          </block>
+        </view>
+      </view>
+    </block>
+    <!-- <block wx:else>
       				<view class="ad-hd" wx:if="{{article.coverType !== 'video'}}">
         				<image src='{{article.coverContent}}' />
       				</view>
     	</block> -->
-        <view class='title'>{{notesList[index].article.title}}</view>
+    <view class='title'>{{notesList[index].article.title}}</view>
 
-        <!-- <import src="../../components/wxParse/wxParse.wxml" /> -->
-        <view class="wxParse">
-            <!-- {{ellipsis?'ellipsis':'unEllipsis'}} -->
-            <!-- <view class="articleContent">
+    <!-- <import src="../../components/wxParse/wxParse.wxml" /> -->
+    <view class="wxParse">
+      <!-- {{ellipsis?'ellipsis':'unEllipsis'}} -->
+      <!-- <view class="articleContent">
                 <template is="wxParse" data="{{wxParseData:'articles' + index + '.nodes'}}" />
             </view> -->
-			<rich-text nodes='{{notesList[index].article.content}}'></rich-text>
-            <!-- <view class='articleHideControl' bindtap='ellipsis'>展开</view> -->
-        </view>
-
-        <view class='functional-area'>
-            <view class='areaRight'>
-                <view class='praise' data-index='{{index}}' bindtap='cilckGood'>
-                    <text class="iconfont {{notesList[index].article.star == 0 ? 'icon-xihuan1' : 'icon-xihuan'}}"></text>
-                    <text>{{notesList[index].article.thumb}}</text>
-                </view>
-                <button class='share' open-type="share" hover-class="none" data-articletitle='{{notesList[index].article.title}}'>
-                    <text class='iconfont icon-share'></text>
-                </button>
-            </view>
-            <view class='collection' data-index='{{index}}' bindtap='clickCollect'>
-                <text class="iconfont {{notesList[index].article.collect == 1 ? 'icon-shoucang' : 'icon-shoucang1'}}"></text>
-            </view>
-        </view>
-
-        <view class='comment' wx:if='{{notesList[index].commentListData.list.length > 0}}'>
-            <view class='commentBox' data-articleid='{{notesList[index].article.articleId}}' catchtap='toArticleComment'>
-                <text class='commentNum'>共有{{notesList[index].commentListData.totalCount}}条评论</text>
-                <view class='commentList'>
-                    <view class='listItem' wx:for='{{notesList[index].highQualityReview}}' wx:key='item'>
-                        <text>{{item.reviewUserName}}：</text>
-                        <text>{{item.content}}</text>
-                    </view>
-                </view>
-            </view>
-        </view>
-        <view class='commentArea' wx:if='{{customer}}' data-index='{{index}}' data-articleid='{{notesList[index].article.articleId}}' bindtap='openPostComment'>
-            <image mode='scaleToFill' src='{{customer.headImg}}'></image>
-            <text>添加评论...</text>
-        </view>
-
+      <rich-text nodes='{{notesList[index].article.content}}'></rich-text>
+      <!-- <view class='articleHideControl' bindtap='ellipsis'>展开</view> -->
     </view>
+
+    <view class='functional-area'>
+      <view class='areaRight'>
+        <button class='praise' data-index='{{index}}' hover-class="none" open-type="getUserInfo" bindgetuserinfo='cilckGood'>
+          <text class="iconfont {{notesList[index].article.star == 0 ? 'icon-xihuan1' : 'icon-xihuan'}}"></text>
+          <text>{{notesList[index].article.thumb}}</text>
+        </button>
+        <button class='share' open-type="share" hover-class="none" data-articletitle='{{notesList[index].article.title}}'>
+          <text class='iconfont icon-share'></text>
+        </button>
+      </view>
+      <button class='collection' data-index='{{index}}' hover-class="none" open-type="getUserInfo" bindgetuserinfo='clickCollect'>
+        <text class="iconfont {{notesList[index].article.collect == 1 ? 'icon-shoucang' : 'icon-shoucang1'}}"></text>
+      </button>
+    </view>
+
+    <view class='comment' wx:if='{{notesList[index].commentListData.list.length > 0}}'>
+      <view class='commentBox' data-articleid='{{notesList[index].article.articleId}}' catchtap='toArticleComment'>
+        <text class='commentNum'>共有{{notesList[index].commentListData.totalCount}}条评论</text>
+        <view class='commentList'>
+          <view class='listItem' wx:for='{{notesList[index].highQualityReview}}' wx:key='item'>
+            <text>{{item.reviewUserName}}：</text>
+            <text>{{item.content}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='commentArea' wx:if='{{customer}}' data-index='{{index}}' data-articleid='{{notesList[index].article.articleId}}' bindtap='openPostComment'>
+      <image mode='scaleToFill' src='{{customer.headImg}}'></image>
+      <text>添加评论...</text>
+    </view>
+
+  </view>
 </view>
 <!-- <block wx:if="{{recommend.length > 0}}">
     <view class='ad-int'>

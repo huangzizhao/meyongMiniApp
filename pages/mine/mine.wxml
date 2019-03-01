@@ -13,11 +13,10 @@
           <view class='name'>
             <text>{{customer.name}}</text>
           </view>
-		  <text class='dividingLine'>|</text>
-		  <view class='infoItem' bindtap='toRatingRule'>等级</view>
-		  <text class='dividingLine'>|</text>
-		  <view class='infoItem'>积分</view>
-
+          <!-- <text class='dividingLine'>|</text>
+          <view class='infoItem' bindtap='toRatingRule'>等级</view>
+          <text class='dividingLine'>|</text>
+          <view class='infoItem'>积分</view> -->
         </view>
         <view class='funList'>
           <view class='funItem' data-tabname='order' bindtap='toFunlistItem'>
