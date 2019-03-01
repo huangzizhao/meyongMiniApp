@@ -1,5 +1,5 @@
 <!--customTabBar/customTabBar.wxml-->
-<cover-view class='tabBar'>
+<cover-view class='tabBar' wx:if='{{tabBarShow}}'>
   <cover-view class='tabBarBorder'></cover-view>
   <cover-view wx:for='{{list}}' wx:key='index' class='tabBarItem' data-path='{{item.pagePath}}' data-index='{{index}}' bindtap='switchTab'>
     <cover-image class="{{index === 1 ? 'singleImg' : ''}}" src='{{selected === index ? item.selectedIconPath : item.iconPath}}'></cover-image>

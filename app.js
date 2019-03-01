@@ -21,9 +21,9 @@ App({
     cutInsideImg: '',
     imgData: null,
     meetFuture: {},
-    enShowHomeImg: true,
-    localStorages: new LocalStorage(),
-    updateWaterFallFlow:false
+    enShowHomeImg: true, //首次进小程序弹窗
+    localStorages: new LocalStorage(), //创建本地储存对象
+    updateWaterFallFlow:false //更新瀑布流数据至最新
   },
 
   data: {
