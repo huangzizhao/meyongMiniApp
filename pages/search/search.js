@@ -22,10 +22,14 @@ Page({
 	},
 	onConfirm(){
 		if (this.data.keyword != ''){
-			this.setData({
-				showResult: true,
-				keyword: this.data.keyword
-			})
+      // console.log('上一个关键字：' + this.data.keyword);
+      // this.setData({
+      //   showResult: true
+      // },()=>{
+        
+      // });
+      this.selectComponent('#searchData').searchByKeyword(this.data.keyword);
+      // console.log('现在关键字：' + this.data.keyword);
 		}else{
 			wx.showToast({
 				title: '搜索值不能为空',
@@ -80,9 +84,7 @@ Page({
 	 */
 	onReachBottom: function () {
 		//用时间戳产生不重复的随机数
-		this.setData({
-			more: new Date().getTime()
-		})
+    this.selectComponent('#searchData').onReachBottom()
 	},
 
 	/**

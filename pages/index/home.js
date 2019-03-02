@@ -44,10 +44,11 @@ Page({
   switchTabChange(e) {
     let tab = e.currentTarget.dataset.tab;
     this.setData({
-      more: '',
+      // more: '',
       noData: false,
       switchTab: tab
     });
+    this.selectComponent('#homeData').tabChange(tab);
   },
 
   toSearch() {
@@ -108,6 +109,7 @@ Page({
         this.setData({
           switchTab: 'latest'
         });
+        this.selectComponent('#homeData').tabChange('latest');
         clearInterval(getArticle);
       }
     }, 10);
@@ -126,9 +128,10 @@ Page({
     }
     if (getApp().globalData.updateWaterFallFlow) {
       getApp().globalData.updateWaterFallFlow = false;
-      this.setData({
-        update: new Date().getTime()
-      });
+      this.selectComponent('#homeData').setUpdate()
+      // this.setData({
+      //   update: new Date().getTime()
+      // });
     }
     // 获取参与活动信息
     // this.getNotices();
@@ -331,12 +334,14 @@ Page({
   onPullDownRefresh: function() {
     wx.showNavigationBarLoading();
     console.log(this.data.switchTab);
-    this.setData({
-      update: new Date().getTime()
-    }, () => {
-      wx.stopPullDownRefresh();
-      wx.hideNavigationBarLoading();
-    });
+    // this.setData({
+    //   update: new Date().getTime()
+    // }, () => {
+      
+    // });
+    this.selectComponent('#homeData').setUpdate()
+    wx.stopPullDownRefresh();
+    wx.hideNavigationBarLoading();
     // wx.showNavigationBarLoading();
     // this.setData({
     //   pageUtil: {
@@ -370,9 +375,10 @@ Page({
    */
   onReachBottom() {
     //用时间戳产生不重复的随机数
-    this.setData({
-      more: new Date().getTime()
-    })
+    // this.setData({
+    //   more: new Date().getTime()
+    // })
+    this.selectComponent('#homeData').onReachBottom()
   },
 
   getInitQuery: function() {

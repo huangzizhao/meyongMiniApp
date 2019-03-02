@@ -88,8 +88,8 @@
         <text>还没有收藏任何笔记喔</text>
       </view>
     </view>
-    <v-water-fallFlow bind:noData='getWaterFallFlowData' more='{{more}}' update='{{update}}' switch-tab='notes' id-type='authorId' author-id='mine' wx:if="{{switchTab == 'notes'}}"></v-water-fallFlow>
-    <v-water-fallFlow bind:noData='getWaterFallFlowData' more='{{more}}' update='{{update}}' switch-tab='collection' id-type='authorId' collection-author-id='mine' wx:if="{{switchTab == 'collection'}}"></v-water-fallFlow>
+    <v-water-fallFlow id='mineData' bind:noData='getWaterFallFlowData'></v-water-fallFlow>
+    <!-- <v-water-fallFlow bind:noData='getWaterFallFlowData' more='{{more}}' update='{{update}}' switch-tab='collection' id-type='authorId' collection-author-id='mine' wx:if="{{switchTab == 'collection'}}"></v-water-fallFlow> -->
   </view>
 
 </view>

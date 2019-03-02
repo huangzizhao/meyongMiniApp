@@ -8,5 +8,5 @@
 		</view>
 		<view class='search' bindtap='onConfirm'>搜索</view>
 	</view>
-	<v-water-fallFlow keyword='{{keyword}}' more='{{more}}' wx:if='{{showResult}}'></v-water-fallFlow>
+	<v-water-fallFlow id='searchData'></v-water-fallFlow>
 </view>

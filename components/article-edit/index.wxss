@@ -1,172 +1,173 @@
 /* components/article-edit/index.wxss */
 
 page {
-    background-color: white;
-	overflow: hidden;
+  background-color: white;
+  overflow: hidden;
 }
 
 button {
-    border-radius: 0;
-    font-size: 30rpx;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-    background-color: transparent;
+  border-radius: 0;
+  font-size: 30rpx;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
 }
 
 button::after {
-    border: none;
+  border: none;
 }
 
 .btnhover {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 .btnList {
-    display: flex;
-    box-sizing: border-box;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 20rpx;
+  display: flex;
+  box-sizing: border-box;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 20rpx;
 }
 
 .btnList .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22rpx;
-    box-sizing: border-box;
-    height: 50rpx;
-    width: 100rpx;
-    border-radius: 25rpx;
-    margin-left: 20rpx;
-    font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22rpx;
+  box-sizing: border-box;
+  height: 50rpx;
+  width: 100rpx;
+  border-radius: 25rpx;
+  margin-left: 20rpx;
+  font-weight: 500;
 }
 
 .btn-default {
-    border: 1px solid rgb(216, 216, 216);
-    background-color: transparent;
-    color: rgb(216, 216, 216);
+  border: 1px solid rgb(216, 216, 216);
+  background-color: transparent;
+  color: rgb(216, 216, 216);
 }
 
 .btn-danger {
-    background-color: rgb(247, 197, 33);
-    color: rgb(255, 255, 255);
+  background-color: rgb(247, 197, 33);
+  color: rgb(255, 255, 255);
 }
 
 .scroll-x {
-    width: 100%;
-    height: 220rpx;
-    box-sizing: border-box;
-    padding: 15rpx 0;
-    overflow: hidden;
-    white-space: nowrap;
+  width: 100%;
+  height: 220rpx;
+  box-sizing: border-box;
+  padding: 15rpx 0;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .scroll-x .picturesList {
-    display: inline-flex;
-    margin: 0 18rpx;
-    align-items: center;
-    justify-content: space-between;
-    width: inherit;
+  display: inline-flex;
+  margin: 0 18rpx;
+  align-items: center;
+  justify-content: space-between;
+  width: inherit;
 }
 
 .scroll-x .picturesList .picture {
-    display: inline-block;
-    margin: 0 15rpx 0 0;
-    padding: 0;
-    height: 190rpx;
-    width: 190rpx;
-    border-radius: 15rpx;
-    overflow: hidden;
-    border: 1rpx solid rgb(216, 216, 216);
-    box-sizing: border-box;
+  display: inline-block;
+  margin: 0 15rpx 0 0;
+  padding: 0;
+  height: 190rpx;
+  width: 190rpx;
+  border-radius: 15rpx;
+  overflow: hidden;
+  border: 1rpx solid rgb(216, 216, 216);
+  box-sizing: border-box;
 }
 
 .picture image {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .addNewPhoto {
-    display: inline-block;
-    padding: 0;
-    height: 190rpx;
-    width: 190rpx;
-    border-radius: 15rpx;
-    overflow: hidden;
-    border: 1rpx solid rgb(216, 216, 216);
-    box-sizing: border-box;
-    position: relative;
+  display: inline-block;
+  padding: 0;
+  height: 190rpx;
+  width: 190rpx;
+  border-radius: 15rpx;
+  overflow: hidden;
+  border: 1rpx solid rgb(216, 216, 216);
+  box-sizing: border-box;
+  position: relative;
 }
 
 .addNewPhoto::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    margin: auto;
-    width: 70rpx;
-    height: 4rpx;
-    border-radius: 2rpx;
-    background-color: rgb(216, 216, 216);
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 70rpx;
+  height: 4rpx;
+  border-radius: 2rpx;
+  background-color: rgb(216, 216, 216);
 }
 
 .addNewPhoto::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    margin: auto;
-    height: 70rpx;
-    width: 4rpx;
-    border-radius: 2rpx;
-    background-color: rgb(216, 216, 216);
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  height: 70rpx;
+  width: 4rpx;
+  border-radius: 2rpx;
+  background-color: rgb(216, 216, 216);
 }
 
-.contentBox{
-	width: 100%;
-	box-sizing: border-box;
-	padding: 0 20rpx;
+.contentBox {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+  margin-top: 20rpx;
 }
 
 textarea {
-    font-size: 30rpx;
-    line-height: 40rpx;
-    height: 500rpx;
-    word-break: break-all;
-    width: 100%;
+  font-size: 30rpx;
+  line-height: 40rpx;
+  height: 500rpx;
+  word-break: break-all;
+  width: 100%;
 }
 
 input {
-    font-size: 30rpx;
-    line-height: 40rpx;
-    width: 100%;
-    word-break: break-all;
+  font-size: 30rpx;
+  line-height: 40rpx;
+  width: 100%;
+  word-break: break-all;
 }
 
 input::-webkit-input-placeholder {
-    font-size: 30rpx;
-    color: rgba(150, 150, 150, 1);
-    line-height: 40rpx;
+  font-size: 30rpx;
+  color: rgba(150, 150, 150, 1);
+  line-height: 40rpx;
 }
 
 textarea::-webkit-input-placeholder {
-    font-size: 30rpx;
-    color: rgba(150, 150, 150, 1);
-    line-height: 40rpx;
+  font-size: 30rpx;
+  color: rgba(150, 150, 150, 1);
+  line-height: 40rpx;
 }
 
-.line{
-	width: 100%;
-	height: 1px;
-	background-color: rgb(216,216,216);
-	margin: 10rpx 0;
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: rgb(216, 216, 216);
+  margin: 10rpx 0;
 }
