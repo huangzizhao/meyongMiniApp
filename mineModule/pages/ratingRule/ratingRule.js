@@ -38,7 +38,7 @@ Page({
 		swiperContentList:[
 			{
 				title:'小白虫子',
-				content:'上传照片 发布笔记 笔记中添加基本表情,'
+				content:'上传照片 发布笔记 笔记中添加基本表情'
 			}, {
 				title: '奶瓶蜂',
 				content: '发布1+笔记，获得5个收藏或10个赞'

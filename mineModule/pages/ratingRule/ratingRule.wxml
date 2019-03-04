@@ -1,26 +1,33 @@
 <!--mineModule/pages/ratingRule/ratingRule.wxml-->
 <scroll-view scroll-x="true" class="nav" scroll-left='{{navScrollLeft}}' scroll-with-animation='{{true}}'>
-    <block wx:for='{{navList}}' wx:key='index'>
-        <view class="navItem {{current === index ? 'active' : ''}}" data-current='{{index}}' bindtap='switchNav'>
-            <image src='{{item.url}}' class="{{grade - 1 < index ? 'gray' : ''}}"></image>
-        </view>
-    </block>
+  <block wx:for='{{navList}}' wx:key='index'>
+    <view class="navItem {{current === index ? 'active' : ''}}" data-current='{{index}}' bindtap='switchNav'>
+      <image src='{{item.url}}' class="{{grade - 1 < index ? 'gray' : ''}}"></image>
+    </view>
+  </block>
 </scroll-view>
 <swiper class='swiper' current='{{current}}' bindchange='swiperChange' indicator-dots="{{false}}" duration="200" circular="{{true}}" previous-margin='70rpx' next-margin='70rpx' display-multiple-items='1'>
-    <block wx:for='{{navList}}' wx:key='index'>
-        <swiper-item>
-            <view class='itemBox' data-index='{{index}}' animation="{{index == current ? animationActive : animationNormal}}">
-                <view class='boxTop'>
-                    <image src='{{navList[index].url}}'></image>
-                    <view class='name'>
-                        <text>{{swiperContentList[index].title}}</text>
-                    </view>
-                </view>
-				<view>获得它需要</view>
-				<view class='content'>
-					<text>{{swiperContentList[index].content}}</text>
-				</view>
+  <block wx:for='{{navList}}' wx:key='index'>
+    <swiper-item>
+      <view class='itemBox' data-index='{{index}}' animation="{{index == current ? animationActive : animationNormal}}">
+        <view class='grade'>
+          <image class='gradeBg' src='./img/gradeBg.png' mode='aspectFill'></image>
+          <view class='boxTop'>
+            <image src='{{navList[index].url}}'></image>
+            <view class='name'>
+              <text>{{swiperContentList[index].title}}</text>
             </view>
-        </swiper-item>
-    </block>
+          </view>
+        </view>
+        <view class='boxContent'>
+          <view class='descript'>
+            <text>获得它需要</text>
+          </view>
+          <view class='content'>
+            <text>{{swiperContentList[index].content}}</text>
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+  </block>
 </swiper>
