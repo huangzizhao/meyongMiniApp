@@ -38,7 +38,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 3,
 			"list": [
 				{
 					"id": 0,
@@ -58,6 +58,14 @@
 					"id": -1,
 					"name": "绑定手机",
 					"pathName": "pages/binding-phone/binding-phone",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "等级",
+					"pathName": "mineModule/pages/ratingRule/ratingRule",
+					"query": "",
 					"scene": null
 				}
 			]

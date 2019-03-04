@@ -268,3 +268,8 @@ export const getAuthorInfo = (params) => {
 	return get('article/authorInfo', params);
 }
 
+
+/**获取用户等级 */
+export const getAuthorGrade = (params) => {
+	return get('integral/currentLevel', params);
+}
