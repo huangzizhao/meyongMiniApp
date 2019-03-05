@@ -16,6 +16,7 @@ Page({
         navScrollLeft: 0,
 		animationActive:{},
 		animationNormal:{},
+		animationMove:{},
         navList: [{
                 url: './img/1.png'
             },
@@ -37,7 +38,7 @@ Page({
         ],
 		swiperContentList:[
 			{
-				title:'小白虫子',
+				title:'宝宝蜂',
 				content:'上传照片 发布笔记 笔记中添加基本表情'
 			}, {
 				title: '奶瓶蜂',
@@ -79,9 +80,14 @@ Page({
 				});
 			}
 		}, 10);
+		this.initialize();
+    },
+
+	initialize(){
 		this.shrink('70%');
 		this.stretch('80%');
-    },
+		this.smoothMove(0);
+	},
 
     switchNav(e) {
          var current = e.currentTarget.dataset.current;
@@ -99,7 +105,23 @@ Page({
                 current: current
             });
         }
+		this.smoothMove(current);
     },
+
+	smoothMove(current){
+		let singleTabWidth = width / 5;
+		let left = singleTabWidth / 5 + current * singleTabWidth;
+		var animationMove = wx.createAnimation({
+			duration: 200,
+			timingFunction: 'ease',
+			delay:100
+		});
+		this.animationMove = animationMove
+		animationMove.left(left).step()
+		this.setData({
+			animationMove: animationMove.export(),
+		})
+	},
 
     swiperChange(e) {
 		console.log('current:' + e.detail.current);
@@ -123,6 +145,7 @@ Page({
             // }
 			this.shrink('70%');
 			this.stretch('80%');
+			this.smoothMove(e.detail.current);
         }
     },
 

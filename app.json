@@ -51,7 +51,8 @@
 				"pages/commentCollection/commentCollection",
 				"pages/follower/follower",
 				"pages/attention/attention",
-				"pages/ratingRule/ratingRule"
+				"pages/ratingRule/ratingRule",
+				"pages/integralExchange/integralExchange"
 			]
 		}
 	],

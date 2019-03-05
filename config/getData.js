@@ -273,3 +273,22 @@ export const getAuthorInfo = (params) => {
 export const getAuthorGrade = (params) => {
 	return get('integral/currentLevel', params);
 }
+
+/**
+ * @description 积分兑换
+ */
+
+/**获取 积分兑换 列表 */
+export const getListIntegralPrize = (params) => {
+	return get('integral/listIntegralPrize', params);
+}
+
+/**获取 最新积分*/
+export const getCurrentIntegral = (params) => {
+	return get('integral/currentIntegral', params);
+}
+
+/**积分兑换商品*/
+export const exchange = (params) => {
+	return post('integral/exchange', params);
+}

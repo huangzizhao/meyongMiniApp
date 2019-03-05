@@ -62,9 +62,9 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "等级",
-					"pathName": "mineModule/pages/ratingRule/ratingRule",
+					"id": 3,
+					"name": "积分",
+					"pathName": "mineModule/pages/integralExchange/integralExchange",
 					"query": "",
 					"scene": null
 				}

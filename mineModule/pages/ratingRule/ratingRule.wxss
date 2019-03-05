@@ -1,48 +1,65 @@
 /* mineModule/pages/ratingRule/ratingRule.wxss */
-page{
-  background-color: white;
+
+page {
+    background-color: white;
 }
+
 .nav {
-  height: 150rpx;
-  line-height: 150rpx;
-  box-sizing: border-box;
-  width: 100%;
-  overflow: hidden;
-  /* background: #f7f7f7; */
-  box-shadow:rgba(0,0,0,0.1) 0 0 20rpx ;
-  font-size: 16px;
-  white-space: nowrap;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 99;
+    height: 150rpx;
+    line-height: 150rpx;
+    box-sizing: border-box;
+    width: 100%;
+    overflow: hidden;
+    background: rgba(255, 230, 0,.2);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 0 20rpx;
+    font-size: 16px;
+    white-space: nowrap;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
+.nav .navBox{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.navBox .underSlider {
+    position: absolute;
+    bottom: 0rpx;
+    height: 6rpx;
+    border-radius: 3rpx;
+    width: 12vw;
+    background-color: #f7e22b;
 }
 
 .navItem {
-  width: 20vw;
-  height: 100%;
-  display: inline-flex;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
+    width: 20vw;
+    height: 100%;
+    display: inline-flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
 }
 
 .navItem image {
-  width: 10vw;
-  height: 10vw;
+    width: 10vw;
+    height: 10vw;
 }
 
 .navItem image.gray {
-  filter: grayscale(100%);
+    filter: grayscale(100%);
 }
 
 .navItem.active {
-  position: relative;
-  /* border: 1px solid #e0b938; */
+    position: relative;
+    /* border: 1px solid #e0b938; */
 }
 
-.active::after{
+/* .active::after{
   content: '';
   position: absolute;
   bottom: 0rpx;
@@ -50,85 +67,86 @@ page{
   border-radius: 3rpx;
   width: 60%;
   background-color: #f7e22b
-}
+} */
 
 .swiper {
-  margin-top: 180rpx;
-  width: 100%;
-  height: calc(100vh - 180rpx);
-  box-sizing: border-box;
+    margin-top: 180rpx;
+    width: 100%;
+    height: calc(100vh - 180rpx);
+    box-sizing: border-box;
 }
 
 swiper-item {
-  text-align: center;
-  overflow-y: scroll;
+    text-align: center;
+    overflow-y: scroll;
 }
 
 swiper-item image {
-  width: 100%;
+    width: 100%;
 }
 
 .itemBox {
-  width: 95%;
-  height: 100%;
-  display: flex;
-  flex-flow: column wrap;
-  margin-top: 40px;
-  box-sizing: border-box;
-  /* border: 1rpx solid #cacaca; */
-  border-radius: 8rpx;
-  box-shadow: 5rpx 5rpx 10rpx rgba(50,50,50,0.1);
-  position: relative;
-  top: 35%;
-  transform: translateY(-45%);
-  align-content: space-between;
-  justify-content: space-between;
-  overflow: hidden;
+    width: 95%;
+    height: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    margin-top: 40px;
+    box-sizing: border-box;
+    /* border: 1rpx solid #cacaca; */
+    border-radius: 8rpx;
+    box-shadow: 5rpx 5rpx 10rpx rgba(50, 50, 50, 0.1);
+    position: relative;
+    top: 35%;
+    transform: translateY(-45%);
+    align-content: space-between;
+    justify-content: space-between;
+    overflow: hidden;
 }
 
-.itemBox .boxContent{
-  display: flex;
-  flex-flow: column wrap;
-  align-items: center;
-  box-sizing: border-box;
-  padding-bottom: 30rpx;
+.itemBox .boxContent {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    box-sizing: border-box;
+    padding-bottom: 30rpx;
 }
 
-.boxContent .content{
-  width: 80%;
-  text-align: center;
-  font-size: 25rpx;
-  margin-top:20rpx;
+.boxContent .content {
+    width: 80%;
+	/* text-indent:2em; */
+    text-align: left;
+    font-size: 25rpx;
+    margin-top: 20rpx;
 }
 
-.boxContent .descript{
-  font-size: 25rpx;
-  color:rgb(128, 126, 126);
+.boxContent .descript {
+    font-size: 25rpx;
+    color: rgb(128, 126, 126);
 }
 
-.itemBox .grade{
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.itemBox .grade {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.grade .gradeBg{
-  width: 100%;
+.grade .gradeBg {
+    width: 100%;
 }
 
 .grade .boxTop {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-flow: column wrap;
-  font-size: 30rpx;
-  color: #ffffff;
-  text-shadow:0 0 10px rgb(114, 112, 112);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column wrap;
+    font-size: 30rpx;
+    color: #fff;
+    text-shadow: 0 0 10px rgb(114, 112, 112);
 }
 
 .boxTop image {
-  width: 100rpx;
-  height: 100rpx;
+    width: 130rpx;
+    height: 130rpx;
 }

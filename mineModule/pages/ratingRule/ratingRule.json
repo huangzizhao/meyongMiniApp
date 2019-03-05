@@ -1,4 +1,5 @@
 {
 	"navigationBarTitleText": "等级规则",
+	"disableScroll":true,
 	"usingComponents": {}
 }
