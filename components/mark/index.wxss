@@ -1,9 +1,23 @@
 /* components/mark/index.wxss */
-.mark{
+
+.mark {
   position: fixed;
   top: 0;
   width: 100vw;
   height: 100vh;
   z-index: 10000;
-  background: rgba(0,0,0,.6);
+  background: rgba(0, 0, 0, 0.6);
+  animation: animation .2s ease;
+}
+
+
+
+@keyframes animation {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }

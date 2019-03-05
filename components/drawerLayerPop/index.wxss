@@ -10,4 +10,15 @@
 	overflow: hidden;
 	box-sizing: border-box;
 	padding: 40rpx;
+  animation: animation .3s ease;
+}
+
+@keyframes animation {
+  from {
+   bottom: -556rpx;
+  }
+
+  to {
+   bottom: 0;
+  }
 }

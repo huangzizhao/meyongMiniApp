@@ -1,24 +1,24 @@
 <!--components/article-edit/index.wxml-->
 <import src='../../templates/loading/loading.wxml' />
- <template is='spinner' wx:if='{{loading}}' />
+<template is='spinner' wx:if='{{loading}}' />
 <view class='btnList'>
-    <!-- <view class='btn btn-default' bindtap='saveToDraft'>存草稿</view> -->
-    <view class='btn btn-danger' bindtap='articlePush'>发布</view>
+  <!-- <view class='btn btn-default' bindtap='saveToDraft'>存草稿</view> -->
+  <view class='btn btn-danger' bindtap='articlePush'>发布</view>
 </view>
 <scroll-view class='scroll-x' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll">
-    <view class='picturesList'>
-        <block wx:for='{{tempImagesPath}}' wx:key='item' wx:for-item="item">
-            <view class='picture' data-index='{{index}}' bindtap='controlPicture'>
-                <image src='{{item}}' mode='aspectFill'></image>
-            </view>
-        </block>
+  <view class='picturesList'>
+    <block wx:for='{{tempImagesPath}}' wx:key='item' wx:for-item="item">
+      <view class='picture' data-index='{{index}}' bindtap='controlPicture'>
+        <image src='{{item}}' mode='aspectFill'></image>
+      </view>
+    </block>
 
-		<!-- 暂时隐藏新增图片按钮 -->
-        <!-- <view class='addNewPhoto' bindtap='addNewPhoto'></view> -->
-    </view>
+    <!-- 暂时隐藏新增图片按钮 -->
+    <!-- <view class='addNewPhoto' bindtap='addNewPhoto'></view> -->
+  </view>
 </scroll-view>
 <view class='contentBox'>
-    <input placeholder='标题想说点什么呢 ღ( ´･ᴗ･` )' maxlength='-1' adjust-position='{{false}}' value='{{articleTitle}}' bindinput='getInputTitle'></input>
-    <view class='line'></view>
-    <textarea placeholder='这一刻，你想说点什么...' maxlength='-1' show-confirm-bar='{{false}}' adjust-position='{{false}}' value='{{articleContent}}' bindinput='getTextareaContent'></textarea>
+  <input placeholder='标题想说点什么呢 ღ( ´･ᴗ･` )' maxlength='-1' adjust-position='{{false}}' value='{{articleTitle}}' bindinput='getInputTitle'></input>
+  <view class='line'></view>
+  <textarea placeholder='这一刻，你想说点什么...' maxlength='-1' show-confirm-bar='{{false}}' adjust-position='{{false}}' value='{{articleContent}}' bindinput='getTextareaContent'></textarea>
 </view>

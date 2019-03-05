@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "v-mark": "/components/mark/index"
+  }
 }

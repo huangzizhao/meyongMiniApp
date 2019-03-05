@@ -1,2 +1,2 @@
 <!--components/mark/index.wxml-->
-<view class='mark'></view>
+<view class="mark {{showMark ? 'markAnimation' : ''}}"></view>

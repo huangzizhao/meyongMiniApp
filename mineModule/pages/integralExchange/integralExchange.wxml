@@ -1,61 +1,62 @@
 <!--mineModule/pages/integralExchange/integralExchange.wxml-->
 <import src='/templates/loading/loading.wxml' />
 <view class='personBox'>
-    <view class='avatar'>
-        <image src='{{customer.headImg}}' mode='aspectFill'></image>
+  <view class='avatar'>
+    <image src='{{customer.headImg}}' mode='aspectFill'></image>
+  </view>
+  <view class='personInfo'>
+    <view class='name'>
+      <text>{{customer.name}}</text>
     </view>
-    <view class='personInfo'>
-        <view class='name'>
-            <text>{{customer.name}}</text>
-        </view>
-        <view class='grade'>
-            <text>等级</text>
-        </view>
-        <view class='integral'>
-            <text>积分</text>
-        </view>
+    <view class='grade'>
+      <text>等级</text>
     </view>
+    <view class='integral'>
+      <text>积分</text>
+    </view>
+  </view>
 </view>
 <view class='integralBox' style="{{'background-image:url(' + integralBgUrl +')'}}">
-    <view class='integralGoodsList'>
-        <block wx:for='{{goodsList}}' wx:key='index'>
-            <view class='integralItem goods{{index}}'>
-                <view class='itemLeft'>
-                    <image src='{{item.showUrl}}' mode='aspectFill'></image>
-                </view>
-                <view class='itemRight'>
-                    <view class='descriptBox'>
-                        <view class='inlineBox'>
-                            <view class='title'>
-                                <text>{{item.description}}</text>
-                            </view>
-                            <view class='name'>
-                                <text>{{item.name}}</text>
-                            </view>
-                        </view>
-                    </view>
-                    <button data-integralexchangeid='{{item.integralExchangeId}}' class='exchange' bindtap='integralExchange'>立即兑换</button>
-                    <view class='condition'>
-                        <text class='conditionBlod'>{{item.integral}}滴蜂蜜{{item.spread > 0 ? '+' + item.spread + '元' :''}}</text>
-                        <text>兑换</text>
-                    </view>
-                </view>
+  <view class='integralGoodsList'>
+    <block wx:for='{{goodsList}}' wx:key='index'>
+      <view class='integralItem goods{{index}}'>
+        <view class='itemLeft'>
+          <image src='{{item.showUrl}}' mode='aspectFill'></image>
+        </view>
+        <view class='itemRight'>
+          <view class='descriptBox'>
+            <view class='inlineBox'>
+              <view class='title'>
+                <text>{{item.description}}</text>
+              </view>
+              <view class='name'>
+                <text>{{item.name}}</text>
+              </view>
             </view>
-            <template is='spinner' wx:if='{{loading}}' />
-        </block>
-    </view>
+          </view>
+          <button data-integralexchangeid='{{item.integralExchangeId}}' class='exchange' bindtap='integralExchange'>立即兑换</button>
+          <view class='condition'>
+            <text class='conditionBlod'>{{item.integral}}滴蜂蜜{{item.spread > 0 ? '+' + item.spread + '元' :''}}</text>
+            <text>兑换</text>
+          </view>
+        </view>
+      </view>
+      <template is='spinner' wx:if='{{loading}}' />
+    </block>
+  </view>
 </view>
-<view class='mask' catchtouchmove='preventTouchMove'  wx:if='{{showCustomizeModal}}'>
-    <view class='customizeModal'>
-		<view class='title'>
-			<text>提示</text>
-		</view>
-		<view class='content'>
-			<text>确定兑换后积分会自动扣除</text>
-		</view>
-		<view class='btnList'>
-			<button class='cancel' bindtap='customizeModalShow'>取消</button>
-			<button class='commit' open-type="contact" bindtap='toContact'>确定</button>
-		</view>
-	</view>
+<v-mark wx:if='{{showCustomizeModal}}' catchtouchmove="preventScroll"></v-mark>
+<view class='maskBg' wx:if='{{showCustomizeModal}}'>
+  <view class='customizeModal'>
+    <view class='title'>
+      <text>提示</text>
+    </view>
+    <view class='content'>
+      <text>确定兑换后积分会自动扣除</text>
+    </view>
+    <view class='btnList'>
+      <button class='cancel' bindtap='customizeModalShow'>取消</button>
+      <button class='commit' open-type="contact" bindtap='toContact'>确定</button>
+    </view>
+  </view>
 </view>
