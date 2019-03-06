@@ -19,6 +19,12 @@ Component({
         selectedIconPath: "/img/notesPush.png"
       },
       {
+        pagePath: "/pages/integralExchange/integralExchange",
+        text: "兑换区",
+        iconPath: "/img/home.png",
+        selectedIconPath: "/img/homeActive.png"
+      },
+      {
         pagePath: "/pages/mine/mine",
         text: "我的",
         iconPath: "/img/mine.png",

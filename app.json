@@ -1,99 +1,105 @@
 {
-	"pages": [
-		"pages/index/home",
-		"pages/mine/mine",
-		"pages/lottery/lottery",
-		"pages/cutInside/cutInside",
-		"pages/content-type/content-type",
-		"pages/animation/animation",
-		"pages/future-me/future-me",
-		"pages/article-detail/article-detail",
-		"pages/binding-phone/binding-phone",
-		"pages/article-list/article-list",
-		"pages/articleComment/articleComment",
-		"pages/basic-choose/basic-choose",
-		"pages/paymentResults/paymentResults",
-		"pages/winnerAnnouncement/winnerAnnouncement",
-		"pages/promotion/promotion",
-		"pages/search/search"
-	],
-	"subPackages": [
-		{
-			"root": "mallModule",
-			"pages": [
-				"pages/notificationList/notificationList",
-				"pages/groupPurchaseSet/beforeMultiplayerGroupPurchasePay/beforeMultiplayerGroupPurchasePay",
-				"pages/groupPurchaseSet/multiplayerGroupPurchase/multiplayerGroupPurchase",
-				"pages/groupPurchaseSet/groupPurchase/groupPurchase",
-				"pages/oneYuanLotterySet/beforeGroupPurchasePay/beforeGroupPurchasePay",
-				"pages/bargainSet/bargain/bargain"
-			]
-		},
-		{
-			"root": "notesModule",
-			"pages": [
-				"pages/editPictures/editPictures",
-				"pages/articlePush/articlePush",
-				"pages/author/author"
-			]
-		},
-		{
-			"root": "mineModule",
-			"pages": [
-				"pages/wallet/wallet",
-				"pages/coupon/coupon",
-				"pages/ordersList/ordersList",
-				"pages/currentOrderInfo/currentOrderInfo",
-				"pages/systemNotification/systemNotification",
-				"pages/subscription/subscription",
-				"pages/pay/pay",
-				"pages/aboutMia/aboutMia",
-				"pages/commentCollection/commentCollection",
-				"pages/follower/follower",
-				"pages/attention/attention",
-				"pages/ratingRule/ratingRule",
-				"pages/integralExchange/integralExchange",
-				"pages/hasExchangeList/hasExchangeList"
-			]
-		}
-	],
-	"tabBar": {
-		"custom": true,
-		"color": "#c2b9b7",
-		"selectedColor": "#000",
-		"borderStyle": "white",
-		"backgroundColor": "#FFF",
-		"list": [
-			{
-				"pagePath": "pages/index/home",
-				"text": "首页",
-				"iconPath": "/img/home.png",
-				"selectedIconPath": "/img/homeActive.png"
-			},
-			{
-				"pagePath": "pages/index/home",
-				"text": "",
-				"iconPath": "/img/notesPush.png",
-				"selectedIconPath": "/img/notesPush.png"
-			},
-			{
-				"pagePath": "pages/mine/mine",
-				"text": "我的",
-				"iconPath": "/img/mine.png",
-				"selectedIconPath": "/img/mineActive.png"
-			}
-		]
-	},
-	"window": {
-		"backgroundTextStyle": "light",
-		"navigationBarBackgroundColor": "#fff",
-		"navigationBarTitleText": "来美哈",
-		"navigationBarTextStyle": "black"
-	},
-	"networkTimeout": {
-		"request": 10000,
-		"connectSocket": 10000,
-		"uploadFile": 10000,
-		"downloadFile": 10000
-	}
+  "pages": [
+    "pages/index/home",
+    "pages/mine/mine",
+    "pages/lottery/lottery",
+    "pages/cutInside/cutInside",
+    "pages/content-type/content-type",
+    "pages/animation/animation",
+    "pages/future-me/future-me",
+    "pages/article-detail/article-detail",
+    "pages/binding-phone/binding-phone",
+    "pages/article-list/article-list",
+    "pages/articleComment/articleComment",
+    "pages/basic-choose/basic-choose",
+    "pages/paymentResults/paymentResults",
+    "pages/winnerAnnouncement/winnerAnnouncement",
+    "pages/promotion/promotion",
+    "pages/search/search",
+    "pages/integralExchange/integralExchange"
+  ],
+  "subPackages": [
+    {
+      "root": "mallModule",
+      "pages": [
+        "pages/notificationList/notificationList",
+        "pages/groupPurchaseSet/beforeMultiplayerGroupPurchasePay/beforeMultiplayerGroupPurchasePay",
+        "pages/groupPurchaseSet/multiplayerGroupPurchase/multiplayerGroupPurchase",
+        "pages/groupPurchaseSet/groupPurchase/groupPurchase",
+        "pages/oneYuanLotterySet/beforeGroupPurchasePay/beforeGroupPurchasePay",
+        "pages/bargainSet/bargain/bargain"
+      ]
+    },
+    {
+      "root": "notesModule",
+      "pages": [
+        "pages/editPictures/editPictures",
+        "pages/articlePush/articlePush",
+        "pages/author/author"
+      ]
+    },
+    {
+      "root": "mineModule",
+      "pages": [
+        "pages/wallet/wallet",
+        "pages/coupon/coupon",
+        "pages/ordersList/ordersList",
+        "pages/currentOrderInfo/currentOrderInfo",
+        "pages/systemNotification/systemNotification",
+        "pages/subscription/subscription",
+        "pages/pay/pay",
+        "pages/aboutMia/aboutMia",
+        "pages/commentCollection/commentCollection",
+        "pages/follower/follower",
+        "pages/attention/attention",
+        "pages/ratingRule/ratingRule",
+        "pages/hasExchangeList/hasExchangeList"
+      ]
+    }
+  ],
+  "tabBar": {
+    "custom":true,
+    "color": "#c2b9b7",
+    "selectedColor": "#000",
+    "borderStyle": "white",
+    "backgroundColor": "#FFF",
+    "list": [
+      {
+        "pagePath": "pages/index/home",
+        "text": "首页",
+        "iconPath": "/img/home.png",
+        "selectedIconPath": "/img/homeActive.png"
+      },
+      {
+        "pagePath": "pages/index/home",
+        "text": "发布笔记",
+        "iconPath": "/img/notesPush.png",
+        "selectedIconPath": "/img/notesPush.png"
+      },
+      {
+        "pagePath": "pages/integralExchange/integralExchange",
+        "text": "兑换区",
+        "iconPath": "/img/home.png",
+        "selectedIconPath": "/img/homeActive.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "/img/mine.png",
+        "selectedIconPath": "/img/mineActive.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "来美哈",
+    "navigationBarTextStyle": "black"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  }
 }

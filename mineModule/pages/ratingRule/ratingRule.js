@@ -18,22 +18,22 @@ Page({
     animationNormal: {},
     animationMove: {},
     navList: [{
-        url: './img/1.png'
+        url: '/img/1.png'
       },
       {
-        url: './img/2.png'
+        url: '/img/2.png'
       },
       {
-        url: './img/3.png'
+        url: '/img/3.png'
       },
       {
-        url: './img/4.png'
+        url: '/img/4.png'
       },
       {
-        url: './img/5.png'
+        url: '/img/5.png'
       },
       {
-        url: './img/6.png'
+        url: '/img/6.png'
       }
     ],
     swiperContentList: [{

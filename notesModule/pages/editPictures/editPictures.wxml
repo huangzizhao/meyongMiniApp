@@ -39,7 +39,7 @@
                 <text class='iconfont icon-close'></text>
             </view>
             <view class='labelInput'>
-                <input placeholder='输入你自定义标签' cursor-spacing='140rpx' focus='{{labelInputFocus}}' adjust-position='{{false}}' maxlength='12' value='{{newLabel}}' bindinput='getNewLabel'></input>
+                <input placeholder='输入你自定义标签' cursor-spacing='140rpx' focus='{{labelInputFocus}}' maxlength='12' value='{{newLabel}}' bindinput='getNewLabel'></input>
             </view>
             <view class='pushNewLabel' bindtap='pushNewLabel'>确定</view>
         </view>
