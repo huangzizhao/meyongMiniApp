@@ -278,6 +278,11 @@ export const getAuthorGrade = (params) => {
  * @description 积分兑换
  */
 
+/**获取 已兑换的商品 列表 */
+export const getHasExchange = (params) => {
+	return get('integral/getHasExchange', params);
+}
+
 /**获取 积分兑换 列表 */
 export const getListIntegralPrize = (params) => {
 	return get('integral/listIntegralPrize', params);

@@ -2,7 +2,8 @@
 import {
     getListIntegralPrize,
     getCurrentIntegral,
-	exchange
+    exchange,
+    getAuthorGrade
 } from '../../../config/getData'
 Page({
 
@@ -11,6 +12,7 @@ Page({
      */
     data: {
         customer: null,
+        grade: 0,
         integral: 0,
         integralBgUrl: getApp().globalData.serverImg + 'upload/integralBg.jpg',
         goodsList: [],
@@ -22,14 +24,52 @@ Page({
         },
         totalPage: 2,
         loading: false,
-		showCustomizeModal:false
+        showCustomizeModal: false,
+        gradeImgList: [{
+                url: '../ratingRule/img/1.png'
+            },
+            {
+                url: '../ratingRule/img/2.png'
+            },
+            {
+                url: '../ratingRule/img/3.png'
+            },
+            {
+                url: '../ratingRule/img/4.png'
+            },
+            {
+                url: '../ratingRule/img/5.png'
+            },
+            {
+                url: '../ratingRule/img/6.png'
+            }
+        ],
+        gradeNameList: [{
+                title: '宝宝蜂'
+            }, {
+                title: '奶瓶蜂'
+            },
+            {
+                title: '摇摇蜂'
+            },
+            {
+                title: '文化蜂'
+            },
+            {
+                title: '工蜂'
+            },
+            {
+                title: '蜂后'
+            }
+        ]
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-		this.getCurrentIntegral();
+        this.getCurrentIntegral();
+        this.getAuthorGrade();
         this.loadMore();
         var getCustomer = setInterval(() => {
             var customer = getApp().globalData.customer
@@ -41,7 +81,16 @@ Page({
             }
         }, 100);
     },
-	preventTouchMove(){},
+    preventTouchMove() {},
+    getAuthorGrade() {
+        getAuthorGrade().then(res => {
+            if (res.code === 0) {
+                this.setData({
+                    grade: res.data
+                });
+            }
+        });
+    },
     getCurrentIntegral() {
         getCurrentIntegral().then(res => {
             if (res.code === 0) {
@@ -51,27 +100,27 @@ Page({
             }
         });
     },
-	customizeModalShow(){
-		this.setData({
-			showCustomizeModal: false
-		});
-	},
-	toContact(e){
-		this.setData({
-			showCustomizeModal:false
-		});
-	},
-	integralExchange(e){
-		var integralExchangeId = e.currentTarget.dataset.integralexchangeid;
-		exchange({
-			integralExchangeId: integralExchangeId
-		}).then(res=>{
-			this.getCurrentIntegral();
-			this.setData({
-				showCustomizeModal:true
-			});
-		});
-	},
+    customizeModalShow() {
+        this.setData({
+            showCustomizeModal: false
+        });
+    },
+    toContact(e) {
+        this.setData({
+            showCustomizeModal: false
+        });
+    },
+    integralExchange(e) {
+        var integralExchangeId = e.currentTarget.dataset.integralexchangeid;
+        exchange({
+            integralExchangeId: integralExchangeId
+        }).then(res => {
+            this.getCurrentIntegral();
+            this.setData({
+                showCustomizeModal: true
+            });
+        });
+    },
     hasMore() {
         if (this.data.pageUtil.page > this.data.totalPage) {
             return false
@@ -121,6 +170,12 @@ Page({
             });
         }
     },
+
+	toHasExchange(){
+		wx.navigateTo({
+			url: '../hasExchangeList/hasExchangeList',
+		})
+	},
 
     /**
      * 生命周期函数--监听页面初次渲染完成

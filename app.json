@@ -52,7 +52,8 @@
 				"pages/follower/follower",
 				"pages/attention/attention",
 				"pages/ratingRule/ratingRule",
-				"pages/integralExchange/integralExchange"
+				"pages/integralExchange/integralExchange",
+				"pages/hasExchangeList/hasExchangeList"
 			]
 		}
 	],

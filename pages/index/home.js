@@ -391,21 +391,6 @@ Page({
                 });
             }
         });
-        // wx.request({
-        //     url: getApp().globalData.server + 'qActivity/obtainNearestActivityInfo',
-        //     header: getApp().globalData.header,
-        //     method: 'GET',
-        //     success: (e1) => {
-        //         if (e1.data.code === 0) {
-        //             let announcementList = Array();
-        //             announcementList = e1.data.data
-        //             this.setData({
-        //                 announcementList: announcementList
-        //             });
-        //         }
-        //     },
-        //     fail: (res) => {},
-        // });
     },
     toActivityList: function(e) {
         this.getUserInfo(e);
