@@ -1,5 +1,4 @@
 /* customTabBar/customTabBar.wxss */
-
 button {
   border-radius: 0;
   padding: 0;
@@ -44,13 +43,6 @@ button::after {
   align-items: center;
 }
 
-.tabBarItem cover-view{
-	display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
-}
-
 .tabBarItem .tabBarImg {
   width: 45rpx;
   height: 45rpx;
@@ -64,7 +56,10 @@ button::after {
 }
 
 .tabBarItem .tabBarContent {
-	margin-top: 10rpx;
+  display: inline-flex;
+  width: unset;
+  height: unset;
+  margin-top: 10rpx;
   font-size: 20rpx;
   line-height: 20rpx;
 }

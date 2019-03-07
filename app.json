@@ -1,7 +1,7 @@
 {
   "pages": [
     "pages/index/home",
-	"pages/integralExchange/integralExchange",
+    "pages/integralExchange/integralExchange",
     "pages/mine/mine",
     "pages/lottery/lottery",
     "pages/cutInside/cutInside",
@@ -41,6 +41,7 @@
     {
       "root": "mineModule",
       "pages": [
+        "pages/commentCollection/commentCollection",
         "pages/wallet/wallet",
         "pages/coupon/coupon",
         "pages/ordersList/ordersList",
@@ -49,7 +50,6 @@
         "pages/subscription/subscription",
         "pages/pay/pay",
         "pages/aboutMia/aboutMia",
-        "pages/commentCollection/commentCollection",
         "pages/follower/follower",
         "pages/attention/attention",
         "pages/ratingRule/ratingRule",
@@ -58,9 +58,9 @@
     }
   ],
   "tabBar": {
-    "custom":true,
+    "custom": true,
     "color": "#c2b9b7",
-    "selectedColor": "#000",
+    "selectedColor": "#f1b500",
     "borderStyle": "white",
     "backgroundColor": "#FFF",
     "list": [

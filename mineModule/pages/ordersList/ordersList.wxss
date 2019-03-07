@@ -1,5 +1,4 @@
 /* pages/ordersList/ordersList.wxss */
-
 .orderItem {
     background-color: #fff;
     box-sizing: border-box;
