@@ -6,9 +6,11 @@
             <!-- <swiper-item>
                 <image src="../../img/explanation.png" bindtap='toActivityList' class="slideImage" mode='aspectFill'></image>
             </swiper-item> -->
-            <swiper-item data-pagename='首页banner图' bindtap='toPromotion'>
-                <image src="/img/womenBanner.jpg" class="slideImage" mode='widthFix'></image>
-            </swiper-item>
+            <block wx:for='{{bannerData}}' wx:key='index'>
+                <swiper-item data-pagename='首页banner图' data-url='{{item.redirect}}' bindtap='toPromotion'>
+                    <image src="{{item.imgUrl}}" class="slideImage" mode='widthFix'></image>
+                </swiper-item>
+            </block>
         </swiper>
         <view class='still-searchBox' bindtap='toSearch'>
             <view class='still-search'>
@@ -57,7 +59,6 @@
                 </view>
             </view>
             <v-water-fallFlow id='homeData' bind:noData='getWaterFallFlowData'></v-water-fallFlow>
-            <!-- <v-water-fallFlow wx:if="{{switchTab === 'follow'}}" bind:noData='getWaterFallFlowData' switch-tab='{{switchTab}}' update='{{update}}' more='{{more}}'></v-water-fallFlow> -->
         </view>
         <!--蜜罐分享 bindtap='openShare'-->
         <!-- 个人中心
@@ -73,9 +74,9 @@
     </button>
 
     <!-- 首页弹窗 -->
-    <view class='dialog' catchtap='cancel' wx:if='{{enShowHomeImg}}'>
+    <view class='dialog' catchtap='cancel' wx:if='{{enShowHomeImg && popUpsShow}}'>
         <view class='dialogImgBox'>
-            <image src='/img/dialog.jpg' data-pagename='首页弹窗' catchtap='toPromotion'></image>
+            <image src='{{popUpsData.imgUrl}}' data-pagename='首页弹窗' data-url='{{popUpsData.redirect}}' catchtap='toPromotion'></image>
         </view>
         <view class='dialogClose' catchtap='cancel'>
             <text class="iconfont icon-guanbi1"></text>

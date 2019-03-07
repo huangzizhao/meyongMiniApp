@@ -115,10 +115,18 @@ Page({
     exchange({
       integralExchangeId: integralExchangeId
     }).then(res => {
-      this.getCurrentIntegral();
-      this.setData({
-        showCustomizeModal: true
-      });
+		if(res.code === 0){
+			this.getCurrentIntegral();
+			this.setData({
+				showCustomizeModal: true
+			});
+		}else{
+			wx.showModal({
+				title: '提示',
+				content: res.msg,
+				showCancel:false
+			})
+		}
     });
   },
   hasMore() {

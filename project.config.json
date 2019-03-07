@@ -63,8 +63,8 @@
 				},
 				{
 					"id": 3,
-					"name": "积分",
-					"pathName": "mineModule/pages/integralExchange/integralExchange",
+					"name": "已兑换",
+					"pathName": "mineModule/pages/hasExchangeList/hasExchangeList",
 					"query": "",
 					"scene": null
 				}

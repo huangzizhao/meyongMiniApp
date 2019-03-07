@@ -14,9 +14,12 @@
                         <text>{{customer.name}}</text>
                     </view>
                     <text class='dividingLine'>|</text>
-                    <view class='infoItem' bindtap='toRatingRule'>等级</view>
+                    <view class='infoItem grade' bindtap='toRatingRule'>
+                        <image src='{{gradeImgList[grade - 1].url}}' mode='aspectFill'></image>
+                        <text>{{gradeNameList[grade - 1].title}}</text>
+                    </view>
                     <text class='dividingLine'>|</text>
-                    <view class='infoItem' bindtap='toIntegralExchange'>积分</view>
+                    <view class='infoItem'>积分：{{integral}}</view>
                 </view>
                 <view class='funList'>
                     <view class='funItem' data-tabname='order' bindtap='toFunlistItem'>

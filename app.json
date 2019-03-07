@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/home",
+	"pages/integralExchange/integralExchange",
     "pages/mine/mine",
     "pages/lottery/lottery",
     "pages/cutInside/cutInside",
@@ -15,8 +16,7 @@
     "pages/paymentResults/paymentResults",
     "pages/winnerAnnouncement/winnerAnnouncement",
     "pages/promotion/promotion",
-    "pages/search/search",
-    "pages/integralExchange/integralExchange"
+    "pages/search/search"
   ],
   "subPackages": [
     {
@@ -73,18 +73,18 @@
       {
         "pagePath": "pages/index/home",
         "text": "发布笔记",
-        "iconPath": "/img/notesPush.png",
-        "selectedIconPath": "/img/notesPush.png"
+        "iconPath": "/img/notes.png",
+        "selectedIconPath": "/img/notesActive.png"
       },
       {
         "pagePath": "pages/integralExchange/integralExchange",
         "text": "兑换区",
-        "iconPath": "/img/home.png",
-        "selectedIconPath": "/img/homeActive.png"
+        "iconPath": "/img/integral.png",
+        "selectedIconPath": "/img/integralActive.png"
       },
       {
         "pagePath": "pages/mine/mine",
-        "text": "我的",
+        "text": "我",
         "iconPath": "/img/mine.png",
         "selectedIconPath": "/img/mineActive.png"
       }

@@ -1,274 +1,288 @@
 /* pages/person-center/person-center.wxss */
 
 page {
-  background-color: rgba(245, 248, 250, 1);
+    background-color: rgba(245, 248, 250, 1);
 }
 
 .app {
-  padding-bottom: 96rpx;
-  position: relative;
-  width: 100vw;
-  min-height: 100vh;
+    padding-bottom: 96rpx;
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
 }
 
 button::after {
-  border: none;
+    border: none;
 }
 
-.header{
-  background-color: white;
+.header {
+    background-color: white;
 }
 
 .header .mineBackground {
-  width: 100vw;
-  height: 438rpx;
-  overflow: hidden;
+    width: 100vw;
+    height: 438rpx;
+    overflow: hidden;
 }
 
 .mineBackground image {
-  width: 100%;
-  height: 100%;
-  display: block;
-  filter: blur(7rpx);
-  transform: scale(1.1);
+    width: 100%;
+    height: 100%;
+    display: block;
+    filter: blur(7rpx);
+    transform: scale(1.1);
 }
 
 .minePersonCenter {
-  position: relative;
-  box-sizing: border-box;
-  border-bottom: 1px solid rgba(112, 112, 112, 0.15);
-  padding-bottom: 42rpx;
+    position: relative;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(112, 112, 112, 0.15);
+    padding-bottom: 42rpx;
 }
 
 .personCenterBox {
-  position: relative;
-  width: calc(100vw - 72rpx);
-  margin: -230rpx auto 0 auto;
-  background-color: white;
-  height: 372rpx;
-  border-radius: 32rpx;
-  box-shadow: 0 4rpx 15rpx rgba(50, 50, 50, 0.1);
-  display: flex;
-  align-items: center;
-  flex-flow: column wrap;
+    position: relative;
+    width: calc(100vw - 72rpx);
+    margin: -230rpx auto 0 auto;
+    background-color: white;
+    height: 372rpx;
+    border-radius: 32rpx;
+    box-shadow: 0 4rpx 15rpx rgba(50, 50, 50, 0.1);
+    display: flex;
+    align-items: center;
+    flex-flow: column wrap;
 }
 
 .personCenterBox .avatar {
-  position: absolute;
-  top: -60rpx;
-  left: 42rpx;
-  width: 150rpx;
-  height: 150rpx;
-  border-radius: 50%;
-  overflow: hidden;
+    position: absolute;
+    top: -60rpx;
+    left: 42rpx;
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
 .avatar image {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 .personCenterBox .mineInfo {
-  width: 100%;
-  height: 100rpx;
-  box-sizing: border-box;
-  padding-left: 216rpx;
-  display: inline-flex;
-  flex-flow: row nowrap;
-  align-items: center;
+    width: 100%;
+    height: 100rpx;
+    box-sizing: border-box;
+    padding-left: 216rpx;
+    display: inline-flex;
+    flex-flow: row nowrap;
+    align-items: center;
 }
 
 .mineInfo .name {
-  color: rgba(61, 61, 61, 1);
-  font-size: 34rpx;
-  display: inline-flex;
-  align-items: center;
-  margin: 15rpx
+	max-width: 150rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: rgba(61, 61, 61, 1);
+    font-size: 34rpx;
+    margin: 15rpx;
 }
 
-.mineInfo .infoItem{
-	margin-top: 1rpx;
-	font-size: 20rpx;
-	line-height: 20rpx;
-	box-sizing: border-box;
-	padding: 0 15rpx;
+.mineInfo .infoItem {
+    margin-top: 1rpx;
+    font-size: 20rpx;
+    line-height: 20rpx;
+    box-sizing: border-box;
+    padding: 0 15rpx;
+}
+
+.mineInfo .grade {
+    display: inline-flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.mineInfo .grade image {
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 10rpx;
 }
 
 .funList {
-  width: 100%;
-  display: flex;
-  flex-flow: row nowrap;
-  box-sizing: border-box;
-  padding: 0 25rpx;
-  margin-top: 50rpx;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    box-sizing: border-box;
+    padding: 0 25rpx;
+    margin-top: 50rpx;
 }
 
 .funList .funItem {
-  flex: 1;
-  display: inline-flex;
-  flex-flow: column wrap;
-  justify-items: center;
-  align-content: center;
-  text-align: center;
-  /* padding: 0 30rpx; */
+    flex: 1;
+    display: inline-flex;
+    flex-flow: column wrap;
+    justify-items: center;
+    align-content: center;
+    text-align: center;
+    /* padding: 0 30rpx; */
 }
 
 .dividingLine {
-  font-size: 16rpx;
-  line-height: 16rpx;
-  color: rgba(61, 61, 61, 1);
+    font-size: 16rpx;
+    line-height: 16rpx;
+    color: rgba(61, 61, 61, 1);
 }
 
 .funList .dividingLine {
-  margin-top: 18rpx;
+    margin-top: 18rpx;
 }
 
 .funItem .iconfont {
-  color: #000;
-  font-size: 55rpx;
-  line-height: 55rpx;
-  margin-bottom: 10rpx;
-  font-weight: 400;
+    color: #000;
+    font-size: 55rpx;
+    line-height: 55rpx;
+    margin-bottom: 10rpx;
+    font-weight: 400;
 }
 
 .funItem .itemName {
-  font-size: 20rpx;
-  font-weight: 200;
-  color: rgba(61, 61, 61, 1);
+    font-size: 20rpx;
+    font-weight: 200;
+    color: rgba(61, 61, 61, 1);
 }
 
 .personCenterBox .boxBottom {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 0 50rpx;
-  margin-top: 40rpx;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 50rpx;
+    margin-top: 40rpx;
 }
 
 .boxBottom .commentCollecting {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 30rpx;
-  height: 46rpx;
-  background-color: rgba(241, 181, 0, 1);
-  font-size: 25rpx;
-  color: rgba(61, 61, 61, 1);
-  border-radius: 23rpx;
-  box-sizing: border-box;
-  box-shadow: 3rpx 5rpx 10rpx rgba(50, 50, 50, 0.1);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 30rpx;
+    height: 46rpx;
+    background-color: rgba(241, 181, 0, 1);
+    font-size: 25rpx;
+    color: rgba(61, 61, 61, 1);
+    border-radius: 23rpx;
+    box-sizing: border-box;
+    box-shadow: 3rpx 5rpx 10rpx rgba(50, 50, 50, 0.1);
 }
 
 .commentCollecting .commentNum {
-  font-size: 36rpx;
-  line-height: 36rpx;
-  height: 60rpx;
-  min-width: 60rpx;
-  padding: 0 20rpx;
-  color: white;
-  background-color: rgba(212, 18, 18, 1);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 30rpx;
-  position: absolute;
-  right: -40rpx;
-  top: -10rpx;
-  box-sizing: border-box;
-  -webkit-transform: scale(0.5);
-  transform: scale(0.5);
-  -webkit-transform-origin: 0 0;
-  transform-origin: 0 0;
+    font-size: 36rpx;
+    line-height: 36rpx;
+    height: 60rpx;
+    min-width: 60rpx;
+    padding: 0 20rpx;
+    color: white;
+    background-color: rgba(212, 18, 18, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30rpx;
+    position: absolute;
+    right: -40rpx;
+    top: -10rpx;
+    box-sizing: border-box;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
 }
 
 .boxBottom .followArea {
-  display: inline-flex;
-  flex-flow: row nowrap;
+    display: inline-flex;
+    flex-flow: row nowrap;
 }
 
 .followArea .areaItem {
-  display: inline-flex;
-  flex-flow: column wrap;
-  font-size: 26rpx;
-  line-height: 26rpx;
-  color: rgba(61, 61, 61, 1);
-  justify-items: center;
-  align-content: center;
-  margin-left: 30rpx;
+    display: inline-flex;
+    flex-flow: column wrap;
+    font-size: 26rpx;
+    line-height: 26rpx;
+    color: rgba(61, 61, 61, 1);
+    justify-items: center;
+    align-content: center;
+    margin-left: 30rpx;
 }
 
 .areaItem .num, .areaItem .itemName {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 .areaItem .itemName {
-  margin-top: 10rpx;
+    margin-top: 10rpx;
 }
 
 .tabBar-top {
-  display: flex;
-  width: 100%;
-  height: 70rpx;
-  box-sizing: border-box;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: center;
-  background-color: rgb(250, 250, 250);
-  color: rgba(112, 112, 112, 1);
-  font-weight: 200;
-  box-shadow: 0 3rpx 10rpx rgba(122, 122, 122, 0.1);
+    display: flex;
+    width: 100%;
+    height: 70rpx;
+    box-sizing: border-box;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(250, 250, 250);
+    color: rgba(112, 112, 112, 1);
+    font-weight: 200;
+    box-shadow: 0 3rpx 10rpx rgba(122, 122, 122, 0.1);
 }
 
 .tabBar-top .tabBarItem {
-  flex: 1;
-  height: 100%;
-  display: inline-flex;
-  align-items: center;
-  padding: 0 15rpx;
-  box-sizing: border-box;
-  position: relative;
-  font-size: 28rpx;
+    flex: 1;
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 15rpx;
+    box-sizing: border-box;
+    position: relative;
+    font-size: 28rpx;
 }
 
 .active {
-  font-weight: 600;
-  color: rgb(48, 47, 47);
+    font-weight: 600;
+    color: rgb(48, 47, 47);
 }
 
 .community {
-  width: 100vw;
-  box-sizing: border-box;
-  min-height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    min-height: 100vh;
 }
 
 .community .noData {
-  width: 100%;
-  padding-top: 100rpx;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
+    width: 100%;
+    padding-top: 100rpx;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
 }
 
 .noData .noDataImg {
-  width: 100%;
-  display: inline-flex;
-  justify-content: center;
-  margin-bottom: 20rpx;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    margin-bottom: 20rpx;
 }
 
 .noDataImg image {
-  width: 150rpx;
-  height: 157rpx;
+    width: 150rpx;
+    height: 157rpx;
 }
 
 .noData .content {
-  display: inline-flex;
-  justify-content: center;
-  font-size: 20rpx;
-  color: rgb(163, 157, 157);
+    display: inline-flex;
+    justify-content: center;
+    font-size: 20rpx;
+    color: rgb(163, 157, 157);
 }

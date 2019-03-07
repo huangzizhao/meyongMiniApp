@@ -41,6 +41,14 @@ export const bindMobile = (params) => {
 }
 
 //home -> 
+/**首页弹窗数据 */
+export const popUps = (params) => {
+	return get('home/popUps', params);
+}
+/**获取banner数据 */
+export const getHomeBanner = (params) => {
+	return get('home/banner', params);
+}
 /**通过谁分享推荐进入本小程序**/
 export const getBindRecommendUser = (params) => {
     return get('customer/bindRecommendUser', params);
@@ -295,5 +303,5 @@ export const getCurrentIntegral = (params) => {
 
 /**积分兑换商品*/
 export const exchange = (params) => {
-	return post('integral/exchange', params);
+	return get('integral/exchange', params);
 }

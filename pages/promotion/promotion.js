@@ -9,6 +9,7 @@ Page({
      */
     data: {
         fromPage: '',
+		url:'', //跳转链接
         enterDomStartTime: 0,
         partTime: 0
     },
@@ -38,7 +39,8 @@ Page({
      */
     onLoad: function(options) {
         this.setData({
-            fromPage: options.pageName
+            fromPage: options.pageName,
+			url: options.url
         });
     },
 

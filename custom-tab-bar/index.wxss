@@ -38,36 +38,33 @@ button::after {
 
 .tabBarItem {
   flex: 1;
-  text-align: center;
   display: flex;
+  flex-flow: column wrap;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
 }
 
-.itemBox {
-  display: inline-flex;
-  justify-content: center;
-  align-content: center;
+.tabBarItem cover-view{
+	display: flex;
   flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
 }
 
-
-
-.tabBarItem cover-image {
-  width: 54rpx;
-  height: 54rpx;
+.tabBarItem .tabBarImg {
+  width: 45rpx;
+  height: 45rpx;
   box-sizing: border-box;
-  padding: 8rpx;
 }
 
-.tabBarItem cover-image.singleImg {
+.tabBarItem .tabBarImg.singleImg {
   width: 90rpx;
   height: 67.5rpx;
   padding: 0;
 }
 
-.tabBarItem cover-view {
+.tabBarItem .tabBarContent {
+	margin-top: 10rpx;
   font-size: 20rpx;
   line-height: 20rpx;
 }

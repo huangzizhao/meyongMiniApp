@@ -1,6 +1,6 @@
 <!--pages/promotion/promotion.wxml-->
-<!-- <web-view src='https://wx.mymia.top/luckyMoney/luckyMoney.html#wechat_redirect'></web-view> -->
-<view class='app'>
+<web-view src='{{url}}#wechat_redirect'></web-view>
+<!-- <view class='app'>
     <view class='imgBox'>
         <image src='img/1.png' mode='widthFix'></image>
     </view>
@@ -25,4 +25,4 @@
     <view class='imgBox'>
         <image src='img/7.png' mode='widthFix'></image>
     </view>
-</view>
+</view> -->

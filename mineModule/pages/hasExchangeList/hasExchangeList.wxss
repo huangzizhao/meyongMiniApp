@@ -66,6 +66,7 @@ page{
 	font-size: 40rpx;
 	line-height: 40rpx;
 	font-weight: bold;
+	overflow: hidden;
 }
 
 .inlineBox .name{
@@ -73,6 +74,14 @@ page{
 	margin-top: 20rpx;
 	font-size: 25rpx;
 	line-height: 25rpx;
+}
+
+.inlineBox .name, .inlineBox .title {
+    width: 100%;
+	text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .itemRight .exchange{
@@ -98,4 +107,32 @@ page{
 .condition .conditionBlod{
 	color: rgba(133, 0, 0, 1);
 	margin-right: 7rpx;
+}
+
+.noData {
+    width: 100%;
+    padding-top: 200rpx;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+
+.noData .noDataImg {
+	width: 100%;
+	display: inline-flex;
+	justify-content: center;
+    margin-bottom: 20rpx;
+}
+
+.noDataImg image {
+    width: 200rpx;
+    height: 208rpx;
+}
+
+.noData .content {
+    display: inline-flex;
+	justify-content: center;
+    font-size: 30rpx;
+	line-height: 30rpx;
+    color: rgb(102, 100, 100);
 }

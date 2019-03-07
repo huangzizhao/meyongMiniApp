@@ -1,8 +1,8 @@
 <!--mineModule/pages/hasExchangeList/hasExchangeList.wxml-->
 <import src='/templates/loading/loading.wxml' />
 <view class='integralGoodsList'>
-    <block wx:for='{{goodsList}}' wx:key='index'>
-        <view class='integralItem goods{{index}}'>
+    <block wx:if='{{goodsList.length > 0}}'>
+        <view class='integralItem goods{{index}}' wx:for='{{goodsList}}' wx:key='index'>
             <view class='itemLeft'>
                 <image src='{{item.showUrl}}' mode='aspectFill'></image>
             </view>
@@ -26,4 +26,14 @@
         </view>
         <template is='spinner' wx:if='{{loading}}' />
     </block>
+	<block wx:else>
+		<view class='noData'>
+                <view class='noDataImg'>
+                    <image src='/img/noData.png'></image>
+                </view>
+                <view class='content'>
+                    <text>暂无数据</text>
+                </view>
+            </view>
+	</block>
 </view>
