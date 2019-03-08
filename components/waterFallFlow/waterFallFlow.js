@@ -60,12 +60,7 @@ Component({
       rightList.length = 0;
       leftHeight = 0;
       rightHeight = 0;
-      this.setData({
-        leftList:[],
-        rightList:[]
-      },()=>{
-        this.setWaterFallFlowData(this.data.dataStorage);
-      });
+		this.setWaterFallFlowData(this.data.dataStorage);
       // let array = Object.keys(data).map(key => data[key])
     }
   },

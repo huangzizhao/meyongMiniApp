@@ -10,9 +10,9 @@
                 <text>{{customer.name}}</text>
             </view>
             <text class='dividingLine'>|</text>
-            <view class='grade'>
-                <image src='{{gradeImgList[grade].url}}' mode='aspectFill'></image>
-                <text>{{gradeNameList[grade].title}}</text>
+            <view class='grade' bindtap='toRatingRule'>
+                <image src='{{gradeImgList[grade - 1].url}}' mode='aspectFill'></image>
+                <text>{{gradeNameList[grade - 1].title}}</text>
             </view>
             <text class='dividingLine'>|</text>
             <view class='integral'>
