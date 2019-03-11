@@ -41,6 +41,7 @@ button::after {
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
+  font-weight: 500;
 }
 
 .tabBarItem .tabBarImg {

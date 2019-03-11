@@ -171,7 +171,8 @@ button::after {
 
 .community {
     width: 100vw;
-    min-height: 100vh;
+	height: auto;
+	min-height: 40vh;
     box-sizing: border-box;
     padding-bottom: 40rpx;
 }

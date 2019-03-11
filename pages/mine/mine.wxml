@@ -1,99 +1,99 @@
 <!--pages/person-center/person-center.wxml-->
 <view class='app'>
-  <view class='header'>
-    <view class='mineBackground'>
-      <image src='/img/personCenterBg.jpg' mode='aspectFill'></image>
-    </view>
-    <view class='minePersonCenter'>
-      <view class='personCenterBox'>
-        <view class='avatar'>
-          <image src='{{customer.headImg}}' mode='aspectFill'></image>
+    <view class='header'>
+        <view class='mineBackground'>
+            <image src='/img/personCenterBg.jpg' mode='top'></image>
         </view>
-        <view class='mineInfo'>
-          <view class='name'>
-            <text>{{customer.name}}</text>
-          </view>
-          <text class='dividingLine'>|</text>
-          <view class='infoItem grade' bindtap='toRatingRule'>
-            <image src='{{gradeImgList[grade - 1].url}}' mode='aspectFill'></image>
-            <text>{{gradeNameList[grade - 1].title}}</text>
-          </view>
-          <text class='dividingLine'>|</text>
-          <view class='infoItem'>积分：{{integral}}</view>
-        </view>
-        <view class='funList'>
-          <view class='funItem' data-tabname='order' bindtap='toFunlistItem'>
-            <text class='iconfont icon-mine-order'></text>
-            <text class='itemName'>我的订单</text>
-          </view>
-          <text class='dividingLine'>|</text>
-          <view class='funItem' data-tabname='coupon' bindtap='toFunlistItem'>
-            <text class='iconfont icon-coupon'></text>
-            <text class='itemName'>我的优惠券</text>
-          </view>
-          <text class='dividingLine'>|</text>
-          <view class='funItem' data-tabname='bookingFee' bindtap='toFunlistItem'>
-            <text class='iconfont icon-bookingFee'></text>
-            <text class='itemName'>我的预定金</text>
-          </view>
-          <text class='dividingLine'>|</text>
-          <view class='funItem' data-tabname='notices' bindtap='toFunlistItem'>
-            <text class='iconfont icon-mine-notices'></text>
-            <text class='itemName'>系统消息</text>
-          </view>
-        </view>
-        <view class='boxBottom'>
-          <view class='commentCollecting' data-countunreadreview='{{countUnReadReview}}' bindtap='toCommentCollection'>
-            <text>收到的评论</text>
-            <view class='commentNum' wx:if='{{countUnReadReview > 0}}'>{{countUnReadReview}}</view>
-          </view>
-          <view class='followArea'>
-            <view class='areaItem' bindtap='toAttention'>
-              <view class='num'>
-                <text>{{attention}}</text>
-              </view>
-              <view class='itemName'>
-                <text>关注</text>
-              </view>
+        <view class='minePersonCenter'>
+            <view class='personCenterBox'>
+                <view class='avatar'>
+                    <image src='{{customer.headImg}}' mode='aspectFill'></image>
+                </view>
+                <view class='mineInfo'>
+                    <view class='name'>
+                        <text>{{customer.name}}</text>
+                    </view>
+                    <text class='dividingLine'>|</text>
+                    <view class='infoItem grade' bindtap='toRatingRule'>
+                        <image src='{{gradeImgList[grade - 1].url}}' mode='aspectFill'></image>
+                        <text>{{gradeNameList[grade - 1].title}}</text>
+                    </view>
+                    <text class='dividingLine'>|</text>
+                    <view class='infoItem'>积分：{{integral}}</view>
+                </view>
+                <view class='funList'>
+                    <view class='funItem' data-tabname='order' bindtap='toFunlistItem'>
+                        <text class='iconfont icon-mine-order'></text>
+                        <text class='itemName'>我的订单</text>
+                    </view>
+                    <text class='dividingLine'>|</text>
+                    <view class='funItem' data-tabname='coupon' bindtap='toFunlistItem'>
+                        <text class='iconfont icon-coupon'></text>
+                        <text class='itemName'>我的优惠券</text>
+                    </view>
+                    <text class='dividingLine'>|</text>
+                    <view class='funItem' data-tabname='bookingFee' bindtap='toFunlistItem'>
+                        <text class='iconfont icon-bookingFee'></text>
+                        <text class='itemName'>我的预定金</text>
+                    </view>
+                    <text class='dividingLine'>|</text>
+                    <view class='funItem' data-tabname='notices' bindtap='toFunlistItem'>
+                        <text class='iconfont icon-mine-notices'></text>
+                        <text class='itemName'>系统消息</text>
+                    </view>
+                </view>
+                <view class='boxBottom'>
+                    <view class='commentCollecting' data-countunreadreview='{{countUnReadReview}}' bindtap='toCommentCollection'>
+                        <text>收到的评论</text>
+                        <view class='commentNum' wx:if='{{countUnReadReview > 0}}'>{{countUnReadReview}}</view>
+                    </view>
+                    <view class='followArea'>
+                        <view class='areaItem' bindtap='toAttention'>
+                            <view class='num'>
+                                <text>{{attention}}</text>
+                            </view>
+                            <view class='itemName'>
+                                <text>关注</text>
+                            </view>
+                        </view>
+                        <view class='areaItem' bindtap='toFollow'>
+                            <view class='num'>
+                                <text>{{fans}}</text>
+                            </view>
+                            <view class='itemName'>
+                                <text>粉丝</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
             </view>
-            <view class='areaItem' bindtap='toFollow'>
-              <view class='num'>
-                <text>{{fans}}</text>
-              </view>
-              <view class='itemName'>
-                <text>粉丝</text>
-              </view>
-            </view>
-          </view>
         </view>
-      </view>
     </view>
-  </view>
-  <view class='tabBar-top'>
-    <view class="tabBarItem {{switchTab == 'notes' ? 'active' : ''}}" style='justify-content: flex-end;padding-right:90rpx' data-tab='notes' bindtap='switchTabChange'>笔记</view>
-    <text style='font-size: 15rpx;color: rgba(61, 61, 61, 1);'>|</text>
-    <view class="tabBarItem {{switchTab == 'collection' ? 'active' : ''}}" style='justify-content: flex-start;padding-left:90rpx' data-tab='collection' bindtap='switchTabChange'>收藏</view>
-  </view>
-  <view class='community'>
-    <view class='noData' wx:if="{{switchTab == 'notes' && noData}}">
-      <view class='noDataImg'>
-        <image src='/img/noData.png'></image>
-      </view>
-      <view class='content'>
-        <text>还没有笔记喔</text>
-      </view>
+    <view class='tabBar-top'>
+        <view class="tabBarItem {{switchTab == 'notes' ? 'active' : ''}}" style='justify-content: flex-end;padding-right:90rpx' data-tab='notes' bindtap='switchTabChange'>笔记</view>
+        <text style='font-size: 15rpx;color: rgba(61, 61, 61, 1);'>|</text>
+        <view class="tabBarItem {{switchTab == 'collection' ? 'active' : ''}}" style='justify-content: flex-start;padding-left:90rpx' data-tab='collection' bindtap='switchTabChange'>收藏</view>
     </view>
-    <view class='noData' wx:elif="{{switchTab == 'collection' && noData}}">
-      <view class='noDataImg'>
-        <image src='/img/noData.png'></image>
-      </view>
-      <view class='content'>
-        <text>还没有收藏任何笔记喔</text>
-      </view>
+    <view class='community'>
+        <view class='noData' wx:if="{{switchTab == 'notes' && noData}}">
+            <view class='noDataImg'>
+                <image src='/img/noData.png'></image>
+            </view>
+            <view class='content'>
+                <text>还没有笔记喔</text>
+            </view>
+        </view>
+        <view class='noData' wx:elif="{{switchTab == 'collection' && noData}}">
+            <view class='noDataImg'>
+                <image src='/img/noData.png'></image>
+            </view>
+            <view class='content'>
+                <text>还没有收藏任何笔记喔</text>
+            </view>
+        </view>
+        <v-water-fallFlow id='mineData' bind:noData='getWaterFallFlowData'></v-water-fallFlow>
+        <!-- <v-water-fallFlow bind:noData='getWaterFallFlowData' more='{{more}}' update='{{update}}' switch-tab='collection' id-type='authorId' collection-author-id='mine' wx:if="{{switchTab == 'collection'}}"></v-water-fallFlow> -->
     </view>
-    <v-water-fallFlow id='mineData' bind:noData='getWaterFallFlowData'></v-water-fallFlow>
-    <!-- <v-water-fallFlow bind:noData='getWaterFallFlowData' more='{{more}}' update='{{update}}' switch-tab='collection' id-type='authorId' collection-author-id='mine' wx:if="{{switchTab == 'collection'}}"></v-water-fallFlow> -->
-  </view>
 
 </view>
 <!-- <view class='ly-background'>

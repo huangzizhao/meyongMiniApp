@@ -257,7 +257,8 @@ button::after {
 .community {
     width: 100vw;
     box-sizing: border-box;
-    min-height: 100vh;
+    height: auto;
+	min-height: 40vh;
 }
 
 .community .noData {
