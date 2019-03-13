@@ -14,5 +14,5 @@
       </view>
     </view>
   </view>
-  <view class="followBtn {{item.attention === 1 ? 'active' : ''}}" data-index='{{index}}' data-attentionid='{{item.attentionId}}' data-attention='{{item.attention}}' catchtap='follow'>{{item.attention === 1 ? '已关注' :'关注'}}</view>
+  <view class="followBtn {{item.attention === 1 ? 'active' : ''}}" data-index='{{index}}' data-attentionid='{{item.customerId}}' data-attention='{{item.attention}}' catchtap='follow'>{{item.attention === 1 ? '已关注' :'关注'}}</view>
 </view>

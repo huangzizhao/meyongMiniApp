@@ -115,7 +115,7 @@ Component({
       if (e.currentTarget.dataset.attention === 0) {
         //todo
         this.setData({
-          ['arrayList[' + index + '].attention`']: 1
+			[`arrayList[${index}].attention`]: 1
         });
         follow({
           customerId: this.data.customerId,
@@ -128,7 +128,7 @@ Component({
       } else if (e.currentTarget.dataset.attention === 1) {
         //todo
         this.setData({
-          ['arrayList[' + index + '].attention`']: 0
+			[`arrayList[${index}].attention`]: 0
         });
         cancelFollow({
           customerId: this.data.customerId,
