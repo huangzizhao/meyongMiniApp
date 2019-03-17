@@ -125,7 +125,7 @@ Page({
     let num = e.currentTarget.dataset.num;
     if (num > 0) {
       wx.navigateTo({
-        url: '/mineModule/pages/attention/attention?customerId=mine'
+        url: '/mineModule/pages/attention/attention?customerId=' + this.data.authorData.customerId
       })
     }
   },
@@ -133,7 +133,7 @@ Page({
     let num = e.currentTarget.dataset.num;
     if (num > 0) {
       wx.navigateTo({
-        url: '/mineModule/pages/follower/follower?customerId=mine',
+        url: '/mineModule/pages/follower/follower?customerId=' + this.data.authorData.customerId,
       })
     }
   },

@@ -1,33 +1,33 @@
 <view class='app'>
-    <view class='container-content'>
-        <announcement announcement-list='{{announcementList}}'></announcement>
-        <v-notification user-avatar='{{participateAvatar}}' user-name='{{participateUserName}}' time='{{participateTime}}'></v-notification>
-        <swiper class='bannerSwiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
-            <!-- <swiper-item>
+  <view class='container-content'>
+    <announcement announcement-list='{{announcementList}}'></announcement>
+    <v-notification user-avatar='{{participateAvatar}}' user-name='{{participateUserName}}' time='{{participateTime}}'></v-notification>
+    <swiper class='bannerSwiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+      <!-- <swiper-item>
                 <image src="../../img/explanation.png" bindtap='toActivityList' class="slideImage" mode='aspectFill'></image>
             </swiper-item> -->
-            <block wx:for='{{bannerData}}' wx:key='index'>
-                <swiper-item data-pagename='首页banner图' data-url='{{item.redirect}}' bindtap='toPromotion'>
-                    <image src="{{item.imgUrl}}" class="slideImage" mode='widthFix'></image>
-                </swiper-item>
-            </block>
-        </swiper>
-        <view class='still-searchBox' bindtap='toSearch'>
-            <view class='still-search'>
-                <text class='iconfont icon-sousuo'></text>
-                <text>输入标签关键字/作者名字/文章名字搜索</text>
-            </view>
-        </view>
-        <view class='tabBar-top'>
-            <view class="tabBarItem {{switchTab == 'latest' ? 'active' : ''}}" style='justify-content: flex-end;padding-right:90rpx' data-tab='latest' bindtap='switchTabChange'>最新</view>
-            <text style='font-size: 15rpx;color: rgba(61, 61, 61, 1);'>|</text>
-            <view class="tabBarItem {{switchTab == 'follow' ? 'active' : ''}}" style='justify-content: flex-start;padding-left:90rpx' data-tab='follow' bindtap='switchTabChange'>关注</view>
-        </view>
-        <!-- <view class='notice' bindtap='toActivityList'>
+      <block wx:for='{{bannerData}}' wx:key='index'>
+        <swiper-item data-pagename='首页banner图' data-url='{{item.redirect}}' bindtap='toPromotion'>
+          <image src="{{item.imgUrl}}" class="slideImage" mode='widthFix'></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class='still-searchBox' bindtap='toSearch'>
+      <view class='still-search'>
+        <text class='iconfont icon-sousuo'></text>
+        <text>输入标签关键字/作者名字/文章名字搜索</text>
+      </view>
+    </view>
+    <view class='tabBar-top'>
+      <view class="tabBarItem {{switchTab == 'latest' ? 'active' : ''}}" style='justify-content: flex-end;padding-right:90rpx' data-tab='latest' bindtap='switchTabChange'>最新</view>
+      <text style='font-size: 15rpx;color: rgba(61, 61, 61, 1);'>|</text>
+      <view class="tabBarItem {{switchTab == 'follow' ? 'active' : ''}}" style='justify-content: flex-start;padding-left:90rpx' data-tab='follow' bindtap='switchTabChange'>关注</view>
+    </view>
+    <!-- <view class='notice' bindtap='toActivityList'>
             <image src='../../img/explanation.png' />
         </view> -->
 
-        <!-- <scroll-view class='scroll-x' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll">
+    <!-- <scroll-view class='scroll-x' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll">
             <view class='itemList'>
                 <button class='scroll-item' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo='toActivityList'>
                     <image src='../../img/welfareActivities.png' />
@@ -41,45 +41,45 @@
             </view>
         </scroll-view> -->
 
-        <view class='community'>
-            <view class='noData' wx:if="{{switchTab == 'latest' && noData}}">
-                <view class='noDataImg'>
-                    <image src='/img/noData.png'></image>
-                </view>
-                <view class='content'>
-                    <text>还没有最新的笔记喔</text>
-                </view>
-            </view>
-            <view class='noData' wx:elif="{{switchTab == 'follow' && noData}}">
-                <view class='noDataImg'>
-                    <image src='/img/noData.png'></image>
-                </view>
-                <view class='content'>
-                    <text>你还没有关注任何人喔</text>
-                </view>
-            </view>
-            <v-water-fallFlow id='homeData' bind:noData='getWaterFallFlowData'></v-water-fallFlow>
+    <view class='community'>
+      <view class='noData' wx:if="{{switchTab == 'latest' && noData}}">
+        <view class='noDataImg'>
+          <image src='/img/noData.png'></image>
         </view>
-        <!--蜜罐分享 bindtap='openShare'-->
-        <!-- 个人中心
+        <view class='content'>
+          <text>还没有最新的笔记喔</text>
+        </view>
+      </view>
+      <view class='noData' wx:elif="{{switchTab == 'follow' && noData}}">
+        <view class='noDataImg'>
+          <image src='/img/noData.png'></image>
+        </view>
+        <view class='content'>
+          <text>你还没有关注任何人喔</text>
+        </view>
+      </view>
+      <v-water-fallFlow id='homeData' bind:noData='getWaterFallFlowData'></v-water-fallFlow>
+    </view>
+    <!--蜜罐分享 bindtap='openShare'-->
+    <!-- 个人中心
     <button class='h-preson' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
       <image src='../../img/group1.png' style='width:294rpx;height:180rpx;'></image>
     </button> -->
-        <!--看图猜词 bindtap='openActivity'-->
-        <!--打开文章 bindtap='openArticle'-->
-    </view>
-    <!--联系客服 open-type="contact" session-from="weapp"-->
-    <button class='contact' hover-class="btnhover" open-type="contact" session-from="weapp">
-        <image src='../../img/contact.png' mode='aspectFill'></image>
-    </button>
+    <!--看图猜词 bindtap='openActivity'-->
+    <!--打开文章 bindtap='openArticle'-->
+  </view>
+  <!--联系客服 open-type="contact" session-from="weapp"-->
+  <button class='contact' hover-class="btnhover" open-type="contact" session-from="weapp">
+    <image src='../../img/contact.png' mode='aspectFill'></image>
+  </button>
 
-    <!-- 首页弹窗 -->
-    <view class='dialog' catchtap='cancel' wx:if='{{enShowHomeImg && popUpsShow}}'>
-        <view class='dialogImgBox'>
-            <image src='{{popUpsData.imgUrl}}' data-pagename='首页弹窗' data-url='{{popUpsData.redirect}}' catchtap='toPromotion'></image>
-        </view>
-        <view class='dialogClose' catchtap='cancel'>
-            <text class="iconfont icon-guanbi1"></text>
-        </view>
+  <!-- 首页弹窗 -->
+  <view class='dialog' catchtap='cancel' wx:if='{{enShowHomeImg && popUpsShow}}'>
+    <view class='dialogImgBox'>
+      <image src='{{popUpsData.imgUrl}}' data-pagename='首页弹窗' data-url='{{popUpsData.redirect}}' catchtap='toPromotion'></image>
     </view>
+    <view class='dialogClose' catchtap='cancel'>
+      <text class="iconfont icon-guanbi1"></text>
+    </view>
+  </view>
 </view>

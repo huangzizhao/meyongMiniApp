@@ -64,3 +64,31 @@
   font-size: 22rpx;
   color: #9e9e9e;
 }
+
+.noData {
+  width: 100%;
+  padding-top: 200rpx;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+
+.noData .noDataImg {
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  margin-bottom: 20rpx;
+}
+
+.noDataImg image {
+  width: 200rpx;
+  height: 208rpx;
+}
+
+.noData .content {
+  display: inline-flex;
+  justify-content: center;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  color: rgb(102, 100, 100);
+}

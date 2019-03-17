@@ -1,138 +1,141 @@
 /* mineModule/pages/hasExchangeList/hasExchangeList.wxss */
-page{
-	background-color: white;
-}
-.integralGoodsList{
-	box-sizing: border-box;
-	padding: 0 20rpx;
+
+page {
+  background-color: white;
 }
 
-.integralGoodsList .integralItem{
-	width: 100%;
-	height: 350rpx;
-	background-color: rgba(255,255,255,.8);
-	margin-bottom: 10rpx;
-	box-shadow:4rpx 4rpx 15rpx rgba(112,106,106,.3);
-	display: flex;
-	flex-flow: row nowrap;
-	align-items: center;
+.integralGoodsList {
+  box-sizing: border-box;
+  padding: 0 20rpx;
 }
 
-.integralItem .itemLeft{
-	width: 340rpx;
-	height: 340rpx;
+.integralGoodsList .integralItem {
+  width: 100%;
+  height: 350rpx;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 10rpx;
+  box-shadow: 4rpx 4rpx 15rpx rgba(112, 106, 106, 0.3);
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
 }
 
-.itemLeft image{
-	width: 100%;
-	height: 100%;
+.integralItem .itemLeft {
+  width: 340rpx;
+  height: 340rpx;
 }
 
-.integralItem .itemRight{
-	flex: 1;
-	display: flex;
-	flex-flow: column wrap;
-	align-items: center;
-	justify-content: space-between;
-	box-sizing: border-box;
-	height: 100%;
-	padding: 40rpx 0;
+.itemLeft image {
+  width: 100%;
+  height: 100%;
 }
 
-.itemRight .descriptBox{
-	width: 250rpx;
-	height: 150rpx;
-	padding: 3rpx;
-	background: linear-gradient(black, black) left top,
-		linear-gradient(black, black) left top,
-		linear-gradient(black, black) right top,
-		linear-gradient(black, black) right top,
-		linear-gradient(black, black) left bottom,
-		linear-gradient(black, black) left bottom,
-		linear-gradient(black, black) right bottom,
-		linear-gradient(black, black) right bottom;
-	background-repeat: no-repeat;
-	background-size: 6rpx 20rpx, 20rpx 6rpx;
-}
-.descriptBox .inlineBox{
-	width: 100%;
-	height: 100%;
-	border: 1rpx dashed #000;
-	box-sizing: border-box; 
-	display: flex;
-	flex-flow: column wrap;
-	align-items: center;
-	justify-content: center;
-	font-size: 40rpx;
-	line-height: 40rpx;
-	font-weight: bold;
-	overflow: hidden;
+.integralItem .itemRight {
+  flex: 1;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  height: 100%;
+  padding: 40rpx 0;
 }
 
-.inlineBox .name{
-	font-weight: 300;
-	margin-top: 20rpx;
-	font-size: 25rpx;
-	line-height: 25rpx;
+.itemRight .descriptBox {
+  width: 250rpx;
+  height: 150rpx;
+  padding: 3rpx;
+  background: linear-gradient(black, black) left top,
+                linear-gradient(black, black) left top,
+                linear-gradient(black, black) right top,
+                linear-gradient(black, black) right top,
+                linear-gradient(black, black) left bottom,
+                linear-gradient(black, black) left bottom,
+                linear-gradient(black, black) right bottom,
+                linear-gradient(black, black) right bottom;
+  background-repeat: no-repeat;
+  background-size: 6rpx 20rpx, 20rpx 6rpx;
+}
+
+.descriptBox .inlineBox {
+  width: 100%;
+  height: 100%;
+  border: 1rpx dashed #000;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+  line-height: 40rpx;
+  font-weight: bold;
+  overflow: hidden;
+}
+
+.inlineBox .name {
+  font-weight: 300;
+  margin-top: 20rpx;
+  font-size: 25rpx;
+  line-height: 25rpx;
 }
 
 .inlineBox .name, .inlineBox .title {
-    width: 100%;
-	text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.itemRight .exchange{
-	width: 200rpx;
-	height: 50rpx;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border-radius: 25rpx;
-	font-size: 25rpx;
-	font-weight: 300;
-	background-color: rgb(158, 158, 158);
-	color: white;
-	letter-spacing: 10rpx;
+.itemRight .exchange {
+  width: 200rpx;
+  height: 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25rpx;
+  font-size: 25rpx;
+  font-weight: 300;
+  background-color: rgb(158, 158, 158);
+  color: white;
+  letter-spacing: 10rpx;
 }
 
-.itemRight .condition{
-	font-size: 20rpx;
-	line-height: 20rpx;
-	color:rgba(112,106,106,1) ;
+.itemRight .condition {
+  font-size: 20rpx;
+  line-height: 20rpx;
+  color: rgba(112, 106, 106, 1);
 }
 
-.condition .conditionBlod{
-	color: rgba(133, 0, 0, 1);
-	margin-right: 7rpx;
+.condition .conditionBlod {
+  color: rgba(133, 0, 0, 1);
+  margin-right: 7rpx;
 }
 
 .noData {
-    width: 100%;
-    padding-top: 200rpx;
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
+  width: 100%;
+  padding-top: 200rpx;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
 }
 
 .noData .noDataImg {
-	width: 100%;
-	display: inline-flex;
-	justify-content: center;
-    margin-bottom: 20rpx;
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  margin-bottom: 20rpx;
 }
 
 .noDataImg image {
-    width: 200rpx;
-    height: 208rpx;
+  width: 200rpx;
+  height: 208rpx;
 }
 
 .noData .content {
-    display: inline-flex;
-	justify-content: center;
-    font-size: 30rpx;
-	line-height: 30rpx;
-    color: rgb(102, 100, 100);
+  display: inline-flex;
+  justify-content: center;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  color: rgb(102, 100, 100);
 }

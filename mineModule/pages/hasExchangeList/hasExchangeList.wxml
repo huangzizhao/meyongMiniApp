@@ -1,39 +1,39 @@
 <!--mineModule/pages/hasExchangeList/hasExchangeList.wxml-->
 <import src='/templates/loading/loading.wxml' />
 <view class='integralGoodsList'>
-    <block wx:if='{{goodsList.length > 0}}'>
-        <view class='integralItem goods{{index}}' wx:for='{{goodsList}}' wx:key='index'>
-            <view class='itemLeft'>
-                <image src='{{item.showUrl}}' mode='aspectFill'></image>
+  <block wx:if='{{goodsList.length > 0}}'>
+    <view class='integralItem goods{{index}}' wx:for='{{goodsList}}' wx:key='index'>
+      <view class='itemLeft'>
+        <image src='{{item.showUrl}}' mode='aspectFill'></image>
+      </view>
+      <view class='itemRight'>
+        <view class='descriptBox'>
+          <view class='inlineBox'>
+            <view class='title'>
+              <text>{{item.description}}</text>
             </view>
-            <view class='itemRight'>
-                <view class='descriptBox'>
-                    <view class='inlineBox'>
-                        <view class='title'>
-                            <text>{{item.description}}</text>
-                        </view>
-                        <view class='name'>
-                            <text>{{item.name}}</text>
-                        </view>
-                    </view>
-                </view>
-                <button  class='exchange'>已兑换</button>
-                <view class='condition'>
-                    <text class='conditionBlod'>{{item.integral}}滴蜂蜜{{item.spread > 0 ? '+' + item.spread + '元' :''}}</text>
-                    <text>兑换</text>
-                </view>
+            <view class='name'>
+              <text>{{item.name}}</text>
             </view>
+          </view>
         </view>
-        <template is='spinner' wx:if='{{loading}}' />
-    </block>
-	<block wx:else>
-		<view class='noData'>
-                <view class='noDataImg'>
-                    <image src='/img/noData.png'></image>
-                </view>
-                <view class='content'>
-                    <text>暂无数据</text>
-                </view>
-            </view>
-	</block>
+        <button class='exchange'>已兑换</button>
+        <view class='condition'>
+          <text class='conditionBlod'>{{item.integral}}滴蜂蜜{{item.spread > 0 ? '+' + item.spread + '元' :''}}</text>
+          <text>兑换</text>
+        </view>
+      </view>
+    </view>
+    <template is='spinner' wx:if='{{loading}}' />
+  </block>
+  <block wx:else>
+    <view class='noData'>
+      <view class='noDataImg'>
+        <image src='/img/noData.png'></image>
+      </view>
+      <view class='content'>
+        <text>暂无数据</text>
+      </view>
+    </view>
+  </block>
 </view>
