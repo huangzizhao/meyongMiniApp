@@ -141,7 +141,7 @@ Page({
         getActivityIdByPrize(this.data.orderItem.prizeId).then(e => {
             if (e.code === 0) {
                 wx.navigateTo({
-                  url: '../../../mallModule/pages/groupPurchaseSet/groupPurchase/groupPurchase?activityId=' + e.data
+                    url: '../../../mallModule/pages/groupPurchaseSet/groupPurchase/groupPurchase?activityId=' + e.data
                 })
             }
         });

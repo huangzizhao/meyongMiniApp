@@ -7,7 +7,8 @@ import {
     getObtainNearestActivityInfo,
     getPurchaseInformation,
 	getHomeBanner,
-	popUps
+	popUps,
+	postProductDataBuried
 } from '../../config/getData'
 Page({
 
@@ -46,6 +47,12 @@ Page({
         interval: 4000,
         duration: 700
     },
+
+	toContact(){
+		postProductDataBuried({
+			page:'客服'
+		}).then();
+	},
 
     switchTabChange(e) {
         let tab = e.currentTarget.dataset.tab;

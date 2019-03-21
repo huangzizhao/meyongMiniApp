@@ -69,7 +69,7 @@
     <!--打开文章 bindtap='openArticle'-->
   </view>
   <!--联系客服 open-type="contact" session-from="weapp"-->
-  <button class='contact' hover-class="btnhover" open-type="contact" session-from="weapp">
+  <button class='contact' hover-class="btnhover" open-type="contact" session-from="weapp" bindtap='toContact'>
     <image src='../../img/contact.png' mode='aspectFill'></image>
   </button>
 

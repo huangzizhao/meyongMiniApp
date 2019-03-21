@@ -3,7 +3,8 @@ import {
     getListIntegralPrize,
     getCurrentIntegral,
     exchange,
-    getAuthorGrade
+    getAuthorGrade,
+	postProductDataBuried
 } from '../../config/getData'
 Page({
 
@@ -113,7 +114,11 @@ Page({
     toContact(e) {
         this.setData({
             showCustomizeModal: false
-        });
+        },()=>{
+			postProductDataBuried({
+				page: '客服'
+			}).then();
+		});
     },
     integralExchange(e) {
         var integralExchangeId = e.currentTarget.dataset.integralexchangeid;
