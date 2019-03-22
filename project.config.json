@@ -38,13 +38,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
 					"name": "文章详情",
 					"pathName": "pages/article-detail/article-detail",
-					"query": "articleId=137",
+					"query": "articleId=177",
 					"scene": null
 				},
 				{

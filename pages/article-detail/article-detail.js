@@ -75,20 +75,20 @@ Page({
             articleId: options.articleId
         }).then(res => {
             if (res.code === 0) {
-				if(res.article.lowLevel){
-					res.article.lowLevel.forEach(e=>{
-						if(e.length > 0){
-							res.article.album.push(...e);
-						}
-					});
-				}
-				if (res.article.highLevel) {
-					res.article.highLevel.forEach(e => {
-						if (e.length > 0) {
-							res.article.album.push(...e);
-						}
-					});
-				}
+                if (res.article.lowLevel) {
+                    res.article.lowLevel.forEach(e => {
+                        if (e.length > 0) {
+                            res.article.album.push(...e);
+                        }
+                    });
+                }
+                if (res.article.highLevel) {
+                    res.article.highLevel.forEach(e => {
+                        if (e.length > 0) {
+                            res.article.album.push(...e);
+                        }
+                    });
+                }
                 let article = res.article;
                 // this.getRecommend(article.articleTypeId, options.articleId);
                 this.setData({
@@ -133,20 +133,20 @@ Page({
             getSameTagArticles(this.data.pageUtil).then(res => {
                 if (res.code === 0) {
                     // let content = res.data.list.content;
-					if (res.data.list.lowLevel) {
-						res.data.list.lowLevel.forEach(e => {
-							if (e.length > 0) {
-								res.data.list.album.push(...e);
-							}
-						});
-					}
-					if (res.data.list.highLevel) {
-						res.data.list.highLevel.forEach(e => {
-							if (e.length > 0) {
-								res.data.list.album.push(...e);
-							}
-						});
-					}
+                    if (res.data.list.lowLevel) {
+                        res.data.list.lowLevel.forEach(e => {
+                            if (e.length > 0) {
+                                res.data.list.album.push(...e);
+                            }
+                        });
+                    }
+                    if (res.data.list.highLevel) {
+                        res.data.list.highLevel.forEach(e => {
+                            if (e.length > 0) {
+                                res.data.list.album.push(...e);
+                            }
+                        });
+                    }
                     this.data.totalPage = res.data.totalPage;
                     this.data.pageUtil.page++;
                     this.unLocked();

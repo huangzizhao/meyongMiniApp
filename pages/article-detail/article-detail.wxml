@@ -18,7 +18,9 @@
         </view>
         <block wx:if="{{notesList[index].article.coverType === 'img' && notesList[index].article.album.length > 0}}">
             <view class='swiper-container'>
-                <view class='swiperLabel' wx:if='{{notesList[index].article.album.length > 0}}'>{{notesList[index].swiperCurrent + 1}}/{{notesList[index].article.album.length}}</view>
+                <view class='swiperLabel' wx:if='{{notesList[index].article.album.length > 0}}'>
+                    <view class='labelGuide'>{{notesList[index].swiperCurrent + 1}}/{{notesList[index].article.album.length}}</view>
+                </view>
                 <swiper autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" current="{{notesList[index].swiperCurrent}}" data-index='{{index}}' bindchange="swiperChange">
                     <block wx:for="{{notesList[index].article.album}}" wx:key='item' wx:for-item='item'>
                         <swiper-item>
