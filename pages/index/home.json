@@ -4,8 +4,9 @@
   "backgroundTextStyle": "dark",
   "backgroundColor": "#f5f8fa",
   "usingComponents": {
-    "v-notification": "../../components/notification/notification",
-    "announcement": "../../components/announcement/announcement",
-    "v-water-fallFlow": "../../components/waterFallFlow/waterFallFlow"
+    "v-notification": "/components/notification/notification",
+    "announcement": "/components/announcement/announcement",
+    "v-water-fallFlow": "/components/waterFallFlow/waterFallFlow",
+    "skeleton": "/components/skeleton/skeleton"
   }
 }

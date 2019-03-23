@@ -79,9 +79,9 @@ button::after {
   background-color: rgba(230, 230, 230, 1);
 }
 
-.dotsList .nano{
-  width: 5rpx;
-  height: 5rpx;
+.dotsList .nano {
+  width: 6rpx;
+  height: 6rpx;
 }
 
 .dotsList .dot.active {

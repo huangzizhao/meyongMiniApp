@@ -32,9 +32,9 @@
           <block wx:if='{{notesList[index].article.album.length > 4}}'>
             <view class="dot {{notesList[index].swiperCurrent > 2 ? 'nano' : notesList[index].swiperCurrent === 0 ? 'active' :''}}"></view>
             <view class="dot {{notesList[index].swiperCurrent === 1 ? 'active' : ''}}"></view>
-            <view class="dot {{2 <= notesList[index].swiperCurrent && notesList[index].swiperCurrent <= notesList[index].article.album.length - 4 ? 'active' : ''}}"></view>
+            <view class="dot {{2 <= notesList[index].swiperCurrent && notesList[index].swiperCurrent <= notesList[index].article.album.length - 3 ? 'active' : ''}}"></view>
             <view class="dot {{notesList[index].swiperCurrent === notesList[index].article.album.length - 2 ? 'active' : ''}}"></view>
-            <view class="dot {{notesList[index].swiperCurrent <= notesList[index].article.album.length - 4 ? 'nano' : notesList[index].swiperCurrent === notesList[index].article.album.length - 1 ? 'active' : ''}}"></view>
+            <view class="dot {{notesList[index].swiperCurrent < notesList[index].article.album.length - 3 ? 'nano' : notesList[index].swiperCurrent === notesList[index].article.album.length - 1 ? 'active' : ''}}"></view>
           </block>
           <block wx:else>
             <block wx:for="{{notesList[index].article.album}}" wx:key='item' wx:for-index='swiperIndex'>

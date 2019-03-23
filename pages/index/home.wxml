@@ -1,11 +1,13 @@
+
+<!-- <skeleton selector="skeleton"
+loading="spin"
+bgcolor="#FFF"
+wx:if="{{showSkeleton}}"></skeleton> -->
 <view class='app'>
     <view class='container-content'>
         <announcement announcement-list='{{announcementList}}'></announcement>
         <v-notification user-avatar='{{participateAvatar}}' user-name='{{participateUserName}}' time='{{participateTime}}'></v-notification>
         <swiper class='bannerSwiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
-            <!-- <swiper-item>
-                <image src="../../img/explanation.png" bindtap='toActivityList' class="slideImage" mode='aspectFill'></image>
-            </swiper-item> -->
             <block wx:for='{{bannerData}}' wx:key='index'>
                 <swiper-item data-pagename='首页banner图' data-url='{{item.redirect}}' bindtap='toPromotion'>
                     <image src="{{item.imgUrl}}" class="slideImage" mode='widthFix'></image>

@@ -97,9 +97,9 @@ App({
   },
   onShow: function() {
     // console.log(this.globalData.recommend,"customer");
-    wx.showLoading({
-      title: '加载中...',
-    })
+    // wx.showLoading({
+    //   title: '加载中...',
+    // })
     // 登录
     wx.login({
       success: res => {
@@ -117,7 +117,7 @@ App({
               this.globalData.customer = res.data.customer;
               this.globalData.sessionId = res.data.sessionId;
               this.globalData.header.Cookie = 'JSESSIONID=' + res.data.sessionId;
-              wx.hideLoading();
+              // wx.hideLoading();
             },
             fail: (res) => {
 
