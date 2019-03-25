@@ -515,7 +515,7 @@ Page({
             this.setData({
                 [`notesList[${index}].article.attention`]: 1
             });
-            if (typeof(authorId) === 'undefined') {
+			if (authorId === null) {
                 follow({
                     articleId: articleId
                 }).then(res => {
