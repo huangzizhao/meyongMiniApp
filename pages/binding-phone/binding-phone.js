@@ -56,7 +56,7 @@ Page({
         sendVerificationCode({
           mobile: mobile
         }).then(e => {
-          if (e.code === 0) {
+          if (e.code != 500) {
             let codeNum = 59;
             this.setData({
               vaCode: e.code,

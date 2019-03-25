@@ -9,7 +9,7 @@
         <view class='underSlider' animation="{{animationMove}}"></view>
     </view>
 </scroll-view>
-<swiper class='swiper' current='{{current}}' bindchange='swiperChange' indicator-dots="{{false}}" duration="200" circular="{{true}}" previous-margin='70rpx' next-margin='70rpx' display-multiple-items='1'>
+<swiper class='swiper' current='{{current}}' bindchange='swiperChange' indicator-dots="{{false}}" duration="200" circular="{{true}}" previous-margin='70rpx' next-margin='40rpx' display-multiple-items='1'>
     <block wx:for='{{navList}}' wx:key='index'>
         <swiper-item>
             <view class='itemBox' data-index='{{index}}' animation="{{index == current ? animationActive : animationNormal}}">

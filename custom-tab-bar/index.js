@@ -4,7 +4,7 @@ Component({
     data: {
         selected: 0,
         tabBarShow: true,
-		color: "#B8B2B1",
+        color: "#B8B2B1",
         selectedColor: "#f1b500",
         list: [{
                 pagePath: "/pages/index/home",
@@ -93,52 +93,53 @@ Component({
             })
         },
         navigationJump(data, url) {
-            if (data.index === 1) {
-                var customer = getApp().globalData.customer;
-                if (customer.phone) {
-                    wx.chooseImage({
-                        sizeType: ['original', 'compressed'],
-                        sourceType: ['album', 'camera'],
-                        success: (res) => {
-                            let data = {
-                                tempImages: res.tempFiles,
-                                tempImagesPath: res.tempFilePaths,
-                                articleContent: '',
-                                articleTitle: '',
-                                labelList: []
-                            }
-                            wx.navigateTo({
-                                url: '/notesModule/pages/editPictures/editPictures?data=' + JSON.stringify(data),
-                            })
-                            // getApp().globalData.localStorages.storage.Set('tempImagesArray', data).then((res)=>{
-                            // 	console.log('save success');
-                            // }).catch((error)=>{
-                            // 	console.log('save fail');
-                            // });
-                        }
-                    })
-                } else {
-                    wx.showModal({
-                        title: '尚未绑定手机',
-                        content: '是否立即去绑定',
-                        success: function(res) {
-                            if (res.confirm) {
-                                wx.navigateTo({
-                                    url: '/pages/binding-phone/binding-phone'
-                                })
-                            }
-                        }
-                    })
-                }
-            } else {
-                // this.setData({
-                //   selected: data.index
-                // })
-                wx.switchTab({
-                    url
-                });
-                console.log(this.data.selected);
+            var customer = getApp().globalData.customer;
+            if (customer.phone) {
+				if (data.index === 1) {
+					wx.chooseImage({
+						sizeType: ['original', 'compressed'],
+						sourceType: ['album', 'camera'],
+						success: (res) => {
+							let data = {
+								tempImages: res.tempFiles,
+								tempImagesPath: res.tempFilePaths,
+								articleContent: '',
+								articleTitle: '',
+								labelList: []
+							}
+							wx.navigateTo({
+								url: '/notesModule/pages/editPictures/editPictures?data=' + JSON.stringify(data),
+							})
+							// getApp().globalData.localStorages.storage.Set('tempImagesArray', data).then((res)=>{
+							// 	console.log('save success');
+							// }).catch((error)=>{
+							// 	console.log('save fail');
+							// });
+						}
+					})
+				} else {
+					// this.setData({
+					//   selected: data.index
+					// })
+					wx.switchTab({
+						url
+					});
+					console.log(this.data.selected);
+				}
             }
-        },
+			else {
+				wx.showModal({
+					title: '尚未绑定手机',
+					content: '是否立即去绑定',
+					success: function (res) {
+						if (res.confirm) {
+							wx.navigateTo({
+								url: '/pages/binding-phone/binding-phone'
+							})
+						}
+					}
+				})
+			}
+        }
     }
 })
