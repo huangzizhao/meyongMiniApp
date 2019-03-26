@@ -1,15 +1,70 @@
-
 <!-- <skeleton selector="skeleton"
 loading="spin"
 bgcolor="#FFF"
 wx:if="{{showSkeleton}}"></skeleton> -->
 <view class='app'>
-    <view class='container-content'>
+    <view class='skeleton' wx:if='{{showSkeleton}}'>
+        <view class='skeleton-slider skeleton-rect'></view>
+        <view class='skeleton-search'></view>
+        <view class='skeleton-tab'>
+            <view class='tab skeleton-rect'></view>
+            <view class='tab skeleton-rect'></view>
+        </view>
+        <view class='skeleton-fallFlow-box'>
+            <view class='fallFlow'>
+                <view class='fallFlow-img skeleton-rect'></view>
+                <view class='fallFlow-title skeleton-rect'></view>
+                <view class='fallFlow-authorInfo'>
+                    <view style='display:inline-flex;flex-flow:row nowrap;align-items: center;'>
+                        <view class='infoAvatar skeleton-radius'></view>
+						<view class='infoName skeleton-rect'></view>
+                    </view>
+					<view class='infoName skeleton-rect'></view>
+                </view>
+            </view>
+			<view class='fallFlow'>
+                <view class='fallFlow-img skeleton-rect'></view>
+                <view class='fallFlow-title skeleton-rect'></view>
+                <view class='fallFlow-authorInfo'>
+                    <view style='display:inline-flex;flex-flow:row nowrap;align-items: center;'>
+                        <view class='infoAvatar skeleton-radius'></view>
+						<view class='infoName skeleton-rect'></view>
+                    </view>
+					<view class='infoName skeleton-rect'></view>
+                </view>
+            </view>
+        </view>
+		<view class='skeleton-fallFlow-box'>
+            <view class='fallFlow'>
+                <view class='fallFlow-img skeleton-rect'></view>
+                <view class='fallFlow-title skeleton-rect'></view>
+                <view class='fallFlow-authorInfo'>
+                    <view style='display:inline-flex;flex-flow:row nowrap;align-items: center;'>
+                        <view class='infoAvatar skeleton-radius'></view>
+						<view class='infoName skeleton-rect'></view>
+                    </view>
+					<view class='infoName skeleton-rect'></view>
+                </view>
+            </view>
+			<view class='fallFlow'>
+                <view class='fallFlow-img skeleton-rect'></view>
+                <view class='fallFlow-title skeleton-rect'></view>
+                <view class='fallFlow-authorInfo'>
+                    <view style='display:inline-flex;flex-flow:row nowrap;align-items: center;'>
+                        <view class='infoAvatar skeleton-radius'></view>
+						<view class='infoName skeleton-rect'></view>
+                    </view>
+					<view class='infoName skeleton-rect'></view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='container-content' wx:else>
         <announcement announcement-list='{{announcementList}}'></announcement>
         <v-notification user-avatar='{{participateAvatar}}' user-name='{{participateUserName}}' time='{{participateTime}}'></v-notification>
         <swiper class='bannerSwiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
             <block wx:for='{{bannerData}}' wx:key='index'>
-                <swiper-item data-pagename='首页banner图' data-url='{{item.redirect}}' bindtap='toPromotion'>
+                <swiper-item data-pagename='首页banner图' data-url='{{item.redirect}}' bindtap='openActivityList'>
                     <image src="{{item.imgUrl}}" class="slideImage" mode='widthFix'></image>
                 </swiper-item>
             </block>

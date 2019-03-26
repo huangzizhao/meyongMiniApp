@@ -9,6 +9,83 @@ page {
     min-height: 100vh;
 }
 
+.skeleton{
+	width: 100vw;
+	height: 100vh;
+	background-color: white;
+}
+.skeleton-rect{
+	background-color: rgb(228, 228, 228);
+}
+.skeleton-radius{
+	border-radius: 50%;
+	background-color: rgb(228, 228, 228);
+}
+.skeleton .skeleton-slider{
+	width: 100%;
+	height: 300rpx;
+	margin-bottom: 20rpx;
+}
+.skeleton .skeleton-search{
+	width: 90vw;
+	height: 60rpx;
+	border-radius: 30rpx;
+	background-color: rgb(228, 228, 228);
+	margin: 0 auto 20rpx auto;
+}
+.skeleton .skeleton-tab{
+	display: flex;
+	width: 100%;
+	flex-flow: row nowrap;
+	justify-content: space-around;
+	margin-bottom: 20rpx;
+}
+.skeleton-tab .tab{
+	width: 100rpx;
+	height: 40rpx;
+}
+
+.skeleton-fallFlow-box{
+	width: 100%;
+	display: flex;
+	flex-flow: row nowrap;
+	box-sizing: border-box;
+}
+
+.skeleton-fallFlow-box .fallFlow{
+	flex: 1;
+	margin: 0 20rpx 20rpx 20rpx;
+}
+.fallFlow .fallFlow-img{
+	width: 100%;
+	height: 200rpx;
+	margin-bottom: 20rpx;
+}
+
+.fallFlow .fallFlow-title{
+	width: 100%;
+	height: 30rpx;
+	margin-bottom: 20rpx;
+}
+.fallFlow .fallFlow-authorInfo{
+	display: flex;
+	width: 100%;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.fallFlow-authorInfo .infoAvatar{
+	width: 50rpx;
+	height: 50rpx;
+	margin-right: 20rpx;
+}
+
+.fallFlow-authorInfo .infoName{
+	width: 50rpx;
+	height: 40rpx;
+}
+
 .dialog {
     position: fixed;
     width: 100vw;
