@@ -70,7 +70,7 @@ Page({
         }).then(e => {
             getPurchaseInfoByOrderId(e).then(e => {
                 if (e.code === 0) {
-                    let cover = getApp().globalData.serverImg + 'upload/qprize/cover/' + e.data.qPrizeEntity.prizeId + '.png';
+                    let cover = getApp().globalData.serverImg + 'upload/qprize/cover/' + e.data.qprizeEntity.prizeId + '.png';
                     this.setData({
                         cover: cover
                     });
@@ -238,9 +238,9 @@ Page({
         return time >= 10 ? time : `0${time}`
     },
 
-    toHome: function() {
-        wx.navigateTo({
-            url: '../index/home',
+    toHome() {
+		wx.reLaunch({
+            url: '/pages/index/home'
         })
     },
 

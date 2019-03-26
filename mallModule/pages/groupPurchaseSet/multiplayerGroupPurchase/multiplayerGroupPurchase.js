@@ -52,8 +52,8 @@ Page({
         }
         httpList.then(e => {
             if (e.code === 0) {
-                for (let i = 0; i < e.data.qOrderGroup.members.length; i++) {
-                    if (e.data.qOrderGroup.members[i].orderId === e.data.qOrderGroup.currentId) {
+                for (let i = 0; i < e.data.qorderGroup.members.length; i++) {
+                    if (e.data.qorderGroup.members[i].orderId === e.data.qorderGroup.currentId) {
                         this.setData({
                             orderIdIndex: i
                         });
@@ -63,25 +63,25 @@ Page({
                 this.setData({
                     activityData: e.data
                 });
-                let activityCover = getApp().globalData.serverImg + 'upload/qprize/cover/' + e.data.qPrizeEntity.prizeId + '.png';
+                let activityCover = getApp().globalData.serverImg + 'upload/qprize/cover/' + e.data.qprizeEntity.prizeId + '.png';
                 this.setData({
                     activityCover: activityCover
                 });
                 // if (e.data.data.qOrderGroup.groupNum - e.data.data.qOrderGroup.members.length > 0) {
                 let orderGroup = Array(),
                     title = '';
-                for (let i = 0; i < e.data.qOrderGroup.groupNum; i++) {
-                    if (e.data.qOrderGroup.members[i]) {
-                        orderGroup.push(e.data.qOrderGroup.members[i]);
+                for (let i = 0; i < e.data.qorderGroup.groupNum; i++) {
+                    if (e.data.qorderGroup.members[i]) {
+                        orderGroup.push(e.data.qorderGroup.members[i]);
                     } else {
                         orderGroup.push({
                             avatar: '../../img/avatar.png'
                         });
                     }
                 }
-                if (e.data.qOrderGroup.groupNum - e.data.qOrderGroup.members.length > 0) {
-                    title = '还差' + (e.data.qOrderGroup.groupNum - e.data.qOrderGroup.members.length) + '人即可拼团成功';
-                } else if (e.data.qOrderGroup.groupNum - e.data.qOrderGroup.members.length === 0) {
+                if (e.data.qorderGroup.groupNum - e.data.qorderGroup.members.length > 0) {
+                    title = '还差' + (e.data.qorderGroup.groupNum - e.data.qorderGroup.members.length) + '人即可拼团成功';
+                } else if (e.data.qorderGroup.groupNum - e.data.qorderGroup.members.length === 0) {
                     title = '满员，拼团成功';
                 }
                 this.setData({
@@ -93,7 +93,7 @@ Page({
             }
 
         }).then(e => {
-            getMorePrizes(e.data.qPrizeEntity.prizeId).then(e => {
+            getMorePrizes(e.data.qprizeEntity.prizeId).then(e => {
                 if (e.code === 0) {
                     e.data.forEach((e) => {
                         e.coverPath = getApp().globalData.serverImg + e.coverPath
@@ -110,7 +110,7 @@ Page({
     toActivityDetail: function() {
         if (this.data.activityData.activityId) {
             wx.navigateTo({
-                url: '../groupPurchase/groupPurchase?activityId=' + this.data.activityData.activityId + '&groupId=' + this.data.activityData.qOrderGroup.orderGroupId
+                url: '../groupPurchase/groupPurchase?activityId=' + this.data.activityData.activityId + '&groupId=' + this.data.activityData.qorderGroup.orderGroupId
             })
         } else {
             wx.showModal({
@@ -139,7 +139,7 @@ Page({
     intoOrder: function() {
         if (this.data.activityData.activityId) {
             wx.navigateTo({
-                url: '../groupPurchase/groupPurchase?activityId=' + this.data.activityData.activityId + '&groupId=' + this.data.activityData.qOrderGroup.orderGroupId
+                url: '../groupPurchase/groupPurchase?activityId=' + this.data.activityData.activityId + '&groupId=' + this.data.activityData.qorderGroup.orderGroupId
             })
         } else {
             wx: wx.showModal({
@@ -151,7 +151,7 @@ Page({
     },
     intoBargain: function() {
         wx.navigateTo({
-            url: '../../../pages/bargainSet/bargain/bargain?orderId=' + this.data.activityData.qOrderGroup.members[this.data.orderIdIndex].orderId
+            url: '../../../pages/bargainSet/bargain/bargain?orderId=' + this.data.activityData.qorderGroup.members[this.data.orderIdIndex].orderId
         })
     },
 
@@ -203,7 +203,7 @@ Page({
     onShareAppMessage: function(e) {
         return {
             title: '您的好友邀你一起来拼' + e.target.dataset.prizetitle + '￥' + e.target.dataset.prize,
-            path: '/mallModule/pages/notificationList/notificationList?groupId=' + this.data.activityData.qOrderGroup.orderGroupId,
+            path: '/mallModule/pages/notificationList/notificationList?groupId=' + this.data.activityData.qorderGroup.orderGroupId,
             imageUrl: this.data.activityCover,
             success: (res) => {
                 wx.showToast({

@@ -12,7 +12,7 @@
     <view class='dynamicInformation'>
         <view class='tips'>
             <text>两人拼团</text>
-            <view class='multiplayerPrice'>¥{{activityData.qPrizeEntity.costPrice}}</view>
+            <view class='multiplayerPrice'>¥{{activityData.qprizeEntity.costPrice}}</view>
         </view>
         <view class='dynamicInformation-left'>
             <view class='unitPrice'>
@@ -46,8 +46,8 @@
         </view>
     </view>
     <view class='imgList'>
-        <view class='precautions' style='background-color:{{activityData.qPrizeEntity.titleColor}};color:{{activityData.qPrizeEntity.fontColor}};'>
-            {{activityData.qPrizeEntity.detailPath}}
+        <view class='precautions' style='background-color:{{activityData.qprizeEntity.titleColor}};color:{{activityData.qprizeEntity.fontColor}};'>
+            {{activityData.qprizeEntity.detailPath}}
         </view>
         <view class='spliceGroup' wx:if='{{spliceGroupList.length > 0}}'>
             <view class='spliceGroupTitle'>小伙伴在拼单，可直接参与</view>

@@ -130,7 +130,7 @@ Page({
                         disabled: e.isBuy,
                         activityId: options.activityId,
                         prizeId: e.data.prizeId,
-                        orderGroup: e.data.qOrderGroup
+                        orderGroup: e.data.qorderGroup
                     }, () => {
                         if (this.data.groupId) {
                             isCurrentInGroup(this.data.groupId).then(e => {
@@ -146,8 +146,8 @@ Page({
                         imgTemp2 = Array();
                     let tempData = getApp().globalData.serverImg + 'upload/qprize/cover/' + e.data.prizeId + '.png';
                     imgTemp1.push(tempData);
-                    for (let i = 0; i < e.data.qPrizeEntity.detailPics.length; i++) {
-                        let tempDetail = getApp().globalData.serverImg + e.data.qPrizeEntity.detailPics[i];
+                    for (let i = 0; i < e.data.qprizeEntity.detailPics.length; i++) {
+                        let tempDetail = getApp().globalData.serverImg + e.data.qprizeEntity.detailPics[i];
                         imgTemp2.push(tempDetail);
                     }
 
@@ -381,7 +381,7 @@ Page({
                     wxCodePath: e1.data
                 }, () => {
                     var wxCodePath = e1.data;
-                    let sharePic = getApp().globalData.serverImg + this.data.activityData.qPrizeEntity.sharePath;
+                    let sharePic = getApp().globalData.serverImg + this.data.activityData.qprizeEntity.sharePath;
                     //获取用Canvas画图取自网络图片的资源，需先进行下载缓存再画，否则会画不出
                     wx.downloadFile({
                         url: sharePic,

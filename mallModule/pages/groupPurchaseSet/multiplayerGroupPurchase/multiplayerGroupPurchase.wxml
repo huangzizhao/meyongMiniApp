@@ -2,7 +2,7 @@
 <view class='app'>
   <view class='purchaseTab'>
     <view class='tabNav'>
-      <view class='stamp' wx:if='{{activityData.qOrderGroup.groupNum === activityData.qOrderGroup.members.length}}'>
+      <view class='stamp' wx:if='{{activityData.qorderGroup.groupNum === activityData.qorderGroup.members.length}}'>
         <view class='stampNav'>拼单成功</view>
       </view>
       <view class='purchaseActivity' bindtap='toActivityDetail'>
@@ -11,14 +11,14 @@
         </view>
         <view class='activityInfo'>
           <view class='infoTop'>
-            <text class='tag'>{{activityData.qOrderGroup.groupNum}}人拼团</text>
-            <text>{{activityData.qPrizeEntity.title}}</text>
+            <text class='tag'>{{activityData.qorderGroup.groupNum}}人拼团</text>
+            <text>{{activityData.qprizeEntity.title}}</text>
           </view>
-          <view class='infoMid'>{{activityData.qPrizeEntity.content}}</view>
+          <view class='infoMid'>{{activityData.qprizeEntity.content}}</view>
           <view class='infoBottom'>
             <text>
 						<text>￥</text>
-            <text class='priceNum'>{{activityData.qOrderGroup.currentPrice}}</text>
+            <text class='priceNum'>{{activityData.qorderGroup.currentPrice}}</text>
             </text>
           </view>
         </view>
@@ -31,12 +31,12 @@
             <image mode='aspectFill' src="{{item.avatar ? item.avatar :'../../img/avatar.png'}}"></image>
           </view>
         </view>
-        <view class='btnList' wx:if='{{activityData.qOrderGroup.groupNum === activityData.qOrderGroup.members.length}}'>
+        <view class='btnList' wx:if='{{activityData.qorderGroup.groupNum === activityData.qorderGroup.members.length}}'>
           <button bindtap='intoOrder'>查看订单</button>
           <button bindtap='intoBargain'>发起砍价</button>
         </view>
         <view class='btnList' wx:else>
-          <button open-type="share" data-prize='{{activityData.qPrizeEntity.costPrice}}' data-prizetitle='{{activityData.prizeTitle}}'>分享好友</button>
+          <button open-type="share" data-prize='{{activityData.qprizeEntity.costPrice}}' data-prizetitle='{{activityData.prizeTitle}}'>分享好友</button>
         </view>
       </view>
     </view>
