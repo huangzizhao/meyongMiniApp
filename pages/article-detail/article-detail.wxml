@@ -57,11 +57,11 @@
             <!-- <view class="articleContent">
                 <template is="wxParse" data="{{wxParseData:'articles' + index + '.nodes'}}" />
             </view> -->
-                <rich-text nodes='{{notesList[index].article.content}}' class="{{notesList[index].article.ellipsis ? 'ellipsisRichText' : ''}}"></rich-text>
+                <rich-text nodes='{{notesList[index].article.content}}' id="{{'notesText' + index}}" class="{{notesList[index].article.ellipsis ? 'ellipsisRichText' : ''}}"></rich-text>
             <view class='notice'>
                 <text>内容版权归原作者所有，若有侵权，敬请告知</text>
             </view>
-            <view class='articleHideControl' data-ellipsisindex='{{index}}' bindtap='ellipsis'>{{notesList[index].article.ellipsis ? '展开' :'收起'}}</view>
+            <view class='articleHideControl' wx:if='{{notesList[index].article.showEllipsis}}' data-ellipsisindex='{{index}}' bindtap='ellipsis'>{{notesList[index].article.ellipsis ? '展开' :'收起'}}</view>
         </view>
 
         <view class='functional-area'>

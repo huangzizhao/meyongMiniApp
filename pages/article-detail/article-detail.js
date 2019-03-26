@@ -133,11 +133,22 @@ Page({
         } else {
 			ellipsisIndex = e.currentTarget.dataset.ellipsisindex;
         }
-		var ellipsis = !this.data.notesList[ellipsisIndex].article.ellipsis;
-		console.log(ellipsis);
-        this.setData({
-			[`notesList[${ellipsisIndex}].article.ellipsis`]: ellipsis
-        });
+		var query = wx.createSelectorQuery();
+		query.select('#notesText' + ellipsisIndex).boundingClientRect((rect) => {
+			console.log('高度：' + rect.height);
+			if (rect.height < 90 && !this.data.notesList[ellipsisIndex].article.showEllipsis) {
+				this.setData({
+					[`notesList[${ellipsisIndex}].article.ellipsis`]: false,
+					[`notesList[${ellipsisIndex}].article.showEllipsis`]: false
+				});
+			} else {
+				var ellipsis = !this.data.notesList[ellipsisIndex].article.ellipsis;
+				this.setData({
+					[`notesList[${ellipsisIndex}].article.ellipsis`]: ellipsis,
+					[`notesList[${ellipsisIndex}].article.showEllipsis`]: true
+				});
+			}
+		}).exec();
     },
     loadMore() {
         if (this.isLocked()) {
@@ -177,7 +188,7 @@ Page({
                     for (let i = this.data.pointerSubscript; i < this.data.notesList.length; i++) {
                         let content = this.data.notesList[i].article.content;
                         this.data.notesList[i].article.ellipsis = false;
-                        console.log('content 1:' + JSON.stringify(this.data.notesList[i]));
+						this.data.notesList[i].article.showEllipsis = false;
                         this.data.notesList[i].swiperCurrent = 0;
                         this.data.notesList[i].reviewPageUtil = {
                             page: 1,
@@ -187,7 +198,6 @@ Page({
                             articleId: this.data.notesList[i].article.articleId
                         }
                         this.getReviewList(i);
-                        console.log('content 2:' + content);
                         if (content.length != 0) {
                             content = content.replace(/&section/g, "div");
                             content = content.replace(/&header/g, "div");
