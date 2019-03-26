@@ -17,7 +17,7 @@
         <view class='dynamicInformation-left'>
             <view class='unitPrice'>
                 <view class='unitPriceNormal'>￥</view>
-                <view class='unitPriceNormal unitPriceLarge'>1000</view>
+                <view class='unitPriceNormal unitPriceLarge'>{{activityData.qprizeEntity.appointmentGold}}</view>
                 <view class='infomationRight'>
                     <view class='originalPrice'>
                         <text>预约金</text>
@@ -108,7 +108,7 @@
                 <button class='enjoyActivivy' data-groupid='{{groupId}}' data-prizeid='{{prizeId}}' bindtap='toMultiplayerGroupPay'>参与拼团</button>
             </block>
             <block wx:else>
-                <button class='enjoyActivivy' data-prizeid='{{prizeId}}' bindtap='toMultiplayerGroupPay'>￥1000 2人团</button>
+                <button class='enjoyActivivy' data-prizeid='{{prizeId}}' bindtap='toMultiplayerGroupPay'>￥{{activityData.qprizeEntity.appointmentGold}} 2人团</button>
             </block>
         </block>
     </view>

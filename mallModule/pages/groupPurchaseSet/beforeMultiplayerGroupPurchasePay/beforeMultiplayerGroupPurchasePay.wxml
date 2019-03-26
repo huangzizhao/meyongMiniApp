@@ -5,16 +5,16 @@
             <image src="{{activityCover}}" />
         </view>
         <view class='activityInfo'>
-            <view class='infoTop'>{{activityData.qprizeEntity.title}}  预约金</view>
+            <view class='infoTop'>{{activityData.qprizeEntity.title}} 预约金</view>
             <view class='infoMid'>{{activityData.qprizeEntity.content}}</view>
             <view class='infoBottom'>
-                <text>￥1000</text>
+                <text>￥{{activityData.qprizeEntity.appointmentGold}}</text>
                 <text>*1</text>
             </view>
         </view>
     </view>
     <view class='list'>
-	 <view class='listSlip'>
+        <view class='listSlip'>
             <view class='listSlipTitle'>购买数量</view>
             <view class='listSlipContent'>
                 <view class='calculate'>
@@ -24,22 +24,22 @@
                 </view>
             </view>
         </view>
-	 <view class='listSlip'>
+        <view class='listSlip'>
             <view class='listSlipTitle'>支付金额</view>
             <view class='listSlipContent'>
-                <view class='contentText'>￥{{totalPrice * purChaseNum}}</view>
+                <view class='contentText'>￥{{activityData.qprizeEntity.appointmentGold * purChaseNum}}</view>
             </view>
         </view>
         <view class='listSlip'>
             <view class='listSlipTitle'>支付方式</view>
             <view class='listSlipContent'>
                 <view class='contentText'>
-					<icon class='iconfont icon-wechatPay'></icon>
+                    <icon class='iconfont icon-wechatPay'></icon>
                     <text>微信支付</text>
                 </view>
             </view>
-        </view> 
+        </view>
     </view>
-	<button class='payNow' wx:if='{{groupId != null}}' bindtap='combinedIntoGroup'>立即支付</button>
-		<button class='payNow' wx:else bindtap='createGroup'>立即支付</button>
+    <button class='payNow' wx:if='{{groupId != null}}' bindtap='combinedIntoGroup'>立即支付</button>
+    <button class='payNow' wx:else bindtap='createGroup'>立即支付</button>
 </view>
