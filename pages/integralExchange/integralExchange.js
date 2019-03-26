@@ -4,7 +4,7 @@ import {
     getCurrentIntegral,
     exchange,
     getAuthorGrade,
-	postProductDataBuried
+    postProductDataBuried
 } from '../../config/getData'
 Page({
 
@@ -114,30 +114,44 @@ Page({
     toContact(e) {
         this.setData({
             showCustomizeModal: false
-        },()=>{
-			postProductDataBuried({
-				page: '客服'
-			}).then();
-		});
+        }, () => {
+            postProductDataBuried({
+                page: '客服'
+            }).then();
+        });
     },
     integralExchange(e) {
-        var integralExchangeId = e.currentTarget.dataset.integralexchangeid;
-        exchange({
-            integralExchangeId: integralExchangeId
-        }).then(res => {
-            if (res.code === 0) {
-                this.getCurrentIntegral();
-                this.setData({
-                    showCustomizeModal: true
-                });
-            } else {
-                wx.showModal({
-                    title: '提示',
-                    content: res.msg,
-                    showCancel: false
-                })
-            }
-        });
+		var integralExchangeId = e.currentTarget.dataset.integralexchangeid, index = e.currentTarget.dataset.index, formId = e.detail.formId;
+		console.log('formId:' + formId);
+		this.setData({
+			[`goodsList[${index}].showExchangeBtnLoaing`]:true
+		},()=>{
+			exchange({
+				integralExchangeId: integralExchangeId,
+				formId: formId
+			}).then(res => {
+				if (res.code === 0) {
+					this.getCurrentIntegral();
+					this.setData({
+						[`goodsList[${index}].showExchangeBtnLoaing`]: false,
+						showCustomizeModal: true
+					});
+				} else {
+					wx.showModal({
+						title: '提示',
+						content: res.msg,
+						showCancel: false,
+						success:(res)=>{
+							if(res.confirm){
+								this.setData({
+									[`goodsList[${index}].showExchangeBtnLoaing`]: false
+								});
+							}
+						}
+					})
+				}
+			});
+		});
     },
     hasMore() {
         if (this.data.pageUtil.page > this.data.totalPage) {
@@ -164,6 +178,7 @@ Page({
             this.locked();
             getListIntegralPrize(this.data.pageUtil).then(res => {
                 if (res.code === 0) {
+					res.data.list.showExchangeBtnLoaing = false;
                     this.data.goodsList.push(...res.data.list);
                     this.data.totalPage = res.data.totalPage;
                     this.data.pageUtil.page++;
