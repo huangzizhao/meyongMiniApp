@@ -64,7 +64,7 @@ wx:if="{{showSkeleton}}"></skeleton> -->
         <v-notification user-avatar='{{participateAvatar}}' user-name='{{participateUserName}}' time='{{participateTime}}'></v-notification>
         <swiper class='bannerSwiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
             <block wx:for='{{bannerData}}' wx:key='index'>
-                <swiper-item data-pagename='首页banner图' data-url='{{item.redirect}}' bindtap='openActivityList'>
+                <swiper-item data-pagename='首页banner图' data-url='{{item.redirect}}' bindtap='toPromotion'>
                     <image src="{{item.imgUrl}}" class="slideImage" mode='widthFix'></image>
                 </swiper-item>
             </block>

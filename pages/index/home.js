@@ -361,9 +361,15 @@ Page({
         let pageName = e.currentTarget.dataset.pagename,
             url = e.currentTarget.dataset.url;
         if (url) {
-            wx.navigateTo({
-                url: '/pages/promotion/promotion?pageName=' + pageName + '&url=' + url
-            })
+			if (url.startsWith()){
+				wx.navigateTo({
+					url: '/pages/promotion/promotion?pageName=' + pageName + '&url=' + url
+				})
+			}else{
+				wx.navigateTo({
+					url: url
+				})
+			}
         }
     },
 
