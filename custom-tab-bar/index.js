@@ -56,10 +56,10 @@ Component({
                                     data: {
                                         code: res.code
                                     },
-                                    success: res => {
-                                        getApp().globalData.customer = res.data.customer;
-                                        getApp().globalData.sessionId = res.data.sessionId;
-                                        getApp().globalData.header.Cookie = 'JSESSIONID=' + res.data.sessionId;
+                                    success: (res) => {
+                                        this.globalData.customer = res.data.customer;
+										this.globalData.sessionId = res.data.sessionId;
+										this.globalData.header.Cookie = 'JSESSIONID=' + res.data.sessionId;
                                         wx.hideLoading();
                                         this.getGlobalUserInfo(userInfo);
                                         this.navigationJump(data, url);
@@ -88,13 +88,14 @@ Component({
                     getApp().globalData.customer.headImg = userInfo.avatarUrl;
                     this.setData({
                         customer: getApp().globalData.customer
-                    })
+                    },()=>{
+						console.log('userInfo:' + JSON.stringify(userInfo));
+					})
                 }
             })
         },
         navigationJump(data, url) {
-            var customer = getApp().globalData.customer;
-            if (customer.phone) {
+			if (getApp().globalData.customer.phone) {
 				if (data.index === 1) {
 					wx.chooseImage({
 						sizeType: ['original', 'compressed'],

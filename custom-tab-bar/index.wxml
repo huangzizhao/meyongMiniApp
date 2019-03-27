@@ -2,7 +2,6 @@
 <view class='tabBar' wx:if='{{tabBarShow}}'>
   <view class='tabBarBorder'></view>
   <button hover-class="none" open-type="getUserInfo" bindgetuserinfo='switchTab' wx:for='{{list}}' wx:key='index' class='tabBarItem' data-path='{{item.pagePath}}' data-index='{{index}}'>
-
     <!-- <cover-image class="{{index === 1 ? 'singleImg' : ''}}" src='{{selected === index ? item.selectedIconPath : item.iconPath}}'></cover-image> -->
     <image class='tabBarImg' src='{{selected === index ? item.selectedIconPath : item.iconPath}}'></image>
     <view class='tabBarContent' style='color: {{selected === index ? selectedColor : color}}'>{{item.text}}</view>
