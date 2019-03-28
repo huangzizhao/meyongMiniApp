@@ -3,6 +3,7 @@ import {
     post
 } from '../config/http.js';
 
+
 //全局请求
 export const getPurchaseInformation = (params) => {
     return get('qActivity/purchaseInformation', params);

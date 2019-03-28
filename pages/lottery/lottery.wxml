@@ -38,15 +38,6 @@
       </view>
   </view>
 </block>
-<modal hidden="{{hiddenBind}}" confirm-text="确定" title="提示" bindcancel="cancelBind" bindconfirm="agreeBind">
-    <view>
-      奖品只有绑定手机后才能领取哦！！
-    </view>
-    <view>
-      您尚未绑定手机，请前往绑定
-    </view>
-    <view style='color:	#A52A2A;font-size:12px;'>注意：取消绑定将会使奖品失效</view>
-</modal> 
 <block wx:if="{{!hidden}}">
   <view class='lt-winGift' style='z-index:99'>
     <view>

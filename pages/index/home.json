@@ -7,6 +7,7 @@
     "v-notification": "/components/notification/notification",
     "announcement": "/components/announcement/announcement",
     "v-water-fallFlow": "/components/waterFallFlow/waterFallFlow",
-    "skeleton": "/components/skeleton/skeleton"
+    "skeleton": "/components/skeleton/skeleton",
+	"v-lottie": "lottie-miniapp/component/lottie"
   }
 }

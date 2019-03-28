@@ -86,13 +86,45 @@ page {
 	height: 40rpx;
 }
 
+.lottieSuccessDialog{
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	z-index: 101;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(0, 0, 0, .4)
+}
+
+.lottieSuccessDialog .dialogBox{
+	width: 300rpx;
+	height: 300rpx;
+	background-color: rgb(255, 255, 255);
+	border-radius: 10rpx;
+	box-shadow: 0 5rpx 20rpx rgba(0, 0, 0, 0.1);
+	box-sizing: border-box;
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-items: center;
+	font-size: 22rpx;
+}
+
+.dialogBox .lottieBox{
+	width: 205rpx;
+	height: 205rpx;
+}
+
 .dialog {
     position: fixed;
     width: 100vw;
     height: 100vh;
     top: 0;
     left: 0;
-    z-index: 10000;
+    z-index: 100;
     background-color: rgba(0, 0, 0, 0.4);
     display: flex;
     flex-flow: column wrap;

@@ -2,6 +2,9 @@
 loading="spin"
 bgcolor="#FFF"
 wx:if="{{showSkeleton}}"></skeleton> -->
+<!-- <view style='width:200rpx;height:200rpx;'>
+    <v-lottie loop='{{false}}' path='https://wx.meyoungmia.com/upload/mini/lotties/success1.json'></v-lottie>
+</view> -->
 <view class='app'>
     <view class='skeleton' wx:if='{{showSkeleton}}'>
         <view class='skeleton-slider skeleton-rect'></view>
@@ -17,44 +20,44 @@ wx:if="{{showSkeleton}}"></skeleton> -->
                 <view class='fallFlow-authorInfo'>
                     <view style='display:inline-flex;flex-flow:row nowrap;align-items: center;'>
                         <view class='infoAvatar skeleton-radius'></view>
-						<view class='infoName skeleton-rect'></view>
+                        <view class='infoName skeleton-rect'></view>
                     </view>
-					<view class='infoName skeleton-rect'></view>
+                    <view class='infoName skeleton-rect'></view>
                 </view>
             </view>
-			<view class='fallFlow'>
-                <view class='fallFlow-img skeleton-rect'></view>
-                <view class='fallFlow-title skeleton-rect'></view>
-                <view class='fallFlow-authorInfo'>
-                    <view style='display:inline-flex;flex-flow:row nowrap;align-items: center;'>
-                        <view class='infoAvatar skeleton-radius'></view>
-						<view class='infoName skeleton-rect'></view>
-                    </view>
-					<view class='infoName skeleton-rect'></view>
-                </view>
-            </view>
-        </view>
-		<view class='skeleton-fallFlow-box'>
             <view class='fallFlow'>
                 <view class='fallFlow-img skeleton-rect'></view>
                 <view class='fallFlow-title skeleton-rect'></view>
                 <view class='fallFlow-authorInfo'>
                     <view style='display:inline-flex;flex-flow:row nowrap;align-items: center;'>
                         <view class='infoAvatar skeleton-radius'></view>
-						<view class='infoName skeleton-rect'></view>
+                        <view class='infoName skeleton-rect'></view>
                     </view>
-					<view class='infoName skeleton-rect'></view>
+                    <view class='infoName skeleton-rect'></view>
                 </view>
             </view>
-			<view class='fallFlow'>
+        </view>
+        <view class='skeleton-fallFlow-box'>
+            <view class='fallFlow'>
                 <view class='fallFlow-img skeleton-rect'></view>
                 <view class='fallFlow-title skeleton-rect'></view>
                 <view class='fallFlow-authorInfo'>
                     <view style='display:inline-flex;flex-flow:row nowrap;align-items: center;'>
                         <view class='infoAvatar skeleton-radius'></view>
-						<view class='infoName skeleton-rect'></view>
+                        <view class='infoName skeleton-rect'></view>
                     </view>
-					<view class='infoName skeleton-rect'></view>
+                    <view class='infoName skeleton-rect'></view>
+                </view>
+            </view>
+            <view class='fallFlow'>
+                <view class='fallFlow-img skeleton-rect'></view>
+                <view class='fallFlow-title skeleton-rect'></view>
+                <view class='fallFlow-authorInfo'>
+                    <view style='display:inline-flex;flex-flow:row nowrap;align-items: center;'>
+                        <view class='infoAvatar skeleton-radius'></view>
+                        <view class='infoName skeleton-rect'></view>
+                    </view>
+                    <view class='infoName skeleton-rect'></view>
                 </view>
             </view>
         </view>
@@ -131,12 +134,22 @@ wx:if="{{showSkeleton}}"></skeleton> -->
     </button>
 
     <!-- 首页弹窗 -->
-    <view class='dialog' catchtap='cancel' wx:if='{{enShowHomeImg && popUpsShow}}'>
+    <view class='dialog' catchtap='cancel' wx:if='{{enShowHomeImg && popUpsShow}}' catchtouchmove="noTouch">
         <view class='dialogImgBox'>
             <image src='{{popUpsData.imgUrl}}' data-pagename='首页弹窗' data-url='{{popUpsData.redirect}}' catchtap='toPromotion'></image>
         </view>
         <view class='dialogClose' catchtap='cancel'>
             <text class="iconfont icon-guanbi1"></text>
+        </view>
+    </view>
+
+    <!-- 每日登陆成功获取积分弹窗 -->
+    <view class='lottieSuccessDialog' catchtouchmove="noTouch" wx:if='{{lottieSuccessShow}}'>
+        <view class='dialogBox'>
+            <view class='lottieBox'>
+                <v-lottie loop='{{false}}' width='100' height='100' path='https://wx.meyoungmia.com/upload/mini/lotties/success1.json'></v-lottie>
+            </view>
+            <text>每日登陆获得 1 积分</text>
         </view>
     </view>
 </view>

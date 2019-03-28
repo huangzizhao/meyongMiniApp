@@ -8,7 +8,8 @@ import {
     getPurchaseInformation,
     getHomeBanner,
     popUps,
-    postProductDataBuried
+    postProductDataBuried,
+    getIntegralByDay
 } from '../../config/getData'
 Page({
 
@@ -16,7 +17,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-		showSkeleton:true, //是否展示骨架屏
+        showSkeleton: true, //是否展示骨架屏
         bannerData: [], //banner数据
         popUpsData: {}, //弹窗数据
         popUpsShow: false, //是否弹窗
@@ -36,6 +37,8 @@ Page({
         more: '',
         update: '',
         noData: false,
+
+        lottieSuccessShow: false,
 
         participateAvatar: '../../img/avatar.png',
         participateUserName: '',
@@ -129,10 +132,17 @@ Page({
                 clearInterval(getArticle);
             }
         }, 10);
-		this.setData({
-			showSkeleton:false
-		});
+        this.setData({
+            showSkeleton: false
+        });
+        setTimeout(() => {
+            this.getIntegralByDay();
+        }, 1000);
         // wx.startPullDownRefresh();
+    },
+
+    noTouch() {
+        return;
     },
 
     /**
@@ -152,6 +162,27 @@ Page({
             //   update: new Date().getTime()
             // });
         }
+		var getArticle = setInterval(() => {
+			var sessionId = getApp().globalData.sessionId
+			if (sessionId != '') {
+				clearInterval(getArticle);
+				if (getApp().globalData.lottieSuccessShow) {
+					setTimeout(() => {
+						this.setData({
+							lottieSuccessShow: true
+						}, () => {
+							setTimeout(() => {
+								this.setData({
+									lottieSuccessShow: false
+								});
+							}, 3000);
+						});
+					}, 1000);
+				}
+				
+			}
+		}, 10);
+    
         // 获取参与活动信息
         // this.getNotices();
 
@@ -361,15 +392,15 @@ Page({
         let pageName = e.currentTarget.dataset.pagename,
             url = e.currentTarget.dataset.url;
         if (url) {
-			if (url.startsWith()){
-				wx.navigateTo({
-					url: '/pages/promotion/promotion?pageName=' + pageName + '&url=' + url
-				})
-			}else{
-				wx.navigateTo({
-					url: url
-				})
-			}
+            if (url.startsWith()) {
+                wx.navigateTo({
+                    url: '/pages/promotion/promotion?pageName=' + pageName + '&url=' + url
+                })
+            } else {
+                wx.navigateTo({
+                    url: url
+                })
+            }
         }
     },
 
@@ -467,6 +498,7 @@ Page({
             })
         }
     },
+    getIntegralByDay() {},
     intoArticlePush(e) {
         this.getUserInfo(e);
         wx.navigateTo({

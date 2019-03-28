@@ -23,7 +23,6 @@ Page({
     gifts:[],
     isClick: false,
     lotteried: false,
-    hiddenBind: true,
     hidden: true,
     winGift: null,
     enShare: false,
@@ -33,8 +32,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    var that = this;
+  onLoad(options) {
     wx.showLoading({
       title: '加载中...',
       mask: true
@@ -44,10 +42,10 @@ Page({
       url: getApp().globalData.server + "activity/currentActivity",
       method: 'GET',
       dataType: 'json',
-      success: function(res) {
+      success:(res)=> {
         wx.hideLoading();
         if (res.data.activity != null) {
-          that.setData({
+          this.setData({
             gifts: res.data.activity.gifts
           })
         }
@@ -58,31 +56,29 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady() {
   
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow() {
     if (getApp().globalData.customer.phone != null){
-      if (this.data.winGift != null && !this.data.hiddenBind){
+      if (this.data.winGift != null){
         this.setData({
-          hiddenBind: true,
           showContact: true
         });
       }
     }
   },
 
-  drawLucky: function () {
-    var that = this;
-    var gifts = that.data.gifts;
+  drawLucky() {
+    var gifts = this.data.gifts;
     for (var i = 0; i < gifts.length; i++){
       gifts[i].imgsUrl = "https://wx.meyoungmia.com/upload/card/beim.png";
     }
-    that.setData({
+    this.setData({
       gifts: gifts,
       isClick: true
     })
@@ -117,25 +113,24 @@ Page({
         animationWxm: this.animationWxm.export()
       }        
     });
-    setTimeout(function(){
-      that.showResult();
+    setTimeout(()=>{
+      this.showResult();
     },3000)
   },
 
-  showResult:function (event) {
+  showResult(event) {
       wx.showLoading();
-      var that = this;
       wx.request({
         url: getApp().globalData.server + "activity/lottery?random="+Math.random(),
         header: getApp().globalData.header,
         method: 'GET',
         dataType: 'json',
-        success: function(res) {
+        success:(res)=> {
           if (res.data.code == 200){
             var imgsUrl = res.data.data.imgsUrl;
-            var gifts =  that.data.gifts;
+            var gifts =  this.data.gifts;
             gifts[4].imgsUrl = imgsUrl;
-            that.setData({
+            this.setData({
               gifts:gifts,
               animations:null,
               winGift: res.data.data,
@@ -153,7 +148,7 @@ Page({
       })
   },
 
-  closePacket: function () {
+  closePacket() {
     this.setData({
       hidden : true
     })
@@ -163,7 +158,7 @@ Page({
     
   },
   //取消绑定，清除奖品
-  cancelBind:function () {
+  cancelBind() {
     //数据库删除
     wx.request({
       url: getApp().globalData.server + "activity/giveUpGift",
@@ -171,19 +166,10 @@ Page({
       method: 'GET',
       dataType: 'json'
     })
-    this.setData({
-      hiddenBind: true
-    })
   },
-  //同意绑定
-  agreeBind:function () {
-    wx.navigateTo({
-      url: '../binding-phone/binding-phone'
-    })
-  },
-  onShareAppMessage: function () {
-    var that= this;
-    if (that.data.winGift == null || that.data.winGift.giftType == 2) {
+
+  onShareAppMessage() {
+    if (this.data.winGift == null || this.data.winGift.giftType == 2) {
       return {
         path: "/pages/index/home", 
       };
@@ -192,26 +178,36 @@ Page({
       title: '抽奖赢奖品',
       path: "/pages/index/home",
       imageUrl: "../../img/logo.jpg",
-      success: function (res) {
-        that.setData({
+      success: (res)=> {
+        this.setData({
           hidden: true
         });
         var customer = getApp().globalData.customer;
         if (customer.phone == null) {
-          that.setData({
-            hiddenBind: false
-          })
+		  wx.showModal({
+			  title:'提示',
+			  content:'奖品只有绑定手机后才能领取哦 \r\n 您尚未绑定手机，请前往绑定 \r\n 注意：取消绑定将会使奖品失效',
+			  success:(res)=>{
+				  if(res.confirm){
+					  wx.navigateTo({
+						  url: '../binding-phone/binding-phone'
+					  })
+				  }else{
+					  this.cancelBind();
+				  }
+			  }
+		  });
         } else {
-          that.setData({
+          this.setData({
             showContact: true
           })
         }
       },
-      fail: function (res) {
+      fail:(res)=> {
       }
     };
   },
-  cancel: function () {
+  cancel() {
     this.setData({
       showContact: false
     })

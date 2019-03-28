@@ -60,6 +60,7 @@ Component({
                                         this.globalData.customer = res.data.customer;
 										this.globalData.sessionId = res.data.sessionId;
 										this.globalData.header.Cookie = 'JSESSIONID=' + res.data.sessionId;
+										this.globalData.lottieSuccessShow = res.data.isGet;
                                         wx.hideLoading();
                                         this.getGlobalUserInfo(userInfo);
                                         this.navigationJump(data, url);
