@@ -87,6 +87,11 @@ Page({
             url: '/mineModule/pages/ratingRule/ratingRule'
         })
     },
+	toContact() {
+		postProductDataBuried({
+			page: '客服'
+		}).then();
+	},
     preventTouchMove() {},
     getAuthorGrade() {
         getAuthorGrade().then(res => {

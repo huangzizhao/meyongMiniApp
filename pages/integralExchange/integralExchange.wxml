@@ -26,6 +26,11 @@
 </view>
 <view class='integralBox' style="{{'background-image:url(' + integralBgUrl +')'}}">
     <view class='integralGoodsList'>
+		<!-- 客服 -->
+        <button class='contact' hover-class="btnhover" open-type="contact" session-from="weapp" bindtap='toContact'>
+            <image src='../../img/contact.png' mode='aspectFill'></image>
+        </button>
+
         <block wx:for='{{goodsList}}' wx:key='index'>
             <form report-submit='true' data-integralexchangeid='{{item.integralExchangeId}}' data-index='{{index}}' bindsubmit='integralExchange'>
                 <view class='integralItem goods{{index}}'>

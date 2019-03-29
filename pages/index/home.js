@@ -52,6 +52,20 @@ Page({
         duration: 700
     },
 
+	getLottieSuccessData(){
+		return new Promise((resolve,reject)=>{
+			wx.request({
+				url: '/utils/lotties/success1.json',
+				success:(res)=>{
+					response.success = res.data
+				},
+				fail:(err)=>{
+					response.fail = err
+				}
+			})
+		});
+	},
+
     toContact() {
         postProductDataBuried({
             page: '客服'
@@ -162,27 +176,26 @@ Page({
             //   update: new Date().getTime()
             // });
         }
-		var getArticle = setInterval(() => {
-			var sessionId = getApp().globalData.sessionId
-			if (sessionId != '') {
-				clearInterval(getArticle);
-				if (getApp().globalData.lottieSuccessShow) {
-					setTimeout(() => {
-						this.setData({
-							lottieSuccessShow: true
-						}, () => {
-							setTimeout(() => {
-								this.setData({
-									lottieSuccessShow: false
-								});
-							}, 3000);
-						});
-					}, 1000);
-				}
-				
-			}
-		}, 10);
-    
+        var getArticle = setInterval(() => {
+            var sessionId = getApp().globalData.sessionId
+            if (sessionId != '') {
+                clearInterval(getArticle);
+                if (getApp().globalData.lottieSuccessShow) {
+                    this.setData({
+                        lottieSuccessShow: true
+                    }, () => {
+                        setTimeout(() => {
+                            this.setData({
+                                lottieSuccessShow: false
+                            },()=>{
+								getApp().globalData.lottieSuccessShow = false;
+							});
+                        }, 3000);
+                    });
+                }
+            }
+        }, 10);
+
         // 获取参与活动信息
         // this.getNotices();
 
