@@ -21,7 +21,13 @@
                 <view class='swiperLabel' wx:if='{{notesList[index].article.album.length > 0}}'>
                     <view class='labelGuide'>{{notesList[index].swiperCurrent + 1}}/{{notesList[index].article.album.length}}</view>
                 </view>
-                <swiper autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" current="{{notesList[index].swiperCurrent}}" data-index='{{index}}' bindchange="swiperChange">
+
+                <view class='likeAnimation' wx:if='{{notesList[index].article.likeAnimation}}'>
+                    <view class='likeBox'>
+                        <v-lottie loop='{{true}}' path='https://wx.meyoungmia.com/upload/mini/lotties/like.json'></v-lottie>
+                    </view>
+                </view>
+                <swiper autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" current="{{notesList[index].swiperCurrent}}" data-index='{{index}}' bindchange="swiperChange" bindtouchstart="touchStart" bindtouchend="touchEnd">
                     <block wx:for="{{notesList[index].article.album}}" wx:key='item' wx:for-item='item'>
                         <swiper-item>
                             <image src="{{item}}" class="slideImage" mode='widthFix'></image>
@@ -57,7 +63,7 @@
             <!-- <view class="articleContent">
                 <template is="wxParse" data="{{wxParseData:'articles' + index + '.nodes'}}" />
             </view> -->
-                <rich-text nodes='{{notesList[index].article.content}}' id="{{'notesText' + index}}" class="{{notesList[index].article.ellipsis ? 'ellipsisRichText' : ''}}"></rich-text>
+            <rich-text nodes='{{notesList[index].article.content}}' id="{{'notesText' + index}}" class="{{notesList[index].article.ellipsis ? 'ellipsisRichText' : ''}}"></rich-text>
             <view class='notice'>
                 <text>内容版权归原作者所有，若有侵权，敬请告知</text>
             </view>
