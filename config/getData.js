@@ -30,7 +30,6 @@ export const postProductDataBuried = (params) => {
     return post('/customer/recordScanPage', params);
 }
 
-
 //binding-phone 绑定手机->
 /**发送短信验证码*/
 export const sendVerificationCode = (params) => {
