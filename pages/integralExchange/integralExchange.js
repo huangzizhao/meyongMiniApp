@@ -121,6 +121,7 @@ Page({
             showCustomizeModal: false
         }, () => {
             postProductDataBuried({
+				duringTime: 0,
                 page: '客服'
             }).then();
         });

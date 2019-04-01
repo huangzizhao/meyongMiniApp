@@ -68,6 +68,7 @@ Page({
 
     toContact() {
         postProductDataBuried({
+			duringTime:0,
             page: '客服'
         }).then();
     },
@@ -95,7 +96,8 @@ Page({
         this.popUps();
         this.getHomeBanner();
         this.getInitQuery();
-        if (getApp().globalData.enShowHomeImg) {
+		console.log("enShowHomeImg:" + JSON.stringify(getApp().globalData.enShowHomeImg));
+		if (getApp().globalData.enShowHomeImg && this.data.popUpsShow) {
             this.getTabBar().setData({
                 tabBarShow: false
             });

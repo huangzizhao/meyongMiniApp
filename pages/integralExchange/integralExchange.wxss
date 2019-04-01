@@ -21,7 +21,7 @@ button::after {
 
 .contact {
     position: fixed;
-	z-index: 2;
+	z-index:11;
     bottom: 100rpx;
     padding-bottom: env(safe-area-inset-bottom);
     right: 20rpx;
