@@ -2,7 +2,8 @@
 loading="spin"
 bgcolor="#FFF"
 wx:if="{{showSkeleton}}"></skeleton> -->
-<view class='app'>
+<navbar navbar-data='{{navbarData}}'></navbar>
+<view class='app' style='margin-top:{{navBarHeight}}px'>
     <view class='skeleton' wx:if='{{showSkeleton}}'>
         <view class='skeleton-slider skeleton-rect'></view>
         <view class='skeleton-search'></view>
@@ -63,11 +64,14 @@ wx:if="{{showSkeleton}}"></skeleton> -->
         <announcement announcement-list='{{announcementList}}'></announcement>
         <v-notification user-avatar='{{participateAvatar}}' user-name='{{participateUserName}}' time='{{participateTime}}'></v-notification>
         <swiper class='bannerSwiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
-            <block wx:for='{{bannerData}}' wx:key='index'>
+            <!-- <block wx:for='{{bannerData}}' wx:key='index'>
                 <swiper-item data-pagename='首页banner图' data-url='{{item.redirect}}' bindtap='toPromotion'>
                     <image src="{{item.imgUrl}}" class="slideImage" mode='widthFix'></image>
                 </swiper-item>
-            </block>
+            </block> -->
+			<swiper-item data-pagename='首页banner图' bindtap='toPromotion'>
+                    <image src="https://wx.meyoungmia.com/upload/banner/15540834146831d316.png" class="slideImage" mode='widthFix'></image>
+                </swiper-item>
         </swiper>
         <view class='still-searchBox' bindtap='toSearch'>
             <view class='still-search'>

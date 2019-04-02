@@ -94,7 +94,8 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "来美哈",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+	"navigationStyle":"custom"
   },
   "networkTimeout": {
     "request": 10000,

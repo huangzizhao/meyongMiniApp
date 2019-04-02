@@ -17,6 +17,11 @@ Page({
      * 页面的初始数据
      */
     data: {
+		navbarData:{
+			showCapsule:false,
+			title:'来美哈'
+		},
+		navbarHeight: getApp().globalData.statusBarHeight  + 45,
         showSkeleton: true, //是否展示骨架屏
         bannerData: [], //banner数据
         popUpsData: {}, //弹窗数据
@@ -52,23 +57,23 @@ Page({
         duration: 700
     },
 
-	getLottieSuccessData(){
-		return new Promise((resolve,reject)=>{
-			wx.request({
-				url: '/utils/lotties/success1.json',
-				success:(res)=>{
-					response.success = res.data
-				},
-				fail:(err)=>{
-					response.fail = err
-				}
-			})
-		});
-	},
+    getLottieSuccessData() {
+        return new Promise((resolve, reject) => {
+            wx.request({
+                url: '/utils/lotties/success1.json',
+                success: (res) => {
+                    response.success = res.data
+                },
+                fail: (err) => {
+                    response.fail = err
+                }
+            })
+        });
+    },
 
     toContact() {
         postProductDataBuried({
-			duringTime:0,
+            duringTime: 0,
             page: '客服'
         }).then();
     },
@@ -96,8 +101,8 @@ Page({
         this.popUps();
         this.getHomeBanner();
         this.getInitQuery();
-		console.log("enShowHomeImg:" + JSON.stringify(getApp().globalData.enShowHomeImg));
-		if (getApp().globalData.enShowHomeImg && this.data.popUpsShow) {
+        console.log("enShowHomeImg:" + JSON.stringify(getApp().globalData.enShowHomeImg));
+        if (getApp().globalData.enShowHomeImg && this.data.popUpsShow) {
             this.getTabBar().setData({
                 tabBarShow: false
             });
@@ -189,9 +194,9 @@ Page({
                         setTimeout(() => {
                             this.setData({
                                 lottieSuccessShow: false
-                            },()=>{
-								getApp().globalData.lottieSuccessShow = false;
-							});
+                            }, () => {
+                                getApp().globalData.lottieSuccessShow = false;
+                            });
                         }, 3000);
                     });
                 }
@@ -199,7 +204,7 @@ Page({
         }, 10);
 
         // 获取参与活动信息
-        // this.getNotices();
+        this.getNotices();
 
         // if(this.data.waterFallFlowData){
         // 	let view = this.selectComponent('#waterFallFlow');
@@ -404,19 +409,22 @@ Page({
 
     //跳转至内嵌网页活动页面  
     toPromotion(e) {
-        let pageName = e.currentTarget.dataset.pagename,
-            url = e.currentTarget.dataset.url;
-        if (url) {
-            if (url.startsWith()) {
-                wx.navigateTo({
-                    url: '/pages/promotion/promotion?pageName=' + pageName + '&url=' + url
-                })
-            } else {
-                wx.navigateTo({
-                    url: url
-                })
-            }
-        }
+        // let pageName = e.currentTarget.dataset.pagename,
+        //     url = e.currentTarget.dataset.url;
+        // if (url) {
+        //     if (url.startsWith()) {
+        //         wx.navigateTo({
+        //             url: '/pages/promotion/promotion?pageName=' + pageName + '&url=' + url
+        //         })
+        //     } else {
+        //         wx.navigateTo({
+        //             url: url
+        //         })
+        //     }
+        // }
+        wx.navigateTo({
+            url: '/mallModule/pages/notificationList/notificationList'
+        })
     },
 
     openActivity: function() {

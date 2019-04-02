@@ -18,7 +18,12 @@ Page({
     participateTime: 0,
     announcementList: [],
     queryPurchaseInterval: '', //查询参与活动定时器
-    nextIssueNotice: '当前还没有活动呢，下拉刷新试试~'
+    nextIssueNotice: '当前还没有活动呢，下拉刷新试试~',
+	  navbarData: {
+		  showCapsule: true,
+		  title: '来美哈'
+	  },
+	  navbarHeight: getApp().globalData.statusBarHeight + 45,
   },
 
   /**

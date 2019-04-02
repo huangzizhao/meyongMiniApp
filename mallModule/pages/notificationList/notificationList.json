@@ -1,7 +1,8 @@
 {
   "usingComponents": {
     "notification": "../../../../components/notification/notification",
-	"announcement": "../../../../components/announcement/announcement"
+	"announcement": "../../../../components/announcement/announcement",
+	"navbar": "/components/navbar/index"
   },
   "enablePullDownRefresh": true,
   "backgroundTextStyle": "dark"

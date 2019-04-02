@@ -8,6 +8,7 @@
     "announcement": "/components/announcement/announcement",
     "v-water-fallFlow": "/components/waterFallFlow/waterFallFlow",
     "skeleton": "/components/skeleton/skeleton",
-	"v-lottie": "lottie-miniapp/component/lottie"
+	"v-lottie": "lottie-miniapp/component/lottie",
+	"navbar":"/components/navbar/index"
   }
 }

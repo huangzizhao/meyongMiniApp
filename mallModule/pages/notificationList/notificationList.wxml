@@ -1,5 +1,6 @@
 <!--pages/notificationList/notificationList.wxml-->
-<view class='activityList'>
+<navbar navbar-data='{{navbarData}}'></navbar>
+<view class='activityList' style='margin-top:{{navBarHeight}}px'>
     <announcement announcement-list='{{announcementList}}'></announcement>
     <notification user-avatar='{{participateAvatar}}' user-name='{{participateUserName}}' time='{{participateTime}}'></notification>
     <block wx:if='{{activityList.length > 0}}'>
