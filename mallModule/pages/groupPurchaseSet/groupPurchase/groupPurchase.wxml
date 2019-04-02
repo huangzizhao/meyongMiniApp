@@ -135,7 +135,7 @@
     <view class='mask' bindtap='closeMask' catchtouchmove="preventScroll">
         <view class='canvasNav'>
             <canvas canvas-id='myCanvas' class='shareCanvas' style='width:296px;height:386px' catchtap></canvas>
-            <button class='saveImg' bindtap='beforeSaveImg'>保存图片</button>
+            <button class='saveImg' wx:if='{{shareImgSrc}}' bindtap='beforeSaveImg'>保存图片</button>
         </view>
     </view>
 </block>

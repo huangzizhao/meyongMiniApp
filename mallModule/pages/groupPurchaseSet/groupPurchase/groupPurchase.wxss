@@ -245,16 +245,16 @@ swiper {
     width: 296px;
     height: 450px;
     z-index: 6;
-    display: inline-flex;
-    flex-flow: row wrap;
-    align-content: space-between;
-    justify-content: center;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .canvasNav .shareCanvas {
     width: 100%;
     height: 100%;
-    z-index: 6;
+    z-index: 7;
 }
 
 .saveImg {

@@ -25,7 +25,7 @@
         <!-- <view class='likeBox' wx:if='{{notesList[index].article.likeAnimation}}'>
           <v-lottie loop='{{true}}' animation-data='{{lottieLikeData}}'></v-lottie>  
         </view> -->
-		<image src='/img/like.png' mode='widthFix' class="fav-icon like-move {{item.likeIcon?'likeAni':''}}" wx:for="{{favIcon}}" wx:if="{{detailState}}" wx:key="" bindtap='justlikeit'></image>
+		<image src='/img/like.png' mode='widthFix' class="fav-icon like-move {{item.likeIcon?'likeAni':''}}" wx:for="{{notesList[index].article.favIcon}}" wx:key="" bindtap='justlikeit'></image>
           <swiper autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" current="{{notesList[index].swiperCurrent}}" data-index='{{index}}' bindchange="swiperChange">
             <block wx:for="{{notesList[index].article.album}}" wx:key='item' wx:for-item='item'>
               <swiper-item>

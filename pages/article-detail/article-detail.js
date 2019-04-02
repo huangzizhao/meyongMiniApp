@@ -32,11 +32,6 @@ Page({
         // 单击事件点击后要触发的函数
         lastTapTimeoutFunc: null,
 
-		left: 0,
-		top: 0,
-		likeIcon: false,
-		favIcon: [],
-
         uploadReviewIndex: null,
         pointerSubscript: 0,
         articleId: '',
@@ -83,9 +78,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        this.setData({
-            lottieLikeData: lotties.lottieLikeData
-        });
+        // this.setData({
+        //     lottieLikeData: lotties.lottieLikeData
+        // });
         wx.hideShareMenu();
         this.data.pageUtil.articleId = options.articleId;
         this.data.articleId = options.articleId;
@@ -151,49 +146,102 @@ Page({
             });
 
             //如果两次点击事件时间在300毫秒内，则认为是点击事件
+			console.log('currentTime:' + currentTime + ',' + 'lastTapTime:' + lastTapTime);
             if (currentTime - lastTapTime < 300) {
-				console.log('双击');
+                console.log('双击');
                 //成功触发双击事件时，取消单击事件的执行
                 clearTimeout(this.lastTapTimeoutFunc);
 
-				let list = [];
-				list = list.concat(this.data.favIcon);
+                let list = [];
+				list = list.concat(this.data.notesList[index].article.favIcon);
 
-				let index = list.length;
-				list.push({ left: 0, top: 0, likeIcon: false })
+                let listIndex = list.length;
+                list.push({
+                    left: 0,
+                    top: 0,
+                    likeIcon: false
+                })
 
-				list[index].left = e.touches[0].clientX - 15;
-				list[index].top = e.touches[0].clientY - 15;
-				list[index].likeIcon = true;
+				list[listIndex].left = e.touches[0].clientX - 15;
+				list[listIndex].top = e.touches[0].clientY - 15;
+				list[listIndex].likeIcon = true;
 
-				this.setData({
-					favIcon: list
-				})
+                this.setData({
+					[`notesList[${index}].article.favIcon`]: list
+                })
+                if (this.data.notesList[index].article.star === 0) {
+                    this.cilckGood(e);
+                }
+				setTimeout(()=>{
+					wx.getUserInfo({
+						success:(res)=>{
+							const userInfo = res.userInfo;
+							const customer = getApp().globalData.customer;
 
-				setTimeout(() => {
-					list = [];
-					this.setData({
-						favIcon: list
+							if (this.data.notesList[index].article.star != 1) {
+								if (userInfo) {
+									if (customer == null) {
+										wx.login({
+											success: res => {
+												console.log(res.code, "code");
+												// 发送 res.code 到后台换取 openId, sessionKey, unionId
+												if (res.code) {
+													//发起网络请求
+													wx.request({
+														url: getApp().globalData.server + 'customer/customerLoginByCode',
+														data: {
+															code: res.code
+														},
+														success: res => {
+															getApp().globalData.customer = res.data.customer;
+															getApp().globalData.sessionId = res.data.sessionId;
+															getApp().globalData.header.Cookie = 'JSESSIONID=' + res.data.sessionId;
+															this.checkBindingPhoneBeforeLikeIt(customer, userInfo, index);
+														}
+													});
+												}
+											}
+										});
+									} else {
+										this.checkBindingPhoneBeforeLikeIt(customer, userInfo, index);
+									}
+								}
+							}
+						},
+						fail:(res)=>{
+							wx.showModal({
+								title: '提示',
+								content: '1、可能点击过于频繁，请稍后再试\r\n2、如未授权请点击下方的喜欢按钮，进行授权登陆',
+								showCancel:false
+							})
+						}
 					})
-				}, 1000);
+				},0);
 
-				// this.setData({
-				// 	[`notesList[${index}].article.likeAnimation`]: false
-				// }, () => {
-				// 	this.setData({
-				// 		[`notesList[${index}].article.likeAnimation`]: true
-				// 	}, () => {
-				// 		setTimeout(() => {
-				// 			this.setData({
-				// 				[`notesList[${index}].article.likeAnimation`]: false
-				// 			})
+                setTimeout(() => {
+                    list = [];
+                    this.setData({
+                        favIcon: list
+                    })
+                }, 1000);
 
-				// 			if (this.data.notesList[index].article.star === 0) {
-				// 				this.cilckGood(e);
-				// 			}
-				// 		}, 3000);
-				// 	})
-				// });
+                // this.setData({
+                // 	[`notesList[${index}].article.likeAnimation`]: false
+                // }, () => {
+                // 	this.setData({
+                // 		[`notesList[${index}].article.likeAnimation`]: true
+                // 	}, () => {
+                // 		setTimeout(() => {
+                // 			this.setData({
+                // 				[`notesList[${index}].article.likeAnimation`]: false
+                // 			})
+
+                // 			if (this.data.notesList[index].article.star === 0) {
+                // 				this.cilckGood(e);
+                // 			}
+                // 		}, 3000);
+                // 	})
+                // });
             }
         }
     },
@@ -259,6 +307,12 @@ Page({
 
                     for (let i = this.data.pointerSubscript; i < this.data.notesList.length; i++) {
                         let content = this.data.notesList[i].article.content;
+
+						this.data.notesList[i].article.left= 0;
+						this.data.notesList[i].article.top= 0;
+						this.data.notesList[i].article.likeIcon= false;
+						this.data.notesList[i].article.favIcon=[];
+
                         this.data.notesList[i].article.ellipsis = false;
                         this.data.notesList[i].article.showEllipsis = false;
                         this.data.notesList[i].swiperCurrent = 0;

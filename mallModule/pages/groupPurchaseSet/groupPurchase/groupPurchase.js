@@ -7,7 +7,6 @@ import {
     getSpliceGroupList,
     postProductDataBuried
 } from '../../../../config/getData'
-const ctx = wx.createCanvasContext('myCanvas');
 
 
 // const originalPage = Page;
@@ -363,6 +362,7 @@ Page({
         });
     },
     getWxCode: function() {
+		const ctx = wx.createCanvasContext('myCanvas');
         wx.showLoading({
             title: '绘制中...',
             mask: true
@@ -391,34 +391,37 @@ Page({
                                 wx.getImageInfo({
                                     src: wxCodePath,
                                     success: (e3) => {
-                                        let wxCodePathLocal = e3.path;
+                                        var wxCodePathLocal = e3.path;
                                         ctx.drawImage(imgPath, 0, 0, 296, 386);
                                         ctx.drawImage(wxCodePathLocal, 200, 300, 84, 84);
-                                        ctx.draw(false, (e) => {
-                                            console.log(e);
+										console.log(imgPath);
+										console.log(wxCodePathLocal);
+                                        ctx.draw(false, (() => {
                                             console.log('进来了');
-                                            wx.canvasToTempFilePath({
-                                                x: 0,
-                                                y: 0,
-                                                width: 296,
-                                                height: 386,
-                                                destWidth: 296 * 2,
-                                                destHeight: 386 * 2,
-                                                canvasId: 'myCanvas',
-                                                success: (res) => {
-                                                    this.setData({
-                                                        shareImgSrc: res.tempFilePath
-                                                    }, () => {
+                                            setTimeout(() => {
+                                                wx.canvasToTempFilePath({
+                                                    x: 0,
+                                                    y: 0,
+                                                    width: 296,
+                                                    height: 386,
+                                                    destWidth: 296 * 2,
+                                                    destHeight: 386 * 2,
+                                                    canvasId: 'myCanvas',
+                                                    success: (res) => {
+                                                        this.setData({
+                                                            shareImgSrc: res.tempFilePath
+                                                        }, () => {
+                                                            wx.hideLoading();
+                                                        })
+                                                        console.log('1:' + this.data.shareImgSrc);
+                                                    },
+                                                    fail:(res)=> {
+                                                        console.log(res);
                                                         wx.hideLoading();
-                                                    })
-                                                    console.log('1:' + this.data.shareImgSrc);
-                                                },
-                                                fail: function(res) {
-                                                    console.log(res);
-                                                    wx.hideLoading();
-                                                }
-                                            })
-                                        });
+                                                    }
+                                                })
+                                            }, 50);
+                                        })());
                                     }
                                 })
                             }
@@ -541,7 +544,7 @@ Page({
     intoMultiplayerGroup: function(e) {
         this.postDomDataInfo('组人拼团');
         wx.navigateTo({
-          url: '../multiplayerGroupPurchase/multiplayerGroupPurchase?activityId=' + this.data.activityId
+            url: '../multiplayerGroupPurchase/multiplayerGroupPurchase?activityId=' + this.data.activityId
         })
     },
 
@@ -567,17 +570,17 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function() {
-		
+
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-		// 数据埋点
-		this.data.enterDomStartTime = 0;
-		this.data.enterDomStartTime = parseInt(new Date().getTime() / 1000);
-		console.log('enterDomStartTime：' + this.data.enterDomStartTime);
+        // 数据埋点
+        this.data.enterDomStartTime = 0;
+        this.data.enterDomStartTime = parseInt(new Date().getTime() / 1000);
+        console.log('enterDomStartTime：' + this.data.enterDomStartTime);
         this.getNotices();
     },
 
@@ -585,8 +588,8 @@ Page({
      * 生命周期函数--监听页面隐藏
      */
     onHide: function() {
-		// 数据埋点
-		this.data.partTime += parseInt(new Date().getTime() / 1000) - this.data.enterDomStartTime;
+        // 数据埋点
+        this.data.partTime += parseInt(new Date().getTime() / 1000) - this.data.enterDomStartTime;
         clearInterval(this.data.queryPurchaseInterval);
     },
 
@@ -594,30 +597,30 @@ Page({
      * 提交埋点数据信息
      */
     postDomDataInfo(nextPageTitle) {
-		this.data.partTime += parseInt(new Date().getTime() / 1000) - this.data.enterDomStartTime;
-		//浏览时长不大于0的视为垃圾数据
-		if (this.data.partTime > 0){
-			let productData = {
-				duringTime: this.data.partTime,
-				page: this.data.activityData.prizeTitle,
-				nextPage: nextPageTitle
-			}
-			console.log(this.data.activityData.prizeTitle);
+        this.data.partTime += parseInt(new Date().getTime() / 1000) - this.data.enterDomStartTime;
+        //浏览时长不大于0的视为垃圾数据
+        if (this.data.partTime > 0) {
+            let productData = {
+                duringTime: this.data.partTime,
+                page: this.data.activityData.prizeTitle,
+                nextPage: nextPageTitle
+            }
+            console.log(this.data.activityData.prizeTitle);
 
-			postProductDataBuried(productData).then((e) => {
-				setTimeout(() => {
-					this.data.partTime = 0;
-				}, 500);
-				console.log('记录成功');
-			});	
-		}
+            postProductDataBuried(productData).then((e) => {
+                setTimeout(() => {
+                    this.data.partTime = 0;
+                }, 500);
+                console.log('记录成功');
+            });
+        }
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
     onUnload: function() {
-		console.log('showOnUnload');
+        console.log('showOnUnload');
         clearInterval(this.data.queryPurchaseInterval);
 
         this.postDomDataInfo('项目列表');
