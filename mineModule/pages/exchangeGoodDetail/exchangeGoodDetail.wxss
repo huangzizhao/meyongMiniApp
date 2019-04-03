@@ -1,0 +1,9 @@
+/* mineModule/pages/exchangeGoodDetail/exchangeGoodDetail.wxss */
+.app{
+	position: relative;
+	box-sizing: border-box;
+}
+.app image{
+	display: block;
+	font-size: 0;
+}

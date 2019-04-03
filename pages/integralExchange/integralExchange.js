@@ -12,11 +12,11 @@ Page({
      * 页面的初始数据
      */
     data: {
-		navbarData: {
-			showCapsule: false,
-			title: '兑换商品列表'
-		},
-		navbarHeight: getApp().globalData.navbarHeight,
+        navbarData: {
+            showCapsule: false,
+            title: '兑换商品列表'
+        },
+        navbarHeight: getApp().globalData.navbarHeight,
         customer: null,
         grade: 0,
         integral: 0,
@@ -87,16 +87,33 @@ Page({
             }
         }, 100);
     },
+	toExchangeGoodDetail(e){
+		let content = e.currentTarget.dataset.content,name = e.currentTarget.dataset.name;
+		if(content){
+			content = content.replace(/section/g, "div");
+			content = content.replace(/header/g, "div");
+			content = content.replace(/&amp;/g, "&");
+			content = content.replace(/&lt;/g, "<");
+			content = content.replace(/&gt;/g, ">");
+			content = content.replace(/&#39;/g, "\'");
+			content = content.replace(/&quot;/g, "\"");
+			content = content.replace(/&amp;nbsp;/g, ' ');
+			content = content.replace(/&nbsp;/g, ' ');
+			wx.navigateTo({
+				url: '/mineModule/pages/exchangeGoodDetail/exchangeGoodDetail?content=' + content + '&name=' + name
+			})
+		}
+	},
     toRatingRule() {
         wx.navigateTo({
             url: '/mineModule/pages/ratingRule/ratingRule'
         })
     },
-	toContact() {
-		postProductDataBuried({
-			page: '客服'
-		}).then();
-	},
+    toContact() {
+        postProductDataBuried({
+            page: '客服'
+        }).then();
+    },
     preventTouchMove() {},
     getAuthorGrade() {
         getAuthorGrade().then(res => {
@@ -126,43 +143,45 @@ Page({
             showCustomizeModal: false
         }, () => {
             postProductDataBuried({
-				duringTime: 0,
+                duringTime: 0,
                 page: '客服'
             }).then();
         });
     },
     integralExchange(e) {
-		var integralExchangeId = e.currentTarget.dataset.integralexchangeid, index = e.currentTarget.dataset.index, formId = e.detail.formId;
-		console.log('formId:' + formId);
-		this.setData({
-			[`goodsList[${index}].showExchangeBtnLoaing`]:true
-		},()=>{
-			exchange({
-				integralExchangeId: integralExchangeId,
-				formId: formId
-			}).then(res => {
-				if (res.code === 0) {
-					this.getCurrentIntegral();
-					this.setData({
-						[`goodsList[${index}].showExchangeBtnLoaing`]: false,
-						showCustomizeModal: true
-					});
-				} else {
-					wx.showModal({
-						title: '提示',
-						content: res.msg,
-						showCancel: false,
-						success:(res)=>{
-							if(res.confirm){
-								this.setData({
-									[`goodsList[${index}].showExchangeBtnLoaing`]: false
-								});
-							}
-						}
-					})
-				}
-			});
-		});
+        var integralExchangeId = e.currentTarget.dataset.integralexchangeid,
+            index = e.currentTarget.dataset.index,
+            formId = e.detail.formId;
+        console.log('formId:' + formId);
+        this.setData({
+            [`goodsList[${index}].showExchangeBtnLoaing`]: true
+        }, () => {
+            exchange({
+                integralExchangeId: integralExchangeId,
+                formId: formId
+            }).then(res => {
+                if (res.code === 0) {
+                    this.getCurrentIntegral();
+                    this.setData({
+                        [`goodsList[${index}].showExchangeBtnLoaing`]: false,
+                        showCustomizeModal: true
+                    });
+                } else {
+                    wx.showModal({
+                        title: '提示',
+                        content: res.msg,
+                        showCancel: false,
+                        success: (res) => {
+                            if (res.confirm) {
+                                this.setData({
+                                    [`goodsList[${index}].showExchangeBtnLoaing`]: false
+                                });
+                            }
+                        }
+                    })
+                }
+            });
+        });
     },
     hasMore() {
         if (this.data.pageUtil.page > this.data.totalPage) {
@@ -189,7 +208,7 @@ Page({
             this.locked();
             getListIntegralPrize(this.data.pageUtil).then(res => {
                 if (res.code === 0) {
-					res.data.list.showExchangeBtnLoaing = false;
+                    res.data.list.showExchangeBtnLoaing = false;
                     this.data.goodsList.push(...res.data.list);
                     this.data.totalPage = res.data.totalPage;
                     this.data.pageUtil.page++;

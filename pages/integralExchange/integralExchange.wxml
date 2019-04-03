@@ -30,7 +30,7 @@
         <view class='integralGoodsList'>
             <block wx:for='{{goodsList}}' wx:key='index'>
                 <form report-submit='true' data-integralexchangeid='{{item.integralExchangeId}}' data-index='{{index}}' bindsubmit='integralExchange'>
-                    <view class='integralItem goods{{index}}'>
+                    <view class='integralItem goods{{index}}' data-content='{{item.content}}' data-name='{{item.name}}' bindtap='toExchangeGoodDetail'>
                         <view class='itemLeft'>
                             <image src='{{item.showUrl}}' mode='aspectFill'></image>
                         </view>

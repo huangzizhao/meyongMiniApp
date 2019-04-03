@@ -1,0 +1,5 @@
+<!--mineModule/pages/exchangeGoodDetail/exchangeGoodDetail.wxml-->
+<navbar navbar-data='{{navbarData}}'></navbar>
+<view class='app' style='margin-top:{{navbarHeight}}rpx;min-height:calc(100vh - {{navbarHeight}}rpx)'>
+	<rich-text nodes='{{content}}'></rich-text>
+</view>
