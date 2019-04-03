@@ -1,5 +1,6 @@
 <!--mineModule/pages/commentCollection/commentCollection.wxml-->
-<view bind:touchmove='pageTouchmove'>
+<navbar navbar-data='{{navbarData}}'></navbar>
+<view bind:touchmove='pageTouchmove' style='margin-top:{{navbarHeight}}rpx'>
   <v-more-reviews bind:replySomeone="setReplyData" new-reviews='{{newReviews}}' more='{{more}}'></v-more-reviews>
 
   <v-post-reviews bind:refreshReviews='refreshReviews' customer='{{customer}}' reply-obj='{{replyObj}}' article-id='{{articleId}}' wx:if='{{showPostComment}}'></v-post-reviews>

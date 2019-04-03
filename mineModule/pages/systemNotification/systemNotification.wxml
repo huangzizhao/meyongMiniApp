@@ -1,33 +1,37 @@
 <!--pages/systemNotification/systemNotification.wxml-->
-<block wx:if='{{noticesList.length > 0}}'>
-    <view class='topMark'></view> <!--背景遮层，挡住灰色背景，实现下拉颜色与下拉背景一致 -->
-    <view class='app'>
-        <view class='noticesTitle'>
-            <text>通知列表</text>
-            <view class='readAll' bindtap='readAll'>
-                <text> 全部已读</text>
-                <icon class='iconfont icon-get'></icon>
+<navbar navbar-data='{{navbarData}}'></navbar>
+<view style='margin-top:{{navbarHeight}}rpx'>
+    <block wx:if='{{noticesList.length > 0}}'>
+        <view class='topMark'></view>
+        <!--背景遮层，挡住灰色背景，实现下拉颜色与下拉背景一致 -->
+        <view class='app'>
+            <view class='noticesTitle'>
+                <text>通知列表</text>
+                <view class='readAll' bindtap='readAll'>
+                    <text> 全部已读</text>
+                    <icon class='iconfont icon-get'></icon>
+                </view>
             </view>
-        </view>
-        <view class='noticeBackground'>
-            <view class='noticesList' wx:for='{{noticesList}}' wx:for-index='index' wx:key='item' wx:for-item='item' data-noticeid='{{item.noticeId}}' data-index='{{index}}' bindtap='haveRead'>
-                <view class='noticeLeft'>
-                    <view class='noticeIcon'>
-                        <icon class='iconfont icon-systemNotice'></icon>
-                        <view class='red' wx:if='{{item.read === 0}}'></view>
+            <view class='noticeBackground'>
+                <view class='noticesList' wx:for='{{noticesList}}' wx:for-index='index' wx:key='item' wx:for-item='item' data-noticeid='{{item.noticeId}}' data-index='{{index}}' bindtap='haveRead'>
+                    <view class='noticeLeft'>
+                        <view class='noticeIcon'>
+                            <icon class='iconfont icon-systemNotice'></icon>
+                            <view class='red' wx:if='{{item.read === 0}}'></view>
+                        </view>
+                    </view>
+                    <view class='noticeRight'>
+                        <view class='noticeContent'>{{item.content}}</view>
+                        <view class='noticeDate'>{{item.noticeDate}}</view>
                     </view>
                 </view>
-                <view class='noticeRight'>
-                    <view class='noticeContent'>{{item.content}}</view>
-                    <view class='noticeDate'>{{item.noticeDate}}</view>
-                </view>
             </view>
         </view>
-    </view>
-</block>
-<block wx:else>
-    <view class='noNotices'>
-        <icon class='iconfont icon-notices'></icon>
-        <text>您还没有相关系统通知，下拉刷新试试~</text>
-    </view>
-</block>
+    </block>
+    <block wx:else>
+        <view class='noNotices'>
+            <icon class='iconfont icon-notices'></icon>
+            <text>您还没有相关系统通知，下拉刷新试试~</text>
+        </view>
+    </block>
+</view>

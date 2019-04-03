@@ -1,6 +1,6 @@
 // pages/promotion/promotion.js
 import {
-	postProductDataBuried
+    postProductDataBuried
 } from '../../config/getData'
 Page({
 
@@ -9,9 +9,21 @@ Page({
      */
     data: {
         fromPage: '',
-		url:'', //跳转链接
+        url: '', //跳转链接
         enterDomStartTime: 0,
-        partTime: 0
+        partTime: 0,
+		navbarData: {
+			showCapsule: true,
+			title: ''
+		},
+		navbarHeight: getApp().globalData.navbarHeight,
+    },
+    bindmessage(e) {
+        if (e.detail.data[e.detail.data - 1].title) {
+            this.setData({ //存储状态
+				[`navbarData.title`]: e.detail.data[0].title
+            })
+        }
     },
     /**
      * 提交埋点数据信息
@@ -22,7 +34,7 @@ Page({
         if (this.data.partTime > 0) {
             let productData = {
                 duringTime: this.data.partTime,
-				page: '三八女王节活动',
+                page: '三八女王节活动',
                 nextPage: nextPageTitle
             }
 
@@ -40,7 +52,7 @@ Page({
     onLoad: function(options) {
         this.setData({
             fromPage: options.pageName,
-			url: options.url
+            url: options.url
         });
     },
 

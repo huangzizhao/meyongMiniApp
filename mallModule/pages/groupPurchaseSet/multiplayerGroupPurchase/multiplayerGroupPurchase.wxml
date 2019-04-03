@@ -1,5 +1,6 @@
 <!--pages/beforeDoubleGroupPurchase/beforeDoubleGroupPurchase.wxml-->
-<view class='app'>
+<navbar navbar-data='{{navbarData}}'></navbar>
+<view class='app' style='margin-top:{{navbarHeight}}rpx'>
   <view class='purchaseTab'>
     <view class='tabNav'>
       <view class='stamp' wx:if='{{activityData.qorderGroup.groupNum === activityData.qorderGroup.members.length}}'>

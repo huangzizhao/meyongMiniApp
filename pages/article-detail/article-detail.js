@@ -21,7 +21,13 @@ Page({
     /**
      * 页面的初始数据
      */
-    data: {
+	data: {
+		navbarData: {
+			showCapsule: true,
+			title: '笔记详情'
+		},
+		navbarHeight: getApp().globalData.navbarHeight,
+
         lottieLikeData: null,
         // 触摸开始时间
         touchStartTime: 0,

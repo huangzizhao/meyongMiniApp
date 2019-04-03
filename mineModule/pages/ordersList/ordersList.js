@@ -10,7 +10,12 @@ Page({
         orderState: {
             0: '待支付',
             3: '支付完成'
-        }
+        },
+		navbarData: {
+			showCapsule: true,
+			title: '我的订单'
+		},
+		navbarHeight: getApp().globalData.navbarHeight,
     },
 
     /**

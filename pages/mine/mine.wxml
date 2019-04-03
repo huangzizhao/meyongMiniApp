@@ -1,5 +1,6 @@
 <!--pages/person-center/person-center.wxml-->
-<view class='app'>
+<navbar navbar-data='{{navbarData}}'></navbar>
+<view class='app' style='margin-top:{{navbarHeight}}rpx'>
     <view class='header'>
         <view class='mineBackground'>
             <image src='/img/personCenterBg.jpg' mode='top'></image>

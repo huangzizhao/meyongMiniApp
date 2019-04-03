@@ -1,5 +1,6 @@
 <!--pages/currentOrderInfo/currentOrderInfo.wxml-->
-<view class='app'>
+<navbar navbar-data='{{navbarData}}'></navbar>
+<view class='app' style='margin-top:{{navbarHeight}}rpx'>
     <view class='appItem'>
         <view class='orderCode'>
             <text>订单编号：{{orderItem.orderCode}}</text>

@@ -14,7 +14,12 @@ Page({
 		iconState:{
 			0:'warn',
 			1:'success'
-		}
+		},
+		navbarData: {
+			showCapsule: true,
+			title: '支付结果'
+		},
+		navbarHeight: getApp().globalData.navbarHeight,
 	},
 
 	/**

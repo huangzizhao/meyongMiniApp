@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 2,
 			"list": [
 				{
 					"id": 0,
@@ -58,8 +58,8 @@
 				},
 				{
 					"id": 2,
-					"name": "等级规则",
-					"pathName": "mineModule/pages/ratingRule/ratingRule",
+					"name": "订单列表",
+					"pathName": "mineModule/pages/ordersList/ordersList",
 					"query": "",
 					"scene": null
 				},

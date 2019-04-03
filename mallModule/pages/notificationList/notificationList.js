@@ -23,7 +23,7 @@ Page({
 		  showCapsule: true,
 		  title: '来美哈'
 	  },
-	  navbarHeight: getApp().globalData.statusBarHeight + 45,
+	  navbarHeight: getApp().globalData.navbarHeight
   },
 
   /**

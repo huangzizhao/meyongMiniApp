@@ -1,30 +1,33 @@
 <!--pages/ordersList/ordersList.wxml-->
-<block wx:if='{{orderList.length > 0}}'>
-    <block wx:for='{{orderList}}' wx:for-item='item' wx:key='item.orderCode'>
-        <view class='orderItem' bindtap='intoOrderDetail' data-orderitem='{{item}}'>
-            <view class='orderCode'>
-                <text>{{item.orderCode}}</text>
-                <text class="{{item.statusColor}}">{{orderState[item.status]}}</text>
-            </view>
-            <view class='purchaseActivity'>
-                <view class='activityCover'>
-                    <image src="{{item.activityCover}}" />
+<navbar navbar-data='{{navbarData}}'></navbar>
+<view style='margin-top:{{navbarHeight}}rpx'>
+    <block wx:if='{{orderList.length > 0}}'>
+        <block wx:for='{{orderList}}' wx:for-item='item' wx:key='item.orderCode'>
+            <view class='orderItem' bindtap='intoOrderDetail' data-orderitem='{{item}}'>
+                <view class='orderCode'>
+                    <text>{{item.orderCode}}</text>
+                    <text class="{{item.statusColor}}">{{orderState[item.status]}}</text>
                 </view>
-                <view class='activityInfo'>
-                    <view class='infoTop'>{{item.prize.title}}</view>
-                    <view class='infoMid'>{{item.prize.content}}</view>
+                <view class='purchaseActivity'>
+                    <view class='activityCover'>
+                        <image src="{{item.activityCover}}" />
+                    </view>
+                    <view class='activityInfo'>
+                        <view class='infoTop'>{{item.prize.title}}</view>
+                        <view class='infoMid'>{{item.prize.content}}</view>
+                    </view>
+                </view>
+                <view class='orderBottom'>
+                    <text style='margin-right:10rpx'>共{{item.buyCount}}件</text>
+                    <text>合计：￥{{item.amount}}元</text>
                 </view>
             </view>
-            <view class='orderBottom'>
-                <text style='margin-right:10rpx'>共{{item.buyCount}}件</text>
-                <text>合计：￥{{item.amount}}元</text>
-            </view>
+        </block>
+    </block>
+    <block wx:else>
+        <view class='noOrders'>
+            <icon class='iconfont icon-order'></icon>
+            <text>您还没有相关订单，下拉刷新试试~</text>
         </view>
     </block>
-</block>
-<block wx:else>
-    <view class='noOrders'>
-        <icon class='iconfont icon-order'></icon>
-        <text>您还没有相关订单，下拉刷新试试~</text>
-    </view>
-</block>
+</view>

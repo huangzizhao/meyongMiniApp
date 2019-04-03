@@ -6,7 +6,12 @@ Page({
      * 页面的初始数据
      */
     data: {
-        noticesList: []
+        noticesList: [],
+		navbarData: {
+			showCapsule: true,
+			title: '系统通知'
+		},
+		navbarHeight: getApp().globalData.navbarHeight,
     },
 
     /**

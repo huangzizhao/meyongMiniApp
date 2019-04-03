@@ -13,6 +13,11 @@ Page({
      * 页面的初始数据
      */
     data: {
+		navbarData: {
+			showCapsule: false,
+			title: '我的'
+		},
+		navbarHeight: getApp().globalData.navbarHeight,
         customer: null,
         amount: 0,
         hasUnreadMessage: false,

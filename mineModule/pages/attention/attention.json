@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "关注列表",
   "usingComponents": {
-    "v-follow-list":"/components/followList/index"
+    "v-follow-list":"/components/followList/index",
+	"navbar": "/components/navbar/index"
   }
 }

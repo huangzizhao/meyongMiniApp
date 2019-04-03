@@ -11,6 +11,12 @@ Page({
      * 页面的初始数据
      */
     data: {
+		navbarData: {
+			showCapsule: true,
+			title: '拼团支付'
+		},
+		navbarHeight: getApp().globalData.navbarHeight,
+
         activityData: null,
         activityCover: null,
         purChaseNum: 1,

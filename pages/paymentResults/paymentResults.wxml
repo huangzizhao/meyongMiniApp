@@ -1,8 +1,11 @@
 <!--pages/paymentResults/paymentResults.wxml-->
-<view class='paymentResults'>
-    <view class='iconarea'>
-        <icon type='{{iconState[status]}}' style='margin-top:76rpx' size="93"></icon>
+<navbar navbar-data='{{navbarData}}'></navbar>
+<view style='margin-top:{{navbarHeight}}rpx'>
+    <view class='paymentResults'>
+        <view class='iconarea'>
+            <icon type='{{iconState[status]}}' style='margin-top:76rpx' size="93"></icon>
+        </view>
+        <text style='font-size:36rpx;font-weight:bold;margin-top:20rpx'>{{tips[status]}}</text>
+        <text style='font-size:36rpx;margin-top:20rpx'>{{paymentResultsContent}}</text>
     </view>
-    <text style='font-size:36rpx;font-weight:bold;margin-top:20rpx'>{{tips[status]}}</text>
-    <text style='font-size:36rpx;margin-top:20rpx'>{{paymentResultsContent}}</text>
 </view>

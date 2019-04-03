@@ -1,6 +1,7 @@
 <!--mineModule/pages/hasExchangeList/hasExchangeList.wxml-->
 <import src='/templates/loading/loading.wxml' />
-<view class='integralGoodsList'>
+<navbar navbar-data='{{navbarData}}'></navbar>
+<view class='integralGoodsList' style='margin-top:{{navbarHeight}}rpx'>
   <block wx:if='{{goodsList.length > 0}}'>
     <view class='integralItem goods{{index}}' wx:for='{{goodsList}}' wx:key='index'>
       <view class='itemLeft'>

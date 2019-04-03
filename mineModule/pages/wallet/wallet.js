@@ -9,7 +9,12 @@ Page({
       lazyLoad: true
     },
     customer:'',
-    earnings: 0
+    earnings: 0,
+	  navbarData: {
+		  showCapsule: true,
+		  title: '我的蜜罐'
+	  },
+	  navbarHeight: getApp().globalData.navbarHeight,
   },
   onShow: function () {
     this.setData({

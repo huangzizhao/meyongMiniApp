@@ -7,6 +7,11 @@ Page({
      * 页面的初始数据
      */
     data: {
+		navbarData: {
+			showCapsule: true,
+			title: '编辑'
+		},
+		navbarHeight: getApp().globalData.navbarHeight,
         markAnimation: {},
         labelInputFocus: false, //标签输入框是否自动聚焦
         mark: false,

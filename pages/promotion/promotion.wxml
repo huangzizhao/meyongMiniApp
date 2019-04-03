@@ -1,5 +1,8 @@
 <!--pages/promotion/promotion.wxml-->
-<web-view src='{{url}}#wechat_redirect'></web-view>
+<navbar navbar-data='{{navbarData}}'></navbar>
+<view style='margin-top:{{navbarHeight}}rpx'>
+    <web-view src='{{url}}#wechat_redirect' bindmessage="bindmessage"></web-view>
+</view>
 <!-- <view class='app'>
     <view class='imgBox'>
         <image src='img/1.png' mode='widthFix'></image>

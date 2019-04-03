@@ -21,7 +21,7 @@ Page({
 			showCapsule:false,
 			title:'来美哈'
 		},
-		navbarHeight: getApp().globalData.statusBarHeight  + 45,
+		navbarHeight: getApp().globalData.navbarHeight,
         showSkeleton: true, //是否展示骨架屏
         bannerData: [], //banner数据
         popUpsData: {}, //弹窗数据

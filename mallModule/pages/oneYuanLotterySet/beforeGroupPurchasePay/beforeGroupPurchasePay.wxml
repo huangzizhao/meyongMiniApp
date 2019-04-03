@@ -1,5 +1,6 @@
 <!--pages/beforeGroupPurchasePay/beforeGroupPurchasePay.wxml-->
-<view class='app'>
+<navbar navbar-data='{{navbarData}}'></navbar>
+<view class='app' style='margin-top:{{navbarHeight}}rpx'>
     <view class='purchaseActivity' bindtap='toActivityDetail'>
         <view class='activityCover'>
             <image src="{{activityCover}}" />

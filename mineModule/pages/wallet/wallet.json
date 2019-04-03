@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "我的蜜罐",
   "usingComponents": {
-    "ec-canvas": "../../../components/ec-canvas/ec-canvas"
+    "ec-canvas": "../../../components/ec-canvas/ec-canvas",
+	"navbar": "/components/navbar/index"
   }
 }

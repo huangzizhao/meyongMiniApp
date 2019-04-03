@@ -1,6 +1,7 @@
 <!--pages/search/search.wxml-->
-<view class='app'>
-	<view class='header'>
+<navbar navbar-data='{{navbarData}}'></navbar>
+<view class='app' style='margin-top:{{navbarHeight}}rpx'>
+	<view class='header' style='top:{{navbarHeight}}rpx'>
 		<view class='search-container'>
 			<text class='iconfont icon-sousuo'></text>
 			<input bindconfirm='onConfirm' bindinput='recordeKeyword' placeholder-class='in-bar' adjust-position='{{false}}' placeholder='输入关键字搜索' class='bar' focus='true' value='{{keyword}}'></input>

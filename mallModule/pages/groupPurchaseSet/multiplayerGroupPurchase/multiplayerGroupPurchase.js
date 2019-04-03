@@ -9,6 +9,14 @@ Page({
      * 页面的初始数据
      */
     data: {
+		navbarData: {
+			showCapsule: true,
+			title: '拼团详情',
+			navigationBarBackgroundColor:'rgba(255, 63, 97,1)',
+			navigationBarTextStyle:'#fff'
+		},
+		navbarHeight: getApp().globalData.navbarHeight,
+
         activityData: null,
         activityCover: null,
         orderGroup: [],

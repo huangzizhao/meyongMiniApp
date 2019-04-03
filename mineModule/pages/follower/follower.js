@@ -7,7 +7,12 @@ Page({
   data: {
     more:'',
     type:'follower',
-    customerId:''
+    customerId:'',
+	  navbarData: {
+		  showCapsule: true,
+		  title: '粉丝列表'
+	  },
+	  navbarHeight: getApp().globalData.navbarHeight,
   },
 
   /**

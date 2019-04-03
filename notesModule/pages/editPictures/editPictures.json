@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "v-drawer-layer-pop": "/components/drawerLayerPop/index",
-    "v-mark": "/components/mark/index"
+    "v-mark": "/components/mark/index",
+	"navbar": "/components/navbar/index"
   }
 }

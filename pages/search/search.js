@@ -8,7 +8,12 @@ Page({
 	data: {
 		keyword:'',
 		showResult:false,
-		more:''
+		more:'',
+		navbarData: {
+			showCapsule: true,
+			title: '搜索'
+		},
+		navbarHeight: getApp().globalData.navbarHeight,
 	},
 
 	/**

@@ -14,7 +14,12 @@ Page({
     mobile: '',
     codeText: '获取验证码',
     enGetCode: true,
-    abledClick: false
+    abledClick: false,
+	  navbarData: {
+		  showCapsule: true,
+		  title: '绑定手机'
+	  },
+	  navbarHeight: getApp().globalData.navbarHeight,
   },
 
   /**

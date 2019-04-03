@@ -12,7 +12,12 @@ Page({
         totalPrice: 1,
         disabled: true,
         orders: {},
-        queryOrderStateInterval: '' //查询交易订单定时器
+        queryOrderStateInterval: '', //查询交易订单定时器
+		navbarData: {
+			showCapsule: true,
+			title: '一元抽奖'
+		},
+		navbarHeight: getApp().globalData.navbarHeight,
     },
 
     /**

@@ -1,15 +1,17 @@
 <!--components/navbar/index.wxml-->
-<view class='navWrap' style='padding-top:{{statusBarHeight}}px'>
-    <view class='navTitle' style='line-height:{{statusBarHeight + 46}}px'>
-        <text>{{navbarData.title}}</text>
+<view class='navWrap' style='padding-top:{{statusBarHeight}}rpx;background-color:{{navbarData.navigationBarBackgroundColor}}'>
+    <view class='navTitle'>
+        <view class='titleBox'>
+            <view class='titleContent' style='color:{{navbarData.navigationBarTextStyle}}'>{{navbarData.title}}</view>
+        </view>
     </view>
     <!--导航栏 左上角的返回按钮 和 home按钮 -->
     <!-- showCapsule控制左上角按钮的显示隐藏，首页不显示 -->
     <view class='navCapsule' wx:if='{{navbarData.showCapsule}}'>
         <!-- 左上角的返回按钮，从分享进入小程序时，返回上一级不应该存在 -->
-            <image src='/img/navbarBack.png' mode='aspectFill' class='backPre' bindtap='_navBack' wx:if='{{!share}}'></image>
+        <image src="/img/navbarBack{{highLight ? 'White' : ''}}.png" mode='aspectFill' class="backPre" bindtap='_navBack' wx:if='{{!share}}'></image>
         <view class='navbarLine' wx:if='{{!share}}'></view>
-            <image src='/img/navbarHome.png' mode='aspectFill' class='backHome' bindtap='_backHome'></image>
+        <image src="/img/navbarHome{{highLight ? 'White' : ''}}.png" mode='aspectFill' class="backHome" bindtap='_backHome'></image>
     </view>
 
 </view>

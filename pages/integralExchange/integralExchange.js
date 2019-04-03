@@ -12,6 +12,11 @@ Page({
      * 页面的初始数据
      */
     data: {
+		navbarData: {
+			showCapsule: false,
+			title: '兑换商品列表'
+		},
+		navbarHeight: getApp().globalData.navbarHeight,
         customer: null,
         grade: 0,
         integral: 0,

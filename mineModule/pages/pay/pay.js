@@ -11,7 +11,12 @@ Page({
         contact: '',
         mobile: '',
         projectId: '',
-        queryOrderStateInterval: '' //查询交易订单定时器
+        queryOrderStateInterval: '', //查询交易订单定时器
+		navbarData: {
+			showCapsule: true,
+			title: '预约金支付'
+		},
+		navbarHeight: getApp().globalData.navbarHeight,
     },
 
     /**

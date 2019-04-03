@@ -1,76 +1,79 @@
 <!--mineModule/pages/integralExchange/integralExchange.wxml-->
 <import src='/templates/loading/loading.wxml' />
-<view class='personBox'>
-    <view class='avatar'>
-        <image src='{{customer.headImg}}' mode='aspectFill'></image>
-    </view>
-    <view class='personInfo'>
-        <view class='infoTop'>
-            <view class='name'>
-                <text>{{customer.name}}</text>
+<navbar navbar-data='{{navbarData}}'></navbar>
+<view style='margin-top:{{navbarHeight}}rpx'>
+    <view class='personBox' style='top:{{navbarHeight}}rpx'>
+        <view class='avatar'>
+            <image src='{{customer.headImg}}' mode='aspectFill'></image>
+        </view>
+        <view class='personInfo'>
+            <view class='infoTop'>
+                <view class='name'>
+                    <text>{{customer.name}}</text>
+                </view>
+                <text class='dividingLine'>|</text>
+                <view class='grade' bindtap='toRatingRule'>
+                    <image src='{{gradeImgList[grade - 1].url}}' mode='aspectFill'></image>
+                    <text>{{gradeNameList[grade - 1].title}}</text>
+                </view>
+                <text class='dividingLine'>|</text>
+                <view class='integral'>
+                    <text>积分：{{integral}}</text>
+                </view>
             </view>
-            <text class='dividingLine'>|</text>
-            <view class='grade' bindtap='toRatingRule'>
-                <image src='{{gradeImgList[grade - 1].url}}' mode='aspectFill'></image>
-                <text>{{gradeNameList[grade - 1].title}}</text>
-            </view>
-            <text class='dividingLine'>|</text>
-            <view class='integral'>
-                <text>积分：{{integral}}</text>
+            <view class='hasExchange' bindtap='toHasExchange'>
+                <text>已兑换过奖品</text>
             </view>
         </view>
-        <view class='hasExchange' bindtap='toHasExchange'>
-            <text>已兑换过奖品</text>
-        </view>
     </view>
-</view>
-<view class='integralBox' style="{{'background-image:url(' + integralBgUrl +')'}}">
-    <view class='integralGoodsList'>
-        <block wx:for='{{goodsList}}' wx:key='index'>
-            <form report-submit='true' data-integralexchangeid='{{item.integralExchangeId}}' data-index='{{index}}' bindsubmit='integralExchange'>
-                <view class='integralItem goods{{index}}'>
-                    <view class='itemLeft'>
-                        <image src='{{item.showUrl}}' mode='aspectFill'></image>
-                    </view>
-                    <view class='itemRight'>
-                        <view class='descriptBox'>
-                            <view class='inlineBox'>
-                                <view class='title'>
-                                    <text>{{item.description}}</text>
-                                </view>
-                                <view class='name'>
-                                    <text>{{item.name}}</text>
+    <view class='integralBox' style="background-image:url({{integralBgUrl}});top:{{navbarHeight + 160}}rpx;height:calc(100vh - 256rpx - {{navbarHeight}}rpx)">
+        <view class='integralGoodsList'>
+            <block wx:for='{{goodsList}}' wx:key='index'>
+                <form report-submit='true' data-integralexchangeid='{{item.integralExchangeId}}' data-index='{{index}}' bindsubmit='integralExchange'>
+                    <view class='integralItem goods{{index}}'>
+                        <view class='itemLeft'>
+                            <image src='{{item.showUrl}}' mode='aspectFill'></image>
+                        </view>
+                        <view class='itemRight'>
+                            <view class='descriptBox'>
+                                <view class='inlineBox'>
+                                    <view class='title'>
+                                        <text>{{item.description}}</text>
+                                    </view>
+                                    <view class='name'>
+                                        <text>{{item.name}}</text>
+                                    </view>
                                 </view>
                             </view>
-                        </view>
-                        <button form-type="submit" loading='{{item.showExchangeBtnLoaing}}' class='exchange'>立即兑换</button>
-                        <view class='condition'>
-                            <text class='conditionBlod'>{{item.integral}}滴蜂蜜{{item.spread > 0 ? '+' + item.spread + '元' :''}}</text>
-                            <text>兑换</text>
+                            <button form-type="submit" loading='{{item.showExchangeBtnLoaing}}' class='exchange'>立即兑换</button>
+                            <view class='condition'>
+                                <text class='conditionBlod'>{{item.integral}}滴蜂蜜{{item.spread > 0 ? '+' + item.spread + '元' :''}}</text>
+                                <text>兑换</text>
+                            </view>
                         </view>
                     </view>
-                </view>
-            </form>
-        </block>
-        <template is='spinner' wx:if='{{loading}}' />
+                </form>
+            </block>
+            <template is='spinner' wx:if='{{loading}}' />
+        </view>
     </view>
-</view>
-<!-- 客服 -->
-<button class='contact' hover-class="btnhover" open-type="contact" session-from="weapp" bindtap='toContact'>
-    <image src='../../img/contact.png' mode='aspectFill'></image>
-</button>
-<v-mark wx:if='{{showCustomizeModal}}' catchtouchmove="{{true}}"></v-mark>
-<view class='maskBg' wx:if='{{showCustomizeModal}}'>
-    <view class='customizeModal'>
-        <view class='title'>
-            <text>提示</text>
-        </view>
-        <view class='content'>
-            <text>确定兑换后积分会自动扣除</text>
-        </view>
-        <view class='btnList'>
-            <button class='cancel' bindtap='customizeModalShow'>取消</button>
-            <button class='commit' open-type="contact" bindtap='toContact'>确定</button>
+    <!-- 客服 -->
+    <button class='contact' hover-class="btnhover" open-type="contact" session-from="weapp" bindtap='toContact'>
+        <image src='../../img/contact.png' mode='aspectFill'></image>
+    </button>
+    <v-mark wx:if='{{showCustomizeModal}}' catchtouchmove="{{true}}"></v-mark>
+    <view class='maskBg' wx:if='{{showCustomizeModal}}'>
+        <view class='customizeModal'>
+            <view class='title'>
+                <text>提示</text>
+            </view>
+            <view class='content'>
+                <text>确定兑换后积分会自动扣除</text>
+            </view>
+            <view class='btnList'>
+                <button class='cancel' bindtap='customizeModalShow'>取消</button>
+                <button class='commit' open-type="contact" bindtap='toContact'>确定</button>
+            </view>
         </view>
     </view>
 </view>

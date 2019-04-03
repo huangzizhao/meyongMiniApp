@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "绑定手机"
+  "navigationBarTitleText": "绑定手机",
+  "usingComponents": {
+	"navbar": "/components/navbar/index"
+}
 }

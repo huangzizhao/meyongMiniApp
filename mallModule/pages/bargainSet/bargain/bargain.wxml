@@ -1,6 +1,7 @@
 <!--pages/bargain/bargain.wxml-->
 <wxs src="../../../../utils/filter.wxs" module="filters" />
-<view class='app'>
+<navbar navbar-data='{{navbarData}}'></navbar>
+<view class='app' style='margin-top:{{navbarHeight}}rpx'>
     <view class='projectImg'>
         <image src='{{cover}}' mode='aspectFill'></image>
 		<view class='cover'></view>

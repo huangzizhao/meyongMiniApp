@@ -1,5 +1,6 @@
 <!--notesModule/pages/author/author.wxml-->
-<view class='authorInfo'>
+<navbar navbar-data='{{navbarData}}'></navbar>
+<view class='authorInfo' style='margin-top:{{navbarHeight}}rpx'>
   <view class='infoLeft'>
     <image src="{{authorData.avatar ? authorData.avatar : '/img/avatar.png'}}" mode='aspectFill'></image>
   </view>

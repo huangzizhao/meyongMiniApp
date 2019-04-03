@@ -1,55 +1,56 @@
 <!--pages/pay/pay.wxml-->
+<navbar navbar-data='{{navbarData}}'></navbar>
+<view style='margin-top:{{navbarHeight}}rpx'>
+    <form bindsubmit='formSubmit'>
+        <view class='pay-cell'>
+            <view class='pay-hd'>
+                <view class="pay-label">联系人</view>
+            </view>
+            <view class='pay-bd weui-cell__ft_in-access'>
+                <input type='text' name='contact' placeholder='请输入联系人名字' placeholder-class='place-holder' value="{{orders.contact ? orders.contact : ''}}"></input>
+            </view>
+        </view>
 
-<form bindsubmit='formSubmit'>
+        <view class='pay-cell'>
+            <view class='pay-hd'>
+                <view class="pay-label">联系电话</view>
+            </view>
+            <view class='pay-bd weui-cell__ft_in-access'>
+                <input type='number' name='mobile' placeholder='请输入联系电话' maxlength='11' placeholder-class='place-holder' value="{{orders.phone}}"></input>
+            </view>
+        </view>
 
-  <view class='pay-cell'>
-    <view class='pay-hd'>
-      <view class="pay-label">联系人</view>
-    </view>
-    <view class='pay-bd weui-cell__ft_in-access'>
-      <input type='text' name='contact' placeholder='请输入联系人名字' placeholder-class='place-holder' value="{{orders.contact ? orders.contact : ''}}"></input>
-    </view>
-  </view>
+        <view class='pay-cell'>
+            <view class='pay-hd'>
+                <view class="pay-label">预约项目</view>
+            </view>
+            <view class='pay-bd weui-cell__ft_in-access'>
+                <input type='text' name='project' placeholder='请输入预约项目' placeholder-class='place-holder' disabled='true' value="{{orders.projectName ? orders.projectName : ''}}"></input>
+            </view>
+        </view>
 
-  <view class='pay-cell'>
-    <view class='pay-hd'>
-      <view class="pay-label">联系电话</view>
-    </view>
-    <view class='pay-bd weui-cell__ft_in-access'>
-      <input type='number' name='mobile' placeholder='请输入联系电话' maxlength='11' placeholder-class='place-holder' value="{{orders.phone}}"></input>
-    </view>
-  </view>
+        <view class='pay-cell'>
+            <view class='pay-hd'>
+                <view class="pay-label">预约金金额</view>
+            </view>
+            <view class='pay-bd weui-cell__ft_in-access'>
+                <input type='digit' name='money' placeholder='请输入预约金金额' placeholder-class='place-holder' disabled='true' value="{{orders.reservationAmount ? orders.reservationAmount : ''}}"></input>
+            </view>
+        </view>
 
-  <view class='pay-cell'>
-    <view class='pay-hd'>
-      <view class="pay-label">预约项目</view>
-    </view>
-    <view class='pay-bd weui-cell__ft_in-access'>
-      <input type='text' name='project' placeholder='请输入预约项目' placeholder-class='place-holder' disabled='true' value="{{orders.projectName ? orders.projectName : ''}}"></input>
-    </view>
-  </view>
+        <view class='pay-cell'>
+            <view class='pay-hd'>
+                <view class="pay-label">支付方式</view>
+            </view>
+            <view class='pay-bd weui-cell__ft_in-access'>
+                <picker mode='selector' class='picker' bindchange="bindPayMentChange" value="{{index}}" range="{{array}}">
+                    <view class="weui-input">{{array[index]}}</view>
+                </picker>
+            </view>
+        </view>
 
-  <view class='pay-cell'>
-    <view class='pay-hd'>
-      <view class="pay-label">预约金金额</view>
-    </view>
-    <view class='pay-bd weui-cell__ft_in-access'>
-      <input type='digit' name='money' placeholder='请输入预约金金额' placeholder-class='place-holder' disabled='true' value="{{orders.reservationAmount ? orders.reservationAmount : ''}}"></input>
-    </view>
-  </view>
-
-  <view class='pay-cell'>
-    <view class='pay-hd'>
-      <view class="pay-label">支付方式</view>
-    </view>
-    <view class='pay-bd weui-cell__ft_in-access'>
-      <picker mode='selector' class='picker' bindchange="bindPayMentChange" value="{{index}}" range="{{array}}">
-        <view class="weui-input">{{array[index]}}</view>
-      </picker>
-    </view>
-  </view>
-
-  <view class='payForSubscription'>
-    <button class='paybotton' formType="submit">付预约金</button>
-  </view>
-</form>
+        <view class='payForSubscription'>
+            <button class='paybotton' formType="submit">付预约金</button>
+        </view>
+    </form>
+</view>

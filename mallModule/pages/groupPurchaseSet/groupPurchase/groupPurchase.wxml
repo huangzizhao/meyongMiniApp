@@ -1,5 +1,6 @@
 <!--pages/groupPurchase/groupPurchase.wxml-->
-<view class='app' data-productid='{{activityData.activityId}}' data-activitydomname='{{activityData.prizeTitle}}'>
+<navbar navbar-data='{{navbarData}}'></navbar>
+<view class='app' data-productid='{{activityData.activityId}}' data-activitydomname='{{activityData.prizeTitle}}' style='margin-top:{{navbarHeight}}rpx'>
     <announcement announcement-list='{{announcementList}}'></announcement>
     <notification user-avatar='{{participateAvatar}}' user-name='{{participateUserName}}' time='{{participateTime}}'></notification>
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">

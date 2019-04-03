@@ -1,3 +1,6 @@
 {
-	"navigationBarTitleText": "关于蜜氧"
+	"navigationBarTitleText": "关于蜜氧",
+	"usingComponents": {
+		"navbar": "/components/navbar/index"
+	}
 }

@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "v-article-edit":"/components/article-edit/index"
+    "v-article-edit":"/components/article-edit/index",
+	"navbar": "/components/navbar/index"
   }
 }

@@ -10,7 +10,12 @@ Page({
         newReviews: '',
         articleId: '',
         replyObj: {},
-        showPostComment: false
+        showPostComment: false,
+		navbarData: {
+			showCapsule: true,
+			title: '更多评论'
+		},
+		navbarHeight: getApp().globalData.navbarHeight,
     },
 
     /**

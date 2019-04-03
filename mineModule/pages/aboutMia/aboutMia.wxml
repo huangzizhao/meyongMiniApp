@@ -1,5 +1,6 @@
 <!--pages/aboutMia/aboutMia.wxml-->
-<view class='app'>
+<navbar navbar-data='{{navbarData}}'></navbar>
+<view class='app' style='margin-top:{{navbarHeight}}rpx'>
     <view class='introduction'>
         <view class='title'>简介</view>
         <text>蜜氧是一家旨在为更多求美者提供专业、优质、全面的美容整形服务咨询公司。</text>

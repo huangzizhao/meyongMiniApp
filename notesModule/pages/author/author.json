@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-	  "v-water-fallFlow": "/components/waterFallFlow/waterFallFlow"
+	  "v-water-fallFlow": "/components/waterFallFlow/waterFallFlow",
+	  "navbar": "/components/navbar/index"
   }
 }

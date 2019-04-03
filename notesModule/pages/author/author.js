@@ -17,7 +17,12 @@ Page({
     articleId: '',
     authorData: {},
     idType: '',
-    noData: false
+    noData: false,
+	  navbarData: {
+		  showCapsule: true,
+		  title: ''
+	  },
+	  navbarHeight: getApp().globalData.navbarHeight,
   },
   isBlank(value) {
     return !value || !/\S/.test(value)
@@ -63,7 +68,8 @@ Page({
       getAuthorInfo(getAuthorInfoById).then(res => {
         if (res.code === 0) {
           this.setData({
-            authorData: res.data
+            authorData: res.data,
+			  [`navbarData.title`]: res.data.name
           });
         }
       })

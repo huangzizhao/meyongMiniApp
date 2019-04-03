@@ -5,7 +5,11 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-
+		navbarData: {
+			showCapsule: true,
+			title: '关于蜜氧'
+		},
+		navbarHeight: getApp().globalData.navbarHeight,
 	},
 
 	/**

@@ -1,5 +1,6 @@
 <!--pages/winnerAnnouncement/winnerAnnouncement.wxml-->
-<view class='app'>
+<navbar navbar-data='{{navbarData}}'></navbar>
+<view class='app' style='margin-top:{{navbarHeight}}rpx'>
     <image class='bgImg' src='https://wx.meyoungmia.com/upload/winning/groupPurchaseBg.jpg' mode='aspectFill'></image>
     <scroll-view class='scrollView ' scroll-y scroll-with-animation='true'>
         <view class='activity' wx:for='{{activityList}}' wx:for-item='activityItem' wx:key='activityItem' wx:for-index='activityKey'>

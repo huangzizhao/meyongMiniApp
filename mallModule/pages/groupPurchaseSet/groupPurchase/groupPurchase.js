@@ -58,6 +58,12 @@ Page({
      * 页面的初始数据
      */
     data: {
+		navbarData: {
+			showCapsule: true,
+			title: '来美哈'
+		},
+		navbarHeight: getApp().globalData.navbarHeight,
+		
         activityId: null,
         prizeId: null,
         activityData: {},

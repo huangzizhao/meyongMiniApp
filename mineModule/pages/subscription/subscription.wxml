@@ -1,6 +1,6 @@
 <!--pages/subscription/subscription.wxml-->
 <!-- <block wx:for="{{projects}}"> -->
-  <!-- <view class='cp-carton'>
+<!-- <view class='cp-carton'>
     <image src='../../img/card.png'></image>
     <view class='cp-card-type'>{{item.consumption == 0 ? '未消费' : '已消费'}}</view>
     <view class='cp-project'>预约项目：{{item.projectName}}</view>
@@ -16,35 +16,35 @@
     </view>
   </view> -->
 <!-- </block> -->
+<navbar navbar-data='{{navbarData}}'></navbar>
+<view style='margin-top:{{navbarHeight}}rpx'>
+    <block wx:for="{{projects}}" wx:for-item='item' wx:key='item' wx:if="{{!isEmpty}}">
+        <view class='order-card' data-index='{{index}}' bindtap='pay'>
+            <view class='order-top'>
+                <text>订单编号：{{item.orderCode}}</text>
+                <view class='order-status' style="background-color:{{projects[index].orderState == 0 || projects[index].orderState == 3? projects[index].orderState == 3 ? '#2AD346' : '#F8E71C' : projects[index].orderState == 2? '#F8E71C' : '#CCCCCC'}};color:{{projects[index].orderState == 3 ? '#fff' : '#000'}}">{{projects[index].orderState == 0 || projects[index].orderState == 2 ? projects[index].orderState == 0?'待付款':'未使用' : projects[index].orderState == 1?'已取消':'已消费'}}</view>
+            </view>
+            <view class='order-bottom'>
+                <view class='order-info'>
+                    <view class='contact'>联系人：{{item.contact ? item.contact : ''}}</view>
+                    <view class='phone'>联系电话：{{item.phone ? item.phone : ''}}</view>
+                    <view class='activity'>预约活动：{{item.projectName ? item.projectName : ''}}</view>
+                    <view class='usedate'>使用时间：{{item.useTime ? item.useTime : ''}}</view>
+                </view>
+                <view class='order-money'>
+                    <view class='money-area'>
+                        <view class='RMB'>￥</view>
+                        <view class='amount'>{{item.reservationAmount ? item.reservationAmount : ''}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
 
-<block wx:for="{{projects}}" wx:for-item='item' wx:key='item' wx:if="{{!isEmpty}}">
-  <view class='order-card' data-index='{{index}}' bindtap='pay'>
-    <view class='order-top'>
-      <text>订单编号：{{item.orderCode}}</text>
-      <view class='order-status' style="background-color:{{projects[index].orderState == 0 || projects[index].orderState == 3? projects[index].orderState == 3 ? '#2AD346' : '#F8E71C' : projects[index].orderState == 2? '#F8E71C' : '#CCCCCC'}};color:{{projects[index].orderState == 3 ? '#fff' : '#000'}}">{{projects[index].orderState == 0 || projects[index].orderState == 2 ? projects[index].orderState == 0?'待付款':'未使用' : projects[index].orderState == 1?'已取消':'已消费'}}</view>
-    </view>
-    <view class='order-bottom'>
-      <view class='order-info'>
-        <view class='contact'>联系人：{{item.contact ? item.contact : ''}}</view>
-        <view class='phone'>联系电话：{{item.phone ? item.phone : ''}}</view>
-        <view class='activity'>预约活动：{{item.projectName ? item.projectName : ''}}</view>
-        <view class='usedate'>使用时间：{{item.useTime ? item.useTime : ''}}</view>
-      </view>
-      <view class='order-money'>
-      <view class='money-area'>
-        <view class='RMB'>￥</view>
-        <view class='amount'>{{item.reservationAmount ? item.reservationAmount : ''}}</view>
-      </view>
-      </view>
-    </view>
-  </view>
-</block>
-
-<block wx:if="{{isEmpty}}">
-  <view style='text-align:center;margin-top:30%;'>
-    <image src='../../../img/tubiao.png' style='width:200rpx;height:200rpx;'></image>
-    <view style='font-size:28rpx;margin-top:20rpx;'>你暂时没有预约金哦，下拉刷新试试~</view>
-  </view>
-</block>
-
-
+    <block wx:if="{{isEmpty}}">
+        <view style='text-align:center;margin-top:30%;'>
+            <image src='../../../img/tubiao.png' style='width:200rpx;height:200rpx;'></image>
+            <view style='font-size:28rpx;margin-top:20rpx;'>你暂时没有预约金哦，下拉刷新试试~</view>
+        </view>
+    </block>
+</view>

@@ -2,6 +2,7 @@
 	"onReachBottomDistance": 300,
 	"usingComponents": {
 		"v-post-reviews": "/components/postReview/postReview",
-		"v-lottie": "lottie-miniapp/component/lottie"
+		"v-lottie": "lottie-miniapp/component/lottie",
+		"navbar": "/components/navbar/index"
 	}
 }

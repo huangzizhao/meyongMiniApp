@@ -25,7 +25,8 @@ App({
         localStorages: new LocalStorage(), //创建本地储存对象
         updateWaterFallFlow: false, //更新瀑布流数据至最新
         lottieSuccessShow: false,
-		statusBarHeight: wx.getSystemInfoSync()['statusBarHeight'],
+		statusBarHeight: wx.getSystemInfoSync()['statusBarHeight'] * 2,
+		navbarHeight: wx.getSystemInfoSync()['statusBarHeight'] * 2 + 90,
 		share:false
     },
 
@@ -102,6 +103,8 @@ App({
         }
     },
     onShow: function() {
+		this.globalData.share = !(getCurrentPages().length > 1)
+		console.log('是分享吗：' + JSON.stringify(getCurrentPages().length));
         // console.log(this.globalData.recommend,"customer");
         // wx.showLoading({
         //   title: '加载中...',

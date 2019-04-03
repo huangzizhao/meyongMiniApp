@@ -5,7 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-	  notesContent:''
+	  notesContent:'',
+	  navbarData: {
+		  showCapsule: true,
+		  title: '发布笔记'
+	  },
+	  navbarHeight: getApp().globalData.navbarHeight,
   },
 
   /**

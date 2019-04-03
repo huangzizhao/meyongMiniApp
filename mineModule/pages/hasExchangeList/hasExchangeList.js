@@ -17,6 +17,11 @@ Page({
     },
     totalPage: 2,
     loading: false,
+	  navbarData: {
+		  showCapsule: true,
+		  title: '已兑换列表'
+	  },
+	  navbarHeight: getApp().globalData.navbarHeight,
   },
 
   /**

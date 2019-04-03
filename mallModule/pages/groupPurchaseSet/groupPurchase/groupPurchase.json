@@ -1,6 +1,7 @@
 {
 	"usingComponents": {
-		"notification": "../../../../../components/notification/notification",
-		"announcement": "../../../../../components/announcement/announcement"
+		"notification": "/components/notification/notification",
+		"announcement": "/components/announcement/announcement",
+		"navbar": "/components/navbar/index"
 	}
 }

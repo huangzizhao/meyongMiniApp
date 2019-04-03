@@ -6,7 +6,12 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-		activityList:{}
+		activityList:{},
+		navbarData: {
+			showCapsule: true,
+			title: '中奖名单'
+		},
+		navbarHeight: getApp().globalData.navbarHeight,
 	},
 
 	/**

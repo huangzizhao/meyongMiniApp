@@ -1,2 +1,5 @@
 <!--mineModule/pages/follower/follower.wxml-->
-<v-follow-list more='{{more}}' type='{{type}}' customer-id='{{customerId}}'></v-follow-list>
+<navbar navbar-data='{{navbarData}}'></navbar>
+<view style='margin-top:{{navbarHeight}}rpx'>
+    <v-follow-list more='{{more}}' type='{{type}}' customer-id='{{customerId}}'></v-follow-list>
+</view>

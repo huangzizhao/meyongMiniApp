@@ -2,7 +2,9 @@
 <import src='../../templates/loading/loading.wxml' />
 <template is='loading' wx:if='{{loading}}' />
 <v-post-reviews bind:refreshReviews='refreshReviews' customer='{{customer}}' article-id='{{commentArticleId}}' wx:if='{{showPostComment}}'></v-post-reviews>
-<view bindtouchend='pageTouchend'>
+
+<navbar navbar-data='{{navbarData}}'></navbar>
+<view bindtouchend='pageTouchend' style='margin-top:{{navbarHeight}}rpx'>
   <view class='notesList' wx:for='{{notesList}}' wx:for-item='item' wx:key='item'>
     <view class='authorInfo'>
       <view class='infoLeft'>

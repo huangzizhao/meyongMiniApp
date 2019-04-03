@@ -1,2 +1,5 @@
 <!--notesModule/pages/articlePush/articlePush.wxml-->
-<v-article-edit notes-content-change='{{notesContent}}'></v-article-edit>
+<navbar navbar-data='{{navbarData}}'></navbar>
+<view style='margin-top:{{navbarHeight}}rpx'>
+    <v-article-edit notes-content-change='{{notesContent}}'></v-article-edit>
+</view>

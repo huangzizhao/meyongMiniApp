@@ -1,5 +1,6 @@
 <!--notesModule/pages/editPictures/editPictures.wxml-->
-<view class='app'>
+<navbar navbar-data='{{navbarData}}'></navbar>
+<view class='app' style='margin-top:{{navbarHeight}}rpx'>
     <view class='swiper-container'>
         <view class='swiperLabel' wx:if='{{tempImagesPath.length > 1}}'>{{swiperCurrent + 1}}/{{tempImagesPath.length}}</view>
         <button class='next' bindtap='next'>下一步</button>

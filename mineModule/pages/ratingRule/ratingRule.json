@@ -1,5 +1,7 @@
 {
 	"navigationBarTitleText": "等级规则",
 	"disableScroll":true,
-	"usingComponents": {}
+	"usingComponents": {
+		"navbar": "/components/navbar/index"
+	}
 }
