@@ -25,9 +25,9 @@ App({
         localStorages: new LocalStorage(), //创建本地储存对象
         updateWaterFallFlow: false, //更新瀑布流数据至最新
         lottieSuccessShow: false,
-		statusBarHeight: wx.getSystemInfoSync()['statusBarHeight'] * 2,
-		navbarHeight: wx.getSystemInfoSync()['statusBarHeight'] * 2 + 90,
-		share:false
+        statusBarHeight: wx.getSystemInfoSync()['statusBarHeight'] * 2,
+        navbarHeight: wx.getSystemInfoSync()['statusBarHeight'] * 2 + 90,
+        share: false
     },
 
     data: {
@@ -35,7 +35,7 @@ App({
     },
     onLaunch: function(option) {
         //判断是否由分享进入小程序
-		this.globalData.share = (option.scene == 1007 || option.scene == 1008);
+        this.globalData.share = (option.scene == 1007 || option.scene == 1008);
 
         //初始化全局本地缓存
 
@@ -102,9 +102,14 @@ App({
             })
         }
     },
-    onShow: function() {
-		this.globalData.share = !(getCurrentPages().length > 1)
-		console.log('是分享吗：' + JSON.stringify(getCurrentPages().length));
+	onShow(options) {
+        // let option = wx.getLaunchOptionsSync();
+		console.log('scene：' + options.scene);
+		if (options.scene && (options.scene == 1007 || options.scene == 1008)) {
+            this.globalData.share = true
+        } else {
+            this.globalData.share = false
+        }
         // console.log(this.globalData.recommend,"customer");
         // wx.showLoading({
         //   title: '加载中...',
@@ -138,5 +143,8 @@ App({
                 }
             }
         });
+    },
+    onHide() {
+
     }
 })
